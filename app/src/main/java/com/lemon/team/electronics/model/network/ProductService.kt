@@ -28,7 +28,7 @@ interface ProductService {
 
 
     @GET("resources/products/recommended/")
-    suspend fun getRecommendProducts(): Response<ProductContentResponse>
+    suspend fun getRecommendedProducts(): Response<ProductContentResponse>
 
 
     @GET("resources/products/product")
