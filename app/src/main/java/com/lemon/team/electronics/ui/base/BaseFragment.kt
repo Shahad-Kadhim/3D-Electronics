@@ -13,7 +13,8 @@ abstract class BaseFragment<VB:ViewBinding,VM:BaseViewModel>() :Fragment(){
     abstract val viewModel:VM
     abstract val bindingInflater : (LayoutInflater, Int, ViewGroup?, Boolean) -> VB
     private lateinit var _binding :ViewBinding
-    var binding:VB= _binding as VB
+    val binding: VB
+        get() = _binding as VB
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

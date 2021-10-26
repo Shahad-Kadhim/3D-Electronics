@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/activity_main.xml" value="0.19270833333333334" />
+        <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.125" />
+        <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/activity_main.xml" value="0.17" />
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/fragment_about.xml" value="0.20358974358974358" />
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/fragment_cart.xml" value="0.20358974358974358" />
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/fragment_categories.xml" value="0.20358974358974358" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/fragment_product.xml" value="0.20358974358974358" />
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/fragment_search.xml" value="0.20358974358974358" />
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/fragment_wish.xml" value="0.20358974358974358" />
+        <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20358974358974358" />
       </map>
     </option>
   </component>
