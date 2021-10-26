@@ -4,7 +4,6 @@ package com.lemon.team.electronics.model.response
 import com.google.gson.annotations.SerializedName
 
 data class ProductContentResponse(
-
     @SerializedName("category")
     val category: CategoryResponse?,
     @SerializedName("comingSoon")
@@ -35,5 +34,4 @@ data class ProductContentResponse(
     val recommended: Boolean?,
     @SerializedName("sale")
     val sale: Boolean?
-
 )

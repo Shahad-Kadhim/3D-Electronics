@@ -4,7 +4,6 @@ package com.lemon.team.electronics.model.response
 import com.google.gson.annotations.SerializedName
 
 data class ProductSearchResultResponse(
-
     @SerializedName("content")
     val content: List<ProductContentResponse>?,
     @SerializedName("empty")
@@ -27,5 +26,4 @@ data class ProductSearchResultResponse(
     val totalElements: Int?,
     @SerializedName("totalPages")
     val totalPages: Int?
-
 )

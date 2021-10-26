@@ -6,46 +6,54 @@ import com.lemon.team.electronics.util.State
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
 
+object Repository{
 
-fun getCategory()
-        : Flow<State<CategoryResponse?>> =
-    wrapWithFlow { API.apiService.getCategory() }
-
-
-fun getProductFromCategory(productId: String, page: Int, sortBy: String)
-        :Flow<State<ProductContentResponse?>> =
-    wrapWithFlow { API.apiService.getProductFromCategory(productId, page, sortBy) }
+    fun getCategories()
+            : Flow<State<List<CategoryResponse>?>> =
+        wrapWithFlow { API.apiService.getCategories() }
 
 
-fun getProductFromSearchResult(productName: String, page: Int, sortBy: String)
-        :Flow<State<ProductSearchResultResponse?>> =
-    wrapWithFlow { API.apiService.getProductFromSearchResult(productName, page, sortBy = "createdAt") }
+    fun getProductsByCategoryId(categoryId: String, page: Int, sortBy: String = "createdAt")
+            : Flow<State<List<ProductContentResponse>?>> =
+        wrapWithFlow { API.apiService.getProductsByCategoryId(categoryId, page, sortBy) }
 
 
-fun getRecommendedProducts()
-        : Flow<State<ProductContentResponse?>> =
-    wrapWithFlow { API.apiService.getRecommendedProducts() }
+    fun getProductByName(productName: String, page: Int, sortBy: String = "createdAt" )
+            :Flow<State<ProductSearchResultResponse?>> =
+        wrapWithFlow { API.apiService.getProductByName(productName, page, sortBy) }
 
 
-fun getProductContent(productId: String)
-        :Flow<State<ProductContentResponse?>> =
-    wrapWithFlow { API.apiService.getProductContent(productId) }
+    fun getRecommendedProducts()
+            : Flow<State<List<ProductContentResponse>?>> =
+        wrapWithFlow { API.apiService.getRecommendedProducts() }
 
 
+    fun getProductById(productId: String)
+            :Flow<State<ProductContentResponse?>> =
+        wrapWithFlow { API.apiService.getProductById(productId) }
 
-private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
 
-    return flow {
-        emit(State.Loading)
-        try {
-            val responseResult = function()
-            if (responseResult.isSuccessful)  State.Success(responseResult.body())
-            else State.Error(responseResult.message())
+    private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
+        return flow {
+            emit(State.Loading)
+            emit(checkIsSuccessful(function()))
+        }
+    }
+
+    private fun <T> checkIsSuccessful(response: Response<T>): State<T?> {
+        return try {
+            if (response.isSuccessful) { State.Success(response.body()) }
+            else State.Error(response.message())
         } catch (e: Exception) {
             State.Error(e.message.toString())
         }
     }
+
 }
+
+
+
+
 
 
 

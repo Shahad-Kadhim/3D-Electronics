@@ -8,14 +8,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object API {
 
-    private val interceptorClient = OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor()).build()
+    private val client = OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor()).build()
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .client(interceptorClient)
+        .client(client)
         .build()
 
-    val apiService = retrofit.create( ProductService::class.java )
+    val apiService = retrofit.create(ProductService::class.java)
 
 }
