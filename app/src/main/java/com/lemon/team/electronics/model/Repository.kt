@@ -1,7 +1,11 @@
 package com.lemon.team.electronics.model
 
 import com.lemon.team.electronics.model.network.API
-import com.lemon.team.electronics.model.response.*
+import com.lemon.team.electronics.model.response.categories.CategoriesResponse
+import com.lemon.team.electronics.model.response.productsByCategoryId.productsByCategoryIdResponse
+import com.lemon.team.electronics.model.response.recommended.RecommendedProductsResponse
+import com.lemon.team.electronics.model.response.search.ProductByNameResponse
+import com.lemon.team.electronics.model.response.productById.ProductByIdResponse
 import com.lemon.team.electronics.util.State
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
@@ -9,27 +13,27 @@ import retrofit2.Response
 object Repository{
 
     fun getCategories()
-            : Flow<State<List<CategoryResponse>?>> =
+            : Flow<State<CategoriesResponse?>> =
         wrapWithFlow { API.apiService.getCategories() }
 
 
     fun getProductsByCategoryId(categoryId: String, page: Int, sortBy: String = "createdAt")
-            : Flow<State<List<ProductContentResponse>?>> =
+            : Flow<State<productsByCategoryIdResponse?>> =
         wrapWithFlow { API.apiService.getProductsByCategoryId(categoryId, page, sortBy) }
 
 
     fun getProductByName(productName: String, page: Int, sortBy: String = "createdAt" )
-            :Flow<State<ProductSearchResultResponse?>> =
+            :Flow<State<ProductByNameResponse?>> =
         wrapWithFlow { API.apiService.getProductByName(productName, page, sortBy) }
 
 
     fun getRecommendedProducts()
-            : Flow<State<List<ProductContentResponse>?>> =
+            : Flow<State<RecommendedProductsResponse?>> =
         wrapWithFlow { API.apiService.getRecommendedProducts() }
 
 
     fun getProductById(productId: String)
-            :Flow<State<ProductContentResponse?>> =
+            :Flow<State<ProductByIdResponse?>> =
         wrapWithFlow { API.apiService.getProductById(productId) }
 
 
@@ -42,8 +46,12 @@ object Repository{
 
     private fun <T> checkIsSuccessful(response: Response<T>): State<T?> {
         return try {
-            if (response.isSuccessful) { State.Success(response.body()) }
-            else State.Error(response.message())
+            if (response.isSuccessful) {
+                State.Success(response.body())
+            }
+            else {
+                State.Error(response.message())
+            }
         } catch (e: Exception) {
             State.Error(e.message.toString())
         }

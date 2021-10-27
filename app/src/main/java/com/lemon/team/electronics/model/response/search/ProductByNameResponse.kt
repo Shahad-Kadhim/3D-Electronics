@@ -1,11 +1,11 @@
-package com.lemon.team.electronics.model.response
+package com.lemon.team.electronics.model.response.search
 
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductSearchResultResponse(
+data class ProductByNameResponse(
     @SerializedName("content")
-    val content: List<ProductContentResponse>?,
+    val content: List<Content>?,
     @SerializedName("empty")
     val empty: Boolean?,
     @SerializedName("first")
@@ -21,7 +21,7 @@ data class ProductSearchResultResponse(
     @SerializedName("size")
     val size: Int?,
     @SerializedName("sort")
-    val sort: Sort?,
+    val sort: SortX?,
     @SerializedName("totalElements")
     val totalElements: Int?,
     @SerializedName("totalPages")

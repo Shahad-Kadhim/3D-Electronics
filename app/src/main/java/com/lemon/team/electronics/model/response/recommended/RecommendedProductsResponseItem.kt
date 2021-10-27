@@ -1,21 +1,21 @@
-package com.lemon.team.electronics.model.response
+package com.lemon.team.electronics.model.response.recommended
 
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductContentResponse(
+data class RecommendedProductsResponseItem(
     @SerializedName("category")
-    val category: CategoryResponse?,
+    val category: Category?,
     @SerializedName("comingSoon")
     val comingSoon: Boolean?,
     @SerializedName("description")
     val description: String?,
     @SerializedName("homeScreenPicLocation")
-    val homeScreenPicLocation: Any?,
+    val homeScreenPicLocation: String?,
     @SerializedName("id")
     val id: String?,
     @SerializedName("imageJsonResponses")
-    val imageJsonResponses: List<ImageResponse>?,
+    val imageJsonResponses: List<ImageJsonResponse>?,
     @SerializedName("name")
     val name: String?,
     @SerializedName("oldPrice")

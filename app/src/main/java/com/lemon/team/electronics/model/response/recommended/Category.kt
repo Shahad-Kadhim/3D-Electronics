@@ -1,11 +1,9 @@
-package com.lemon.team.electronics.model.response
+package com.lemon.team.electronics.model.response.recommended
 
 
 import com.google.gson.annotations.SerializedName
 
-data class CategoryResponse(
-    @SerializedName("categoryImageLocation")
-    val categoryImageLocation: String?,
+data class Category(
     @SerializedName("categoryName")
     val categoryName: String?,
     @SerializedName("id")
