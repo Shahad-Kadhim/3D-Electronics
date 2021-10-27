@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.ui.categories
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.lemon.team.electronics.R
