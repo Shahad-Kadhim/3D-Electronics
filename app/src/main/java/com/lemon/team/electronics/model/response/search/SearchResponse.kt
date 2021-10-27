@@ -3,7 +3,7 @@ package com.lemon.team.electronics.model.response.search
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductByNameResponse(
+data class SearchResponse(
     @SerializedName("content")
     val content: List<Content>?,
     @SerializedName("empty")

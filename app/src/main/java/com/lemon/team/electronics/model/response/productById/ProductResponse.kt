@@ -3,7 +3,7 @@ package com.lemon.team.electronics.model.response.productById
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductByIdResponse(
+data class ProductResponse(
     @SerializedName("category")
     val category: Category?,
     @SerializedName("comingSoon")
