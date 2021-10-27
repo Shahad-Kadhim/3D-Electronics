@@ -17,7 +17,7 @@
         android:icon="@drawable/ic_cart"
         android:title="cart" />
     <item
-        android:id="@+id/wishFragment2"
+        android:id="@+id/wishListFragment"
         android:icon="@drawable/ic_wish"
         android:title="wish" />
 </menu>

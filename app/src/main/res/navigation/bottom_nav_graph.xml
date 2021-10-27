@@ -22,7 +22,7 @@
             app:destination="@id/categoryFragment" />
         <action
             android:id="@+id/action_homeFragment_to_productFragment"
-            app:destination="@id/productFragment" />
+            app:destination="@id/productDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/categoriesFragment"
@@ -40,7 +40,7 @@
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_productFragment"
-            app:destination="@id/productFragment" />
+            app:destination="@id/productDetailsFragment" />
         <argument
             android:name="productName"
             app:argType="string" />
@@ -57,16 +57,19 @@
         tools:layout="@layout/fragment_cart">
         <action
             android:id="@+id/action_cartFragment_to_productFragment"
-            app:destination="@id/productFragment" />
+            app:destination="@id/productDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/wishFragment2"
-        android:name="com.lemon.team.electronics.ui.wish.WishFragment"
+        android:id="@+id/wishListFragment"
+        android:name="com.lemon.team.electronics.ui.wishList.WishListFragment"
         android:label="WishFragment"
-        tools:layout="@layout/fragment_wish">
+        tools:layout="@layout/fragment_wish_list">
         <action
             android:id="@+id/action_wishFragment2_to_productFragment"
-            app:destination="@id/productFragment" />
+            app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_wishFragment2_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/categoryFragment"
@@ -75,15 +78,15 @@
         tools:layout="@layout/fragment_category">
         <action
             android:id="@+id/action_categoryFragment_to_productFragment"
-            app:destination="@id/productFragment" />
+            app:destination="@id/productDetailsFragment" />
         <argument android:name="categoryId"
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/productFragment"
-        android:name="com.lemon.team.electronics.ui.product.ProductFragment"
+        android:id="@+id/productDetailsFragment"
+        android:name="com.lemon.team.electronics.ui.productDetails.ProductDetailsFragment"
         android:label="ProductFragment"
-        tools:layout="@layout/fragment_product">
+        tools:layout="@layout/fragment_product_details">
         <action
             android:id="@+id/action_productFragment_to_categoryFragment"
             app:destination="@id/categoryFragment" />
@@ -91,4 +94,9 @@
             android:name="productId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.lemon.team.electronics.ui.checkout.CheckoutFragment"
+        android:label="CheckoutFragment"
+        tools:layout="@layout/fragment_checkout"/>
 </navigation>
