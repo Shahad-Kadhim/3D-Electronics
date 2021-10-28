@@ -21,7 +21,9 @@ class ProductDetailsViewModel : BaseViewModel() {
             Repository.getProductById(productId)
                 .flowOn(Dispatchers.IO)
                 .catch { }
-                .collect { detailsProduct.postValue(it) }
+                .collect {
+                    detailsProduct.postValue(it)
+                }
         }
     }
 
