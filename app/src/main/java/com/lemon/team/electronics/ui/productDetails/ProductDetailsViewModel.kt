@@ -25,9 +25,8 @@ class ProductDetailsViewModel : BaseViewModel() {
         viewModelScope.launch {
             Repository.getProductById("4720df27-ac48-4f90-8235-b443dc8d45c1")
                 .flowOn(Dispatchers.IO)
-                .catch { Log.i("hhhhhhhhhh" , "gggg") }
+                .catch {  }
                 .collect {
-                    Log.i("hhhhhhhhhh" , it.toData().toString())
                     detailsProduct.postValue(it)
                 }
         }
