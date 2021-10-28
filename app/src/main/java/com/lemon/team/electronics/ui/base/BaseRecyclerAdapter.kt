@@ -21,15 +21,17 @@ abstract class BaseRecyclerAdapter<T>(private var items: List<T>, private var li
         val currentItem = items[position]
         when(holder){
             is ItemViewHolder -> {
-                holder.binding.setVariable(BR.item,currentItem)
-                holder.binding.setVariable(BR.listener, listener)
+                holder.binding.apply {
+                    setVariable(BR.item,currentItem)
+                    setVariable(BR.listener, listener)
+                }
             }
         }
     }
 
 
-    fun setItems(newItems: List<T>) {
-        items = newItems
+    fun setItems(newItems: List<T>?) {
+        items = newItems!!
     }
 
     fun getItems() = items
