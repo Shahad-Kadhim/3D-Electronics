@@ -14,14 +14,12 @@ interface ProductService {
     @GET("resources/categories/")
     suspend fun getCategories(): Response<CategoriesResponse>
 
-
     @GET("resources/products/category-id/")
     suspend fun getProductsByCategoryId(
         @Query ("categoryId") categoryId: String,
         @Query ("page") page: Int,
         @Query ("sort_by") sortBy: String
     ): Response<ProductsInCategoryResponse>
-
 
     @GET("resources/products/search/")
     suspend fun getProductByName(
@@ -30,10 +28,8 @@ interface ProductService {
         @Query ("sort_by") sortBy: String
     ): Response<SearchResponse>
 
-
     @GET("resources/products/recommended/")
     suspend fun getRecommendedProducts(): Response<RecommendedProductsResponse>
-
 
     @GET("resources/products/product")
     suspend fun getProductById(

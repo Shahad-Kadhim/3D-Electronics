@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<VB:ViewBinding,VM:BaseViewModel> :Fragment(){
+abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
 
     abstract val layoutId: Int
-    abstract val viewModel:VM
-    abstract val bindingInflater : (LayoutInflater, Int, ViewGroup?, Boolean) -> VB
-    private lateinit var _binding :ViewBinding
+    abstract val viewModel: VM
+    abstract val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> VB
+    private lateinit var _binding: ViewBinding
     val binding: VB
         get() = _binding as VB
 
@@ -27,7 +27,6 @@ abstract class BaseFragment<VB:ViewBinding,VM:BaseViewModel> :Fragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) =
-        bindingInflater(inflater,layoutId,container,false).apply { _binding=this }.root
+    ) = bindingInflater(inflater, layoutId, container, false).apply { _binding = this }.root
 
 }
