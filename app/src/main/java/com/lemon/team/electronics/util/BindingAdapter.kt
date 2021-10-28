@@ -6,9 +6,12 @@ import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 @BindingAdapter(value = ["app:items"])
 fun <T>setRecyclerItems(view: RecyclerView, items:List<T>?){
-    if(items != null){
-        (view.adapter as BaseRecyclerAdapter<T>?)?.setItems(items)
-    } else {
-        (view.adapter as BaseRecyclerAdapter<T>?)?.setItems(emptyList())
+    (view.adapter as BaseRecyclerAdapter<T>?)?.let{
+        if(items != null){
+            it.setItems(items)
+        } else {
+            it.setItems(emptyList())
+        }
     }
+
 }
