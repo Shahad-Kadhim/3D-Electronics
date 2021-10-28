@@ -3,6 +3,7 @@ package com.lemon.team.electronics.ui.base
 import android.view.*
 import androidx.databinding.*
 import androidx.recyclerview.widget.RecyclerView
+import com.lemon.team.electronics.BR
 
 abstract class BaseRecyclerAdapter<T>(private var items: List<T>, private var listener: BaseInteractionListener)
     : RecyclerView.Adapter<BaseRecyclerAdapter.BaseViewHolder>() {
@@ -20,6 +21,8 @@ abstract class BaseRecyclerAdapter<T>(private var items: List<T>, private var li
         val currentItem = items[position]
         when(holder){
             is ItemViewHolder -> {
+                holder.binding.setVariable(BR.item,currentItem)
+                holder.binding.setVariable(BR.listener, listener)
             }
         }
     }
