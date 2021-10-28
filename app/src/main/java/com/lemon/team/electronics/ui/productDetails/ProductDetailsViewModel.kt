@@ -7,27 +7,22 @@ import com.lemon.team.electronics.model.response.productById.ProductResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.State
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
 class ProductDetailsViewModel : BaseViewModel() {
 
     var detailsProduct = MutableLiveData<State<ProductResponse?>>()
 
-    init {
-        getDetailsProduct()
-    }
-
-    private fun getDetailsProduct() {
+    private fun getDetailsProduct(productId: String) {
         viewModelScope.launch {
-            Repository.getProductById("4720df27-ac48-4f90-8235-b443dc8d45c1")
+            Repository.getProductById(productId)
                 .flowOn(Dispatchers.IO)
-                .catch {  }
-                .collect {
-                    detailsProduct.postValue(it)
-                }
+                .catch { }
+                .collect { detailsProduct.postValue(it) }
         }
     }
-
 
 }
