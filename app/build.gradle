@@ -76,4 +76,5 @@ dependencies {
     //lottie dependence
     implementation 'com.airbnb.android:lottie:4.1.0'
 
+  //  implementation "com.github.kojofosu:Quantitizer:1.6.4"
 }
