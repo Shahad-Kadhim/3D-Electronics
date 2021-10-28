@@ -16,7 +16,7 @@ class ProductDetailsViewModel : BaseViewModel() {
 
     var detailsProduct = MutableLiveData<State<ProductResponse?>>()
 
-    private fun getDetailsProduct(productId: String) {
+    fun getDetailsProduct(productId: String) {
         viewModelScope.launch {
             Repository.getProductById(productId)
                 .flowOn(Dispatchers.IO)
