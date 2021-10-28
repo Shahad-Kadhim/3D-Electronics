@@ -30,8 +30,8 @@ abstract class BaseRecyclerAdapter<T>(private var items: List<T>, private var li
     }
 
 
-    fun setItems(newItems: List<T>?) {
-        items = newItems!!
+    fun setItems(newItems: List<T>) {
+        items = newItems
     }
 
     fun getItems() = items
