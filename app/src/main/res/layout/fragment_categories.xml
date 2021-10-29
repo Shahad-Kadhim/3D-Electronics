@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="CategoryViewModel"
+            name="viewModel"
             type="com.lemon.team.electronics.ui.categories.CategoriesViewModel" />
     </data>
 
@@ -13,18 +13,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerOfQuestion"
+            android:id="@+id/categories_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:items="@{CategoryViewModel.categoryList.toData()}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:padding="16dp"
+            app:items="@{viewModel.categoryList.categoriesItem}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_category" />
+            app:spanCount="3"
+            tools:listitem="@layout/item_category"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
