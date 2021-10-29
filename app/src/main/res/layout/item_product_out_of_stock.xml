@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.lemon.team.electronics.model.response.search.SearchResponse" />
+        <variable
+            name="listener"
+            type="com.lemon.team.electronics.ui.base.BaseInteractionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="160dp"
+        android:layout_height="220dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/product_background_card"
+            style="@style/ProductBackgroundCardStyle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/product_name_text"
+            style="@style/ProductNameStyle"
+            app:layout_constraintTop_toBottomOf="@id/product_image"
+            app:layout_constraintBottom_toTopOf="@id/product_price_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Official Original Silicone..."/>
+
+        <TextView
+            android:id="@+id/product_price_text"
+            style="@style/ProductPriceStyle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/product_name_text"
+            app:layout_constraintTop_toBottomOf="@id/product_name_text"
+            tools:text="15.77 IQ" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/product_image"
+            style="@style/ProductImageStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@color/brand_color"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/wish_button"
+            style="@style/WishButtonStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            style="@style/WishIconStyle"
+            app:layout_constraintBottom_toBottomOf="@id/wish_button"
+            app:layout_constraintEnd_toEndOf="@+id/wish_button"
+            app:layout_constraintStart_toStartOf="@id/wish_button"
+            app:layout_constraintTop_toTopOf="@id/wish_button"
+            android:contentDescription="@string/product_image" />
+
+        <TextView
+            android:id="@+id/product_out_of_stock_text"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/out_of_stock_shape"
+            android:fontFamily="@font/monda_bold"
+            android:gravity="center"
+            android:padding="@dimen/padding1x"
+            android:text="@string/out_of_stock"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
