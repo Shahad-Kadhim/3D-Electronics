@@ -32,6 +32,7 @@ abstract class BaseRecyclerAdapter<T>(private var items: List<T>, private var li
 
     fun setItems(newItems: List<T>) {
         items = newItems
+        notifyDataSetChanged()
     }
 
     fun getItems() = items
