@@ -17,6 +17,8 @@
             android:id="@+id/search_bar"
             style="@style/SearchBarStyle"
             android:hint="@string/search"
+            android:text="@={viewModel.searchName}"
+            app:onclickSearch="@{viewModel::onclickSearch}"
             app:layout_constraintStart_toEndOf="@id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,6 +51,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_bar"
             app:spanCount="2"
+            app:items="@{viewModel.searchResult.toData().content}"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/item_product"/>

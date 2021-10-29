@@ -16,16 +16,23 @@ import kotlinx.coroutines.launch
 
 class SearchViewModel: BaseViewModel(), SearchInteractionListener{
 
+    val searchName = MutableLiveData<String>()
     var searchResult = MutableLiveData<State<SearchResponse?>>()
 
-    fun getSearchResult(productName: String,page: Int) {
-        viewModelScope.launch {
-            Repository.getProductByName(productName, page)
-                .flowOn(Dispatchers.IO)
-                .catch { }
-                .collect {
-                    searchResult.postValue(it)
-                }
+    fun onclickSearch(){
+        search()
+    }
+
+    private fun search() {
+        searchName.value?.let {
+            viewModelScope.launch {
+                Repository.getProductByName(it, 0)
+                    .flowOn(Dispatchers.IO)
+                    .catch { }
+                    .collect {
+                        searchResult.postValue(it)
+                    }
+            }
         }
     }
 

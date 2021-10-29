@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.response.search.SearchResponse" />
+            type="com.lemon.team.electronics.model.response.search.Content" />
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.base.BaseInteractionListener" />
@@ -82,6 +82,19 @@
             app:layout_constraintTop_toTopOf="@id/wish_button"
             android:contentDescription="@string/product_image" />
 
+        <TextView
+            android:id="@+id/product_out_of_stock_text"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/out_of_stock_shape"
+            android:fontFamily="@font/monda_bold"
+            android:gravity="center"
+            android:padding="@dimen/padding1x"
+            android:text="@string/out_of_stock"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
