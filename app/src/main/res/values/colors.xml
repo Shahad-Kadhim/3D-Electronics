@@ -14,4 +14,18 @@
     <color name="text_color">#646464</color>
     <color name="seconder_text_color">#444444</color>
 
+    <color name="brand_color">#9FC3C2</color>
+    <color name="secondary_brand_color">#9EB6B5</color>
+    <color name="tertiary_brand_color">#BCD8D7</color>
+
+    <color name="background_color">#F9F9F9</color>
+
+    <color name="primary_icons_color">#646464</color>
+    <color name="secondary_icons_color">#9799A1</color>
+
+    <color name="primary_text_color">#444444</color>
+    <color name="secondary_text_color">#9799A1</color>
+
+    <color name="red">#D92727</color>
+
 </resources>
