@@ -12,7 +12,6 @@ class HomeViewModel :BaseViewModel(){
     private var _aboutEvent = MutableLiveData<Event<Boolean>>()
     val aboutEvent: LiveData<Event<Boolean>> = _aboutEvent
 
-
     fun onClickCart(){
         _cartEvent.postValue(Event(true))
     }

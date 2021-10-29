@@ -17,8 +17,8 @@ class HomeFragment:BaseFragment<FragmentHomeBinding,HomeViewModel>() {
     override fun setUp() {
 
         binding.apply {
-            this.lifecycleOwner=viewLifecycleOwner
-            this.viewModel=this@HomeFragment.viewModel
+            this.lifecycleOwner= viewLifecycleOwner
+            this.viewModel= this@HomeFragment.viewModel
             observeEvent()
         }
 
