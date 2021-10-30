@@ -1,47 +1,53 @@
 package com.lemon.team.electronics.ui.base
 
-import android.view.*
-import androidx.databinding.*
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.lemon.team.electronics.BR
 
-abstract class BaseRecyclerAdapter<T>(private var items: List<T>, private var listener: BaseInteractionListener)
-    : RecyclerView.Adapter<BaseRecyclerAdapter.BaseViewHolder>() {
-
+abstract class BaseRecyclerAdapter<T>(
+    private var items: List<T>,
+    private val listener: BaseInteractionListener
+) : RecyclerView.Adapter<BaseRecyclerAdapter.BaseViewHolder>() {
 
     abstract val layoutId: Int
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        return ItemViewHolder(DataBindingUtil
-            .inflate(LayoutInflater.from(parent.context), layoutId, parent, false)
-        )
-    }
-
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        val currentItem = items[position]
-        when(holder){
-            is ItemViewHolder -> {
-                holder.binding.apply {
-                    setVariable(BR.item,currentItem)
-                    setVariable(BR.listener, listener)
-                }
-            }
-        }
-    }
-
 
     fun setItems(newItems: List<T>) {
         items = newItems
         notifyDataSetChanged()
     }
 
-    fun getItems() = items
+    fun getItem() = items
 
-    override fun getItemCount() = items.size
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): BaseViewHolder =
+        ItemViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                layoutId,
+                parent,
+                false
+            )
+        )
 
 
-    class ItemViewHolder(val binding: ViewDataBinding): BaseViewHolder(binding)
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        when (holder) {
+            is ItemViewHolder -> {
+                holder.binding.setVariable(BR.item, items[position])
+                holder.binding.setVariable(BR.listener, listener)
+            }
+        }
+    }
 
-    abstract class BaseViewHolder(binding: ViewDataBinding): RecyclerView.ViewHolder(binding.root)
+    override fun getItemCount(): Int = items.size
+
+    abstract class BaseViewHolder(binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
+
+    class ItemViewHolder(val binding: ViewDataBinding) : BaseViewHolder(binding)
 
 }

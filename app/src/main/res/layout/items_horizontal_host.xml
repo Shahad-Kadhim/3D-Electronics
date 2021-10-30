@@ -4,23 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="viewModel"
-            type="com.lemon.team.electronics.ui.home.HomeViewModel" />
-
+            name="adapter"
+            type="com.lemon.team.electronics.ui.base.BaseRecyclerAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_home"
+            android:id="@+id/recycler_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:adapter="@{adapter}"
+            android:background="@color/teal_200"
+            android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
