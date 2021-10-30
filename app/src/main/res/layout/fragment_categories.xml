@@ -13,13 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categories_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp"
+            app:showOnSuccess="@{viewModel.categoryList}"
             app:items="@{viewModel.categoryList.toData()}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -27,8 +27,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:spanCount="3"
-            tools:listitem="@layout/item_category"
-            />
+            tools:listitem="@layout/item_category" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lottie_rawRes="@raw/loading_game"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
+            app:showOnLoading="@{viewModel.categoryList}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/categories_recycler" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lottie_rawRes="@raw/loading_game"
+            app:showOnError="@{viewModel.categoryList}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/categories_recycler" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

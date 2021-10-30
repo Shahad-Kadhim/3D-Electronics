@@ -53,9 +53,36 @@
             app:layout_constraintTop_toBottomOf="@id/search_bar"
             app:spanCount="2"
             app:items="@{viewModel.searchResult.toData().content}"
+            app:showOnSuccess="@{viewModel.searchResult}"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/item_product"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_game"
+            app:showOnLoading="@{viewModel.searchResult}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_game"
+            app:showOnError="@{viewModel.searchResult}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
