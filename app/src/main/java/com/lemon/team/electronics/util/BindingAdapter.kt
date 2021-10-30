@@ -42,5 +42,17 @@ fun <T>setRecyclerItems(view: RecyclerView, items:List<T>?){
             it.setItems(emptyList())
         }
     }
+}
 
+@BindingAdapter(value=["app:onclickSearch"])
+fun onclickSearch(view:EditText , function :() -> Unit){
+    view.setOnEditorActionListener { _, _, _ ->
+        function()
+        return@setOnEditorActionListener false
+    }
+}
+
+@BindingAdapter(value=["app:isVisible"])
+fun showIsVisible(view:View,value:Boolean){
+    view.visibility = if(value) View.VISIBLE else View.GONE
 }
