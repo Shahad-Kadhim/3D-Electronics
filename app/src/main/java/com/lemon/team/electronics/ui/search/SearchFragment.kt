@@ -3,6 +3,8 @@ package com.lemon.team.electronics.ui.search
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentSearchBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
@@ -23,11 +25,19 @@ class SearchFragment:BaseFragment<FragmentSearchBinding,SearchViewModel>() {
             this.searchRecycler.adapter =
                 SearchRecyclerAdapter(mutableListOf(),this@SearchFragment.viewModel)
         }
+        observeEvents()
+    }
+
+    private fun observeEvents(){
         viewModel.clickItemEvent.observe(this,EventObserver{
             binding.root.goToFragment(
                 SearchFragmentDirections
                     .actionSearchFragmentToProductFragment(it)
             )
+        })
+
+        viewModel.clickBackEvent.observe(this, EventObserver{
+            findNavController().popBackStack()
         })
     }
 

@@ -30,6 +30,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin2x"
             android:layout_marginTop="16dp"
+            android:onClick="@{() -> viewModel.onclickBack()}"
             android:background="@drawable/ic_shape_cover"
             android:drawableStart="@drawable/ic_baseline_arrow_back"
             android:drawableTint="@color/secondary_icons_color"
