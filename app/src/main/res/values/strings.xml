@@ -3,4 +3,5 @@
     <string name="product_image">product image</string>
     <string name="out_of_stock">Out Of Stock</string>
     <string name="search">Search..</string>
+    <string name="wishlist">WishList</string>
 </resources>
