@@ -85,7 +85,8 @@
         <action
             android:id="@+id/action_categoryFragment_to_productFragment"
             app:destination="@id/productDetailsFragment" />
-        <argument android:name="categoryId"
+        <argument
+            android:name="categoryId"
             app:argType="string" />
     </fragment>
     <fragment

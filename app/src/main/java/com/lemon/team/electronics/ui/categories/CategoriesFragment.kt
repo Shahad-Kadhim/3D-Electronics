@@ -3,9 +3,13 @@ package com.lemon.team.electronics.ui.categories
  import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import com.lemon.team.electronics.R
+ import androidx.navigation.fragment.findNavController
+ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCategoriesBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
+ import com.lemon.team.electronics.ui.search.SearchFragmentDirections
+ import com.lemon.team.electronics.util.EventObserver
+ import com.lemon.team.electronics.util.goToFragment
 
 
 class CategoriesFragment:BaseFragment<FragmentCategoriesBinding,CategoriesViewModel>() {
@@ -22,6 +26,15 @@ class CategoriesFragment:BaseFragment<FragmentCategoriesBinding,CategoriesViewMo
             this.categoriesRecycler.adapter =
                 CategoriesAdapter(mutableListOf(),this@CategoriesFragment.viewModel)
         }
+        observeEvent()
+    }
+
+    private fun observeEvent() {
+        viewModel.categoryId.observe(this, EventObserver{
+            view?.goToFragment(CategoriesFragmentDirections
+                .actionCategoriesFragmentToCategoryFragment(it)
+            )
+        })
     }
 
 }
