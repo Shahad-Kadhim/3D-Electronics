@@ -3,14 +3,21 @@ package com.lemon.team.electronics.ui.category
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCategoryBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
-import com.lemon.team.electronics.ui.categories.CategoriesAdapter
+import com.lemon.team.electronics.ui.categories.CategoriesFragmentDirections
+import com.lemon.team.electronics.ui.search.SearchFragmentDirections
+import com.lemon.team.electronics.util.EventObserver
+import com.lemon.team.electronics.util.goToFragment
 
 class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>() {
+
     override val layoutId: Int= R.layout.fragment_category
     override val viewModel: CategoryViewModel by viewModels()
+    val args: CategoryFragmentArgs by navArgs()
+
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCategoryBinding
         =DataBindingUtil::inflate
 
@@ -21,6 +28,14 @@ class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>(
             this.categoryRecycler.adapter =
                 CategoryAdapter(mutableListOf(), this@CategoryFragment.viewModel)
         }
+        observeEvent()
+    }
+
+    private fun observeEvent(){
+        viewModel.getProductsByCategoryId(args.categoryId)
+        viewModel.clickItemEvent.observe(this, EventObserver{
+            view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(it))
+        })
     }
 
 }
