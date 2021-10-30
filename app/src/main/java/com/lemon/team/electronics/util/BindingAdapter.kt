@@ -50,3 +50,8 @@ fun onclickSearch(view:EditText , function :() -> Unit){
         return@setOnEditorActionListener false
     }
 }
+
+@BindingAdapter(value=["app:isVisible"])
+fun showIsVisible(view:View,value:Boolean){
+    view.visibility = if(value) View.VISIBLE else View.GONE
+}

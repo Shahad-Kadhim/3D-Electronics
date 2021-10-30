@@ -13,7 +13,7 @@ data class Content(
     @SerializedName("homeScreenPicLocation")
     val homeScreenPicLocation: Any?,
     @SerializedName("id")
-    val id: String?,
+    val id: String,
     @SerializedName("imageJsonResponses")
     val imageJsonResponses: List<ImageJsonResponse>?,
     @SerializedName("name")

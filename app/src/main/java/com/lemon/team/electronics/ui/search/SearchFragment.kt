@@ -6,6 +6,8 @@ import androidx.fragment.app.viewModels
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentSearchBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
+import com.lemon.team.electronics.util.EventObserver
+import com.lemon.team.electronics.util.goToFragment
 
 class SearchFragment:BaseFragment<FragmentSearchBinding,SearchViewModel>() {
     override val layoutId: Int = R.layout.fragment_search
@@ -21,6 +23,12 @@ class SearchFragment:BaseFragment<FragmentSearchBinding,SearchViewModel>() {
             this.searchRecycler.adapter =
                 SearchRecyclerAdapter(mutableListOf(),this@SearchFragment.viewModel)
         }
+        viewModel.clickItemEvent.observe(this,EventObserver{
+            binding.root.goToFragment(
+                SearchFragmentDirections
+                    .actionSearchFragmentToProductFragment(it)
+            )
+        })
     }
 
 }
