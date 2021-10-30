@@ -15,6 +15,9 @@ class CategoryViewModel : BaseViewModel(), CategoryInteractionListener{
     private val _categoryItems = MutableLiveData<State<ProductsInCategoryResponse?>>()
     var categoryItems : LiveData<State<ProductsInCategoryResponse?>> = _categoryItems
 
+    private val _clickItemEvent = MutableLiveData<Event<String>>()
+    var clickItemEvent :LiveData<Event<String>>  = _clickItemEvent
+
 
     fun getProductsByCategoryId(categoryId: String){
         viewModelScope.launch {
@@ -27,7 +30,6 @@ class CategoryViewModel : BaseViewModel(), CategoryInteractionListener{
     }
 
 
-
-    override fun onClickItem(CategoryId: String) { }
-
+    override fun onClickProduct(productId: String) =
+        _clickItemEvent.postValue(Event(productId))
 }

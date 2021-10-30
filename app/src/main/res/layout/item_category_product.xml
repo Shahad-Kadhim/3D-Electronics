@@ -19,7 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> listener.onClickItem(item.id)}">
+            android:onClick="@{() -> listener.onClickProduct(item.id)}">
 
             <TextView
                 android:id="@+id/product_name_text"
