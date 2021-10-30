@@ -46,7 +46,7 @@
             android:id="@+id/error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:lottie_rawRes="@raw/loading_game"
+            app:lottie_rawRes="@raw/error"
             app:showOnError="@{viewModel.categoryList}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:lottie_loop="true"
