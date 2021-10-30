@@ -30,6 +30,8 @@ class CategoryViewModel : BaseViewModel(), CategoryInteractionListener{
     }
 
 
-    override fun onClickProduct(productId: String) =
+    override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
+    }
+
 }

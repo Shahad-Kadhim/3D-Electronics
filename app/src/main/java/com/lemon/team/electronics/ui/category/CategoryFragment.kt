@@ -28,11 +28,11 @@ class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>(
             this.categoryRecycler.adapter =
                 CategoryAdapter(mutableListOf(), this@CategoryFragment.viewModel)
         }
+        viewModel.getProductsByCategoryId(args.categoryId)
         observeEvent()
     }
 
     private fun observeEvent(){
-        viewModel.getProductsByCategoryId(args.categoryId)
         viewModel.clickItemEvent.observe(this, EventObserver{
             view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(it))
         })

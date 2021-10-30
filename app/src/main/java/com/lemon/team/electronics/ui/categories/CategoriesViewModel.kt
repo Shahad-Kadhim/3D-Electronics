@@ -17,7 +17,8 @@ class CategoriesViewModel: BaseViewModel(), CategoriesInteractionListener{
 
 
 
-    override fun onClickCategory(CategoryId: String ) =
+    override fun onClickCategory(CategoryId: String ){
         _categoryId.postValue(Event(CategoryId))
+    }
 
 }
