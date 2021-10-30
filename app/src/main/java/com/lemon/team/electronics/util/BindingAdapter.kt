@@ -56,3 +56,31 @@ fun onclickSearch(view:EditText , function :() -> Unit){
 fun showIsVisible(view:View,value:Boolean){
     view.visibility = if(value) View.VISIBLE else View.GONE
 }
+
+
+@BindingAdapter(value = ["app:showOnSuccess"])
+fun <T> showOnSuccess(view: View, state: State<T>?) {
+    if (state is State.Success) {
+        view.visibility = View.VISIBLE
+    } else {
+        view.visibility = View.INVISIBLE
+    }
+}
+
+@BindingAdapter(value = ["app:showOnError"])
+fun <T> showOnError(view: View, state: State<T>?) {
+    if (state is State.Error) {
+        view.visibility = View.VISIBLE
+    } else {
+        view.visibility = View.INVISIBLE
+    }
+}
+
+@BindingAdapter(value = ["app:showOnLoading"])
+fun <T> showOnLoading(view: View, state: State<T>?) {
+    if (state is State.Loading) {
+        view.visibility = View.VISIBLE
+    } else {
+        view.visibility = View.INVISIBLE
+    }
+}
