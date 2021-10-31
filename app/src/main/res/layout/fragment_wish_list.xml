@@ -19,6 +19,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin2x"
             android:layout_marginTop="16dp"
+            android:onClick="@{() -> viewModel.onclickBack()}"
             android:background="@drawable/ic_shape_cover"
             android:drawableStart="@drawable/ic_baseline_arrow_back"
             android:drawableTint="@color/secondary_icons_color"
@@ -43,7 +44,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/back_button"
             app:spanCount="2"
+            app:items="@{viewModel.wishListItems.toData().content}"
+            app:showOnSuccess="@{viewModel.wishListItems}"
             tools:listitem="@layout/item_wish_product" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_game"
+            app:showOnLoading="@{viewModel.wishListItems}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/error"
+            app:showOnError="@{viewModel.wishListItems}" />
 
         <TextView
             android:layout_width="wrap_content"

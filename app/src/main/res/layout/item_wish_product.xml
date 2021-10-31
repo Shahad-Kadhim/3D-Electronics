@@ -6,10 +6,10 @@
     <data>
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.response.search.Content" />
+            type="com.lemon.team.electronics.model.response.productsByCategoryId.Content" />
         <variable
             name="listener"
-            type="com.lemon.team.electronics.ui.search.SearchInteractionListener" />
+            type="com.lemon.team.electronics.ui.wishList.WishListInteractionListener" />
     </data>
 
         <androidx.cardview.widget.CardView
@@ -18,12 +18,14 @@
             android:layout_margin="8dp">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="160dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> listener.onClickProduct(item.id)}">
 
                 <TextView
                     android:id="@+id/product_name_text"
                     style="@style/ProductNameStyle"
                     android:maxLines="1"
+                    android:text="@{item.name}"
                     app:layout_constraintBottom_toTopOf="@id/product_price_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +35,7 @@
                 <TextView
                     android:id="@+id/product_price_text"
                     style="@style/ProductPriceStyle"
+                    android:text="@{String.valueOf(item.price)}"
                     app:layout_constraintBottom_toTopOf="@id/product_name_text"
                     app:layout_constraintStart_toStartOf="@id/product_name_text"
                     app:layout_constraintTop_toBottomOf="@id/product_name_text"
@@ -41,6 +44,7 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/product_image"
                     style="@style/ProductImageStyle"
+                    app:urlForImage="@{item.imageJsonResponses.get(0).productImageLocation}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

@@ -37,6 +37,12 @@ object Repository{
         wrapWithFlow { API.apiService.getProductById(productId) }
 
 
+    fun getWishedProducts(categoryId: String, page: Int, sortBy: String = "createdAt")
+            : Flow<State<ProductsInCategoryResponse?>> =
+        wrapWithFlow { API.apiService.getProductsByCategoryId(categoryId, page, sortBy) }
+
+
+
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
         return flow {
             emit(State.Loading)
