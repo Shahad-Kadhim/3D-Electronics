@@ -23,7 +23,7 @@ class WishListViewModel : BaseViewModel() , WishListInteractionListener {
 
     fun getWishedProducts(categoryId: String){
         viewModelScope.launch {
-            Repository.getWishedProducts("54653fdb-db67-4e72-8840-1d842e3c4f04" ,Constants.PAGE_NUMBER)
+            Repository.getWishedProducts(categoryId ,Constants.PAGE_NUMBER)
                 .flowOn(Dispatchers.IO)
                 .collect {
                     _wishListItems.postValue(it)
