@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.model
 
 import com.lemon.team.electronics.model.network.API
+import com.lemon.team.electronics.model.response.about.Companies
 import com.lemon.team.electronics.model.response.categories.CategoriesResponse
 import com.lemon.team.electronics.model.response.productsByCategoryId.ProductsInCategoryResponse
 import com.lemon.team.electronics.model.response.recommended.RecommendedProductsResponse
@@ -61,6 +62,21 @@ object Repository{
         else {
             State.Error(response.message())
         }
+
+
+    fun getVendors(): List<Companies> = listOf(
+        Companies( "https://static.vecteezy.com/system/resources/previews/001/481/849/large_2x/pet-adoption-with-cute-little-cats-vector.jpg"),
+        Companies( "https://static.vecteezy.com/system/resources/previews/002/657/069/large_2x/cute-cat-take-bath-cartoon-character-free-vector.jpg"),
+        Companies( "https://static.vecteezy.com/system/resources/previews/002/613/769/non_2x/pet-shop-veterinary-with-food-animals-vector.jpg"),
+        Companies( "https://static.vecteezy.com/system/resources/previews/000/152/772/large_2x/free-gerbil-vector.png"),
+    )
+
+    fun getOtherVendors(): List<Companies> = listOf(
+        Companies( "https://image.freepik.com/free-vector/cute-shiba-inu-design-with-mask-vaccine_454510-35.jpg"),
+        Companies("https://image.freepik.com/free-vector/cute-cat-holding-fish-balloon_138676-1193.jpg"),
+        Companies( "https://static.vecteezy.com/system/resources/previews/000/129/025/large_2x/vector-papillon-dog.jpg"),
+        Companies( "https://static.vecteezy.com/system/resources/previews/001/963/388/non_2x/couple-owl-and-bird-house-vector.jpg"),
+    )
 
 }
 
