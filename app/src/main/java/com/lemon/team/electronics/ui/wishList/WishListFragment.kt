@@ -24,7 +24,6 @@ class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>
             this.wishlistRecycler.adapter =
                 WishListRecyclerAdapter(mutableListOf(),this@WishListFragment.viewModel)
         }
-        viewModel.getWishedProducts("54653fdb-db67-4e72-8840-1d842e3c4f04")
         observeEvents()
     }
 
