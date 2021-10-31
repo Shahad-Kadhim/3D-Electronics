@@ -14,21 +14,37 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/margin2x"
+            android:layout_marginTop="16dp"
+            android:onClick="@{() -> viewModel.onclickBack()}"
+            android:background="@drawable/ic_shape_cover"
+            android:drawableStart="@drawable/ic_baseline_arrow_back"
+            android:drawableTint="@color/secondary_icons_color"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:paddingStart="@dimen/padding6dp"
+            android:paddingEnd="@dimen/padding6dp"
+            android:paddingTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/category_recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/margin12dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
             android:orientation="vertical"
-            app:showOnSuccess="@{viewModel.categoryItems}"
+            android:padding="16dp"
             app:items="@{viewModel.categoryItems.toData().content}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_button"
+            app:showOnSuccess="@{viewModel.categoryItems}"
             app:spanCount="2"
             tools:listitem="@layout/item_product" />
 

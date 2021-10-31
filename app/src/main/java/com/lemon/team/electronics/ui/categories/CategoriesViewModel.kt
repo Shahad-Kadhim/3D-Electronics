@@ -15,10 +15,16 @@ class CategoriesViewModel: BaseViewModel(), CategoriesInteractionListener{
     private val _categoryId = MutableLiveData<Event<String>>()
     val categoryId : LiveData<Event<String>> =  _categoryId
 
+    private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
+    var clickBackEvent :LiveData<Event<Boolean>>  = _clickBackEvent
+
 
 
     override fun onClickCategory(CategoryId: String ){
         _categoryId.postValue(Event(CategoryId))
     }
 
+    fun onclickBack(){
+        _clickBackEvent.postValue(Event(true))
+    }
 }

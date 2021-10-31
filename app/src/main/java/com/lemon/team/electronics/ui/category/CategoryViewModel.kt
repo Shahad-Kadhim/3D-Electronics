@@ -18,6 +18,8 @@ class CategoryViewModel : BaseViewModel(), CategoryInteractionListener{
     private val _clickItemEvent = MutableLiveData<Event<String>>()
     var clickItemEvent :LiveData<Event<String>>  = _clickItemEvent
 
+    private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
+    var clickBackEvent :LiveData<Event<Boolean>>  = _clickBackEvent
 
     fun getProductsByCategoryId(categoryId: String){
         viewModelScope.launch {
@@ -34,4 +36,7 @@ class CategoryViewModel : BaseViewModel(), CategoryInteractionListener{
         _clickItemEvent.postValue(Event(productId))
     }
 
+    fun onclickBack(){
+        _clickBackEvent.postValue(Event(true))
+    }
 }
