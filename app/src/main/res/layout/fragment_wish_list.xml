@@ -19,7 +19,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin2x"
             android:layout_marginTop="16dp"
-            android:onClick="@{() -> viewModel.onclickBack()}"
+            android:onClick="@{() -> viewModel.onClickBack()}"
             android:background="@drawable/ic_shape_cover"
             android:drawableStart="@drawable/ic_baseline_arrow_back"
             android:drawableTint="@color/secondary_icons_color"
@@ -44,7 +44,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/back_button"
             app:spanCount="2"
-            app:items="@{viewModel.wishListItems.toData().content}"
+            app:items="@{viewModel.wishListItems.toData().Content}"
             app:showOnSuccess="@{viewModel.wishListItems}"
             tools:listitem="@layout/item_wish_product" />
 

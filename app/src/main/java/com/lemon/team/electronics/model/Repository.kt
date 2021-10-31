@@ -7,7 +7,7 @@ import com.lemon.team.electronics.model.response.productsByCategoryId.ProductsIn
 import com.lemon.team.electronics.model.response.recommended.RecommendedProductsResponse
 import com.lemon.team.electronics.model.response.search.SearchResponse
 import com.lemon.team.electronics.model.response.productById.ProductResponse
-import com.lemon.team.electronics.util.State
+import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
 
@@ -38,9 +38,15 @@ object Repository{
         wrapWithFlow { API.apiService.getProductById(productId) }
 
 
-    fun getWishedProducts(categoryId: String, page: Int, sortBy: String = "createdAt")
+    fun getWishedProducts()
             : Flow<State<ProductsInCategoryResponse?>> =
-        wrapWithFlow { API.apiService.getProductsByCategoryId(categoryId, page, sortBy) }
+        wrapWithFlow { API.apiService
+            .getProductsByCategoryId(
+                categoryId = "54653fdb-db67-4e72-8840-1d842e3c4f04",
+                page = Constants.PAGE_NUMBER,
+                sortBy = "createdAt"
+            )
+        }
 
 
 
