@@ -9,5 +9,5 @@ import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 class AboutAdapter(items: List<Companies>,
                         listener: BaseInteractionListener
 ): BaseRecyclerAdapter<Companies>(items, listener) {
-    override val layoutId: Int = R.layout.item_horizontal_vendors
+    override val layoutId: Int = R.layout.item_horizontal_companies
 }
