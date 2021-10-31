@@ -40,22 +40,21 @@ object Repository{
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
         return flow {
             emit(State.Loading)
-            emit(checkIsSuccessful(function()))
+            try {
+                emit(checkIsSuccessful(function()))
+            }catch (e: Exception) {
+                emit(State.Error(e.message.toString()))
+            }
         }
     }
 
-    private fun <T> checkIsSuccessful(response: Response<T>): State<T?> {
-        return try {
-            if (response.isSuccessful) {
-                State.Success(response.body())
-            }
-            else {
-                State.Error(response.message())
-            }
-        } catch (e: Exception) {
-            State.Error(e.message.toString())
+    private fun <T> checkIsSuccessful(response: Response<T>): State<T?> =
+        if (response.isSuccessful) {
+            State.Success(response.body())
         }
-    }
+        else {
+            State.Error(response.message())
+        }
 
 }
 

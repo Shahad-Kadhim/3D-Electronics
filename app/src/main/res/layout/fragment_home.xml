@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.lemon.team.electronics.ui.home.HomeViewModel" />
 
+        <variable
+            name="adapter"
+            type="com.lemon.team.electronics.ui.home.HomeNestedAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -36,11 +36,9 @@ abstract class BaseRecyclerAdapter<T>(
 
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        when (holder) {
-            is ItemViewHolder -> {
+        if (holder is ItemViewHolder && items.isNotEmpty() ) {
                 holder.binding.setVariable(BR.item, items[position])
                 holder.binding.setVariable(BR.listener, listener)
-            }
         }
     }
 
@@ -48,6 +46,6 @@ abstract class BaseRecyclerAdapter<T>(
 
     abstract class BaseViewHolder(binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
 
-    class ItemViewHolder(val binding: ViewDataBinding) : BaseViewHolder(binding)
+    open class ItemViewHolder(val binding: ViewDataBinding) : BaseViewHolder(binding)
 
 }

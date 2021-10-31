@@ -3,11 +3,12 @@ package com.lemon.team.electronics.ui.home
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import com.airbnb.lottie.animation.content.Content
+import androidx.lifecycle.lifecycleScope
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentHomeBinding
 import com.lemon.team.electronics.model.response.categories.CategoriesResponseItem
 import com.lemon.team.electronics.model.response.productById.ProductResponse
+import com.lemon.team.electronics.model.response.productsByCategoryId.Content
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.EventObserver
 
@@ -25,16 +26,13 @@ class HomeFragment:BaseFragment<FragmentHomeBinding,HomeViewModel>() , HomeInter
             observeEvent()
         }
 
-        val itemsList: MutableList<HomeItems<Any>> = mutableListOf()
-
-        itemsList.add(HomeItems(null, HomeItemsType.TYPE_SLIDE_SHOW))
-        itemsList.add(HomeItems(null, HomeItemsType.TYPE_SEARCH))
-        itemsList.add(HomeItems("best seller", HomeItemsType.TYPE_BEST_SELLER))
-        itemsList.add(HomeItems("categories", HomeItemsType.TYPE_CATEGORIES))
-        itemsList.add(HomeItems("categories_element", HomeItemsType.TYPE_ELEMENTS_CATEGORIES))
-
-        val adapter = HomeNestedAdapter(itemsList, this)
-        binding.recyclerViewHome.adapter = adapter
+        binding.recyclerViewHome.adapter = HomeNestedAdapter (
+            listOf(HomeItems(null, HomeItemsType.TYPE_SLIDE_SHOW , ""),
+                HomeItems(null, HomeItemsType.TYPE_SEARCH , ""),
+                HomeItems("categories", HomeItemsType.TYPE_CATEGORIES ,emptyList<CategoriesResponseItem>()),
+                HomeItems("best seller", HomeItemsType.TYPE_BEST_SELLER ,  emptyList<ProductResponse>()),
+                HomeItems("categories_element", HomeItemsType.TYPE_ELEMENTS_CATEGORIES , emptyList<Content>())),
+            this , lifecycleScope )
 
     }
 
