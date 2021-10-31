@@ -12,11 +12,17 @@
         <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/fragment_cart.xml" value="0.21331521739130435" />
         <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/fragment_categories.xml" value="0.21331521739130435" />
         <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/fragment_category.xml" value="0.21331521739130435" />
+        <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/fragment_checkout.xml" value="0.213768115942029" />
         <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/fragment_home.xml" value="0.23324275362318841" />
         <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/fragment_search.xml" value="0.23550724637681159" />
         <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/item_category.xml" value="0.10434782608695652" />
         <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/item_category_product.xml" value="0.23550724637681159" />
+        <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/item_horizontal_vendors.xml" value="0.213768115942029" />
         <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/item_product.xml" value="0.1" />
+        <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/item_search.xml" value="0.213768115942029" />
+        <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/item_vertical_vendors.xml" value="0.213768115942029" />
+        <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/item_wish_product.xml" value="0.213768115942029" />
+        <entry key="..\:/projects/3D-Electronics/app/src/main/res/layout/items_horizontal_host.xml" value="0.213768115942029" />
       </map>
     </option>
   </component>

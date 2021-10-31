@@ -14,7 +14,18 @@ class AboutFragment:BaseFragment<FragmentAboutBinding,AboutViewModel>() {
         : (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentAboutBinding =
             DataBindingUtil::inflate
 
+
     override fun setUp() {
+        binding.apply {
+            this.lifecycleOwner= viewLifecycleOwner
+            this.viewModel= this@AboutFragment.viewModel
+
+            this.companiesRecycler.adapter =
+                AboutAdapter(mutableListOf(),this@AboutFragment.viewModel)
+
+            this.otherCompaniesRecycler.adapter =
+                AboutAdapter(mutableListOf(),this@AboutFragment.viewModel)
+        }
 
     }
 
