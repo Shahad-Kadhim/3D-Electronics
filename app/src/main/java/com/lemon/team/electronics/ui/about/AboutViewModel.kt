@@ -6,7 +6,8 @@ import com.lemon.team.electronics.ui.base.BaseViewModel
 
 class AboutViewModel :BaseViewModel(), BaseInteractionListener{
 
-    var vendors = Repository.getVendors()
-    var otherVendors = Repository.getOtherVendors()
+    var companies = Repository.getVendors()
+    var otherCompanies = Repository.getOtherVendors()
 
+    var video = "https://www.3d-iraq.com/static/media/vedio-3d.146c63e2.mp4"
 }
