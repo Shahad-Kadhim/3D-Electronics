@@ -31,7 +31,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding,HomeViewModel>() , HomeInter
         itemsList.add(HomeItems(null, HomeItemsType.TYPE_SEARCH))
         itemsList.add(HomeItems("best seller", HomeItemsType.TYPE_BEST_SELLER))
         itemsList.add(HomeItems("categories", HomeItemsType.TYPE_CATEGORIES))
-        itemsList.add(HomeItems(  "categories_element", HomeItemsType.TYPE_ELEMENTS_CATEGORIES))
+        itemsList.add(HomeItems("categories_element", HomeItemsType.TYPE_ELEMENTS_CATEGORIES))
 
         val adapter = HomeNestedAdapter(itemsList, this)
         binding.recyclerViewHome.adapter = adapter

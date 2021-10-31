@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.map
 
 class HomeNestedAdapter(
     private val items: List<HomeItems<Any>>,
-    private var listener: HomeInteractionListener
+    private val listener: HomeInteractionListener
 ) : BaseRecyclerAdapter<Any>(items, listener) {
 
     override var layoutId: Int = 0
