@@ -3,13 +3,10 @@ package com.lemon.team.electronics.ui.home
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import com.airbnb.lottie.animation.content.Content
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentHomeBinding
-import com.lemon.team.electronics.model.response.categories.CategoriesResponseItem
-import com.lemon.team.electronics.model.response.productById.ProductResponse
 import com.lemon.team.electronics.ui.base.BaseFragment
-import com.lemon.team.electronics.util.EventObserver
+import com.lemon.team.electronics.util.*
 
 class HomeFragment:BaseFragment<FragmentHomeBinding,HomeViewModel>() , HomeInteractionListener {
     override val layoutId: Int = R.layout.fragment_home
@@ -31,10 +28,10 @@ class HomeFragment:BaseFragment<FragmentHomeBinding,HomeViewModel>() , HomeInter
 
         viewModel.also {
             it.aboutEvent.observe(this, EventObserver{
-//                binding.about.goToFragment(HomeFragmentDirections.actionHomeFragmentToAboutFragment())
+                binding.about.goToFragment(HomeFragmentDirections.actionHomeFragmentToAboutFragment())
             })
             it.cartEvent.observe(this, EventObserver{
-//                binding.cart.goToFragment(HomeFragmentDirections.actionHomeFragmentToCartFragment())
+                binding.cart.goToFragment(HomeFragmentDirections.actionHomeFragmentToCartFragment())
             })
         }
 
