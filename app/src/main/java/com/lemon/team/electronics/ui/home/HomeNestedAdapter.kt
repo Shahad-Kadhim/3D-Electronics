@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class HomeNestedAdapter(
-    private var items: List<HomeItems<Any>>,
+    private val items: List<HomeItems<Any>>,
     private var listener: HomeInteractionListener
 ) : BaseRecyclerAdapter<Any>(items, listener) {
 
