@@ -3,6 +3,7 @@ package com.lemon.team.electronics.ui.category
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCategoryBinding
@@ -33,9 +34,14 @@ class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>(
     }
 
     private fun observeEvent(){
+
         viewModel.clickItemEvent.observe(this, EventObserver{
             view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(it))
         })
+        viewModel.clickBackEvent.observe(this, EventObserver{
+            findNavController().popBackStack()
+        })
+
     }
 
 }

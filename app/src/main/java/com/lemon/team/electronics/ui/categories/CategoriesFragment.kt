@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCategoriesBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
@@ -34,6 +35,9 @@ class CategoriesFragment:BaseFragment<FragmentCategoriesBinding,CategoriesViewMo
             view?.goToFragment(CategoriesFragmentDirections
                 .actionCategoriesFragmentToCategoryFragment(it)
             )
+        })
+        viewModel.clickBackEvent.observe(this, EventObserver{
+            findNavController().popBackStack()
         })
     }
 
