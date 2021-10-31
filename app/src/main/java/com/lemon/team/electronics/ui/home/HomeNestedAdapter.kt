@@ -10,7 +10,7 @@ import com.lemon.team.electronics.ui.base.BaseInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 class HomeNestedAdapter(
-    private var items: List<HomeItems<Any>>,
+    private val items: List<HomeItems<Any>>,
     private var listener: HomeInteractionListener
 ) : BaseRecyclerAdapter<Any>(items, listener) {
 
