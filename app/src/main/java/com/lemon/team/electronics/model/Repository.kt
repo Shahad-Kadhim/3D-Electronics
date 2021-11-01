@@ -76,22 +76,6 @@ object Repository{
     fun getOtherVendors(): List<CompaniesImgUrl>? =
         JsonParse.COMPANIES_LOGOS.otherCompaniesImgUrl
 
-
-//
-//    fun getVendors(): List<OtherCompaniesImgUrl> = listOf(
-//        OtherCompaniesImgUrl( "https://static.vecteezy.com/system/resources/previews/001/481/849/large_2x/pet-adoption-with-cute-little-cats-vector.jpg"),
-//        OtherCompaniesImgUrl( "https://static.vecteezy.com/system/resources/previews/002/657/069/large_2x/cute-cat-take-bath-cartoon-character-free-vector.jpg"),
-//        OtherCompaniesImgUrl( "https://static.vecteezy.com/system/resources/previews/002/613/769/non_2x/pet-shop-veterinary-with-food-animals-vector.jpg"),
-//        OtherCompaniesImgUrl( "https://static.vecteezy.com/system/resources/previews/000/152/772/large_2x/free-gerbil-vector.png"),
-//    )
-//
-//    fun getOtherVendors(): List<OtherCompaniesImgUrl> = listOf(
-//        OtherCompaniesImgUrl( "https://image.freepik.com/free-vector/cute-shiba-inu-design-with-mask-vaccine_454510-35.jpg"),
-//        OtherCompaniesImgUrl("https://image.freepik.com/free-vector/cute-cat-holding-fish-balloon_138676-1193.jpg"),
-//        OtherCompaniesImgUrl( "https://static.vecteezy.com/system/resources/previews/000/129/025/large_2x/vector-papillon-dog.jpg"),
-//        OtherCompaniesImgUrl( "https://static.vecteezy.com/system/resources/previews/001/963/388/non_2x/couple-owl-and-bird-house-vector.jpg"),
-//    )
-
 }
 
 
