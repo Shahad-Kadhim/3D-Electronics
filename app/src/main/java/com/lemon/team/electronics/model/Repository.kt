@@ -49,6 +49,13 @@ object Repository{
         }
 
 
+    fun getVendors(): List<CompaniesImgUrl>? =
+        JsonParse().getJsonParser().companiesImgUrl
+
+    fun getOtherVendors(): List<CompaniesImgUrl>? =
+        JsonParse().getJsonParser().otherCompaniesImgUrl
+
+
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
         return flow {
@@ -68,13 +75,6 @@ object Repository{
         else {
             State.Error(response.message())
         }
-
-
-    fun getVendors(): List<CompaniesImgUrl>? =
-        JsonParse.COMPANIES_LOGOS.companiesImgUrl
-
-    fun getOtherVendors(): List<CompaniesImgUrl>? =
-        JsonParse.COMPANIES_LOGOS.otherCompaniesImgUrl
 
 }
 

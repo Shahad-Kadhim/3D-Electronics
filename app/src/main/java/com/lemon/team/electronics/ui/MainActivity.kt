@@ -11,17 +11,17 @@ import com.lemon.team.electronics.databinding.ActivityMainBinding
 import com.lemon.team.electronics.util.JsonParse
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        JsonParse().getJsonParser(applicationContext)
         binding=DataBindingUtil.setContentView<ActivityMainBinding>(
             this,
             R.layout.activity_main
         ).also { binding ->
             binding.lifecycleOwner=this
         }
-        val parsing = JsonParse()
-        parsing.getJsonParser(this)
     }
 
     override fun onResume() {

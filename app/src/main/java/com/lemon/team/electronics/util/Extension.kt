@@ -20,12 +20,10 @@ fun EditText.onClickSearch(action : (String) -> Unit) {
 }
 
 fun Context.readJsonAsset(fileName: String): String? {
-    val jsonString: String
-    try {
-        jsonString = assets.open(fileName).bufferedReader().use { it.readText() }
+    return try {
+        assets.open(fileName).bufferedReader().use { it.readText() }
     } catch (ioException: IOException) {
         ioException.printStackTrace()
-        return null
+        null
     }
-    return jsonString
 }

@@ -7,16 +7,21 @@ import com.lemon.team.electronics.model.response.about.Companies
 
 class JsonParse {
 
-    fun getJsonParser(context: Context) {
-        val jsonFileString = context.readJsonAsset( "companies.json")
-        val gson = Gson()
-        val listPersonType = object : TypeToken<Companies>() {}.type
-        COMPANIES_LOGOS = gson.fromJson(jsonFileString, listPersonType)
+    fun getJsonParser(context: Context): Companies {
+        COMPANIES_LOGOS = (Gson().fromJson(JsonReader().getJsonString(context), getTypeOfJson()))
+        return COMPANIES_LOGOS
     }
+
+    fun getJsonParser() = COMPANIES_LOGOS
+
+
+    private fun getTypeOfJson() =
+        object : TypeToken<Companies>() {}.type
+
 
 
     companion object CompaniesLogo{
-        lateinit var COMPANIES_LOGOS: Companies
+        private lateinit var COMPANIES_LOGOS: Companies
     }
 
 }
