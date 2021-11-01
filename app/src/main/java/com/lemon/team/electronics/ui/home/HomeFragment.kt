@@ -38,5 +38,4 @@ class HomeFragment:BaseFragment<FragmentHomeBinding,HomeViewModel>() , HomeInter
     }
 
 
-
 }

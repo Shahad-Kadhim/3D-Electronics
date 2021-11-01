@@ -8,10 +8,8 @@ import androidx.navigation.fragment.navArgs
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCategoryBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
-import com.lemon.team.electronics.ui.categories.CategoriesFragmentDirections
-import com.lemon.team.electronics.ui.search.SearchFragmentDirections
-import com.lemon.team.electronics.util.EventObserver
 import com.lemon.team.electronics.util.goToFragment
+import com.lemon.team.electronics.util.observeEvent
 
 class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>() {
 
@@ -35,12 +33,13 @@ class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>(
 
     private fun observeEvent(){
 
-        viewModel.clickItemEvent.observe(this, EventObserver{
+        viewModel.clickItemEvent.observeEvent(this){
             view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(it))
-        })
-        viewModel.clickBackEvent.observe(this, EventObserver{
+        }
+
+        viewModel.clickBackEvent.observeEvent(this){
             findNavController().popBackStack()
-        })
+        }
 
     }
 
