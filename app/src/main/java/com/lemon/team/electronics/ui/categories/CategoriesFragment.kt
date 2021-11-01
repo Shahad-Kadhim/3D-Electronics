@@ -33,7 +33,7 @@ class CategoriesFragment:BaseFragment<FragmentCategoriesBinding,CategoriesViewMo
     private fun observeEvent() {
         viewModel.categoryId.observe(this, EventObserver{
             view?.goToFragment(CategoriesFragmentDirections
-                .actionCategoriesFragmentToCategoryFragment(it)
+                .actionCategoriesFragmentToCategoryFragment(it.id, it.categoryName)
             )
         })
         viewModel.clickBackEvent.observe(this, EventObserver{

@@ -28,8 +28,9 @@ class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>(
             this.viewModel= this@CategoryFragment.viewModel
             this.categoryRecycler.adapter =
                 CategoryAdapter(mutableListOf(), this@CategoryFragment.viewModel)
+            this.categoryName.text = args.categoryName
         }
-        viewModel.getProductsByCategoryId(args.categoryId)
+        args.categoryId?.let { viewModel.getProductsByCategoryId(it) }
         observeEvent()
     }
 

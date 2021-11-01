@@ -14,6 +14,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/category_name"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/monda_bold"
+            android:lines="1"
+            android:text="LapTop"
+            android:gravity="center"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text24sp"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
             android:layout_width="40dp"
