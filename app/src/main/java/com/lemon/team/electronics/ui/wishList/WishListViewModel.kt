@@ -24,4 +24,8 @@ class WishListViewModel : BaseViewModel() , WishListInteractionListener {
         _clickItemEvent.postValue(Event(productId))
     }
 
+    override fun onClickAddToCart() {}
+
+    override fun onClickWishButton(wishState: Boolean) {}
+
 }
