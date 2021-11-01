@@ -8,7 +8,6 @@
             name="viewModel"
             type="com.lemon.team.electronics.ui.about.AboutViewModel" />
 
-
     </data>
 
 
@@ -38,6 +37,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -47,8 +47,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp">
+                android:layout_height="match_parent">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView2"
@@ -83,14 +82,16 @@
 
                 <TextView
                     android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="38dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
                     android:fontFamily="@font/monda_regular"
                     android:text="Industry Street - opposite the University
                      of Technology - Al-Numan Complex."
                     android:textColor="@color/primary_text_color"
                     android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView3"
                     app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
@@ -159,6 +160,17 @@
                         app:layout_constraintTop_toBottomOf="@+id/text3" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="136dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="32dp"
+                    android:src="@drawable/logo"
+                    app:layout_constraintBottom_toTopOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/companies_bg"
