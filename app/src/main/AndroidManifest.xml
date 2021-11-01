@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3DElectronics">
         <activity
+            android:name=".ui.ImageActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
@@ -20,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.ui.productDetails
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -8,7 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentProductDetailsBinding
+import com.lemon.team.electronics.ui.ImageActivity
 import com.lemon.team.electronics.ui.base.BaseFragment
+import com.lemon.team.electronics.util.Constants
 import com.lemon.team.electronics.util.EventObserver
 
 class ProductDetailsFragment :
@@ -34,23 +37,34 @@ class ProductDetailsFragment :
 
         viewModel.onclickAddToCart.observe(this,EventObserver{
             // add to cart table when create database
-            1
         })
 
         viewModel.onclickWish.observe(this,EventObserver{
             // add to wish table when create database
-            1
         })
 
         viewModel.onclickShare.observe(this,EventObserver{
             // add code to share link of this product
-            1
         })
 
         viewModel.onclickBack.observe(this,EventObserver{
             findNavController().popBackStack()
         })
 
+        viewModel.onclickMainImage.observe(this,EventObserver{
+            goToImageActivity(it)
+        })
+
     }
+
+    private fun goToImageActivity(it: String) {
+        startActivity(
+            Intent(requireContext(),ImageActivity::class.java).apply {
+                putExtra(Constants.MAIN_URL , it)
+            }
+        )
+    }
+
+
 
 }

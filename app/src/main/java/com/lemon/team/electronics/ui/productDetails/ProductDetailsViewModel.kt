@@ -42,6 +42,9 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private var _onclickAddToCart =MutableLiveData<Event<String>>()
     val onclickAddToCart :LiveData<Event<String>> = _onclickAddToCart
 
+    private var _onClickMainImage =MutableLiveData<Event<String>>()
+    val onclickMainImage :LiveData<Event<String>> = _onClickMainImage
+
 
     private fun updateMainImage(url:String){
         mainImage.postValue(url)
@@ -74,6 +77,12 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
         _onclickShare.postValue(Event(link))
     }
 
+    fun onClickMainImage(){
+        mainImage.value?.let { url ->
+            _onClickMainImage.postValue(Event(url))
+        }
+
+    }
     override fun onclickImage(url: String) {
         mainImage.postValue(url)
     }
