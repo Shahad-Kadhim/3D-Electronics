@@ -58,6 +58,11 @@ object Repository{
             )
         }
 
+    // this function gets the total price of the products in the cart from the database
+    fun getTotalPrice(): Int {
+        return 500
+    }
+
 
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {

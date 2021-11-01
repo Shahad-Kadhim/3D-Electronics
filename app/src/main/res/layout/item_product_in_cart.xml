@@ -31,6 +31,7 @@
                 android:fontFamily="@font/monda_bold"
                 android:maxLines="3"
                 android:textSize="@dimen/text18sp"
+                android:textColor="@color/text_color"
                 app:layout_constraintStart_toEndOf="@id/product_image"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Official Original Silicone..." />
@@ -51,7 +52,7 @@
                 android:layout_height="match_parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:urlForImage="@{item.imageJsonResponses.get(0).productImageLocation}"
+                app:urlForImage="@{String.valueOf(item.picLocation)}"
                 tools:src="@color/secondary_icons_color" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

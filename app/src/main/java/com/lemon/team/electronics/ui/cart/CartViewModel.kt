@@ -11,6 +11,8 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
 
     val cartItems = Repository.getProductsInCart().asLiveData()
 
+    val totalPrice = Repository.getTotalPrice()
+
     private val _clickItemEvent = MutableLiveData<Event<String>>()
     var clickItemEvent : LiveData<Event<String>> = _clickItemEvent
 
