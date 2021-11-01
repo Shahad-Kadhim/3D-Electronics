@@ -48,6 +48,16 @@ object Repository{
             )
         }
 
+    fun getProductsInCart()
+            : Flow<State<ProductsInCategoryResponse?>> =
+        wrapWithFlow { API.apiService
+            .getProductsByCategoryId(
+                categoryId = "54653fdb-db67-4e72-8840-1d842e3c4f04",
+                page = Constants.PAGE_NUMBER,
+                sortBy = "createdAt"
+            )
+        }
+
 
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
