@@ -55,10 +55,19 @@
                     android:layout_marginTop="42dp"
                     android:elevation="2dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/title"
+                    app:layout_constraintStart_toEndOf="@id/product_images"
                     app:layout_constraintTop_toBottomOf="@+id/title"
                     app:shapeAppearance="@style/ShapeAppearanceOverlay"
                     app:urlForImage="@{viewModel.detailsProduct.toData().picLocation}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/product_images"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/title"
+                    app:layout_constraintTop_toTopOf="@+id/imageView"
+                    tools:listitem="@layout/item_product_image" />
 
                 <TextView
                     android:id="@+id/textView"
