@@ -7,9 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentAboutBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
-import com.lemon.team.electronics.ui.search.SearchFragmentDirections
 import com.lemon.team.electronics.util.EventObserver
-import com.lemon.team.electronics.util.goToFragment
 
 class AboutFragment:BaseFragment<FragmentAboutBinding,AboutViewModel>() {
     override val layoutId: Int = R.layout.fragment_about

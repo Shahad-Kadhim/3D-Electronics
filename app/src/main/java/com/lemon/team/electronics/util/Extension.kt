@@ -1,8 +1,10 @@
 package com.lemon.team.electronics.util
 
+import android.content.Context
 import android.view.View
 import android.widget.EditText
 import androidx.navigation.*
+import java.io.IOException
 
 fun View.goToFragment(navDir: NavDirections) {
     Navigation.findNavController(this).navigate(navDir)
@@ -15,4 +17,15 @@ fun EditText.onClickSearch(action : (String) -> Unit) {
         }
         return@setOnEditorActionListener false
     }
+}
+
+fun Context.readJsonAsset(fileName: String): String? {
+    val jsonString: String
+    try {
+        jsonString = assets.open(fileName).bufferedReader().use { it.readText() }
+    } catch (ioException: IOException) {
+        ioException.printStackTrace()
+        return null
+    }
+    return jsonString
 }

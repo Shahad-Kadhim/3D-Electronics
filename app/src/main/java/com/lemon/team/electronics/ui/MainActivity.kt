@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.ui
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -7,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.ActivityMainBinding
+import com.lemon.team.electronics.util.JsonParse
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         ).also { binding ->
             binding.lifecycleOwner=this
         }
+        val parsing = JsonParse()
+        parsing.getJsonParser(this)
     }
 
     override fun onResume() {
