@@ -87,12 +87,10 @@
             app:destination="@id/productDetailsFragment" />
         <argument
             android:name="categoryId"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
         <argument
             android:name="categoryName"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"

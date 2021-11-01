@@ -8,6 +8,11 @@
             name="viewModel"
             type="com.lemon.team.electronics.ui.category.CategoryViewModel" />
 
+        <variable
+            name="categoryName"
+            type="String" />
+
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +20,6 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/category_name"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -23,7 +27,7 @@
             android:ellipsize="end"
             android:fontFamily="@font/monda_bold"
             android:lines="1"
-            android:text="LapTop"
+            android:text="@{categoryName}"
             android:gravity="center"
             android:textColor="@color/primary_text_color"
             android:textSize="@dimen/text24sp"
