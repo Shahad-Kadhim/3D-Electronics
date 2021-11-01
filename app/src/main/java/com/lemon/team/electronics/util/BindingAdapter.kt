@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
+import com.lemon.team.electronics.ui.home.HomeItems
+import com.lemon.team.electronics.ui.home.HomeNestedAdapter
 
 
 @BindingAdapter(value = ["app:parseHtmlText"])
@@ -40,11 +42,24 @@ fun checkStateProduct(view: View, value: Boolean) {
 
 @BindingAdapter(value = ["app:items"])
 fun <T>setRecyclerItems(view: RecyclerView, items:List<T>?){
+    Log.i("sssssssssssssSetRec" , items.toString())
     (view.adapter as BaseRecyclerAdapter<T>?)?.let{
         if(items != null){
             it.setItems(items)
         } else {
             it.setItems(emptyList())
+        }
+    }
+}
+
+@BindingAdapter(value = ["app:itemsForNested"])
+fun setRecyclerNestedItems(view: RecyclerView, items:List<HomeItems<Any>>?){
+    Log.i("sssssssssSetRecNested" , items.toString())
+    (view.adapter as HomeNestedAdapter?)?.let{
+        if(items != null){
+            it.setItemsNested(items)
+        } else {
+            it.setItemsNested(emptyList())
         }
     }
 }
