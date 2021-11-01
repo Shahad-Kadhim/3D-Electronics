@@ -1,8 +1,13 @@
 package com.lemon.team.electronics.ui.home
 
 import androidx.lifecycle.*
+import com.lemon.team.electronics.model.response.categories.CategoriesResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
+import com.lemon.team.electronics.util.State
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
 
 class HomeViewModel :BaseViewModel() {
 

@@ -4,6 +4,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import android.text.Html
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
