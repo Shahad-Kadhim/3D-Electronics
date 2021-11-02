@@ -37,15 +37,13 @@ class HomeViewModel :BaseViewModel() {
             Repository.getProductsByCategoryId("54653fdb-db67-4e72-8840-1d842e3c4f04" , 0 , "createdAt")
                 .collect { elementCategories.value = it }
 
-            itemsList.value =
-                listOf(HomeItems(null, HomeItemsType.TYPE_SLIDE_SHOW.index , ""),
-                    HomeItems(null, HomeItemsType.TYPE_SEARCH.index , ""),
-                    HomeItems("categories", HomeItemsType.TYPE_CATEGORIES.index ,
-                        categories.value?.toData()),
-                    HomeItems("best seller", HomeItemsType.TYPE_BEST_SELLER.index ,
-                        emptyList<ProductResponse>()),
-                    HomeItems("categories_element", HomeItemsType.TYPE_ELEMENTS_CATEGORIES.index ,
-                        elementCategories.value?.toData()?.content))
+            itemsList.value = listOf(
+                HomeItems(null, HomeItemsType.TYPE_SLIDE_SHOW.index , listOf<String>("1","2")),
+                HomeItems("categories", HomeItemsType.TYPE_CATEGORIES.index , categories.value?.toData()),
+                HomeItems("categories_element", HomeItemsType.TYPE_ELEMENTS_CATEGORIES.index ,
+                        elementCategories.value?.toData()?.content) ,
+                HomeItems("categories_element", HomeItemsType.TYPE_ELEMENTS_CATEGORIES.index ,
+                    elementCategories.value?.toData()?.content))
         }
     }
 

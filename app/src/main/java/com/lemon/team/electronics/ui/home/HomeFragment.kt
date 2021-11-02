@@ -15,16 +15,18 @@ class HomeFragment:BaseFragment<FragmentHomeBinding,HomeViewModel>() , HomeInter
         =DataBindingUtil::inflate
 
     override fun setUp() {
-
         binding.apply {
             this.lifecycleOwner= viewLifecycleOwner
             this.viewModel= this@HomeFragment.viewModel
             observeEvent()
+            initNestedAdapter()
         }
-        viewModel.itemsList.observe(this , {
-           it?.let { binding.recyclerViewHome.adapter = HomeNestedAdapter (it ,this  ) }
-        })
+    }
 
+    private fun initNestedAdapter(){
+        viewModel.itemsList.observe(this , {
+            it?.let { binding.recyclerViewHome.adapter = HomeNestedAdapter (it ,this  ) }
+        })
     }
 
     private fun observeEvent() {

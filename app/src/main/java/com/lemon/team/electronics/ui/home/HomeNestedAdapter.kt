@@ -18,14 +18,8 @@ class HomeNestedAdapter(
 
     override var layoutId: Int = 0
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun setItemsNested(newHome: List<HomeItems<Any?>>) {
-        itemsHome = newHome
-        notifyDataSetChanged()
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        layoutId = HomeItemsType.values()[getItemViewType(viewType)].layout
+        layoutId = HomeItemsType.values()[viewType].layout
         return super.onCreateViewHolder(parent, viewType)
     }
 
@@ -47,7 +41,6 @@ class HomeNestedAdapter(
                     holder.setVariableAdapter(title, ElementsCategoriesAdapter(itemsHome[position].items as List<Content>, listener))
             }
         }
-
     }
 
 
