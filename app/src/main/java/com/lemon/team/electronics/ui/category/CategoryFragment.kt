@@ -22,11 +22,13 @@ class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>(
 
     override fun setUp() {
         binding.apply {
-            this.lifecycleOwner= viewLifecycleOwner
-            this.viewModel= this@CategoryFragment.viewModel
-            this.categoryRecycler.adapter =
+            lifecycleOwner= viewLifecycleOwner
+            viewModel= this@CategoryFragment.viewModel
+            categoryName = args.categoryName
+            categoryRecycler.adapter =
                 CategoryAdapter(mutableListOf(), this@CategoryFragment.viewModel)
         }
+
         viewModel.getProductsByCategoryId(args.categoryId)
         observeEvent()
     }

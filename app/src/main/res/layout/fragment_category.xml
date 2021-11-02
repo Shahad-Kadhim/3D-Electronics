@@ -8,11 +8,31 @@
             name="viewModel"
             type="com.lemon.team.electronics.ui.category.CategoryViewModel" />
 
+        <variable
+            name="categoryName"
+            type="String" />
+
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/monda_bold"
+            android:lines="1"
+            android:text="@{categoryName}"
+            android:gravity="center"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text24sp"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"

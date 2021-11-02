@@ -92,6 +92,9 @@
         <argument
             android:name="categoryId"
             app:argType="string" />
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"

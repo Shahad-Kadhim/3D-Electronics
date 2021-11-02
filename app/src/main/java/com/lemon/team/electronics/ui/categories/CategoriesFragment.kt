@@ -21,9 +21,9 @@ class CategoriesFragment:BaseFragment<FragmentCategoriesBinding,CategoriesViewMo
 
     override fun setUp() {
         binding.apply {
-            this.lifecycleOwner= viewLifecycleOwner
-            this.viewModel= this@CategoriesFragment.viewModel
-            this.categoriesRecycler.adapter =
+            lifecycleOwner= viewLifecycleOwner
+            viewModel= this@CategoriesFragment.viewModel
+            categoriesRecycler.adapter =
                 CategoriesAdapter(mutableListOf(),this@CategoriesFragment.viewModel)
         }
 
@@ -33,7 +33,7 @@ class CategoriesFragment:BaseFragment<FragmentCategoriesBinding,CategoriesViewMo
     private fun observeEvent() {
         viewModel.categoryId.observe(this, EventObserver{
             view?.goToFragment(CategoriesFragmentDirections
-                .actionCategoriesFragmentToCategoryFragment(it)
+                .actionCategoriesFragmentToCategoryFragment(it.id, it.categoryName)
             )
         })
         viewModel.clickBackEvent.observe(this, EventObserver{

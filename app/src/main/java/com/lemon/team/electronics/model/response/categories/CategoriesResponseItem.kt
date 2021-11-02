@@ -7,7 +7,7 @@ data class CategoriesResponseItem(
     @SerializedName("categoryImageLocation")
     val categoryImageLocation: String?,
     @SerializedName("categoryName")
-    val categoryName: String?,
+    val categoryName: String,
     @SerializedName("id")
-    val id: String?
+    val id: String
 )
