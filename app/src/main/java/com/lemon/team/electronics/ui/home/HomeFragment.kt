@@ -39,24 +39,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             })
 
             (binding.recyclerViewHome.adapter as HomeNestedAdapter?).apply {
-                it.categories.observe(this@HomeFragment) { state ->
-                    Log.i("ssssssssssssss" , state.toString())
+
+                it.mouseCategories.observe(this@HomeFragment) { state ->
                     if (state is State.Success) {
-                        Log.i("ssssssssssssss/state" , state.toString())
-                        this?.addItem(HomeItem.CategoriesType(state.toData()!!))
+                        this?.addItem(HomeItem.ElementCategoriesType(state.toData()?.content!!
+                            , "Mouse"))
                     }
                 }
 
-                it.mouseCategories.observe(this@HomeFragment) { state ->
-                        if (state is State.Success) {
-                            this?.addItem(HomeItem.ElementCategoriesType(state.toData()?.content!!
-                                , "Mouse"))
-                        }
+                it.categories.observe(this@HomeFragment) { state ->
+                    if (state is State.Success) {
+                        this?.addItem(HomeItem.CategoriesType(state.toData()!!, "Categories"))
+                    }
                 }
+
             }
-
         }
-
     }
 
 

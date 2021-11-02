@@ -9,19 +9,14 @@ import com.lemon.team.electronics.util.setVariableAdapter
 
 
 class HomeNestedAdapter(
-    private var itemsNested: List<HomeItem>,
+    private var itemsNested: MutableList<HomeItem>,
     private val listener: HomeInteractionListener
 ) : BaseRecyclerAdapter<Any>(itemsNested, listener) {
 
     override var layoutId: Int = 0
 
-    fun addItem(item: HomeItem) {
-        itemsNested = itemsNested.toMutableList()
-            .apply {
-                add(item)
-                sortBy { it.rank }
-            }
-        Log.i("sssssssssssssssAddItems" , itemsNested.toString())
+    fun addItem(newItems: HomeItem) {
+        itemsNested.addAll(listOf(newItems).sortedBy { it.rank })
         notifyDataSetChanged()
     }
 
@@ -45,22 +40,24 @@ class HomeNestedAdapter(
 
     private fun bind(holder: ItemViewHolder, position: Int) {
         itemsNested[position].apply {
-            Log.i("sssssssssssssssBind" ,  itemsNested[position].toString())
             when (this) {
                 is HomeItem.BestProductType -> {
                     holder.setVariableAdapter(BestSellerAdapter(items, listener))
+                    holder.binding.setVariable(BR.title, title)
                 }
                 is HomeItem.CategoriesType -> {
                     holder.setVariableAdapter(CategoriesAdapter(items, listener))
+                    holder.binding.setVariable(BR.title, title)
                 }
                 is HomeItem.ElementCategoriesType -> {
                     holder.setVariableAdapter(ElementsCategoriesAdapter(items, listener))
                     holder.binding.setVariable(BR.title, title)
                 }
-                is HomeItem.SearchType -> { }
+                is HomeItem.SearchType -> {  }
                 is HomeItem.SlideType -> {
                     holder.setVariableAdapter(SlideShowAdapter(items, listener))
                 }
+
             }
         }
     }

@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.EditText
 import androidx.navigation.*
 import com.lemon.team.electronics.BR
+import com.lemon.team.electronics.model.response.productById.ProductResponse
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 fun View.goToFragment(navDir: NavDirections) {
