@@ -52,7 +52,6 @@ class HomeNestedAdapter(
                 }
                 is HomeItem.CategoriesType -> {
                     holder.setVariableAdapter(CategoriesAdapter(items, listener))
-                    holder.binding.setVariable(BR.title, title)
                 }
                 is HomeItem.ElementCategoriesType -> {
                     holder.setVariableAdapter(ElementsCategoriesAdapter(items, listener))
