@@ -4,13 +4,10 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import android.text.Html
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
-import com.lemon.team.electronics.ui.home.HomeItems
-import com.lemon.team.electronics.ui.home.HomeNestedAdapter
 
 
 @BindingAdapter(value = ["app:parseHtmlText"])

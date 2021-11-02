@@ -18,7 +18,7 @@ class ProductDetailsFragment :
     FragmentProductDetailsBinding = DataBindingUtil::inflate
 
     override fun setUp() {
-        binding?.apply {
+        binding.apply {
             this.lifecycleOwner = viewLifecycleOwner
             this.viewModel = this@ProductDetailsFragment.viewModel
         }

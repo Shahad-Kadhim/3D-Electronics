@@ -12,7 +12,7 @@ import com.lemon.team.electronics.util.State
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class HomeViewModel :BaseViewModel() {
+class HomeViewModel :BaseViewModel() , HomeInteractionListener {
 
     private var _cartEvent = MutableLiveData<Event<Boolean>>()
     val cartEvent: LiveData<Event<Boolean>> = _cartEvent
@@ -20,32 +20,11 @@ class HomeViewModel :BaseViewModel() {
     private var _aboutEvent = MutableLiveData<Event<Boolean>>()
     val aboutEvent: LiveData<Event<Boolean>> = _aboutEvent
 
-    var categories = MutableLiveData<State<CategoriesResponse?>>()
-    var bestProduct = MutableLiveData<State<ProductResponse?>>()
-    var elementCategories = MutableLiveData<State<ProductsInCategoryResponse?>>()
+    val categories = Repository.getCategories().asLiveData()
+    val bestProduct = MutableLiveData<State<ProductResponse?>>()
+    val mouseCategories = Repository.getProductsByCategoryId("54653fdb-db67-4e72-8840-1d842e3c4f04" ,
+        0 ,  "createdAt" ).asLiveData()
 
-    var itemsList: MutableLiveData<List<HomeItems<Any?>>> = MutableLiveData()
-
-
-    init {
-        setListsAdapter()
-    }
-
-    private fun setListsAdapter() {
-        viewModelScope.launch {
-            Repository.getCategories().collect { categories.value = it }
-            Repository.getProductsByCategoryId("54653fdb-db67-4e72-8840-1d842e3c4f04" , 0 , "createdAt")
-                .collect { elementCategories.value = it }
-
-            itemsList.value = listOf(
-                HomeItems(null, HomeItemsType.TYPE_SLIDE_SHOW.index , listOf<String>("1","2")),
-                HomeItems("categories", HomeItemsType.TYPE_CATEGORIES.index , categories.value?.toData()),
-                HomeItems("categories_element", HomeItemsType.TYPE_ELEMENTS_CATEGORIES.index ,
-                        elementCategories.value?.toData()?.content) ,
-                HomeItems("categories_element", HomeItemsType.TYPE_ELEMENTS_CATEGORIES.index ,
-                    elementCategories.value?.toData()?.content))
-        }
-    }
 
     fun onClickCart(){
         _cartEvent.postValue(Event(true))

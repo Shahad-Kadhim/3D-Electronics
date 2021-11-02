@@ -6,6 +6,7 @@
         <variable
             name="item"
             type="com.lemon.team.electronics.model.response.categories.CategoriesResponseItem" />
+
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.categories.CategoriesInteractionListener" />
