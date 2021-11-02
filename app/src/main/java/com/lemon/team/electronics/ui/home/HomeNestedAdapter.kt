@@ -16,9 +16,11 @@ class HomeNestedAdapter(
     override var layoutId: Int = 0
 
     fun addItem(newItems: HomeItem) {
-        itemsNested.add(newItems)
-        itemsNested.sortBy {
-            it.rank
+        itemsNested.apply {
+            add(newItems)
+            sortBy {
+                it.rank
+            }
         }
         notifyDataSetChanged()
     }
