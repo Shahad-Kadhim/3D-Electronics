@@ -5,7 +5,5 @@ import com.lemon.team.electronics.ui.base.BaseInteractionListener
 interface WishListInteractionListener: BaseInteractionListener {
 
     fun onClickProduct(productId: String)
-    fun onClickAddToCart()
-    fun onClickWishButton(wishState: Boolean)
 
 }
