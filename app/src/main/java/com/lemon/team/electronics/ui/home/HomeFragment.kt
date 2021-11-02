@@ -1,6 +1,5 @@
 package com.lemon.team.electronics.ui.home
 
-import android.util.Log
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -26,7 +25,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun initNestedAdapter() {
-        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(HomeItem.SearchType()), viewModel)
+        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(
+            HomeItem.SearchType(), HomeItem.SlideType(listOf("1","2"))), viewModel)
     }
 
     private fun observeEvent() {
