@@ -4,4 +4,8 @@
     <string name="out_of_stock">Out Of Stock</string>
     <string name="search">Search..</string>
     <string name="wishlist">WishList</string>
+    <string name="cart">Cart</string>
+    <string name="check_out">Check Out</string>
+    <string name="total">Total:</string>
+    <string name="total_price">Total Price:</string>
 </resources>

@@ -38,6 +38,7 @@ object Repository{
         wrapWithFlow { API.apiService.getProductById(productId) }
 
 
+    // this function will be rewritten after create database
     fun getWishedProducts()
             : Flow<State<ProductsInCategoryResponse?>> =
         wrapWithFlow { API.apiService
@@ -47,6 +48,22 @@ object Repository{
                 sortBy = "createdAt"
             )
         }
+
+    // this function will be rewritten after create database
+    fun getProductsInCart()
+            : Flow<State<ProductsInCategoryResponse?>> =
+        wrapWithFlow { API.apiService
+            .getProductsByCategoryId(
+                categoryId = "54653fdb-db67-4e72-8840-1d842e3c4f04",
+                page = Constants.PAGE_NUMBER,
+                sortBy = "createdAt"
+            )
+        }
+
+    // this function gets the total price of the products in the cart from the database
+    fun getTotalPrice(): Int {
+        return 500
+    }
 
 
 

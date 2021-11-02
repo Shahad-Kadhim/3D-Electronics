@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.lemon.team.electronics.model.response.productsByCategoryId.Content" />
+        <variable
+            name="listener"
+            type="com.lemon.team.electronics.ui.cart.CartInteractionListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/wish_product_background_card"
+        style="@style/ProductBackgroundCardStyle.MatchParentWidth"
+        android:layout_margin="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:onClick="@{() -> listener.onClickProduct(item.id)}">
+
+            <TextView
+                android:id="@+id/product_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin2x"
+                android:text="@{item.name}"
+                android:fontFamily="@font/monda_bold"
+                android:maxLines="3"
+                android:textSize="@dimen/text18sp"
+                android:textColor="@color/text_color"
+                app:layout_constraintStart_toEndOf="@id/product_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Official Original Silicone..." />
+
+            <TextView
+                android:id="@+id/product_price_text"
+                style="@style/ProductPriceStyle"
+                android:layout_margin="@dimen/margin3x"
+                android:text="@{String.valueOf(item.price)+` IQ`}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/margin12dp"
+                app:layout_constraintStart_toEndOf="@id/product_image"
+                tools:text="15.77 IQ" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/product_image"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:urlForImage="@{String.valueOf(item.picLocation)}"
+                tools:src="@color/secondary_icons_color" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
