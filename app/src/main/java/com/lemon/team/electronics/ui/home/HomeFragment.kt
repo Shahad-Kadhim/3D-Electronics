@@ -20,13 +20,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         binding.apply {
             this.lifecycleOwner = viewLifecycleOwner
             this.viewModel = this@HomeFragment.viewModel
-            observeEvent()
             initNestedAdapter()
+            observeEvent()
         }
     }
 
     private fun initNestedAdapter() {
-        binding.recyclerViewHome.adapter = HomeNestedAdapter(listOf(HomeItem.SearchType()), viewModel)
+        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(HomeItem.SearchType()), viewModel)
     }
 
     private fun observeEvent() {
@@ -53,7 +53,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                                 , "Mouse"))
                         }
                 }
-
             }
 
         }

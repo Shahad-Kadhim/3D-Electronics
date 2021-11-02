@@ -34,7 +34,7 @@ class HomeNestedAdapter(
         when (viewType) {
             TYPE_SLIDE_SHOW -> R.layout.items_slide_show_host
             TYPE_SEARCH -> R.layout.item_search
-            TYPE_CATEGORIES -> R.layout.items_slide_show_host
+            TYPE_CATEGORIES -> R.layout.items_horizontal_host
             TYPE_BEST_SELLER -> R.layout.items_horizontal_host
             else -> R.layout.items_horizontal_host
         }
@@ -45,6 +45,7 @@ class HomeNestedAdapter(
 
     private fun bind(holder: ItemViewHolder, position: Int) {
         itemsNested[position].apply {
+            Log.i("sssssssssssssssBind" ,  itemsNested[position].toString())
             when (this) {
                 is HomeItem.BestProductType -> {
                     holder.setVariableAdapter(BestSellerAdapter(items, listener))
