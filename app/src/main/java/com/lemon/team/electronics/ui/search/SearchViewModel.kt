@@ -14,16 +14,16 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
-class SearchViewModel: BaseViewModel(), SearchInteractionListener{
+class SearchViewModel : BaseViewModel(), SearchInteractionListener {
 
     val searchName = MutableLiveData<String>()
     var searchResult = MutableLiveData<State<SearchResponse?>>()
     private val _clickItemEvent = MutableLiveData<Event<String>>()
-    var clickItemEvent :LiveData<Event<String>>  = _clickItemEvent
+    var clickItemEvent: LiveData<Event<String>> = _clickItemEvent
     private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
-    var clickBackEvent :LiveData<Event<Boolean>>  = _clickBackEvent
+    var clickBackEvent: LiveData<Event<Boolean>> = _clickBackEvent
 
-    fun onclickSearch(){
+    fun onclickSearch() {
         search()
     }
 
@@ -40,7 +40,7 @@ class SearchViewModel: BaseViewModel(), SearchInteractionListener{
         }
     }
 
-    fun onclickBack(){
+    fun onclickBack() {
         _clickBackEvent.postValue(Event(true))
     }
 

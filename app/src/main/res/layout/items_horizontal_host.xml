@@ -6,6 +6,7 @@
         <variable
             name="title"
             type="String"/>
+
         <variable
             name="adapter"
             type="com.lemon.team.electronics.ui.base.BaseRecyclerAdapter" />
