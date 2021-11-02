@@ -5,6 +5,9 @@ import android.widget.EditText
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.navigation.*
+import com.lemon.team.electronics.BR
+import com.lemon.team.electronics.model.response.productById.ProductResponse
+import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 fun View.goToFragment(navDir: NavDirections) {
     Navigation.findNavController(this).navigate(navDir)
@@ -19,6 +22,9 @@ fun EditText.onClickSearch(action : (String) -> Unit) {
     }
 }
 
+fun BaseRecyclerAdapter.ItemViewHolder.setVariableAdapter(item: Any?) {
+    this.binding.setVariable(BR.adapter, item)
+}
 fun <T> LiveData<Event<T>>.observeEvent(owner: LifecycleOwner, f:(T) ->Unit){
     this.observe(owner, EventObserver{
         f(it)
