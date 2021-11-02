@@ -1,6 +1,5 @@
 package com.lemon.team.electronics.ui.home
 
-import android.util.Log
 import android.view.ViewGroup
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
