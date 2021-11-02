@@ -37,18 +37,7 @@ fun checkStateProduct(view: View, value: Boolean) {
 
 @BindingAdapter(value = ["app:items"])
 fun <T>setRecyclerItems(view: RecyclerView, items:List<T>?){
-    (view.adapter as BaseRecyclerAdapter<T>?)?.let{
-        if(items != null){
-            it.setItems(items)
-        } else {
-            it.setItems(emptyList())
-        }
-    }
-}
-
-@BindingAdapter(value = ["app:itemsForNested"])
-fun setRecyclerNestedItems(view: RecyclerView, items: List<HomeItems<Any?>>?) {
-    items?.let { (view.adapter as HomeNestedAdapter?)?.setItemsNested(it) }
+    items?.let { (view.adapter as BaseRecyclerAdapter<T>?)?.setItems(it) }
 }
 
 @BindingAdapter(value=["app:onclickSearch"])
