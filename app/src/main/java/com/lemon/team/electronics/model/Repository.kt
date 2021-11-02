@@ -38,6 +38,7 @@ object Repository{
         wrapWithFlow { API.apiService.getProductById(productId) }
 
 
+    // this function will be rewritten after create database
     fun getWishedProducts()
             : Flow<State<ProductsInCategoryResponse?>> =
         wrapWithFlow { API.apiService
@@ -48,6 +49,7 @@ object Repository{
             )
         }
 
+    // this function will be rewritten after create database
     fun getProductsInCart()
             : Flow<State<ProductsInCategoryResponse?>> =
         wrapWithFlow { API.apiService

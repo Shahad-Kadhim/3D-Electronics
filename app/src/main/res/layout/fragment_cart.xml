@@ -119,7 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text18sp"
-            android:text="@{String.valueOf(viewModel.totalPrice)}"
+            android:text="@{String.valueOf(viewModel.totalPrice)+` IQ`}"
             android:textColor="@color/white"
             android:fontFamily="@font/monda_bold"
             android:layout_margin="@dimen/margin12dp"

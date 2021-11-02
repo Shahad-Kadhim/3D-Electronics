@@ -40,7 +40,7 @@
                 android:id="@+id/product_price_text"
                 style="@style/ProductPriceStyle"
                 android:layout_margin="@dimen/margin3x"
-                android:text="@{String.valueOf(item.price)}"
+                android:text="@{String.valueOf(item.price)+` IQ`}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginStart="@dimen/margin12dp"
                 app:layout_constraintStart_toEndOf="@id/product_image"
