@@ -4,26 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="title"
-            type="String"/>
 
         <variable
             name="adapter"
             type="com.lemon.team.electronics.ui.base.BaseRecyclerAdapter" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
         <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@{title}"
-            android:hint="title"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Categories"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,20 +26,23 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="see more"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:adapter="@{adapter}"
             android:orientation="horizontal"
-            tools:listitem="@layout/item_product"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:spanCount="2"
+            tools:listitem="@layout/item_category" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

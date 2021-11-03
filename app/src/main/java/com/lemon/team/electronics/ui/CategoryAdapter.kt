@@ -7,5 +7,5 @@ import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 class CategoryAdapter(items: List<Content>,
                       listener: ProductInteractionListener
 ): BaseRecyclerAdapter<Content>(items, listener) {
-    override val layoutId: Int = R.layout.item_category_product
+    override val layoutId: Int = R.layout.item_product
 }

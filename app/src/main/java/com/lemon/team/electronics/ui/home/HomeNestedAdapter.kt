@@ -37,7 +37,7 @@ class HomeNestedAdapter(
         when (viewType) {
             TYPE_SLIDE_SHOW -> R.layout.items_slide_show_host
             TYPE_SEARCH -> R.layout.item_search
-            TYPE_CATEGORIES -> R.layout.items_horizontal_host
+            TYPE_CATEGORIES -> R.layout.item_categories_recycle
             TYPE_BEST_SELLER -> R.layout.items_horizontal_host
             else -> R.layout.items_horizontal_host
         }
@@ -64,7 +64,7 @@ class HomeNestedAdapter(
                     holder.binding.setVariable(BR.listener,listener)
                 }
                 is HomeItem.SlideType -> {
-                    holder.setVariableAdapter(SlideShowAdapter(items, listener))
+                    holder.setVariableAdapter(SlideShowAdapter(items, listener as ProductInteractionListener))
                 }
 
             }
