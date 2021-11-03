@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken
 import com.lemon.team.electronics.model.response.about.Companies
 
 @SuppressLint("StaticFieldLeak")
-class LocalData(val gson: Gson): LocalInteractionListener {
+class LocalData(val gson: Gson): LocalResources {
 
     fun setContext(applicationContext: Context) {
         context = applicationContext
