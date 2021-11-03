@@ -1,27 +1,28 @@
 package com.lemon.team.electronics.util
 
+import android.annotation.SuppressLint
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.lemon.team.electronics.model.response.about.Companies
 
-class JsonParse {
+@SuppressLint("StaticFieldLeak")
+class JsonParse: LocalInteractionListener {
 
-    fun getJsonParser(context: Context): Companies {
-        COMPANIES_LOGOS = (Gson().fromJson(JsonReader().getJsonString(context), getTypeOfJson()))
-        return COMPANIES_LOGOS
+    fun getContext(applicationContext: Context) {
+        context = applicationContext
     }
 
-    fun getJsonParser() = COMPANIES_LOGOS
+    private fun getJsonString(fileName: String) =
+        JsonReader().getJsonString(context, fileName)
+
+    override fun getJsonParser(fileName: String): Companies =
+        ((Gson().fromJson(getJsonString(fileName),object : TypeToken<Companies>() {}.type)))
 
 
-    private fun getTypeOfJson() =
-        object : TypeToken<Companies>() {}.type
 
-
-
-    companion object CompaniesLogo{
-        private lateinit var COMPANIES_LOGOS: Companies
+    companion object {
+        private lateinit var context: Context
     }
 
 }

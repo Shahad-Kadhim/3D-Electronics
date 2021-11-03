@@ -1,6 +1,5 @@
 package com.lemon.team.electronics.ui
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -15,13 +14,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        JsonParse().getJsonParser(applicationContext)
         binding=DataBindingUtil.setContentView<ActivityMainBinding>(
             this,
             R.layout.activity_main
         ).also { binding ->
             binding.lifecycleOwner=this
         }
+
+        JsonParse().getContext(applicationContext)
+
     }
 
     override fun onResume() {

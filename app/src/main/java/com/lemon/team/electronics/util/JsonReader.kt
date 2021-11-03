@@ -4,7 +4,7 @@ import android.content.Context
 
 class JsonReader {
 
-    fun getJsonString(context: Context)=
-        context.readJsonAsset( "companies.json")
+    fun getJsonString(context: Context, jsonFileName: String)=
+        context.readJsonAsset(jsonFileName)
 
 }

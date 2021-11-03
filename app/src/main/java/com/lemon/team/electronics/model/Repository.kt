@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.model
 
 import com.lemon.team.electronics.model.network.API
+import com.lemon.team.electronics.model.response.about.Companies
 import com.lemon.team.electronics.model.response.about.CompaniesImgUrl
 import com.lemon.team.electronics.model.response.categories.CategoriesResponse
 import com.lemon.team.electronics.model.response.productsByCategoryId.ProductsInCategoryResponse
@@ -50,10 +51,11 @@ object Repository{
 
 
     fun getVendors(): List<CompaniesImgUrl>? =
-        JsonParse().getJsonParser().companiesImgUrl
+        JsonParse().getJsonParser("companies.json").companiesImgUrl
+    
 
     fun getOtherVendors(): List<CompaniesImgUrl>? =
-        JsonParse().getJsonParser().otherCompaniesImgUrl
+        JsonParse().getJsonParser("companies.json").otherCompaniesImgUrl
 
 
 
