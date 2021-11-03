@@ -16,17 +16,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
+        <View
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:onClick="@{() -> listener.onclickSearch()}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="@{title}"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

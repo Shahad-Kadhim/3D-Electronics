@@ -60,7 +60,9 @@ class HomeNestedAdapter(
                     holder.setVariableAdapter(CategoryAdapter(items, listener as ProductInteractionListener))
                     holder.binding.setVariable(BR.title, title)
                 }
-                is HomeItem.SearchType -> {  }
+                is HomeItem.SearchType -> {
+                    holder.binding.setVariable(BR.listener,listener)
+                }
                 is HomeItem.SlideType -> {
                     holder.setVariableAdapter(SlideShowAdapter(items, listener))
                 }

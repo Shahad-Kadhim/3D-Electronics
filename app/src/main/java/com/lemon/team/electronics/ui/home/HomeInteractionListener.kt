@@ -4,4 +4,5 @@ import com.lemon.team.electronics.ui.*
 
 interface HomeInteractionListener :
         ProductInteractionListener,
-        CategoryInteractionListener
+        CategoryInteractionListener,
+        SearchInteractionListener

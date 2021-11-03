@@ -14,6 +14,9 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
     private var _aboutEvent = MutableLiveData<Event<Boolean>>()
     val aboutEvent: LiveData<Event<Boolean>> = _aboutEvent
 
+    private var _searchEvent = MutableLiveData<Event<Boolean>>()
+    val searchEvent: LiveData<Event<Boolean>> = _searchEvent
+
     val categories = Repository.getCategories().asLiveData()
     val bestProduct = MutableLiveData<State<ProductResponse?>>()
     val mouseCategories = Repository.getProductsByCategoryId("54653fdb-db67-4e72-8840-1d842e3c4f04" ,
@@ -30,6 +33,10 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
 
     override fun onClickCategory(CategoryId: CategoriesResponseItem) {
 
+    }
+
+    override fun onclickSearch() {
+        _searchEvent.postValue(Event(true))
     }
 
     override fun onClickProduct(productId: String) {

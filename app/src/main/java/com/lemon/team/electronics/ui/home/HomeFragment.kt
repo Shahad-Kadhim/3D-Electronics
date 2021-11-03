@@ -8,6 +8,7 @@ import com.lemon.team.electronics.databinding.FragmentHomeBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.EventObserver
 import com.lemon.team.electronics.util.State
+import com.lemon.team.electronics.util.goToFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override val layoutId: Int = R.layout.fragment_home
@@ -32,10 +33,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     private fun observeEvent() {
         viewModel.also {
             it.aboutEvent.observe(this, EventObserver {
-//                binding.about.goToFragment(HomeFragmentDirections.actionHomeFragmentToAboutFragment())
+                binding.about.goToFragment(HomeFragmentDirections.actionHomeFragmentToAboutFragment())
             })
             it.cartEvent.observe(this, EventObserver {
-//                binding.cart.goToFragment(HomeFragmentDirections.actionHomeFragmentToCartFragment())
+                binding.cart.goToFragment(HomeFragmentDirections.actionHomeFragmentToCartFragment())
+            })
+            it.searchEvent.observe(this, EventObserver {
+                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
             })
 
             (binding.recyclerViewHome.adapter as HomeNestedAdapter?).apply {
