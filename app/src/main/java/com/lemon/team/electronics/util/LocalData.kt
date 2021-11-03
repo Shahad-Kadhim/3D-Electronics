@@ -7,17 +7,17 @@ import com.google.gson.reflect.TypeToken
 import com.lemon.team.electronics.model.response.about.Companies
 
 @SuppressLint("StaticFieldLeak")
-class JsonParse: LocalInteractionListener {
+class LocalData(val gson: Gson): LocalInteractionListener {
 
-    fun getContext(applicationContext: Context) {
+    fun setContext(applicationContext: Context) {
         context = applicationContext
     }
 
     private fun getJsonString(fileName: String) =
         JsonReader().getJsonString(context, fileName)
 
-    override fun getJsonParser(fileName: String): Companies =
-        ((Gson().fromJson(getJsonString(fileName),object : TypeToken<Companies>() {}.type)))
+    override fun getCompanies(fileName: String): Companies =
+        ((gson.fromJson(getJsonString(fileName),object : TypeToken<Companies>() {}.type)))
 
 
 

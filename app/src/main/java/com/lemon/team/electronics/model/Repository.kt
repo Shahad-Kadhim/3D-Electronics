@@ -1,7 +1,8 @@
 package com.lemon.team.electronics.model
 
+import android.annotation.SuppressLint
+import com.google.gson.Gson
 import com.lemon.team.electronics.model.network.API
-import com.lemon.team.electronics.model.response.about.Companies
 import com.lemon.team.electronics.model.response.about.CompaniesImgUrl
 import com.lemon.team.electronics.model.response.categories.CategoriesResponse
 import com.lemon.team.electronics.model.response.productsByCategoryId.ProductsInCategoryResponse
@@ -12,7 +13,10 @@ import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
 
+@SuppressLint("StaticFieldLeak")
 object Repository{
+
+    private val localData: LocalData = LocalData(Gson())
 
     fun getCategories()
             : Flow<State<CategoriesResponse?>> =
@@ -51,12 +55,14 @@ object Repository{
 
 
     fun getVendors(): List<CompaniesImgUrl>? =
-        JsonParse().getJsonParser("companies.json").companiesImgUrl
+        getAllCompanies("companies.json").companiesImgUrl
     
 
     fun getOtherVendors(): List<CompaniesImgUrl>? =
-        JsonParse().getJsonParser("companies.json").otherCompaniesImgUrl
+        getAllCompanies("companies.json").otherCompaniesImgUrl
 
+
+    private fun getAllCompanies(fileName: String) = localData.getCompanies(fileName)
 
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {

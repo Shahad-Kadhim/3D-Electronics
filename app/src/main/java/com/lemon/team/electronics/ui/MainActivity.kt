@@ -5,9 +5,10 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.gson.Gson
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.ActivityMainBinding
-import com.lemon.team.electronics.util.JsonParse
+import com.lemon.team.electronics.util.LocalData
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,8 +22,7 @@ class MainActivity : AppCompatActivity() {
             binding.lifecycleOwner=this
         }
 
-        JsonParse().getContext(applicationContext)
-
+        LocalData(Gson()).setContext(applicationContext)
     }
 
     override fun onResume() {
