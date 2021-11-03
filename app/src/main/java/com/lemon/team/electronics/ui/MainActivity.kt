@@ -5,10 +5,13 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.gson.Gson
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.ActivityMainBinding
+import com.lemon.team.electronics.util.LocalData
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         ).also { binding ->
             binding.lifecycleOwner=this
         }
+
+        LocalData(Gson()).setContext(applicationContext)
     }
 
     override fun onResume() {

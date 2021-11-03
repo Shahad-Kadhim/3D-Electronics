@@ -76,5 +76,9 @@ dependencies {
     //lottie dependence
     implementation 'com.airbnb.android:lottie:4.1.0'
 
-  //  implementation "com.github.kojofosu:Quantitizer:1.6.4"
+    //json
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+
+    //  implementation "com.github.kojofosu:Quantitizer:1.6.4"
 }

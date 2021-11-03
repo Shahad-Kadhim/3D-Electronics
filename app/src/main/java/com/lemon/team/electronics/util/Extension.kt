@@ -1,13 +1,14 @@
 package com.lemon.team.electronics.util
 
+import android.content.Context
 import android.view.View
 import android.widget.EditText
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.navigation.*
 import com.lemon.team.electronics.BR
-import com.lemon.team.electronics.model.response.productById.ProductResponse
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
+import java.io.IOException
 
 fun View.goToFragment(navDir: NavDirections) {
     Navigation.findNavController(this).navigate(navDir)
@@ -22,6 +23,14 @@ fun EditText.onClickSearch(action : (String) -> Unit) {
     }
 }
 
+fun Context.readJsonAsset(fileName: String): String? {
+    return try {
+        assets.open(fileName).bufferedReader().use { it.readText() }
+    } catch (ioException: IOException) {
+        ioException.printStackTrace()
+        null
+    }
+}
 fun BaseRecyclerAdapter.ItemViewHolder.setVariableAdapter(item: Any?) {
     this.binding.setVariable(BR.adapter, item)
 }

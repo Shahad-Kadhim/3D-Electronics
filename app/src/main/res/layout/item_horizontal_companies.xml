@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.response.about.Companies" />
+            type="com.lemon.team.electronics.model.response.about.CompaniesImgUrl" />
 
     </data>
 
@@ -22,7 +22,7 @@
             android:id="@+id/product_image"
             android:layout_height="100dp"
             android:layout_width="100dp"
-            app:urlForImage="@{item.imgUrl}"
+            app:urlForImage="@{item.logoImg}"
             app:shapeAppearance="@style/companies"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

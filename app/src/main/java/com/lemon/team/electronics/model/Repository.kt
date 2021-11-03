@@ -1,7 +1,9 @@
 package com.lemon.team.electronics.model
 
+import android.annotation.SuppressLint
+import com.google.gson.Gson
 import com.lemon.team.electronics.model.network.API
-import com.lemon.team.electronics.model.response.about.Companies
+import com.lemon.team.electronics.model.response.about.CompaniesImgUrl
 import com.lemon.team.electronics.model.response.categories.CategoriesResponse
 import com.lemon.team.electronics.model.response.productsByCategoryId.ProductsInCategoryResponse
 import com.lemon.team.electronics.model.response.recommended.RecommendedProductsResponse
@@ -11,7 +13,10 @@ import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
 
+@SuppressLint("StaticFieldLeak")
 object Repository{
+
+    private val localData: LocalData = LocalData(Gson())
 
     fun getCategories()
             : Flow<State<CategoriesResponse?>> =
@@ -66,6 +71,16 @@ object Repository{
     }
 
 
+    fun getVendors(): List<CompaniesImgUrl>? =
+        getAllCompanies("companies.json").companiesImgUrl
+    
+
+    fun getOtherVendors(): List<CompaniesImgUrl>? =
+        getAllCompanies("companies.json").otherCompaniesImgUrl
+
+
+    private fun getAllCompanies(fileName: String) = localData.getCompanies(fileName)
+
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
         return flow {
@@ -85,21 +100,6 @@ object Repository{
         else {
             State.Error(response.message())
         }
-
-
-    fun getVendors(): List<Companies> = listOf(
-        Companies( "https://static.vecteezy.com/system/resources/previews/001/481/849/large_2x/pet-adoption-with-cute-little-cats-vector.jpg"),
-        Companies( "https://static.vecteezy.com/system/resources/previews/002/657/069/large_2x/cute-cat-take-bath-cartoon-character-free-vector.jpg"),
-        Companies( "https://static.vecteezy.com/system/resources/previews/002/613/769/non_2x/pet-shop-veterinary-with-food-animals-vector.jpg"),
-        Companies( "https://static.vecteezy.com/system/resources/previews/000/152/772/large_2x/free-gerbil-vector.png"),
-    )
-
-    fun getOtherVendors(): List<Companies> = listOf(
-        Companies( "https://image.freepik.com/free-vector/cute-shiba-inu-design-with-mask-vaccine_454510-35.jpg"),
-        Companies("https://image.freepik.com/free-vector/cute-cat-holding-fish-balloon_138676-1193.jpg"),
-        Companies( "https://static.vecteezy.com/system/resources/previews/000/129/025/large_2x/vector-papillon-dog.jpg"),
-        Companies( "https://static.vecteezy.com/system/resources/previews/001/963/388/non_2x/couple-owl-and-bird-house-vector.jpg"),
-    )
 
 }
 

@@ -200,10 +200,7 @@
                         android:id="@+id/companies_recycler"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margin12dp"
-                        android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
-                        android:layout_marginEnd="12dp"
                         android:layout_marginBottom="16dp"
                         android:orientation="horizontal"
                         app:items="@{viewModel.companies}"
@@ -243,7 +240,7 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/other_companies_recycler"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="16dp"
@@ -264,7 +261,6 @@
                     android:layout_height="0dp"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/company_bg"
-
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/other_companies">
