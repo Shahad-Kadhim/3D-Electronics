@@ -15,22 +15,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/base_color">
+        android:layout_margin="8dp">
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:text="silde show"
+            app:urlForImage="@{item.picLocation}"
             android:onClick="@{() -> listener.onClickProduct(item.id)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="@{item.name}"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
