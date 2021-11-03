@@ -2,8 +2,6 @@ package com.lemon.team.electronics.model.response
 
 
 import com.google.gson.annotations.SerializedName
-import com.lemon.team.electronics.model.response.search.Category
-import com.lemon.team.electronics.model.response.search.ImageJsonResponse
 
 data class Content(
     @SerializedName("category")

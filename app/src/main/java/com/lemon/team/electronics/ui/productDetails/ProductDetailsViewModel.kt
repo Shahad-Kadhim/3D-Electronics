@@ -2,7 +2,7 @@ package com.lemon.team.electronics.ui.productDetails
 
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.productById.ProductResponse
+import com.lemon.team.electronics.model.response.Content
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
 import com.lemon.team.electronics.util.State
@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 
 class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
-    private var _detailsProduct = MutableLiveData<State<ProductResponse?>>()
-    val detailsProduct :LiveData<State<ProductResponse?>> =_detailsProduct
+    private var _detailsProduct = MutableLiveData<State<Content?>>()
+    val detailsProduct :LiveData<State<Content?>> =_detailsProduct
 
     val images =Transformations.map(detailsProduct){
         it.toData()?.imageJsonResponses?.map { it.productImageLocation }

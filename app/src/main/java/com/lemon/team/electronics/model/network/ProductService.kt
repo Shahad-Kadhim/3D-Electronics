@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.model.network
 
+import com.lemon.team.electronics.model.response.Content
 import com.lemon.team.electronics.model.response.categories.CategoriesResponse
-import com.lemon.team.electronics.model.response.productById.ProductResponse
 import com.lemon.team.electronics.model.response.productsByCategoryId.ProductsInCategoryResponse
 import com.lemon.team.electronics.model.response.recommended.RecommendedProductsResponse
 import com.lemon.team.electronics.model.response.search.SearchResponse
@@ -34,6 +34,6 @@ interface ProductService {
     @GET("resources/products/product")
     suspend fun getProductById(
         @Query ("productId") productId: String
-    ): Response<ProductResponse>
+    ): Response<Content>
 
 }

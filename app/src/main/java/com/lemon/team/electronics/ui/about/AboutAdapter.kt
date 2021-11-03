@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.about
 
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.response.about.CompaniesImgUrl
+import com.lemon.team.electronics.model.local.CompaniesImgUrl
 import com.lemon.team.electronics.ui.base.BaseInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 

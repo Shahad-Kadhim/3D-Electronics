@@ -1,4 +1,4 @@
-package com.lemon.team.electronics.model.response.productsByCategoryId
+package com.lemon.team.electronics.model.response
 
 
 import com.google.gson.annotations.SerializedName

@@ -3,6 +3,8 @@ package com.lemon.team.electronics.model.response.productsByCategoryId
 
 import com.google.gson.annotations.SerializedName
 import com.lemon.team.electronics.model.response.Content
+import com.lemon.team.electronics.model.response.Pageable
+import com.lemon.team.electronics.model.response.SortX
 
 data class ProductsInCategoryResponse(
     @SerializedName("content")

@@ -1,4 +1,4 @@
-package com.lemon.team.electronics.model.response.about
+package com.lemon.team.electronics.model.local
 
 
 import com.google.gson.annotations.SerializedName

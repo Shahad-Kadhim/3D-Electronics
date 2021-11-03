@@ -3,12 +3,12 @@ package com.lemon.team.electronics.model
 import android.annotation.SuppressLint
 import com.google.gson.Gson
 import com.lemon.team.electronics.model.network.API
-import com.lemon.team.electronics.model.response.about.CompaniesImgUrl
+import com.lemon.team.electronics.model.local.CompaniesImgUrl
+import com.lemon.team.electronics.model.response.Content
 import com.lemon.team.electronics.model.response.categories.CategoriesResponse
 import com.lemon.team.electronics.model.response.productsByCategoryId.ProductsInCategoryResponse
 import com.lemon.team.electronics.model.response.recommended.RecommendedProductsResponse
 import com.lemon.team.electronics.model.response.search.SearchResponse
-import com.lemon.team.electronics.model.response.productById.ProductResponse
 import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
@@ -39,7 +39,7 @@ object Repository{
 
 
     fun getProductById(productId: String)
-            :Flow<State<ProductResponse?>> =
+            :Flow<State<Content?>> =
         wrapWithFlow { API.apiService.getProductById(productId) }
 
 
