@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.response.categories.CategoryResponse" />
+            type="com.lemon.team.electronics.model.response.CategoryResponse" />
 
         <variable
             name="listener"

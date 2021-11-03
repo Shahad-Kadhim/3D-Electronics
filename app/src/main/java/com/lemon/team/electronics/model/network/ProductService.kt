@@ -1,9 +1,9 @@
 package com.lemon.team.electronics.model.network
 
 import com.lemon.team.electronics.model.response.Product
-import com.lemon.team.electronics.model.response.categories.CategoriesResponse
+import com.lemon.team.electronics.model.response.CategoriesResponse
 import com.lemon.team.electronics.model.response.ProductsResponse
-import com.lemon.team.electronics.model.response.recommended.RecommendedProductsResponse
+import com.lemon.team.electronics.model.response.RecommendedProductsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

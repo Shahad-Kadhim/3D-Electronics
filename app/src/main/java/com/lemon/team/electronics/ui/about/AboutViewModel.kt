@@ -10,8 +10,8 @@ import com.lemon.team.electronics.util.Event
 
 class AboutViewModel :BaseViewModel(), BaseInteractionListener{
 
-    var companies = Repository.getVendors()
-    var otherCompanies = Repository.getOtherVendors()
+    var companies = Repository.getCompanies()
+    var otherCompanies = Repository.getOtherCompanies()
 
     private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
     var clickBackEvent : LiveData<Event<Boolean>> = _clickBackEvent

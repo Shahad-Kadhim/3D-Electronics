@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import com.google.gson.Gson
 import com.lemon.team.electronics.model.network.API
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
-import com.lemon.team.electronics.model.response.Product
-import com.lemon.team.electronics.model.response.categories.CategoriesResponse
-import com.lemon.team.electronics.model.response.ProductsResponse
-import com.lemon.team.electronics.model.response.recommended.RecommendedProductsResponse
+import com.lemon.team.electronics.model.response.*
 import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
@@ -17,34 +14,36 @@ object Repository{
 
     private val localData: LocalData = LocalData(Gson())
 
-    fun getCategories()
-            : Flow<State<CategoriesResponse?>> =
+    fun getCategories(): Flow<State<CategoriesResponse?>> =
         wrapWithFlow { API.apiService.getCategories() }
 
 
-    fun getProductsByCategoryId(categoryId: String, page: Int, sortBy: String = "createdAt")
-            : Flow<State<ProductsResponse?>> =
+    fun getProductsByCategoryId(
+        categoryId: String,
+        page: Int,
+        sortBy: String = "createdAt"
+    ): Flow<State<ProductsResponse?>> =
         wrapWithFlow { API.apiService.getProductsByCategoryId(categoryId, page, sortBy) }
 
 
-    fun getProductByName(productName: String, page: Int, sortBy: String = "createdAt" )
-            :Flow<State<ProductsResponse?>> =
+    fun getProductByName(
+        productName: String,
+        page: Int,
+        sortBy: String = "createdAt"
+    ): Flow<State<ProductsResponse?>> =
         wrapWithFlow { API.apiService.getProductByName(productName, page, sortBy) }
 
 
-    fun getRecommendedProducts()
-            : Flow<State<RecommendedProductsResponse?>> =
+    fun getRecommendedProducts(): Flow<State<RecommendedProductsResponse?>> =
         wrapWithFlow { API.apiService.getRecommendedProducts() }
 
 
-    fun getProductById(productId: String)
-            :Flow<State<Product?>> =
+    fun getProductById(productId: String): Flow<State<Product?>> =
         wrapWithFlow { API.apiService.getProductById(productId) }
 
 
     // this function will be rewritten after create database
-    fun getWishedProducts()
-            : Flow<State<ProductsResponse?>> =
+    fun getWishedProducts(): Flow<State<ProductsResponse?>> =
         wrapWithFlow { API.apiService
             .getProductsByCategoryId(
                 categoryId = "54653fdb-db67-4e72-8840-1d842e3c4f04",
@@ -52,10 +51,10 @@ object Repository{
                 sortBy = "createdAt"
             )
         }
+
 
     // this function will be rewritten after create database
-    fun getProductsInCart()
-            : Flow<State<ProductsResponse?>> =
+    fun getProductsInCart(): Flow<State<ProductsResponse?>> =
         wrapWithFlow { API.apiService
             .getProductsByCategoryId(
                 categoryId = "54653fdb-db67-4e72-8840-1d842e3c4f04",
@@ -64,21 +63,21 @@ object Repository{
             )
         }
 
+
     // this function gets the total price of the products in the cart from the database
-    fun getTotalPrice(): Int {
-        return 500
-    }
+    fun getTotalPrice() = 500
 
 
-    fun getVendors(): List<CompaniesImgUrl>? =
+    fun getCompanies(): List<CompaniesImgUrl>? =
         getAllCompanies("companies.json").companiesImgUrl
     
 
-    fun getOtherVendors(): List<CompaniesImgUrl>? =
+    fun getOtherCompanies(): List<CompaniesImgUrl>? =
         getAllCompanies("companies.json").otherCompaniesImgUrl
 
 
-    private fun getAllCompanies(fileName: String) = localData.getCompanies(fileName)
+    private fun getAllCompanies(fileName: String) =
+        localData.getCompanies(fileName)
 
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
@@ -99,6 +98,7 @@ object Repository{
         else {
             State.Error(response.message())
         }
+
 
 }
 

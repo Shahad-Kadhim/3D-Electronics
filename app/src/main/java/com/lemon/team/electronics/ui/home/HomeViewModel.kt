@@ -1,11 +1,8 @@
 package com.lemon.team.electronics.ui.home
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.Product
-import com.lemon.team.electronics.model.response.categories.CategoriesResponse
-import com.lemon.team.electronics.model.response.categories.CategoryResponse
+import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.response.productsByCategoryId.CategoryInfoType
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Constants.MOUSE_CATEGORY_ID

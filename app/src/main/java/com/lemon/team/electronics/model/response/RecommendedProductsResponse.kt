@@ -1,4 +1,4 @@
-package com.lemon.team.electronics.model.response.recommended
+package com.lemon.team.electronics.model.response
 
 import com.lemon.team.electronics.model.response.Product
 
