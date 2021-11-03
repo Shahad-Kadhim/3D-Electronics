@@ -21,12 +21,10 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
     var clickBackEvent :LiveData<Event<Boolean>>  = _clickBackEvent
 
     fun getProductsByCategoryId(categoryId: String){
-        viewModelScope.launch {
-            Repository.getProductsByCategoryId(categoryId, Constants.PAGE_NUMBER_ZERO)
-                .flowOn(Dispatchers.IO)
-                .collect {
-                    _categoryItems.postValue(it)
-                }
+
+        collectResponse(
+            Repository.getProductsByCategoryId(categoryId, Constants.PAGE_NUMBER_ZERO)){
+            _categoryItems.postValue(it)
         }
     }
 
