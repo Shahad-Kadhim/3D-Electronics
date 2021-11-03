@@ -20,12 +20,13 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:text="silde show"
-            app:urlForImage="@{item.picLocation}"
             android:onClick="@{() -> listener.onClickProduct(item.id)}"
+            android:text="silde show"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:urlForImage="@{item.picLocation}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

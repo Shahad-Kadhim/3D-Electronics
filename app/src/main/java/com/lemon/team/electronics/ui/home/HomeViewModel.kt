@@ -4,10 +4,10 @@ import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.categories.CategoriesResponseItem
-import com.lemon.team.electronics.model.response.productById.ProductResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 
 class HomeViewModel :BaseViewModel() , HomeInteractionListener {
+
     private var _cartEvent = MutableLiveData<Event<Boolean>>()
     val cartEvent: LiveData<Event<Boolean>> = _cartEvent
 
@@ -16,6 +16,12 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
 
     private var _searchEvent = MutableLiveData<Event<Boolean>>()
     val searchEvent: LiveData<Event<Boolean>> = _searchEvent
+
+    private var _onclickProductEvent = MutableLiveData<Event<String>>()
+    val onclickProductEvent: LiveData<Event<String>> = _onclickProductEvent
+
+    private var _onclickCategoryEvent = MutableLiveData<Event<CategoriesResponseItem>>()
+    val onclickCategoryEvent: LiveData<Event<CategoriesResponseItem>> = _onclickCategoryEvent
 
     val categories = Repository.getCategories().asLiveData()
     val bestProduct = Repository.getRecommendedProducts().asLiveData()
@@ -31,20 +37,20 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         _aboutEvent.postValue(Event(true))
     }
 
-    override fun onClickCategory(CategoryId: CategoriesResponseItem) {
-
-    }
-
     override fun onclickSearch() {
         _searchEvent.postValue(Event(true))
     }
 
     override fun onClickProduct(productId: String) {
-
+        _onclickProductEvent.postValue(Event(productId))
     }
 
     override fun onClickHeart(productId: String) {
+        // write code when create database
+    }
 
+    override fun onClickCategory(CategoryId: CategoriesResponseItem) {
+        _onclickCategoryEvent.postValue(Event(CategoryId))
     }
 
 }

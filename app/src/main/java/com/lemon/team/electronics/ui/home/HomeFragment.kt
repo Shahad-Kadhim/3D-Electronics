@@ -40,6 +40,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             it.searchEvent.observe(this, EventObserver {
                 binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
             })
+            it.onclickCategoryEvent.observe(this, EventObserver { category ->
+                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(category.id,category.categoryName))
+            })
+            it.onclickProductEvent.observe(this, EventObserver { id ->
+                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToProductFragment(id))
+            })
 
             (binding.recyclerViewHome.adapter as HomeNestedAdapter?).apply {
 
