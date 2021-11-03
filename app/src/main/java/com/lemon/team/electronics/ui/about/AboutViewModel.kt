@@ -3,10 +3,9 @@ package com.lemon.team.electronics.ui.about
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.ui.base.BaseInteractionListener
-import com.lemon.team.electronics.ui.base.BaseViewModel
-import com.lemon.team.electronics.util.Constants
-import com.lemon.team.electronics.util.Event
+import com.lemon.team.electronics.ui.base.*
+import com.lemon.team.electronics.util.*
+
 
 class AboutViewModel :BaseViewModel(), BaseInteractionListener{
 
@@ -21,4 +20,5 @@ class AboutViewModel :BaseViewModel(), BaseInteractionListener{
     fun onclickBack(){
         _clickBackEvent.postValue(Event(true))
     }
+
 }

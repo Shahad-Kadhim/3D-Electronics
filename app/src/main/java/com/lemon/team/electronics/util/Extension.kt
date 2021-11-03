@@ -31,9 +31,13 @@ fun Context.readJsonAsset(fileName: String): String? {
         null
     }
 }
+
+
 fun BaseRecyclerAdapter.ItemViewHolder.setVariableAdapter(item: Any?) {
     this.binding.setVariable(BR.adapter, item)
 }
+
+
 fun <T> LiveData<Event<T>>.observeEvent(owner: LifecycleOwner, f:(T) ->Unit){
     this.observe(owner, EventObserver{
         f(it)
