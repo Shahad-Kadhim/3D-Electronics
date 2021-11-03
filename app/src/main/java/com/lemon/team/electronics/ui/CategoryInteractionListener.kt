@@ -1,9 +1,9 @@
-package com.lemon.team.electronics.ui.categories
+package com.lemon.team.electronics.ui
 
 import com.lemon.team.electronics.model.response.categories.CategoriesResponseItem
 import com.lemon.team.electronics.ui.base.BaseInteractionListener
 
-interface CategoriesInteractionListener: BaseInteractionListener {
+interface CategoryInteractionListener: BaseInteractionListener {
 
     fun onClickCategory(CategoryId: CategoriesResponseItem)
 

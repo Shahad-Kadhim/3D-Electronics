@@ -1,19 +1,13 @@
 package com.lemon.team.electronics.ui.home
 
 import androidx.lifecycle.*
+import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.categories.CategoriesResponse
+import com.lemon.team.electronics.model.response.categories.CategoriesResponseItem
 import com.lemon.team.electronics.model.response.productById.ProductResponse
-import com.lemon.team.electronics.model.response.productsByCategoryId.Content
-import com.lemon.team.electronics.model.response.productsByCategoryId.ProductsInCategoryResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
-import com.lemon.team.electronics.util.Event
-import com.lemon.team.electronics.util.State
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 class HomeViewModel :BaseViewModel() , HomeInteractionListener {
-
     private var _cartEvent = MutableLiveData<Event<Boolean>>()
     val cartEvent: LiveData<Event<Boolean>> = _cartEvent
 
@@ -32,6 +26,18 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
 
     fun onClickAbout(){
         _aboutEvent.postValue(Event(true))
+    }
+
+    override fun onClickCategory(CategoryId: CategoriesResponseItem) {
+
+    }
+
+    override fun onClickProduct(productId: String) {
+
+    }
+
+    override fun onClickHeart(productId: String) {
+
     }
 
 }

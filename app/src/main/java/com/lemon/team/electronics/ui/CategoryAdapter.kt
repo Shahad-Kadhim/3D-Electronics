@@ -1,4 +1,4 @@
-package com.lemon.team.electronics.ui.category
+package com.lemon.team.electronics.ui
 
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.productsByCategoryId.Content

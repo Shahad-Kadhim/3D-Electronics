@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.home
 
-import com.lemon.team.electronics.ui.base.BaseInteractionListener
+import com.lemon.team.electronics.ui.*
 
-interface HomeInteractionListener : BaseInteractionListener {
-
-}
+interface HomeInteractionListener :
+        ProductInteractionListener,
+        CategoryInteractionListener
