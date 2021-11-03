@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCategoriesBinding
+import com.lemon.team.electronics.ui.CategoriesAdapter
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.EventObserver
 import com.lemon.team.electronics.util.goToFragment

@@ -9,7 +9,7 @@
 
         <variable
             name="listener"
-            type="com.lemon.team.electronics.ui.categories.CategoriesInteractionListener" />
+            type="com.lemon.team.electronics.ui.CategoryInteractionListener" />
     </data>
 
     <androidx.cardview.widget.CardView
