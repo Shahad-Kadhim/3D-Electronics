@@ -26,8 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun initNestedAdapter() {
-        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(
-            HomeItem.SearchType(), HomeItem.SlideType(listOf("1","2"))), viewModel)
+        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(HomeItem.SearchType()), viewModel)
     }
 
     private fun observeEvent() {
@@ -54,6 +53,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 it.categories.observe(this@HomeFragment) { state ->
                     if (state is State.Success) {
                         this?.addItem(HomeItem.CategoriesType(state.toData()!!))
+                    }
+                }
+
+                it.bestProduct.observe(this@HomeFragment) { state ->
+                    if (state is State.Success) {
+                        this?.addItem(HomeItem.BestProductType(state.toData()!!,"Best Seller"))
+                        this?.addItem(HomeItem.SlideType(state.toData()!!))
                     }
                 }
 

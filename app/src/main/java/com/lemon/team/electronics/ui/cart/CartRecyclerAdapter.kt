@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.cart
 
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.response.productsByCategoryId.Content
+import com.lemon.team.electronics.model.response.Content
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 class CartRecyclerAdapter(items: List<Content>, listener: CartInteractionListener)

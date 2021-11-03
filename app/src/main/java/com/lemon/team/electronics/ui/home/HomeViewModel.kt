@@ -18,7 +18,7 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
     val searchEvent: LiveData<Event<Boolean>> = _searchEvent
 
     val categories = Repository.getCategories().asLiveData()
-    val bestProduct = MutableLiveData<State<ProductResponse?>>()
+    val bestProduct = Repository.getRecommendedProducts().asLiveData()
     val mouseCategories = Repository.getProductsByCategoryId("54653fdb-db67-4e72-8840-1d842e3c4f04" ,
         0 ,  "createdAt" ).asLiveData()
 

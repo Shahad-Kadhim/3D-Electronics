@@ -1,3 +1,5 @@
 package com.lemon.team.electronics.model.response.recommended
 
-class RecommendedProductsResponse : ArrayList<RecommendedProductsResponseItem>()
+import com.lemon.team.electronics.model.response.Content
+
+class RecommendedProductsResponse : ArrayList<Content>()

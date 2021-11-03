@@ -1,13 +1,14 @@
 package com.lemon.team.electronics.ui.home
 
 import com.lemon.team.electronics.R
+import com.lemon.team.electronics.model.response.Content
 import com.lemon.team.electronics.ui.ProductInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 class SlideShowAdapter (
-    items: List<String>,
+    items: List<Content>,
     listener: ProductInteractionListener
-) : BaseRecyclerAdapter<String>(items, listener) {
+) : BaseRecyclerAdapter<Content>(items, listener) {
 
     override val layoutId: Int = R.layout.item_slide_show
 
