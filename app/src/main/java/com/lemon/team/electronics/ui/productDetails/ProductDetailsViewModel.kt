@@ -4,6 +4,7 @@ import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
+import com.lemon.team.electronics.util.Constants
 import com.lemon.team.electronics.util.Event
 import com.lemon.team.electronics.util.State
 import kotlinx.coroutines.Dispatchers
@@ -51,14 +52,12 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     }
 
     fun getDetailsProduct(productId: String) {
-        viewModelScope.launch {
-            Repository.getProductById(productId)
-                .flowOn(Dispatchers.IO)
-                .catch { }
-                .collect {
-                    _detailsProduct.postValue(it)
-                }
+
+        collectResponse(
+            Repository.getProductById(productId)){
+            _detailsProduct.postValue(it)
         }
+
     }
 
     fun onclickBack(){

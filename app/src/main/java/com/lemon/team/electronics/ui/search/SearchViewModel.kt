@@ -29,16 +29,14 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
     }
 
     private fun search() {
+
         searchName.value?.let {
-            viewModelScope.launch {
-                Repository.getProductByName(it, 0)
-                    .flowOn(Dispatchers.IO)
-                    .catch { }
-                    .collect {
-                        searchResult.postValue(it)
-                    }
+            collectResponse(
+                Repository.getProductByName(it, 0)){ product ->
+                searchResult.postValue(product)
             }
         }
+
     }
 
     fun onclickBack(){
