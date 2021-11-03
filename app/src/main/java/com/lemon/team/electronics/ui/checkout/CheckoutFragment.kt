@@ -17,4 +17,8 @@ class CheckoutFragment:BaseFragment<FragmentCheckoutBinding,CheckoutViewModel>()
 
     }
 
+    override fun observeEvents() {
+
+    }
+
 }

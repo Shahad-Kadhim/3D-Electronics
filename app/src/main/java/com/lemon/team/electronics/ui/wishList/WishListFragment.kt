@@ -27,7 +27,7 @@ class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>
         observeEvents()
     }
 
-    private fun observeEvents(){
+    override fun observeEvents(){
         viewModel.clickItemEvent.observe(this, EventObserver{
             view?.goToFragment(WishListFragmentDirections.actionWishFragment2ToProductFragment(it))
         })

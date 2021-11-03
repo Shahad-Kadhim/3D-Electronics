@@ -27,7 +27,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
         observeEvents()
     }
 
-    private fun observeEvents() {
+    override fun observeEvents() {
         viewModel.clickItemEvent.observe(this, EventObserver {
             binding.root.goToFragment(
                 SearchFragmentDirections

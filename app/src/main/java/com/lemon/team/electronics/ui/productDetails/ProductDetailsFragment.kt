@@ -33,7 +33,7 @@ class ProductDetailsFragment :
         observeEvents()
     }
 
-    private fun observeEvents() {
+    override fun observeEvents() {
 
         viewModel.onclickAddToCart.observe(this,EventObserver{
             // add to cart table when create database

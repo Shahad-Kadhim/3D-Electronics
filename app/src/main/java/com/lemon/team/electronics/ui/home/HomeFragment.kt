@@ -24,7 +24,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             this.lifecycleOwner = viewLifecycleOwner
             this.viewModel = this@HomeFragment.viewModel
             initNestedAdapter()
-            observeEvent()
+            observeEvents()
         }
     }
 
@@ -32,7 +32,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(HomeItem.SearchType()), viewModel)
     }
 
-    private fun observeEvent() {
+    override fun observeEvents() {
         viewModel.also {
             it.aboutEvent.observe(this, EventObserver {
                 binding.about.goToFragment(HomeFragmentDirections.actionHomeFragmentToAboutFragment())

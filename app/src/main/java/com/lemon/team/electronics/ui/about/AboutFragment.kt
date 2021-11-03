@@ -50,7 +50,7 @@ class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
     }
 
 
-    private fun observeEvents(){
+    override fun observeEvents(){
 
         viewModel.clickBackEvent.observeEvent(this){
             findNavController().popBackStack()

@@ -27,10 +27,10 @@ class CategoriesFragment:BaseFragment<FragmentCategoriesBinding,CategoriesViewMo
                 CategoriesAdapter(mutableListOf(),this@CategoriesFragment.viewModel)
         }
 
-        observeEvent()
+        observeEvents()
     }
 
-    private fun observeEvent() {
+    override fun observeEvents() {
         viewModel.categoryId.observe(this, EventObserver{
             view?.goToFragment(CategoriesFragmentDirections
                 .actionCategoriesFragmentToCategoryFragment(it.id, it.categoryName)

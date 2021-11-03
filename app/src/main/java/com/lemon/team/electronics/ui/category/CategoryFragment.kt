@@ -31,16 +31,16 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
         }
 
         viewModel.getProductsByCategoryId(args.categoryId)
-        observeEvent()
+        observeEvents()
     }
 
-    private fun observeEvent() {
+    override fun observeEvents(){
 
-        viewModel.clickItemEvent.observeEvent(this) {
+        viewModel.clickItemEvent.observeEvent(this){
             view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(it))
         }
 
-        viewModel.clickBackEvent.observeEvent(this) {
+        viewModel.clickBackEvent.observeEvent(this){
             findNavController().popBackStack()
         }
 

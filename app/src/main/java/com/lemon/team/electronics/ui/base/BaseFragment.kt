@@ -22,6 +22,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     }
 
     abstract fun setUp()
+    abstract fun observeEvents()
 
     override fun onCreateView(
         inflater: LayoutInflater,
