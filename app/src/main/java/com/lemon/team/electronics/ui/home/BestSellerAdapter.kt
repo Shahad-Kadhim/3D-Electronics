@@ -9,6 +9,6 @@ class BestSellerAdapter(
     items: List<Content>,
     listener: ProductInteractionListener) : BaseRecyclerAdapter<Content>(items, listener) {
 
-    override val layoutId: Int = R.layout.item_best_seller
+    override val layoutId: Int = R.layout.item_product
 
 }
