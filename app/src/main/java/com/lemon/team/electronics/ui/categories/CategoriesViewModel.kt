@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.categories.CategoryResponse
+import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
 
