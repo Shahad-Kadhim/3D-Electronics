@@ -2,7 +2,7 @@ package com.lemon.team.electronics.ui.wishList
 
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.Content
-import com.lemon.team.electronics.ui.ProductInteractionListener
+import com.lemon.team.electronics.ui.category.ProductInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 class WishListRecyclerAdapter(items: List<Content>, listener: ProductInteractionListener)

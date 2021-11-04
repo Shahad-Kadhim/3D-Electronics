@@ -2,7 +2,7 @@ package com.lemon.team.electronics.ui.wishList
 
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.ui.ProductInteractionListener
+import com.lemon.team.electronics.ui.category.ProductInteractionListener
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
 

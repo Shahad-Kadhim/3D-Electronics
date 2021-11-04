@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.search.SearchResponse
-import com.lemon.team.electronics.ui.ProductInteractionListener
+import com.lemon.team.electronics.ui.category.ProductInteractionListener
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
 import com.lemon.team.electronics.util.State
@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
-class SearchViewModel: BaseViewModel(), ProductInteractionListener{
+class SearchViewModel: BaseViewModel(), ProductInteractionListener {
 
     val searchName = MutableLiveData<String>()
     var searchResult = MutableLiveData<State<SearchResponse?>>()

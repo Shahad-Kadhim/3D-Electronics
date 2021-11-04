@@ -3,10 +3,6 @@ package com.lemon.team.electronics.ui.home
 import android.view.ViewGroup
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.ui.CategoriesAdapter
-import com.lemon.team.electronics.ui.CategoryAdapter
-import com.lemon.team.electronics.ui.CategoryInteractionListener
-import com.lemon.team.electronics.ui.ProductInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.util.setVariableAdapter
 
@@ -47,26 +43,23 @@ class HomeNestedAdapter(
     }
 
     private fun bind(holder: ItemViewHolder, position: Int) {
-        itemsNested[position].apply {
-            when (this) {
-                is HomeItem.BestProductType -> {
-                    holder.setVariableAdapter(BestSellerAdapter(items, listener))
-                    holder.binding.setVariable(BR.title, title)
-                }
-                is HomeItem.CategoriesType -> {
-                    holder.setVariableAdapter(CategoriesAdapter(items, listener as CategoryInteractionListener))
-                }
-                is HomeItem.ElementCategoriesType -> {
-                    holder.setVariableAdapter(CategoryAdapter(items, listener as ProductInteractionListener))
-                    holder.binding.setVariable(BR.title, title)
-                }
-                is HomeItem.SearchType -> {
-                    holder.binding.setVariable(BR.listener,listener)
-                }
-                is HomeItem.SlideType -> {
-                    holder.setVariableAdapter(SlideShowAdapter(items, listener as ProductInteractionListener))
-                }
-
+        when (val currentItem = itemsNested[position]) {
+            is HomeItem.BestProductType -> {
+                holder.setVariableAdapter(BestSellerAdapter(currentItem.items, listener))
+                holder.binding.setVariable(BR.title, currentItem.title)
+            }
+            is HomeItem.CategoriesType -> {
+                holder.setVariableAdapter(CategoriesAdapter(currentItem.items, listener))
+            }
+            is HomeItem.ElementCategoriesType -> {
+                holder.setVariableAdapter(CategoryAdapter(currentItem.items, listener))
+                holder.binding.setVariable(BR.title, currentItem.title)
+            }
+            is HomeItem.SearchType -> {
+                holder.binding.setVariable(BR.listener, listener)
+            }
+            is HomeItem.SlideType -> {
+                holder.setVariableAdapter(SlideShowAdapter(currentItem.items, listener))
             }
         }
     }
