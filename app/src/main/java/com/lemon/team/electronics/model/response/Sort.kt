@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName
 
 data class Sort(
     @SerializedName("empty")
-    val empty: Boolean?,
+    val isEmpty: Boolean?,
     @SerializedName("sorted")
-    val sorted: Boolean?,
+    val isSorted: Boolean?,
     @SerializedName("unsorted")
-    val unsorted: Boolean?
+    val isUnsorted: Boolean?
 )

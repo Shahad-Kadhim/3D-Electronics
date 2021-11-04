@@ -3,7 +3,7 @@ package com.lemon.team.electronics.model.response.categories
 
 import com.google.gson.annotations.SerializedName
 
-data class CategoriesResponseItem(
+data class CategoryResponse(
     @SerializedName("categoryImageLocation")
     val categoryImageLocation: String?,
     @SerializedName("categoryName")

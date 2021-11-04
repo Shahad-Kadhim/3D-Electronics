@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.response.Content" />
+            type="com.lemon.team.electronics.model.response.Product" />
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.cart.CartInteractionListener" />
@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:urlForImage="@{String.valueOf(item.picLocation)}"
+                app:urlForImage="@{String.valueOf(item.mainImage)}"
                 tools:src="@color/secondary_icons_color" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

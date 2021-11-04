@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.response.Content" />
+            type="com.lemon.team.electronics.model.response.Product" />
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.category.ProductInteractionListener" />
@@ -44,7 +44,7 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/product_image"
                     style="@style/ProductImageStyle"
-                    app:urlForImage="@{item.imageJsonResponses.get(0).productImageLocation}"
+                    app:urlForImage="@{item.images.get(0).productImageLocation}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

@@ -3,7 +3,7 @@ package com.lemon.team.electronics.model.response
 
 import com.google.gson.annotations.SerializedName
 
-data class Content(
+data class Product(
     @SerializedName("category")
     val category: Category?,
     @SerializedName("comingSoon")
@@ -15,7 +15,7 @@ data class Content(
     @SerializedName("id")
     val id: String,
     @SerializedName("imageJsonResponses")
-    val imageJsonResponses: List<ImageJsonResponse>?,
+    val images: List<ImageJsonResponse>?,
     @SerializedName("name")
     val name: String?,
     @SerializedName("oldPrice")
@@ -23,9 +23,9 @@ data class Content(
     @SerializedName("onlyShopAvailable")
     val onlyShopAvailable: Boolean?,
     @SerializedName("outOfStock")
-    val outOfStock: Boolean?,
+    val sold: Boolean?,
     @SerializedName("picLocation")
-    val picLocation: String?,
+    val mainImage: String?,
     @SerializedName("price")
     val price: Double?,
     @SerializedName("priceAssemble")

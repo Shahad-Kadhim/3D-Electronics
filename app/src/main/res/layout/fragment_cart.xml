@@ -37,7 +37,7 @@
             android:layout_height="0dp"
             android:layout_margin="@dimen/margin12dp"
             android:orientation="vertical"
-            app:items="@{viewModel.cartItems.toData().Content}"
+            app:items="@{viewModel.cartItems.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/check_out_button"
             app:layout_constraintEnd_toEndOf="parent"

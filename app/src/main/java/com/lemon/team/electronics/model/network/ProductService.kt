@@ -1,10 +1,9 @@
 package com.lemon.team.electronics.model.network
 
-import com.lemon.team.electronics.model.response.Content
+import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.model.response.categories.CategoriesResponse
-import com.lemon.team.electronics.model.response.productsByCategoryId.ProductsInCategoryResponse
+import com.lemon.team.electronics.model.response.ProductsResponse
 import com.lemon.team.electronics.model.response.recommended.RecommendedProductsResponse
-import com.lemon.team.electronics.model.response.search.SearchResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -19,14 +18,14 @@ interface ProductService {
         @Query ("categoryId") categoryId: String,
         @Query ("page") page: Int,
         @Query ("sort_by") sortBy: String
-    ): Response<ProductsInCategoryResponse>
+    ): Response<ProductsResponse>
 
     @GET("resources/products/search/")
     suspend fun getProductByName(
         @Query ("productName") productName: String,
         @Query ("page") page: Int,
         @Query ("sort_by") sortBy: String
-    ): Response<SearchResponse>
+    ): Response<ProductsResponse>
 
     @GET("resources/products/recommended/")
     suspend fun getRecommendedProducts(): Response<RecommendedProductsResponse>
@@ -34,6 +33,6 @@ interface ProductService {
     @GET("resources/products/product")
     suspend fun getProductById(
         @Query ("productId") productId: String
-    ): Response<Content>
+    ): Response<Product>
 
 }

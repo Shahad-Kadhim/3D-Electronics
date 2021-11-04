@@ -6,7 +6,8 @@
     <data>
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.response.Content" />
+            type="com.lemon.team.electronics.model.response.Product"/>
+
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.home.HomeInteractionListener" />
@@ -16,7 +17,7 @@
         android:id="@+id/product_background_card"
         style="@style/ProductBackgroundCardStyle"
         android:layout_margin="8dp">
-        
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="160dp"
             android:layout_height="wrap_content"
@@ -70,7 +71,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:urlForImage="@{item.imageJsonResponses.get(0).productImageLocation}"
+                app:urlForImage="@{item.mainImage}"
                 tools:src="@color/brand_color" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -98,7 +99,7 @@
                 android:text="@string/out_of_stock"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_small"
-                app:isVisible="@{item.outOfStock}"
+                app:isVisible="@{item.sold}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>

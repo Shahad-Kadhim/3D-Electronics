@@ -1,20 +1,17 @@
-package com.lemon.team.electronics.model.response.productsByCategoryId
+package com.lemon.team.electronics.model.response
 
 
 import com.google.gson.annotations.SerializedName
-import com.lemon.team.electronics.model.response.Content
-import com.lemon.team.electronics.model.response.Pageable
-import com.lemon.team.electronics.model.response.SortX
 
-data class ProductsInCategoryResponse(
+data class ProductsResponse(
     @SerializedName("content")
-    val content: List<Content>?,
+    val products: List<Product>?,
     @SerializedName("empty")
-    val empty: Boolean?,
+    val isEmpty: Boolean?,
     @SerializedName("first")
-    val first: Boolean?,
+    val isFirst: Boolean?,
     @SerializedName("last")
-    val last: Boolean?,
+    val isLast: Boolean?,
     @SerializedName("number")
     val number: Int?,
     @SerializedName("numberOfElements")
@@ -24,7 +21,7 @@ data class ProductsInCategoryResponse(
     @SerializedName("size")
     val size: Int?,
     @SerializedName("sort")
-    val sort: SortX?,
+    val sort: Sort?,
     @SerializedName("totalElements")
     val totalElements: Int?,
     @SerializedName("totalPages")

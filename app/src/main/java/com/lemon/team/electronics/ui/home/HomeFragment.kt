@@ -29,8 +29,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun initNestedAdapter() {
-        binding.recyclerViewHome.adapter =
-            HomeNestedAdapter(mutableListOf(HomeItem.SearchType()), viewModel)
+        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(HomeItem.SearchType()), viewModel)
     }
 
     private fun observeEvent() {
@@ -45,8 +44,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
             })
             it.onclickCategoryEvent.observe(this, EventObserver { category ->
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(
-                        category.id, category.categoryName) )
+                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(category.id,category.categoryName))
             })
             it.onclickProductEvent.observe(this, EventObserver { id ->
                 binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToProductFragment(id))

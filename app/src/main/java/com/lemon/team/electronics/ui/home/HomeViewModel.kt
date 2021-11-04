@@ -1,11 +1,11 @@
 package com.lemon.team.electronics.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
+import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.Content
-import com.lemon.team.electronics.model.response.categories.CategoriesResponseItem
+import com.lemon.team.electronics.model.response.Product
+import com.lemon.team.electronics.model.response.categories.CategoriesResponse
+import com.lemon.team.electronics.model.response.categories.CategoryResponse
 import com.lemon.team.electronics.model.response.productsByCategoryId.CategoryInfoType
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Constants.MOUSE_CATEGORY_ID
@@ -13,7 +13,7 @@ import com.lemon.team.electronics.util.Constants.PAGE_NUMBER_ZERO
 import com.lemon.team.electronics.util.Constants.SORT_CREATE_AT
 import com.lemon.team.electronics.util.Event
 
-class HomeViewModel : BaseViewModel(), HomeInteractionListener {
+class HomeViewModel :BaseViewModel() , HomeInteractionListener {
 
     private var _cartEvent = MutableLiveData<Event<Boolean>>()
     val cartEvent: LiveData<Event<Boolean>> = _cartEvent
@@ -27,8 +27,8 @@ class HomeViewModel : BaseViewModel(), HomeInteractionListener {
     private var _onclickProductEvent = MutableLiveData<Event<String>>()
     val onclickProductEvent: LiveData<Event<String>> = _onclickProductEvent
 
-    private var _onclickCategoryEvent = MutableLiveData<Event<CategoriesResponseItem>>()
-    val onclickCategoryEvent: LiveData<Event<CategoriesResponseItem>> = _onclickCategoryEvent
+    private var _onclickCategoryEvent = MutableLiveData<Event<CategoryResponse>>()
+    val onclickCategoryEvent: LiveData<Event<CategoryResponse>> = _onclickCategoryEvent
 
     var clickSeeMoreForBestSeller = MutableLiveData<Event<Boolean>>()
         private set
@@ -45,11 +45,11 @@ class HomeViewModel : BaseViewModel(), HomeInteractionListener {
         PAGE_NUMBER_ZERO, SORT_CREATE_AT).asLiveData()
 
 
-    fun onClickCart() {
+    fun onClickCart(){
         _cartEvent.postValue(Event(true))
     }
 
-    fun onClickAbout() {
+    fun onClickAbout(){
         _aboutEvent.postValue(Event(true))
     }
 
@@ -65,10 +65,9 @@ class HomeViewModel : BaseViewModel(), HomeInteractionListener {
         // write code when create database
     }
 
-    override fun onClickCategory(categoryId: CategoriesResponseItem) {
+    override fun onClickCategory(categoryId: CategoryResponse) {
         _onclickCategoryEvent.postValue(Event(categoryId))
     }
-
     override fun onClickSeeMoreForBestSeller() {
         clickSeeMoreForBestSeller.postValue(Event(true))
     }

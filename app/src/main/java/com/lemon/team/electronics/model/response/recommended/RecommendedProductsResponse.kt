@@ -1,5 +1,5 @@
 package com.lemon.team.electronics.model.response.recommended
 
-import com.lemon.team.electronics.model.response.Content
+import com.lemon.team.electronics.model.response.Product
 
-class RecommendedProductsResponse : ArrayList<Content>()
+class RecommendedProductsResponse : ArrayList<Product>()
