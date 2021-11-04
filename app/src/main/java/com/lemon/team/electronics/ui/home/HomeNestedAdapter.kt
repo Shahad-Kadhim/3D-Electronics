@@ -34,8 +34,8 @@ class HomeNestedAdapter(
             TYPE_SLIDE_SHOW -> R.layout.items_slide_show_host
             TYPE_SEARCH -> R.layout.item_search
             TYPE_CATEGORIES -> R.layout.item_categories_recycle
-            TYPE_BEST_SELLER -> R.layout.items_horizontal_host
-            else -> R.layout.items_horizontal_host
+            TYPE_BEST_SELLER -> R.layout.items_horizontal_best_seller_host
+            else -> R.layout.items_horizontal_category_host
         }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
@@ -46,14 +46,13 @@ class HomeNestedAdapter(
         when (val currentItem = itemsNested[position]) {
             is HomeItem.BestProductType -> {
                 holder.setVariableAdapter(BestSellerAdapter(currentItem.items, listener))
-                holder.binding.setVariable(BR.title, currentItem.title)
             }
             is HomeItem.CategoriesType -> {
                 holder.setVariableAdapter(CategoriesAdapter(currentItem.items, listener))
             }
             is HomeItem.ElementCategoriesType -> {
                 holder.setVariableAdapter(CategoryAdapter(currentItem.items, listener))
-                holder.binding.setVariable(BR.title, currentItem.title)
+                holder.binding.setVariable(BR.categoryInfo, currentItem.categoryInfo)
             }
             is HomeItem.SearchType -> {
                 holder.binding.setVariable(BR.listener, listener)

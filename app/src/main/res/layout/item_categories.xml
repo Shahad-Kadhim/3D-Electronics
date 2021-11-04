@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="item"
             type="com.lemon.team.electronics.model.response.categories.CategoriesResponseItem"/>
@@ -10,11 +11,15 @@
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.home.HomeInteractionListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin2x"
+        android:onClick="@{() -> listener.onClickCategory(item)}"
+        android:background="@color/purple_700">
 
         <TextView
             android:layout_width="200dp"

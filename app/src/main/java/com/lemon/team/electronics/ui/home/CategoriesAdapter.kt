@@ -2,13 +2,11 @@ package com.lemon.team.electronics.ui.home
 
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.categories.CategoriesResponseItem
-import com.lemon.team.electronics.ui.base.*
+import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 class CategoriesAdapter(
-    items: List<CategoriesResponseItem>,
-    listener: HomeInteractionListener
+    val items: List<CategoriesResponseItem>,
+    val listener: HomeInteractionListener
 ) : BaseRecyclerAdapter<CategoriesResponseItem>(items, listener) {
-
-    override val layoutId: Int = R.layout.item_category
-
+    override val layoutId: Int = R.layout.item_categories
 }

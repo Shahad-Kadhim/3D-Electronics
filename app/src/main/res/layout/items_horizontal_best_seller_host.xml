@@ -5,13 +5,9 @@
 
     <data>
         <variable
-            name="title"
-            type="String"/>
-
-        <variable
             name="adapter"
-            type="com.lemon.team.electronics.ui.base.BaseRecyclerAdapter" />
-    </data>
+            type="com.lemon.team.electronics.ui.home.BestSellerAdapter" />
+   </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,7 +17,7 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@{title}"
+            android:text="Best Seller"
             android:hint="title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +27,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:text="see more"
+            android:onClick="@{() -> adapter.listener.onClickSeeMoreForBestSeller()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,11 +37,11 @@
             android:layout_height="200dp"
             android:adapter="@{adapter}"
             android:orientation="horizontal"
-            tools:listitem="@layout/item_product"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            tools:listitem="@layout/item_best_seller" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

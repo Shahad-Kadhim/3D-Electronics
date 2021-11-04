@@ -11,19 +11,19 @@ import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.observeEvent
 
-class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>() {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel>() {
 
-    override val layoutId: Int= R.layout.fragment_category
+    override val layoutId: Int = R.layout.fragment_category
     override val viewModel: CategoryViewModel by viewModels()
     val args: CategoryFragmentArgs by navArgs()
 
-    override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCategoryBinding
-        =DataBindingUtil::inflate
+    override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCategoryBinding =
+        DataBindingUtil::inflate
 
     override fun setUp() {
         binding.apply {
-            lifecycleOwner= viewLifecycleOwner
-            viewModel= this@CategoryFragment.viewModel
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = this@CategoryFragment.viewModel
             categoryName = args.categoryName
             categoryRecycler.adapter =
                 CategoryAdapter(mutableListOf(), this@CategoryFragment.viewModel)
@@ -33,13 +33,13 @@ class CategoryFragment:BaseFragment<FragmentCategoryBinding, CategoryViewModel>(
         observeEvent()
     }
 
-    private fun observeEvent(){
+    private fun observeEvent() {
 
-        viewModel.clickItemEvent.observeEvent(this){
+        viewModel.clickItemEvent.observeEvent(this) {
             view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(it))
         }
 
-        viewModel.clickBackEvent.observeEvent(this){
+        viewModel.clickBackEvent.observeEvent(this) {
             findNavController().popBackStack()
         }
 
