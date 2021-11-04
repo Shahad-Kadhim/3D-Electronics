@@ -67,7 +67,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 it.mouseCategories.observe(this@HomeFragment) { state ->
                     if (state is State.Success) {
                         this?.addItem(
-                            HomeItem.ElementCategoriesType(state.toData()?.content!!,
+                            HomeItem.ElementCategoriesType(state.toData()?.products!!,
                                 CategoryInfoType(MOUSE_CATEGORY_ID, MOUSE_TITLE)))
                     }
                 }
