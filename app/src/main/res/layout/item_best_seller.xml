@@ -71,7 +71,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:urlForImage="@{item.mainImage}"
+                app:imageFromUrl="@{item.mainImage}"
                 tools:src="@color/brand_color" />
 
             <androidx.appcompat.widget.AppCompatButton

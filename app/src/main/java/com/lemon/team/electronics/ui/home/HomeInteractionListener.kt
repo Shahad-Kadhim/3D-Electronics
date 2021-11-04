@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.home
 
 import com.lemon.team.electronics.model.response.CategoryResponse
-import com.lemon.team.electronics.model.response.productsByCategoryId.CategoryInfoType
+import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.ui.base.BaseInteractionListener
 
 interface HomeInteractionListener : BaseInteractionListener {

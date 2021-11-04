@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCategoryBinding
-import com.lemon.team.electronics.ui.CategoryAdapter
+import com.lemon.team.electronics.ui.CategoryRecyclerAdapter
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.observeEvent

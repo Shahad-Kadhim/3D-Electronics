@@ -3,7 +3,7 @@ package com.lemon.team.electronics.ui.home
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
-import com.lemon.team.electronics.model.response.productsByCategoryId.CategoryInfoType
+import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Constants.MOUSE_CATEGORY_ID
 import com.lemon.team.electronics.util.Constants.PAGE_NUMBER_ZERO
@@ -38,8 +38,8 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
 
     val categories = Repository.getCategories().asLiveData()
     val bestProduct = Repository.getRecommendedProducts().asLiveData()
-    val mouseCategories = Repository.getProductsByCategoryId(MOUSE_CATEGORY_ID,
-        PAGE_NUMBER_ZERO, SORT_CREATE_AT).asLiveData()
+    val mouseCategories = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
+        Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
 
 
     fun onClickCart(){

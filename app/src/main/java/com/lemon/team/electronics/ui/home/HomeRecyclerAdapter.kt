@@ -3,6 +3,7 @@ package com.lemon.team.electronics.ui.home
 import android.view.ViewGroup
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
+import com.lemon.team.electronics.model.domain.HomeItem
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.util.setVariableAdapter
 

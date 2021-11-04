@@ -7,7 +7,7 @@
 
         <variable
             name="categoryInfo"
-            type="com.lemon.team.electronics.model.response.productsByCategoryId.CategoryInfoType"/>
+            type="com.lemon.team.electronics.model.domain.CategoryInfoType"/>
 
         <variable
             name="adapter"
