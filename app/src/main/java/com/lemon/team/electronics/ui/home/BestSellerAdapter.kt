@@ -5,7 +5,7 @@ import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 class BestSellerAdapter(
-    val items: List<Product>,
+    items: List<Product>,
     val listener: HomeInteractionListener
 ) : BaseRecyclerAdapter<Product>(items, listener) {
 
