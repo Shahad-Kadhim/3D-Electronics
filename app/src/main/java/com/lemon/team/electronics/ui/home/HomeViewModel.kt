@@ -1,14 +1,11 @@
 package com.lemon.team.electronics.ui.home
 
 import androidx.lifecycle.*
+import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.ui.base.BaseViewModel
-import com.lemon.team.electronics.util.Constants.MOUSE_CATEGORY_ID
-import com.lemon.team.electronics.util.Constants.PAGE_NUMBER_ZERO
-import com.lemon.team.electronics.util.Constants.SORT_CREATE_AT
-import com.lemon.team.electronics.util.Event
 
 class HomeViewModel :BaseViewModel() , HomeInteractionListener {
 
@@ -37,6 +34,7 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         private set
 
     val categories = Repository.getCategories().asLiveData()
+
     val bestProduct = Repository.getRecommendedProducts().asLiveData()
     val mouseCategories = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()

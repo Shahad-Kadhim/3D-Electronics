@@ -22,7 +22,7 @@
             android:id="@+id/product_image"
             android:layout_height="100dp"
             android:layout_width="100dp"
-            app:urlForImage="@{item.logoImg}"
+            app:imageFromUrl="@{item.logoImg}"
             app:shapeAppearance="@style/companies"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -17,24 +17,25 @@ class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentWishListBinding
         = DataBindingUtil::inflate
 
-    override fun setUp() {
+    override fun setUpBinding() {
         binding.apply {
-            this.lifecycleOwner = viewLifecycleOwner
-            this.viewModel = this@WishListFragment.viewModel
-            this.wishlistRecycler.adapter =
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = this@WishListFragment.viewModel
+            wishlistRecycler.adapter =
                 WishListRecyclerAdapter(mutableListOf(),this@WishListFragment.viewModel)
         }
-        observeEvents()
     }
 
     override fun observeEvents(){
-        viewModel.clickItemEvent.observe(this, EventObserver{
-            view?.goToFragment(WishListFragmentDirections.actionWishFragment2ToProductFragment(it))
-        })
-
-        viewModel.clickBackEvent.observe(this, EventObserver{
+        viewModel.clickItemEvent.observeEvent(this){
+            view?.goToFragment(
+                WishListFragmentDirections.actionWishFragment2ToProductFragment(it)
+            )
+        }
+        viewModel.clickBackEvent.observeEvent(this){
             findNavController().popBackStack()
-        })
+        }
+
     }
 
 }

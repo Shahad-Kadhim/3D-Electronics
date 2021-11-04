@@ -20,37 +20,38 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentHomeBinding =
         DataBindingUtil::inflate
 
-    override fun setUp() {
+    override fun setUpBinding() {
         binding.apply {
-            this.lifecycleOwner = viewLifecycleOwner
-            this.viewModel = this@HomeFragment.viewModel
-            initNestedAdapter()
-            observeEvents()
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = this@HomeFragment.viewModel
+            recyclerViewHome.adapter =
+                HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel)
         }
-    }
 
-    private fun initNestedAdapter() {
-        binding.recyclerViewHome.adapter = HomeNestedAdapter(mutableListOf(HomeItem.SearchType()), viewModel)
     }
 
     override fun observeEvents() {
         viewModel.also {
-            it.aboutEvent.observe(this, EventObserver {
+            it.aboutEvent.observeEvent(this) {
                 binding.about.goToFragment(HomeFragmentDirections.actionHomeFragmentToAboutFragment())
-            })
-            it.cartEvent.observe(this, EventObserver {
+            }
+            it.cartEvent.observeEvent(this) {
                 binding.cart.goToFragment(HomeFragmentDirections.actionHomeFragmentToCartFragment())
-            })
-            it.searchEvent.observe(this, EventObserver {
+            }
+            it.searchEvent.observeEvent(this) {
                 binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
-            })
-            it.onclickCategoryEvent.observe(this, EventObserver { category ->
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(category.id,category.categoryName))
-            })
-            it.onclickProductEvent.observe(this, EventObserver { id ->
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToProductFragment(id))
-            })
-            it.clickSeeMoreForCategories.observe(this, EventObserver {
+            }
+            it.onclickCategoryEvent.observeEvent(this) { category ->
+                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(
+                    category.id,
+                    category.categoryName))
+            }
+            it.onclickProductEvent.observeEvent(this) { id ->
+                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToProductFragment(
+                    id))
+            }
+
+            it.clickSeeMoreForCategories.observeEvent(this) {
                 binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoriesFragment())
             }
             it.clickSeeMoreForBestSeller.observeEvent(this) {

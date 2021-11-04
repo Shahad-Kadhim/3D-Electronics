@@ -1,8 +1,6 @@
 package com.lemon.team.electronics.ui.cart
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
@@ -22,6 +20,9 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
     private val _clickCheckoutEvent = MutableLiveData<Event<Boolean>>()
     var clickCheckoutEvent : LiveData<Event<Boolean>> = _clickCheckoutEvent
 
+    override fun onClickProduct(productId: String) {
+        _clickItemEvent.postValue(Event(productId))
+    }
 
     fun onClickBack() {
         _clickBackEvent.postValue(Event(true))
@@ -31,8 +32,6 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
         _clickCheckoutEvent.postValue(Event(true))
     }
 
-    override fun onClickProduct(productId: String) {
-        _clickItemEvent.postValue(Event(productId))
-    }
+
 
 }

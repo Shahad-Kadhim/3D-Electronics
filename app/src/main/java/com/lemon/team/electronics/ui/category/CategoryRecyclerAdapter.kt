@@ -5,7 +5,7 @@ import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.ui.category.ProductInteractionListener
 
-class CategoryAdapter(
+class CategoryRecyclerAdapter(
     items: List<Product>,
     listener: ProductInteractionListener
 ): BaseRecyclerAdapter<Product>(items, listener) {

@@ -18,44 +18,21 @@ class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
         : (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentAboutBinding =
             DataBindingUtil::inflate
 
-
-    override fun setUp() {
-
-        initialLifecycle()
-        initialRecyclerAdapter()
-        observeEvents()
-
-    }
-
-
-    private fun initialLifecycle(){
-
+    override fun setUpBinding(){
         binding.apply {
             lifecycleOwner= viewLifecycleOwner
             viewModel= this@AboutFragment.viewModel
-        }
-
-    }
-
-
-    private fun initialRecyclerAdapter(){
-
-        binding.apply {
             companiesRecycler.adapter =
-                CompaniesAdapter(mutableListOf(),this@AboutFragment.viewModel)
+                CompaniesRecyclerAdapter(mutableListOf(),this@AboutFragment.viewModel)
             otherCompaniesRecycler.adapter =
-                CompaniesAdapter(mutableListOf(),this@AboutFragment.viewModel)
+                CompaniesRecyclerAdapter(mutableListOf(),this@AboutFragment.viewModel)
         }
-
     }
-
 
     override fun observeEvents(){
-
         viewModel.clickBackEvent.observeEvent(this){
             findNavController().popBackStack()
         }
-
     }
 
 

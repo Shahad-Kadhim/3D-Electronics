@@ -1,8 +1,6 @@
 package com.lemon.team.electronics.ui.categories
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
@@ -20,12 +18,12 @@ class CategoriesViewModel: BaseViewModel(), CategoryInteractionListener {
     var clickBackEvent :LiveData<Event<Boolean>>  = _clickBackEvent
 
 
-
-    override fun onClickCategory(category: CategoryResponse){
-        _categoryId.postValue(Event(category))
+    override fun onClickCategory(categoryId: CategoryResponse){
+        _categoryId.postValue(Event(categoryId))
     }
 
     fun onclickBack(){
         _clickBackEvent.postValue(Event(true))
     }
+
 }

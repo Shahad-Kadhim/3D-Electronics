@@ -1,18 +1,15 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import android.content.Intent
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
+import androidx.navigation.fragment.*
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentProductDetailsBinding
 import com.lemon.team.electronics.ui.ImageActivity
 import com.lemon.team.electronics.ui.base.BaseFragment
-import com.lemon.team.electronics.util.Constants
-import com.lemon.team.electronics.util.EventObserver
+import com.lemon.team.electronics.util.*
 
 class ProductDetailsFragment :
     BaseFragment<FragmentProductDetailsBinding, ProductDetailsViewModel>() {
@@ -24,36 +21,40 @@ class ProductDetailsFragment :
     FragmentProductDetailsBinding = DataBindingUtil::inflate
 
     override fun setUp() {
-        binding.apply {
-            this.lifecycleOwner = viewLifecycleOwner
-            this.viewModel = this@ProductDetailsFragment.viewModel
-            productImages.adapter=ProductImageAdapter(emptyList(),this@ProductDetailsFragment.viewModel)
-        }
+        super.setUp()
         viewModel.getDetailsProduct(args.productId)
-        observeEvents()
+    }
+
+
+    override fun setUpBinding() {
+        binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = this@ProductDetailsFragment.viewModel
+            productImages.adapter=ProductImageRecyclerAdapter(emptyList(),this@ProductDetailsFragment.viewModel)
+        }
     }
 
     override fun observeEvents() {
 
-        viewModel.onclickAddToCart.observe(this,EventObserver{
+        viewModel.onclickAddToCart.observeEvent(this){
             // add to cart table when create database
-        })
+        }
 
-        viewModel.onclickWish.observe(this,EventObserver{
+        viewModel.onclickWish.observeEvent(this){
             // add to wish table when create database
-        })
+        }
 
-        viewModel.onclickShare.observe(this,EventObserver{
+        viewModel.onclickShare.observeEvent(this){
             // add code to share link of this product
-        })
+        }
 
-        viewModel.onclickBack.observe(this,EventObserver{
+        viewModel.onclickBack.observeEvent(this){
             findNavController().popBackStack()
-        })
+        }
 
-        viewModel.onclickMainImage.observe(this,EventObserver{
+        viewModel.onclickMainImage.observeEvent(this){
             goToImageActivity(it)
-        })
+        }
 
     }
 
@@ -64,7 +65,5 @@ class ProductDetailsFragment :
             }
         )
     }
-
-
 
 }

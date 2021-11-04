@@ -8,7 +8,7 @@ import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.util.setVariableAdapter
 
 
-class HomeNestedAdapter(
+class HomeRecyclerAdapter(
     private var itemsNested: MutableList<HomeItem>,
     private val listener: HomeInteractionListener,
 ) : BaseRecyclerAdapter<Any>(itemsNested, listener) {
@@ -46,7 +46,7 @@ class HomeNestedAdapter(
     private fun bind(holder: ItemViewHolder, position: Int) {
         when (val currentItem = itemsNested[position]) {
             is HomeItem.BestProductType -> {
-                holder.setVariableAdapter(BestSellerAdapter(currentItem.items, listener))
+                holder.setVariableAdapter(BestSellerRecyclerAdapter(currentItem.items, listener))
             }
             is HomeItem.CategoriesType -> {
                 holder.setVariableAdapter(CategoriesAdapter(currentItem.items, listener))
@@ -59,7 +59,7 @@ class HomeNestedAdapter(
                 holder.binding.setVariable(BR.listener, listener)
             }
             is HomeItem.SlideType -> {
-                holder.setVariableAdapter(SlideShowAdapter(currentItem.items, listener))
+                holder.setVariableAdapter(SlideShowRecyclerAdapter(currentItem.items, listener))
             }
         }
     }

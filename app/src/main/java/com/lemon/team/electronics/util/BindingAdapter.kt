@@ -10,20 +10,20 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 
 
-@BindingAdapter(value = ["app:parseHtmlText"])
+@BindingAdapter(value = ["app:htmlText"])
 fun parseHtml(view: TextView, text: String?) {
     text?.let {
         view.text = Html.fromHtml(text)
     }
 }
 
-@BindingAdapter(value = ["app:playVideo"])
+@BindingAdapter(value = ["app:video"])
 fun playVideo(view: VideoView, path: String?){
     view.setVideoPath(path)
     view.start()
 }
 
-@BindingAdapter(value = ["app:urlForImage"])
+@BindingAdapter(value = ["app:imageFromUrl"])
 fun setImage(view: ImageView, url: String?) {
     url?.let {
         Glide.with(view)

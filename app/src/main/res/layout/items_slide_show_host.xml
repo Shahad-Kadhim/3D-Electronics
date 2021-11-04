@@ -6,7 +6,7 @@
 
         <variable
             name="adapter"
-            type="com.lemon.team.electronics.ui.home.SlideShowAdapter" />
+            type="com.lemon.team.electronics.ui.home.SlideShowRecyclerAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

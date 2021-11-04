@@ -4,32 +4,12 @@ import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
-import com.lemon.team.electronics.util.Constants
-import com.lemon.team.electronics.util.Event
-import com.lemon.team.electronics.util.State
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.launch
+import com.lemon.team.electronics.util.*
 
 class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
     private var _detailsProduct = MutableLiveData<State<Product?>>()
     val detailsProduct :LiveData<State<Product?>> =_detailsProduct
-
-    val images =Transformations.map(detailsProduct){
-        it.toData()?.images?.map { it.productImageLocation }
-    }
-    val mainImage= MediatorLiveData<String>().apply {
-        addSource(detailsProduct){
-            if(it is State.Success){
-                it.data?.mainImage?.let { url ->
-                    updateMainImage(url)
-                }
-            }
-        }
-    }
 
     private var _onclickBack =MutableLiveData<Event<Boolean>>()
     val onclickBack :LiveData<Event<Boolean>> = _onclickBack
@@ -47,17 +27,33 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     val onclickMainImage :LiveData<Event<String>> = _onClickMainImage
 
 
+    val images =Transformations.map(detailsProduct){
+        it.toData()?.images?.map { it.productImageLocation }
+    }
+
+    val mainImage= MediatorLiveData<String>().apply {
+        addSource(detailsProduct){
+            if(it is State.Success){
+                it.data?.mainImage?.let { url ->
+                    updateMainImage(url)
+                }
+            }
+        }
+    }
+
     private fun updateMainImage(url:String){
         mainImage.postValue(url)
     }
 
-    fun getDetailsProduct(productId: String) {
 
-        collectResponse(
-            Repository.getProductById(productId)){
+    override fun onclickImage(url: String) {
+        mainImage.postValue(url)
+    }
+
+    fun getDetailsProduct(productId: String) {
+        collectResponse(Repository.getProductById(productId)) {
             _detailsProduct.postValue(it)
         }
-
     }
 
     fun onclickBack(){
@@ -80,11 +76,6 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
         mainImage.value?.let { url ->
             _onClickMainImage.postValue(Event(url))
         }
-
     }
-    override fun onclickImage(url: String) {
-        mainImage.postValue(url)
-    }
-
 
 }

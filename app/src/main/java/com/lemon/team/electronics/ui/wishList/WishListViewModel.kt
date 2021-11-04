@@ -16,15 +16,16 @@ class WishListViewModel : BaseViewModel() , ProductInteractionListener {
     private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
     var clickBackEvent :LiveData<Event<Boolean>>  = _clickBackEvent
 
-
-    fun onClickBack() {
-        _clickBackEvent.postValue(Event(true))
-    }
-
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
     }
 
-    override fun onClickHeart(productId: String) { }
+    override fun onClickHeart(productId: String) {
+
+    }
+
+    fun onClickBack() {
+        _clickBackEvent.postValue(Event(true))
+    }
 
 }

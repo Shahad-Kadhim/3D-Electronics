@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:urlForImage="@{String.valueOf(item.mainImage)}"
+                app:imageFromUrl="@{String.valueOf(item.mainImage)}"
                 tools:src="@color/secondary_icons_color" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

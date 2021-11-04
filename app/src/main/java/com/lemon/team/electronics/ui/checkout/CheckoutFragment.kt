@@ -13,11 +13,11 @@ class CheckoutFragment:BaseFragment<FragmentCheckoutBinding,CheckoutViewModel>()
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCheckoutBinding
         =DataBindingUtil::inflate
 
-    override fun setUp() {
+    override fun observeEvents() {
 
     }
 
-    override fun observeEvents() {
+    override fun setUpBinding() {
 
     }
 

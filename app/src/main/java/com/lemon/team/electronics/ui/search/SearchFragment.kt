@@ -7,8 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentSearchBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
-import com.lemon.team.electronics.util.EventObserver
-import com.lemon.team.electronics.util.goToFragment
+import com.lemon.team.electronics.util.*
 
 class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
     override val layoutId: Int = R.layout.fragment_search
@@ -17,27 +16,26 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) ->
     FragmentSearchBinding = DataBindingUtil::inflate
 
-    override fun setUp() {
+    override fun setUpBinding() {
         binding.apply {
-            this.lifecycleOwner = viewLifecycleOwner
-            this.viewModel = this@SearchFragment.viewModel
-            this.searchRecycler.adapter =
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = this@SearchFragment.viewModel
+            searchRecycler.adapter =
                 SearchRecyclerAdapter(mutableListOf(), this@SearchFragment.viewModel)
         }
-        observeEvents()
     }
 
     override fun observeEvents() {
-        viewModel.clickItemEvent.observe(this, EventObserver {
+        viewModel.clickItemEvent.observeEvent(this){
             binding.root.goToFragment(
                 SearchFragmentDirections
                     .actionSearchFragmentToProductFragment(it)
             )
-        })
+        }
 
-        viewModel.clickBackEvent.observe(this, EventObserver {
+        viewModel.clickBackEvent.observeEvent(this) {
             findNavController().popBackStack()
-        })
+        }
     }
 
 }

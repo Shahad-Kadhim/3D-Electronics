@@ -17,32 +17,30 @@ class CartFragment: BaseFragment<FragmentCartBinding, CartViewModel>() {
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCartBinding
         = DataBindingUtil::inflate
 
-    override fun setUp() {
+    override fun setUpBinding(){
         binding.apply {
-            this.lifecycleOwner = viewLifecycleOwner
-            this.viewModel = this@CartFragment.viewModel
-            this.cartRecycler.adapter =
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = this@CartFragment.viewModel
+            cartRecycler.adapter =
                 CartRecyclerAdapter(mutableListOf(), this@CartFragment.viewModel)
         }
-        observeEvents()
     }
 
     override fun observeEvents(){
 
-        viewModel.clickItemEvent.observe(this, EventObserver{
+        viewModel.clickItemEvent.observeEvent(this){
             view?.goToFragment(CartFragmentDirections.actionCartFragmentToProductFragment(it))
-        })
+        }
 
-        viewModel.clickCheckoutEvent.observe(this, EventObserver{
+        viewModel.clickCheckoutEvent.observeEvent(this){
             view?.goToFragment(CartFragmentDirections.actionCartFragmentToCheckoutFragment())
-        })
+        }
 
-        viewModel.clickBackEvent.observe(this, EventObserver{
+        viewModel.clickBackEvent.observeEvent(this){
             findNavController().popBackStack()
-        })
+        }
 
     }
-
 
 
 }

@@ -16,26 +16,27 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
 
     override val layoutId: Int = R.layout.fragment_category
     override val viewModel: CategoryViewModel by viewModels()
-    val args: CategoryFragmentArgs by navArgs()
+    private val args: CategoryFragmentArgs by navArgs()
 
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCategoryBinding =
         DataBindingUtil::inflate
 
     override fun setUp() {
+        super.setUp()
+        viewModel.getProductsByCategoryId(args.categoryId)
+    }
+
+    override fun setUpBinding() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@CategoryFragment.viewModel
             categoryName = args.categoryName
             categoryRecycler.adapter =
-                CategoryAdapter(mutableListOf(), this@CategoryFragment.viewModel)
+                CategoryRecyclerAdapter(mutableListOf(), this@CategoryFragment.viewModel)
         }
-
-        viewModel.getProductsByCategoryId(args.categoryId)
-        observeEvents()
     }
 
     override fun observeEvents(){
-
         viewModel.clickItemEvent.observeEvent(this){
             view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(it))
         }
@@ -43,7 +44,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
         viewModel.clickBackEvent.observeEvent(this){
             findNavController().popBackStack()
         }
-
     }
 
 }

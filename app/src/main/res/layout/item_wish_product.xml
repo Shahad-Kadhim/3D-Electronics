@@ -44,7 +44,7 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/product_image"
                     style="@style/ProductImageStyle"
-                    app:urlForImage="@{item.images.get(0).productImageLocation}"
+                    app:imageFromUrl="@{item.images.get(0).productImageLocation}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

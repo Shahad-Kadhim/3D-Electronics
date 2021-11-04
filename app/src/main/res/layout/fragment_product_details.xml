@@ -23,7 +23,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@color/bg_color"
                 android:paddingBottom="66dp">
 
@@ -61,7 +61,7 @@
                     app:layout_constraintStart_toEndOf="@id/product_images"
                     app:layout_constraintTop_toBottomOf="@+id/title"
                     app:shapeAppearance="@style/ShapeAppearanceOverlay"
-                    app:urlForImage="@{viewModel.mainImage}" />
+                    app:imageFromUrl="@{viewModel.mainImage}" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/product_images"
@@ -142,7 +142,7 @@
                     app:layout_constraintHorizontal_bias="0.493"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView"
-                    app:parseHtmlText="@{viewModel.detailsProduct.toData().description}" />
+                    app:htmlText="@{viewModel.detailsProduct.toData().description}" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/vector_3"

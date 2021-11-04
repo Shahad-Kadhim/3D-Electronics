@@ -4,7 +4,7 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
 import com.lemon.team.electronics.ui.base.*
 
-class CompaniesAdapter(
+class CompaniesRecyclerAdapter(
     items: List<CompaniesImgUrl>,
     listener: BaseInteractionListener
 ): BaseRecyclerAdapter<CompaniesImgUrl>(items, listener) {

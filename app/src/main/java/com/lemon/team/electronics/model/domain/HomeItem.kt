@@ -1,4 +1,4 @@
-package com.lemon.team.electronics.ui.home
+package com.lemon.team.electronics.model.domain
 
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.response.Product

@@ -65,7 +65,7 @@
                         android:id="@+id/video"
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
-                        app:playVideo="@{viewModel.video}" />
+                        app:video="@{viewModel.video}" />
 
                 </androidx.cardview.widget.CardView>
 
