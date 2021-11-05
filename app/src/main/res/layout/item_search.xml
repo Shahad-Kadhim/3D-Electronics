@@ -15,8 +15,8 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginVertical="@dimen/margin8dp"
-        android:layout_marginHorizontal="@dimen/margin4x"
+        android:layout_marginVertical="@dimen/margin2x"
+        android:layout_marginHorizontal="@dimen/margin5x"
         app:cardCornerRadius="@dimen/radius2x"
         android:onClick="@{() -> listener.onclickSearch()}"
         app:cardBackgroundColor="@color/white">

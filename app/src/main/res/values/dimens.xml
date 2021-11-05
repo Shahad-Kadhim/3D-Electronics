@@ -26,7 +26,7 @@
     <dimen name="text_tiny">8sp</dimen>
     <dimen name="text_small">12sp</dimen>
     <dimen name="text_normal">16sp</dimen>
-    <dimen name="text_noraml2x">18sp</dimen>
+    <dimen name="text_normal2x">18sp</dimen>
     <dimen name="text_large">24sp</dimen>
     <dimen name="text20sp">20sp</dimen>
     <dimen name="text18sp">18sp</dimen>
