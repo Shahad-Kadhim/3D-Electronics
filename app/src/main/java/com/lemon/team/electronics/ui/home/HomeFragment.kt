@@ -84,7 +84,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
                 it.categories.observe(this@HomeFragment) { state ->
                     if (state is State.Success) {
-                        this?.addItem(HomeItem.CategoriesType(state.toData()!!))
+                        this?.addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))
                     }
                 }
 

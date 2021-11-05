@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="color"
+            type="com.lemon.team.electronics.util.ColorsRecycler" />
+
         <variable
             name="item"
             type="com.lemon.team.electronics.model.response.CategoryResponse" />
@@ -11,27 +17,51 @@
             name="listener"
             type="com.lemon.team.electronics.ui.categories.CategoryInteractionListener" />
     </data>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="16dp"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="6dp"
+        app:cardCornerRadius="24dp"
         android:onClick="@{() -> listener.onClickCategory(item)}"
-        android:backgroundTint="@color/teal_200"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:cardBackgroundColor="#9FC3C2"
+        app:setBackgroundColorItem="@{color}">
 
-        <TextView
-            android:id="@+id/category_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="18dp"
-            android:text="@{item.categoryName}"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                app:setIcon="@{item.id}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_fan" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/roboto_black"
+                android:text="@{item.categoryName}"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/icon"
+                tools:text="Case" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>

@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.util
 
+import android.annotation.SuppressLint
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
@@ -88,5 +89,26 @@ fun setBackgroundColor(view:MaterialCardView , color:ColorsRecycler?){
             )
         )
     }
-
 }
+
+@BindingAdapter(value = ["app:setIcon"])
+fun setCategoryIcon(view:ImageView , categoryId:String?){
+    categoryId?.convertToCategoryIcon()?.let { idIcon ->
+        view.setImageDrawable(
+            ContextCompat.getDrawable(
+                view.context,
+                idIcon
+            )
+        )
+    }
+}
+
+
+@SuppressLint("SetTextI18n")
+@BindingAdapter(value = ["app:setText"])
+fun setText(view:TextView , categoryName:String?){
+    categoryName?.let { idName ->
+        view.text=idName.first()+idName.lowercase().substring(1)
+    }
+}
+

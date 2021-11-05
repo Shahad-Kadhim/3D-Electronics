@@ -31,11 +31,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/monda_bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Categories"
+            android:textColor="@color/seconder_text_color"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/back_button"
+            app:layout_constraintStart_toEndOf="@+id/back_button" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categories_recycler"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:orientation="vertical"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="16dp"
             app:items="@{viewModel.categoryList.toData()}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

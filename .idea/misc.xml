@@ -4,17 +4,40 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/activity_main.xml" value="0.19270833333333334" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_cable.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_chairs.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_cpu.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_fan.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_game.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_graphics_card_svgrepo_com.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_headphone.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_language.xml" value="0.2" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_laptop.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_laptop_icon.xml" value="0.2" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_memory.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_mic.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_monitor.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_motherboard.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_mouse.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_mousepad.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_pc.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_power_supply.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_stand.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_vector__2_.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_webcam.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/out_of_stock_shape.xml" value="0.2" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_about.xml" value="0.1" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_cart.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_categories.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_category.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_home.xml" value="0.20677083333333332" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_product_details.xml" value="0.1" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_product_details.xml" value="0.22" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_search.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_wish_list.xml" value="0.1" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_best_seller.xml" value="0.20677083333333332" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_categories.xml" value="0.20677083333333332" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_categories_recycle.xml" value="0.25" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_categories.xml" value="0.5" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_categories_recycle.xml" value="0.33" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_category.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_category_product.xml" value="0.20677083333333332" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_companies_recycler.xml" value="0.1" />
@@ -37,5 +60,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>

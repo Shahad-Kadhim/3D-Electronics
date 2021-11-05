@@ -23,7 +23,6 @@
             android:fontFamily="@font/monda_bold"
             android:textSize="22sp"
             android:textColor="@color/seconder_text_color"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
