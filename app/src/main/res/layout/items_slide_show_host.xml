@@ -3,27 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
-            name="adapter"
-            type="com.lemon.team.electronics.ui.home.SlideShowRecyclerAdapter" />
+            name="products"
+            type="com.lemon.team.electronics.model.response.RecommendedProductsResponse" />
+        <variable
+            name="product"
+            type="com.lemon.team.electronics.model.response.Product" />
+        <variable
+            name="viewModel"
+            type="com.lemon.team.electronics.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_horizontal"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:adapter="@{adapter}"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent" />
+            android:layout_margin="@dimen/margin2x"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="12dp"
+            android:elevation="6dp">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:iss_auto_cycle="true"
+                app:iss_delay="0"
+                app:iss_period="1100"
+                app:iss_error_image="@drawable/error"
+                app:setSliderImagesList="@{products}"
+                app:iss_selected_dot="@drawable/selected_dot"
+                app:iss_unselected_dot="@drawable/unselected_dot"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.cardview.widget.CardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

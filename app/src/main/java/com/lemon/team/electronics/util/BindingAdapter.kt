@@ -8,6 +8,10 @@ import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.models.SlideModel
+import com.lemon.team.electronics.model.response.Product
+import com.denzcoskun.imageslider.constants.ScaleTypes
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -70,4 +74,11 @@ fun <T> showOnError(view: View, state: State<T>?) {
 @BindingAdapter(value = ["app:showOnLoading"])
 fun <T> showOnLoading(view: View, state: State<T>?) {
     view.isVisible =  (state is State.Loading)
+}
+
+@BindingAdapter(value = ["app:setSliderImagesList"])
+fun setSliderImages(slider: ImageSlider, images: List<Product>?){
+    images?.map{
+        SlideModel(it.mainImage)
+    }?.let { slider.setImageList(it, ScaleTypes.CENTER_INSIDE) }
 }

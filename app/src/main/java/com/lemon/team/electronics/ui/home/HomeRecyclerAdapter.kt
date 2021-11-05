@@ -59,7 +59,7 @@ class HomeRecyclerAdapter(
                 holder.binding.setVariable(BR.listener, listener)
             }
             is HomeItem.SlideType -> {
-                holder.setVariableAdapter(SlideShowRecyclerAdapter(currentItem.items, listener))
+                holder.binding.setVariable(BR.products, currentItem.items)
             }
         }
     }
