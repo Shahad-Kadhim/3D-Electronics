@@ -6,8 +6,11 @@ import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import android.text.Html
 import android.view.View
 import android.widget.*
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
+import com.google.android.material.card.MaterialCardView
+import com.lemon.team.electronics.R
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -70,4 +73,20 @@ fun <T> showOnError(view: View, state: State<T>?) {
 @BindingAdapter(value = ["app:showOnLoading"])
 fun <T> showOnLoading(view: View, state: State<T>?) {
     view.isVisible =  (state is State.Loading)
+}
+
+@BindingAdapter(value = ["app:setBackgroundColorItem"])
+fun setBackgroundColor(view:MaterialCardView , color:ColorsRecycler?){
+    color?.let {
+        view.setCardBackgroundColor(
+            ContextCompat.getColor(view.context,
+                when(color){
+                    ColorsRecycler.COLOR_ONE -> R.color.brand_color
+                    ColorsRecycler.COLOR_TWO -> R.color.color_two
+                    ColorsRecycler.COLOR_THREE -> R.color.color_three
+                }
+            )
+        )
+    }
+
 }

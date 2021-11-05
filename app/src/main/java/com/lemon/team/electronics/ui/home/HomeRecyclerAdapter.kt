@@ -49,7 +49,7 @@ class HomeRecyclerAdapter(
                 holder.setVariableAdapter(BestSellerRecyclerAdapter(currentItem.items, listener))
             }
             is HomeItem.CategoriesType -> {
-                holder.setVariableAdapter(CategoriesAdapter(currentItem.items, listener))
+                holder.setVariableAdapter(CategoriesAdapter(currentItem.items.take(6), listener))
             }
             is HomeItem.ElementCategoriesType -> {
                 holder.setVariableAdapter(CategoryAdapter(currentItem.items, listener))

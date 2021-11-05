@@ -29,7 +29,7 @@
     <dimen name="text18sp">18sp</dimen>
     <dimen name="text14sp">14sp</dimen>
     <dimen name="padding6dp">6dp</dimen>
-    <dimen name="margin28dp">28dp</dimen>
+    <dimen name="margin28dp">24dp</dimen>
     <dimen name="text24sp">24sp</dimen>
 
 </resources>

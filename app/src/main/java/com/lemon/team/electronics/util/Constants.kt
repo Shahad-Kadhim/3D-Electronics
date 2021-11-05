@@ -12,4 +12,12 @@ object Constants {
     const val MOUSE_CATEGORY_ID = "54653fdb-db67-4e72-8840-1d842e3c4f04"
 
     const val SORT_CREATE_AT = "createdAt"
+
+    val  colors = listOf(
+        ColorsRecycler.COLOR_ONE,
+        ColorsRecycler.COLOR_TWO,
+        ColorsRecycler.COLOR_TWO,
+        ColorsRecycler.COLOR_THREE,
+        ColorsRecycler.COLOR_THREE,
+        ColorsRecycler.COLOR_ONE)
 }
