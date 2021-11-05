@@ -10,14 +10,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="280dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin2x"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="15dp"
             android:elevation="6dp">
 
             <com.denzcoskun.imageslider.ImageSlider
