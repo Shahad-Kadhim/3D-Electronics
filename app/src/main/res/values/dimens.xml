@@ -8,6 +8,7 @@
     <dimen name="margin12dp">12dp</dimen>
     <dimen name="margin14dp">14dp</dimen>
     <dimen name="margin2x">16dp</dimen>
+    <dimen name="margin2.5x">18dp</dimen>
     <dimen name="margin3x">24dp</dimen>
     <dimen name="margin4x">28dp</dimen>
     <dimen name="margin5x">32dp</dimen>
@@ -24,12 +25,14 @@
     <dimen name="text_tiny">8sp</dimen>
     <dimen name="text_small">12sp</dimen>
     <dimen name="text_normal">16sp</dimen>
+    <dimen name="text_noraml2x">18sp</dimen>
     <dimen name="text_large">24sp</dimen>
     <dimen name="text20sp">20sp</dimen>
     <dimen name="text18sp">18sp</dimen>
+    <dimen name="text12sp">12sp</dimen>
     <dimen name="text14sp">14sp</dimen>
     <dimen name="padding6dp">6dp</dimen>
-    <dimen name="margin28dp">24dp</dimen>
+    <dimen name="margin28dp">28dp</dimen>
     <dimen name="text24sp">24sp</dimen>
 
 </resources>

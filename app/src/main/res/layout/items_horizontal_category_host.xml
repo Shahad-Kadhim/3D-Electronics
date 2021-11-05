@@ -20,27 +20,36 @@
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@{categoryInfo.categoryName}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin2x"
+            android:layout_marginTop="@dimen/margin3x"
             android:hint="title"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{categoryInfo.categoryName}"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Category" />
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="see more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/text24sp"
             android:onClick="@{() -> adapter.listener.onClickSeeMoreForCategory(categoryInfo)}"
+            android:text="See More >"
+            android:textSize="@dimen/text_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:adapter="@{adapter}"
+            tools:listitem="@layout/item_elements_categories"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"

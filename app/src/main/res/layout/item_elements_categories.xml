@@ -15,29 +15,101 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="16dp"
+        android:id="@+id/product_background_card"
+        style="@style/ProductBackgroundCardStyle"
+        android:layout_width="200dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="@dimen/margin4x"
+        android:layout_marginVertical="@dimen/margin3x"
+        app:cardElevation="@dimen/margin4dp"
+        android:layout_marginEnd="@dimen/margin12dp"
         android:onClick="@{() -> listener.onClickProduct(item.id)}"
-        android:backgroundTint="@color/teal_200"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:cardMaxElevation="@dimen/margin4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/category_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{item.category.categoryName}"
-                android:textSize="32sp"
-                android:textStyle="bold"
+            <ImageView
+                android:id="@+id/imageView4"
+                style="@style/WishIconStyle"
+                android:layout_width="@dimen/margin3x"
+                android:layout_marginTop="@dimen/margin2x"
+                android:layout_marginEnd="@dimen/margin2x"
+                android:contentDescription="@string/product_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/product_image"
+                style="@style/ProductImageStyle"
+                android:layout_height="124dp"
+                android:layout_marginHorizontal="@dimen/margin5x"
+                android:layout_marginTop="@dimen/margin8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                app:imageFromUrl="@{item.mainImage}"
+                tools:src="@color/brand_color" />
+
+
+            <TextView
+                android:id="@+id/category_name"
+                style="@style/ProductNameStyle"
+                android:layout_width="150dp"
+                android:layout_marginStart="@dimen/margin2.5x"
+                android:layout_marginTop="@dimen/margin12dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@{item.category.categoryName}"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_image"
+                tools:text="Official Original Silicone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add_to_cart_button"
+                android:layout_width="46dp"
+                android:layout_height="40dp"
+                android:paddingTop="8dp"
+                android:drawableTop="@drawable/ic_baseline_add_24"
+                android:gravity="center"
+                android:background="@drawable/shape_button_cart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/product_price_text"
+                style="@style/ProductPriceStyle"
+                android:text="@{String.valueOf(item.price) + ` IQ`}"
+                android:textSize="@dimen/text18sp"
+                app:layout_constraintStart_toStartOf="@+id/category_name"
+                app:layout_constraintTop_toBottomOf="@+id/category_name"
+                tools:text="15.77 IQ" />
+
+            <TextView
+                android:id="@+id/product_old_price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monda_regular"
+                android:text="@{String.valueOf(item.oldPrice)}"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="@dimen/text_small"
+                app:isVisible="@{item.sale}"
+                app:layout_constraintStart_toStartOf="@+id/product_price_text"
+                app:layout_constraintTop_toBottomOf="@+id/product_price_text"
+                tools:text="100.54 IQ" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/secondary_text_color"
+                app:isVisible="@{item.sale}"
+                app:layout_constraintBottom_toBottomOf="@id/product_old_price_text"
+                app:layout_constraintEnd_toEndOf="@id/product_old_price_text"
+                app:layout_constraintStart_toStartOf="@id/product_old_price_text"
+                app:layout_constraintTop_toTopOf="@id/product_old_price_text" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
