@@ -6,12 +6,6 @@
         <variable
             name="products"
             type="com.lemon.team.electronics.model.response.RecommendedProductsResponse" />
-        <variable
-            name="product"
-            type="com.lemon.team.electronics.model.response.Product" />
-        <variable
-            name="viewModel"
-            type="com.lemon.team.electronics.ui.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,6 +38,6 @@
 
         </androidx.cardview.widget.CardView>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
