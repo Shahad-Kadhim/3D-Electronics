@@ -13,13 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Categories"
             android:layout_marginHorizontal="16dp"
             android:textStyle="bold"
-            android:padding="8dp"
             android:fontFamily="@font/monda_bold"
             android:textSize="22sp"
             android:textColor="@color/seconder_text_color"
@@ -29,15 +28,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin28dp"
             android:fontFamily="@font/lato_regular"
             android:onClick="@{() -> adapter.listener.onClickSeeMoreForCategories()}"
-            android:padding="8dp"
-            android:text="see more > "
+            android:text="see more >"
             android:textColor="@color/seconder_text_color"
             android:textSize="16sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:layout_marginEnd="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_horizontal"
@@ -51,7 +50,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/text_title"
             app:layout_constraintVertical_bias="0.0"
             app:spanCount="2"
             tools:itemCount="6"
