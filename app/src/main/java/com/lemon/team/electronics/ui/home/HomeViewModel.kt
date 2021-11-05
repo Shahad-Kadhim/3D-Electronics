@@ -24,18 +24,24 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
     private var _onclickCategoryEvent = MutableLiveData<Event<CategoryResponse>>()
     val onclickCategoryEvent: LiveData<Event<CategoryResponse>> = _onclickCategoryEvent
 
-    var clickSeeMoreForBestSeller = MutableLiveData<Event<Boolean>>()
-        private set
+    private var _clickSeeMoreForBestSeller = MutableLiveData<Event<Boolean>>()
+    val clickSeeMoreForBestSeller: LiveData<Event<Boolean>> = _clickSeeMoreForBestSeller
 
-    var clickSeeMoreForCategories = MutableLiveData<Event<Boolean>>()
-        private set
+    private var _clickSeeMoreForCategories = MutableLiveData<Event<Boolean>>()
+    val clickSeeMoreForCategories: LiveData<Event<Boolean>> = _clickSeeMoreForCategories
 
-    var clickSeeMoreForCategory = MutableLiveData<Event<CategoryInfoType>>()
-        private set
+    private var _clickSeeMoreForCategory = MutableLiveData<Event<CategoryInfoType>>()
+    val clickSeeMoreForCategory: LiveData<Event<CategoryInfoType>> = _clickSeeMoreForCategory
 
     val categories = Repository.getCategories().asLiveData()
 
     val bestProduct = Repository.getRecommendedProducts().asLiveData()
+
+    val slideProducts =Repository.getProductsByCategoryId(
+        "f9d895e5-b65c-4393-92fd-52a5a4d65f3a",
+        Constants.PAGE_NUMBER_ZERO
+    ).asLiveData()
+
     val mouseCategories = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
 
@@ -64,15 +70,15 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         _onclickCategoryEvent.postValue(Event(categoryId))
     }
     override fun onClickSeeMoreForBestSeller() {
-        clickSeeMoreForBestSeller.postValue(Event(true))
+        _clickSeeMoreForBestSeller.postValue(Event(true))
     }
 
     override fun onClickSeeMoreForCategories() {
-        clickSeeMoreForCategories.postValue(Event(true))
+        _clickSeeMoreForCategories.postValue(Event(true))
     }
 
     override fun onClickSeeMoreForCategory(category: CategoryInfoType) {
-        clickSeeMoreForCategory.postValue(Event(category))
+        _clickSeeMoreForCategory.postValue(Event(category))
     }
 
 

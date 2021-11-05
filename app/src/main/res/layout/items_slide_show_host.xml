@@ -6,20 +6,20 @@
     <data>
         <variable
             name="products"
-            type="com.lemon.team.electronics.model.response.RecommendedProductsResponse" />
+            type="com.lemon.team.electronics.model.response.ProductsResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="280dp">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin2x"
             app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="15dp"
-            android:elevation="6dp">
+            app:cardCornerRadius="@dimen/radius2x"
+            app:cardElevation="@dimen/margin8dp">
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/image_slider"
@@ -29,7 +29,7 @@
                 app:iss_delay="0"
                 app:iss_period="1100"
                 app:iss_error_image="@drawable/error"
-                app:setSliderImagesList="@{products}"
+                app:setSliderImagesList="@{products.products}"
                 app:iss_selected_dot="@drawable/selected_dot"
                 app:iss_unselected_dot="@drawable/unselected_dot"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

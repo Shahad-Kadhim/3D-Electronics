@@ -91,12 +91,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 it.bestProduct.observe(this@HomeFragment) { state ->
                     if (state is State.Success) {
                         this?.addItem(HomeItem.BestProductType(state.toData()!!))
-                        this?.addItem(HomeItem.SlideType(state.toData()!!))
                     }
                 }
 
+                it.slideProducts.observe(this@HomeFragment) { state ->
+                    if (state is State.Success) {
+                            this?.addItem(HomeItem.SlideType(state.toData()!!))
+                    }
+                }
             }
         }
     }
-
 }
