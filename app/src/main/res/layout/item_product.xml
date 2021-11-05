@@ -7,6 +7,7 @@
         <variable
             name="item"
             type="com.lemon.team.electronics.model.response.Product" />
+
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.category.ProductInteractionListener" />
@@ -15,18 +16,21 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/product_background_card"
         style="@style/ProductBackgroundCardStyle"
-        android:layout_margin="8dp">
+        android:layout_margin="@dimen/margin8dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:onClick="@{() -> listener.onClickProduct(item.id)}">
 
             <TextView
                 android:id="@+id/product_name_text"
                 style="@style/ProductNameStyle"
+                android:singleLine="true"
+                android:clipToPadding="false"
                 android:text="@{item.name}"
-                android:maxLines="1"
-                app:layout_constraintBottom_toTopOf="@id/product_price_text"
+                android:layout_marginEnd="@dimen/margin12dp"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_image"
@@ -35,8 +39,10 @@
             <TextView
                 android:id="@+id/product_price_text"
                 style="@style/ProductPriceStyle"
+                app:layout_constraintVertical_bias="0.0"
                 android:text="@{String.valueOf(item.price)}"
-                app:layout_constraintBottom_toTopOf="@id/product_old_price_text"
+                android:layout_marginBottom="@dimen/margin14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/product_name_text"
                 app:layout_constraintTop_toBottomOf="@id/product_name_text"
                 tools:text="15.77 IQ" />
@@ -45,16 +51,19 @@
                 android:id="@+id/product_old_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin14dp"
                 android:fontFamily="@font/monda_regular"
                 android:text="@{String.valueOf(item.oldPrice)}"
                 android:textColor="@color/secondary_text_color"
+                android:textSize="@dimen/text12sp"
                 app:isVisible="@{item.sale}"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/product_price_text"
                 app:layout_constraintTop_toBottomOf="@+id/product_price_text"
                 tools:text="100.54 IQ" />
 
             <View
-                android:layout_width="80dp"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="@color/secondary_text_color"
                 app:isVisible="@{item.sale}"
@@ -88,8 +97,8 @@
 
             <TextView
                 android:id="@+id/product_out_of_stock_text"
-                android:layout_width="94dp"
-                android:layout_height="36dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@drawable/out_of_stock_shape"
                 android:fontFamily="@font/monda_bold"
                 android:gravity="center"
@@ -100,6 +109,19 @@
                 app:isVisible="@{item.sold}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add_to_cart_button"
+                android:layout_width="46dp"
+                android:layout_height="38dp"
+                android:paddingTop="8dp"
+                android:drawableTop="@drawable/ic_baseline_add_24"
+                android:gravity="center"
+                app:isVisible="@{!item.sold}"
+                android:background="@drawable/shape_button_cart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

@@ -32,13 +32,11 @@
             android:layout_marginTop="16dp"
             android:onClick="@{() -> viewModel.onclickBack()}"
             android:background="@drawable/ic_shape_cover"
-            android:drawableStart="@drawable/ic_baseline_arrow_back"
+            android:drawableTop="@drawable/ic_baseline_arrow_back"
             android:drawableTint="@color/secondary_icons_color"
             android:elevation="2dp"
             android:gravity="center"
-            android:paddingStart="@dimen/padding6dp"
-            android:paddingEnd="@dimen/padding6dp"
-            android:paddingTop="8dp"
+            android:paddingTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

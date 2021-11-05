@@ -15,19 +15,18 @@
         android:background="@color/bg_color">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/vector_3"
-            android:layout_width="35dp"
-            android:layout_height="36dp"
-            android:onClick="@{() -> viewModel.onclickBack()}"
-            android:layout_marginStart="16dp"
+            android:id="@+id/back_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/margin2x"
             android:layout_marginTop="16dp"
+            android:onClick="@{() -> viewModel.onclickBack()}"
             android:background="@drawable/ic_shape_cover"
-            android:drawableStart="@drawable/ic_baseline_arrow_back"
-            android:drawableTint="#878B97"
+            android:drawableTop="@drawable/ic_baseline_arrow_back"
+            android:drawableTint="@color/secondary_icons_color"
             android:elevation="2dp"
             android:gravity="center"
-            android:paddingStart="6dp"
-            android:paddingTop="8dp"
+            android:paddingTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

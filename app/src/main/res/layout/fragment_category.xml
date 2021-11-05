@@ -12,7 +12,6 @@
             name="categoryName"
             type="String" />
 
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,19 +19,22 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="280dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:ellipsize="end"
+            android:singleLine="true"
             android:fontFamily="@font/monda_bold"
+            android:gravity="center"
             android:lines="1"
             android:text="@{categoryName}"
-            android:gravity="center"
             android:textColor="@color/primary_text_color"
             android:textSize="@dimen/text24sp"
-            app:layout_constraintStart_toEndOf="@+id/back_button"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginHorizontal="68dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Mouse" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
@@ -40,15 +42,13 @@
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin2x"
             android:layout_marginTop="16dp"
-            android:onClick="@{() -> viewModel.onclickBack()}"
+            android:onClick="@{() -> viewModel.onClickBack()}"
             android:background="@drawable/ic_shape_cover"
-            android:drawableStart="@drawable/ic_baseline_arrow_back"
+            android:drawableTop="@drawable/ic_baseline_arrow_back"
             android:drawableTint="@color/secondary_icons_color"
             android:elevation="2dp"
             android:gravity="center"
-            android:paddingStart="@dimen/padding6dp"
-            android:paddingEnd="@dimen/padding6dp"
-            android:paddingTop="8dp"
+            android:paddingTop="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,13 +57,18 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:clipToPadding="false"
+            android:paddingVertical="@dimen/margin4x"
+            android:layout_marginTop="@dimen/margin8dp"
+            android:paddingHorizontal="@dimen/margin12dp"
             app:items="@{viewModel.items.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/back_button"
+            app:layout_constraintVertical_bias="1.0"
             app:showOnSuccess="@{viewModel.items}"
             app:spanCount="2"
             tools:listitem="@layout/item_product" />

@@ -17,7 +17,9 @@
 
     <!--   padding   -->
     <dimen name="padding1x">8dp</dimen>
+    <dimen name="padding14dp">14dp</dimen>
     <dimen name="padding2x">16dp</dimen>
+    <dimen name="padding18dp">18dp</dimen>
     <dimen name="padding3x">24dp</dimen>
 
 

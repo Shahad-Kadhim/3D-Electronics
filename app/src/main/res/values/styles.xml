@@ -27,8 +27,8 @@
 
     <style name="ProductBackgroundCardStyle">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="cardElevation">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="cardElevation">5dp</item>
         <item name="cardCornerRadius">@dimen/margin3x</item>
         <item name="cardBackgroundColor">@color/white</item>
     </style>
@@ -39,11 +39,14 @@
 
     <style name="ProductNameStyle">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:textColor">@color/primary_text_color</item>
-        <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:fontFamily">@font/monda_regular</item>
-        <item name="android:layout_marginStart">@dimen/margin8dp</item>
+        <item name="android:textSize">@dimen/text14sp</item>
+        <item name="android:fontFamily">@font/monda_bold</item>
+        <item name="android:layout_marginStart">@dimen/margin12dp</item>
+        <item name="android:layout_marginEnd">@dimen/margin2dp</item>
+        <item name="android:layout_marginTop">@dimen/margin8dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="ProductPriceStyle">
@@ -55,7 +58,7 @@
     </style>
 
     <style name="ProductImageStyle">
-        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_height">175dp</item>
         <item name="android:layout_width">match_parent</item>
     </style>
 
@@ -65,10 +68,11 @@
     </style>
 
     <style name="WishIconStyle">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
         <item name="android:elevation">4dp</item>
         <item name="android:src">@drawable/ic_wish</item>
+        <item name="android:padding">3dp</item>
         <item name="android:layout_marginTop">@dimen/margin2dp</item>
     </style>
 

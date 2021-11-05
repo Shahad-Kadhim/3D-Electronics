@@ -35,7 +35,7 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
 
     override fun onClickHeart(productId: String) { }
 
-    fun onclickBack(){
+    fun onClickBack(){
         _clickBackEvent.postValue(Event(true))
     }
 }
