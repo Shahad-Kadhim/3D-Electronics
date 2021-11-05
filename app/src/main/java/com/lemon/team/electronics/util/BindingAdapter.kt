@@ -12,6 +12,10 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.models.SlideModel
+import com.lemon.team.electronics.model.response.Product
+import com.denzcoskun.imageslider.constants.ScaleTypes
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -112,3 +116,10 @@ fun setText(view:TextView , categoryName:String?){
     }
 }
 
+
+@BindingAdapter(value = ["app:setSliderImagesList"])
+fun setSliderImages(slider: ImageSlider, images: List<Product>?){
+    images?.map{
+        SlideModel(it.mainImage)
+    }?.let { slider.setImageList(it, ScaleTypes.CENTER_INSIDE) }
+}

@@ -9,6 +9,6 @@ class SlideShowRecyclerAdapter (
     listener: HomeInteractionListener
 ) : BaseRecyclerAdapter<Product>(items, listener) {
 
-    override val layoutId: Int = R.layout.item_slide_show
+    override val layoutId: Int = R.layout.item_slide_image
 
 }
