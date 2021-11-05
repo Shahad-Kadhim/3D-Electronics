@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.lemon.team.electronics.ui.cart.CartViewModel" />
@@ -13,78 +14,80 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/back_button"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="@dimen/margin2x"
-        android:layout_marginTop="16dp"
-        android:onClick="@{() -> viewModel.onClickBack()}"
-        android:background="@drawable/ic_shape_cover"
-        android:drawableStart="@drawable/ic_baseline_arrow_back"
-        android:drawableTint="@color/secondary_icons_color"
-        android:elevation="2dp"
-        android:gravity="center"
-        android:paddingStart="@dimen/padding6dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="@dimen/padding6dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/margin2x"
+            android:layout_marginTop="16dp"
+            android:onClick="@{() -> viewModel.onClickBack()}"
+            android:background="@drawable/ic_shape_cover"
+            android:drawableStart="@drawable/ic_baseline_arrow_back"
+            android:drawableTint="@color/secondary_icons_color"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:paddingStart="@dimen/padding6dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="@dimen/padding6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cart_recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/margin12dp"
+            android:clipToPadding="false"
             android:orientation="vertical"
+            android:padding="@dimen/margin12dp"
             app:items="@{viewModel.cartItems.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/check_out_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/back_button"
+
+            app:layout_constraintBottom_toTopOf="@+id/check_out_background"
+            app:layout_constraintTop_toBottomOf="@+id/back_button"
             app:showOnSuccess="@{viewModel.cartItems}"
             app:spanCount="1"
             tools:listitem="@layout/item_product_in_cart" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/loading_game"
-        app:showOnLoading="@{viewModel.cartItems}" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/error"
-        app:showOnError="@{viewModel.cartItems}" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_game"
+            app:showOnLoading="@{viewModel.cartItems}" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cart"
-        android:layout_marginEnd="@dimen/margin28dp"
-        android:textColor="@color/primary_text_color"
-        android:textSize="@dimen/text24sp"
-        android:fontFamily="@font/monda_bold"
-        app:layout_constraintBottom_toTopOf="@+id/cart_recycler"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/back_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/error"
+            app:showOnError="@{viewModel.cartItems}" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin28dp"
+            android:fontFamily="@font/monda_bold"
+            android:text="@string/cart"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            app:layout_constraintTop_toTopOf="@+id/back_button" />
 
 
         <View
@@ -94,25 +97,24 @@
             android:background="@color/brand_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cart_recycler" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/check_out_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.onClickCheckout()}"
-            android:text="@string/check_out"
-            android:padding="@dimen/padding2x"
-            android:layout_margin="@dimen/margin12dp"
-            android:textAllCaps="false"
-            android:textSize="@dimen/text18sp"
-            android:fontFamily="@font/monda_bold"
-            android:textColor="@color/white"
+            android:layout_marginEnd="@dimen/margin12dp"
             android:background="@drawable/check_out_button_shape"
-            app:layout_constraintTop_toBottomOf="@id/cart_recycler"
+            android:fontFamily="@font/monda_bold"
+            android:onClick="@{() -> viewModel.onClickCheckout()}"
+            android:padding="@dimen/padding2x"
+            android:text="@string/check_out"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text18sp"
             app:layout_constraintBottom_toBottomOf="@id/check_out_background"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="@id/check_out_background"
+            app:layout_constraintTop_toTopOf="@+id/check_out_background" />
 
         <TextView
             android:id="@+id/product_total_price_text"

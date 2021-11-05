@@ -18,7 +18,7 @@
             type="com.lemon.team.electronics.ui.categories.CategoryInteractionListener" />
     </data>
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="120dp"
+        android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="6dp"
         app:cardCornerRadius="24dp"
@@ -53,6 +53,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:maxLines="1"
+                android:ellipsize="end"
                 android:textAlignment="viewStart"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintBottom_toBottomOf="parent"

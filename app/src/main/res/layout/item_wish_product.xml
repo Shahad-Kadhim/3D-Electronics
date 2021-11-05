@@ -13,11 +13,13 @@
     </data>
 
         <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/wish_product_background_card"
             style="@style/ProductBackgroundCardStyle"
             android:layout_margin="8dp">
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="160dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="@{() -> listener.onClickProduct(item.id)}">
 
