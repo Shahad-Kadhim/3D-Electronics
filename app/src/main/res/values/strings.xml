@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">3D Electronics</string>
     <string name="product_image">product image</string>
-    <string name="out_of_stock">Out Of Stock</string>
+    <string name="out_of_stock">Sold Out</string>
     <string name="search">Search ...</string>
     <string name="wishlist">WishList</string>
     <string name="cart">Cart</string>

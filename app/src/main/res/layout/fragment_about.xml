@@ -40,59 +40,6 @@
                     app:layout_constraintTop_toTopOf="@+id/textView8"
                     app:tint="@color/red" />
 
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:fontFamily="@font/monda_bold"
-                    android:text="@string/address"
-                    style="@style/AboutTextColor"
-                    android:textSize="@dimen/text14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView3"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
-
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/back_button"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="@dimen/margin2x"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/ic_shape_cover"
-                    android:drawableTop="@drawable/ic_baseline_arrow_back"
-                    android:drawableTint="@color/secondary_icons_color"
-                    android:elevation="2dp"
-                    android:gravity="center"
-                    android:onClick="@{() -> viewModel.onclickBack()}"
-                    android:paddingTop="12dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView2"
-                    android:layout_width="0dp"
-                    android:layout_height="200dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="@dimen/margin2x"
-                    android:layout_marginEnd="24dp"
-                    app:cardCornerRadius="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/back_button"
-                    tools:ignore="MissingConstraints">
-
-                    <VideoView
-                        android:id="@+id/video"
-                        android:layout_width="wrap_content"
-                        android:layout_height="200dp"
-                        app:video="@{viewModel.video}" />
-
-                </androidx.cardview.widget.CardView>
-
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cardView"
                     android:layout_width="match_parent"
@@ -117,7 +64,7 @@
                         android:textSize="@dimen/text14sp"
                         android:justificationMode="inter_word"
                         android:text="@string/about_part1"
-                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -167,15 +114,70 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
                 <ImageView
                     android:id="@+id/logo"
                     android:layout_width="136dp"
                     android:layout_height="55dp"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="16dp"
                     android:src="@drawable/logo"
+                    android:layout_marginStart="@dimen/margin3x"
+                    android:layout_marginTop="@dimen/margin2x"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/address"
+                    style="@style/AboutTextColor"
+                    android:textSize="@dimen/text14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/back_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/margin2x"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ic_shape_cover"
+                    android:drawableTop="@drawable/ic_baseline_arrow_back"
+                    android:drawableTint="@color/secondary_icons_color"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:onClick="@{() -> viewModel.onclickBack()}"
+                    android:paddingTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="@dimen/margin2x"
+                    android:layout_marginEnd="24dp"
+                    app:cardCornerRadius="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/back_button"
+                    tools:ignore="MissingConstraints">
+
+                    <VideoView
+                        android:id="@+id/video"
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        app:video="@{viewModel.video}" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/companies_bg"
@@ -357,7 +359,6 @@
                         app:layout_constraintTop_toTopOf="@+id/img_phone" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

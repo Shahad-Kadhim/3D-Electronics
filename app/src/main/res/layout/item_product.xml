@@ -29,12 +29,14 @@
                 android:singleLine="true"
                 android:clipToPadding="false"
                 android:text="@{item.name}"
-                android:layout_marginEnd="@dimen/margin12dp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin8dp"
+                android:layout_marginEnd="@dimen/margin2x"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_image"
-                tools:text="Official Original Silicone..." />
+                tools:text="Official..." />
 
             <TextView
                 android:id="@+id/product_price_text"
@@ -81,19 +83,16 @@
                 app:imageFromUrl="@{item.images.get(0).productImageLocation}"
                 tools:src="@color/brand_color" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/wish_button"
-                style="@style/WishButtonStyle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                style="@style/WishIconStyle"
-                android:contentDescription="@string/product_image"
-                app:layout_constraintBottom_toBottomOf="@id/wish_button"
-                app:layout_constraintEnd_toEndOf="@+id/wish_button"
-                app:layout_constraintStart_toStartOf="@id/wish_button"
-                app:layout_constraintTop_toTopOf="@id/wish_button" />
+            <CheckBox
+                android:id="@+id/check_wished_product_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:checked="false"
+                android:button="@drawable/wish_checkbox"
+                android:layout_margin="@dimen/margin12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/product_out_of_stock_text"
