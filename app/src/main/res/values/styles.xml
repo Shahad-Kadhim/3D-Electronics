@@ -93,5 +93,16 @@
         <item name="android:textSize">@dimen/text14sp</item>
         <item name="android:textColor">@color/primary_text_color</item>
     </style>
+    
+    <style name="AboutBackgroundCard">
+        <item name="android:background">@color/secondary_background_color</item>
+    </style>
 
+    <style name="AboutTextColor">
+        <item name="android:textColor">@color/primary_text_color</item>
+    </style>
+
+    <style name="AboutBackgroundCompanies">
+        <item name="android:background">@color/secondary_background_color</item>
+    </style>
 </resources>

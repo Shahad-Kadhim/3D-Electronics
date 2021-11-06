@@ -13,8 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:background="@color/bg_color">
+       style="@style/AboutBackgroundCard">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -48,7 +47,7 @@
                     android:layout_marginEnd="32dp"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/address"
-                    android:textColor="@color/primary_text_color"
+                    style="@style/AboutTextColor"
                     android:textSize="@dimen/text14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView3"
@@ -100,7 +99,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="42dp"
                     android:layout_marginEnd="24dp"
-                    android:background="@drawable/about_card"
+                    style="@style/AboutBackgroundCard"
                     android:padding="@dimen/margin8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -182,7 +181,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:background="@drawable/company_bg"
+                    style="@style/AboutBackgroundCompanies"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView">
@@ -196,7 +195,7 @@
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/monda_bold"
                         android:text="Our Vendors"
-                        android:textColor="@color/black"
+                        style="@style/AboutTextColor"
                         android:textSize="@dimen/text24sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -225,7 +224,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/company_bg"
+                    style="@style/AboutBackgroundCompanies"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/companies_bg">
@@ -238,7 +237,7 @@
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/monda_bold"
                         android:text="Other Products"
-                        android:textColor="@color/black"
+                        style="@style/AboutTextColor"
                         android:textSize="@dimen/text24sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -266,7 +265,7 @@
                     android:layout_height="0dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="@dimen/margin3x"
-                    android:background="@drawable/company_bg"
+                    style="@style/AboutBackgroundCompanies"
                     android:paddingBottom="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -312,7 +311,7 @@
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/monda_bold"
                         android:text="Contact us"
-                        android:textColor="@color/black"
+                        style="@style/AboutTextColor"
                         android:textSize="@dimen/text24sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
