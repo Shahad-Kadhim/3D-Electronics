@@ -41,9 +41,9 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/primary_text_color</item>
-        <item name="android:textSize">@dimen/text_normal2x</item>
-        <item name="android:fontFamily">@font/roboto_regular</item>
-        <item name="android:layout_marginStart">@dimen/margin8dp</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:fontFamily">@font/monda_bold</item>
+        <item name="android:layout_margin">@dimen/margin8dp</item>
     </style>
 
     <style name="ProductPriceStyle">
@@ -52,11 +52,12 @@
         <item name="android:textColor">@color/primary_text_color</item>
         <item name="android:textSize">@dimen/text18sp</item>
         <item name="android:fontFamily">@font/monda_bold</item>
+        <item name="android:layout_marginStart">@dimen/margin4dp</item>
     </style>
 
     <style name="ProductImageStyle">
         <item name="android:layout_height">130dp</item>
-        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_width">match_parent</item>
     </style>
 
     <style name="ProductImageStyle.Fixed">

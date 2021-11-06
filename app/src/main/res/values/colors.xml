@@ -28,7 +28,7 @@
     <color name="primary_text_color">#444444</color>
     <color name="secondary_text_color">#9799A1</color>
 
-    <color name="red">#D92727</color>
+    <color name="red">#FF223D</color>
     <color name="searchbar_stroke_color">#BBBDC5</color>
 
 </resources>
