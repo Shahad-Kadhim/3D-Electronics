@@ -88,6 +88,7 @@
         <item name="android:padding">@dimen/padding1x</item>
         <item name="android:layout_margin">@dimen/margin2x</item>
         <item name="android:hint">@string/search</item>
+        <item name="android:textColorHint">@color/secondary_text_color</item>
         <item name="android:drawableLeft">@drawable/ic_search_bar</item>
         <item name="android:drawablePadding">@dimen/padding2x</item>
         <item name="fontFamily">@font/monda_regular</item>
