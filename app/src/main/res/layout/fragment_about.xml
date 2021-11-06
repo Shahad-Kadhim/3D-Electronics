@@ -112,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/margin2x"
                         android:layout_marginTop="42dp"
-                        android:fontFamily="@font/monda_bold"
+                        android:fontFamily="@font/monda_regular"
                         android:textSize="@dimen/text14sp"
                         android:justificationMode="inter_word"
                         android:text="@string/about_part1"
@@ -126,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/margin2x"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="@font/monda_bold"
+                        android:fontFamily="@font/monda_regular"
                         android:textSize="@dimen/text14sp"
                         android:justificationMode="inter_word"
                         android:text="@string/about_part2"
@@ -155,7 +155,7 @@
                         android:layout_marginHorizontal="@dimen/margin2x"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/monda_bold"
+                        android:fontFamily="@font/monda_regular"
                         android:justificationMode="inter_word"
                         android:textSize="@dimen/text14sp"
                         android:text="@string/about_part4"
@@ -165,7 +165,6 @@
                         app:layout_constraintTop_toBottomOf="@+id/text3" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
                 <ImageView
                     android:id="@+id/logo"
@@ -357,6 +356,7 @@
                         app:layout_constraintTop_toTopOf="@+id/img_phone" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
