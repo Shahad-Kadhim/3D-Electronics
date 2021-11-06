@@ -12,16 +12,32 @@
             type="com.lemon.team.electronics.ui.home.HomeInteractionListener" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp"
+        android:layout_marginVertical="@dimen/margin2x"
+        android:layout_marginHorizontal="@dimen/margin5x"
+        app:cardCornerRadius="@dimen/radius2x"
+        android:onClick="@{() -> listener.onclickSearch()}"
+        app:cardBackgroundColor="@color/white">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:onClick="@{() -> listener.onclickSearch()}"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin2x"
+            android:text="@string/search"
+            android:padding="@dimen/margin8dp"
+            android:textColor="@color/secondary_icons_color"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_normal"
+            android:drawablePadding="@dimen/margin2x"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:drawableLeftCompat="@drawable/ic_search"
+            app:drawableTint="@color/secondary_icons_color" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

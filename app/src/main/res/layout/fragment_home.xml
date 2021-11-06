@@ -13,11 +13,10 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:id="@+id/logo_image"
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:layout_margin="@dimen/margin2x"
             android:src="@drawable/logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,24 +25,23 @@
             android:id="@+id/cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:onClick="@{() -> viewModel.onClickCart()}"
             android:src="@drawable/ic_cart"
+            app:layout_constraintBottom_toBottomOf="@+id/about"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/about" />
 
         <ImageView
             android:id="@+id/about"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_about"
             android:onClick="@{() -> viewModel.onClickAbout()}"
+            android:src="@drawable/ic_about"
+            app:layout_constraintBottom_toBottomOf="@+id/logo_image"
             app:layout_constraintEnd_toStartOf="@+id/cart"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="@+id/logo_image" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_home"
@@ -55,8 +53,9 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/logo_image" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

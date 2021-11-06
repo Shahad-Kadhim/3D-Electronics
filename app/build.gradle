@@ -79,6 +79,9 @@ dependencies {
     //json
     implementation 'com.google.code.gson:gson:2.8.5'
 
+    //image slideshow library
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
+
 
     //  implementation "com.github.kojofosu:Quantitizer:1.6.4"
 }

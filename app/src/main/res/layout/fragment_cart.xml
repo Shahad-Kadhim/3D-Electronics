@@ -35,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:clipToPadding="false"
+            android:layout_marginTop="@dimen/margin8dp"
             android:orientation="vertical"
             android:padding="@dimen/margin12dp"
             app:items="@{viewModel.cartItems.toData().products}"
@@ -74,34 +75,34 @@
             app:showOnError="@{viewModel.cartItems}" />
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin28dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/monda_bold"
+            android:gravity="center"
+            android:padding="8dp"
             android:text="@string/cart"
             android:textColor="@color/primary_text_color"
-            android:textSize="@dimen/text24sp"
-            app:layout_constraintBottom_toBottomOf="@+id/back_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/back_button"
-            app:layout_constraintTop_toTopOf="@+id/back_button" />
-
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/back_button"
+            app:layout_constraintStart_toEndOf="@+id/back_button" />
 
         <View
             android:id="@+id/check_out_background"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:background="@color/brand_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/check_out_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin12dp"
+            android:layout_margin="@dimen/margin2x"
             android:background="@drawable/check_out_button_shape"
             android:fontFamily="@font/monda_bold"
             android:onClick="@{() -> viewModel.onClickCheckout()}"
@@ -109,7 +110,7 @@
             android:text="@string/check_out"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/text18sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/check_out_background"
             app:layout_constraintEnd_toEndOf="@id/check_out_background"
             app:layout_constraintTop_toTopOf="@+id/check_out_background" />
@@ -118,26 +119,51 @@
             android:id="@+id/product_total_price_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text18sp"
-            android:text="@{String.valueOf(viewModel.totalPrice)+` IQ`}"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@{String.valueOf(viewModel.totalPrice)+` $`}"
             android:textColor="@color/white"
-            android:fontFamily="@font/monda_bold"
-            android:layout_margin="@dimen/margin12dp"
-            app:layout_constraintBottom_toBottomOf="@id/check_out_background"
-            app:layout_constraintStart_toStartOf="@id/check_out_background"
-            tools:text="15.77 IQ" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/check_out_button"
+            app:layout_constraintStart_toStartOf="@+id/total_items_text"
+            app:layout_constraintTop_toBottomOf="@+id/total_items_text"
+            tools:text="15.77 $" />
+
+        <TextView
+            android:id="@+id/product_old_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin8dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"
+            android:text="@{String.valueOf(viewModel.totalPrice)+` $`}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/product_total_price_text"
+            app:layout_constraintStart_toEndOf="@+id/product_total_price_text"
+            tools:text="100.54 $" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/product_old_price_text"
+            app:layout_constraintEnd_toEndOf="@id/product_old_price_text"
+            app:layout_constraintStart_toStartOf="@id/product_old_price_text"
+            app:layout_constraintTop_toTopOf="@id/product_old_price_text" />
 
         <TextView
             android:id="@+id/total_items_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/total_price"
-            android:textSize="@dimen/text_normal"
-            android:textColor="@color/white"
+            android:layout_marginStart="@dimen/margin2x"
             android:fontFamily="@font/monda_regular"
-            app:layout_constraintTop_toTopOf="@id/check_out_background"
-            app:layout_constraintStart_toStartOf="@id/product_total_price_text"
-            app:layout_constraintBottom_toTopOf="@+id/product_total_price_text" />
+            android:text="@string/total_price"
+            android:layout_marginTop="@dimen/margin8dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/check_out_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
