@@ -36,5 +36,6 @@
     <dimen name="margin28dp">28dp</dimen>
     <dimen name="text24sp">24sp</dimen>
     <dimen name="radius2x">16dp</dimen>
+    <dimen name="radius3x">24dp</dimen>
 
 </resources>

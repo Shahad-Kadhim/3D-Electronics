@@ -12,13 +12,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Best Seller"
-            android:layout_marginHorizontal="16dp"
+            android:text="@string/best_seller"
+            android:layout_margin="16dp"
             android:textStyle="bold"
             android:fontFamily="@font/monda_bold"
             android:textSize="22sp"
@@ -36,21 +35,24 @@
             android:textColor="@color/seconder_text_color"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/text_title"
-            app:layout_constraintEnd_toEndOf="@+id/recycler_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/text_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="8dp"
-            android:clipToPadding="false"
+            android:layout_height="match_parent"
             android:adapter="@{adapter}"
+            android:clipToPadding="false"
             android:orientation="horizontal"
+            android:layout_margin="@dimen/margin8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_title"
+            app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/item_best_seller" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

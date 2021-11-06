@@ -41,8 +41,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/primary_text_color</item>
-        <item name="android:textSize">@dimen/text_small</item>
-        <item name="android:fontFamily">@font/monda_regular</item>
+        <item name="android:textSize">@dimen/text_normal2x</item>
+        <item name="android:fontFamily">@font/roboto_black</item>
         <item name="android:layout_marginStart">@dimen/margin8dp</item>
     </style>
 
@@ -55,8 +55,8 @@
     </style>
 
     <style name="ProductImageStyle">
-        <item name="android:layout_height">200dp</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">130dp</item>
+        <item name="android:layout_width">130dp</item>
     </style>
 
     <style name="ProductImageStyle.Fixed">
@@ -65,10 +65,10 @@
     </style>
 
     <style name="WishIconStyle">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
         <item name="android:elevation">4dp</item>
-        <item name="android:src">@drawable/ic_wish</item>
+        <item name="android:src">@drawable/ic_favorite</item>
         <item name="android:layout_marginTop">@dimen/margin2dp</item>
     </style>
 
