@@ -20,15 +20,4 @@
         <item name="cornerSize">5%</item>
     </style>
 
-    <style name="AboutBackgroundCard">
-        <item name="android:background">@drawable/about_card</item>
-    </style>
-
-    <style name="AboutTextColor">
-        <item name="android:textColor">@color/primary_text_color</item>
-    </style>
-
-    <style name="AboutBackgroundCompanies">
-        <item name="android:background">@drawable/company_bg</item>
-    </style>
 </resources>
