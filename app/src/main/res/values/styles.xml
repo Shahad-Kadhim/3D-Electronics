@@ -42,7 +42,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">@color/primary_text_color</item>
         <item name="android:textSize">@dimen/text_normal2x</item>
-        <item name="android:fontFamily">@font/roboto_black</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:layout_marginStart">@dimen/margin8dp</item>
     </style>
 
@@ -68,7 +68,7 @@
         <item name="android:layout_height">24dp</item>
         <item name="android:layout_width">24dp</item>
         <item name="android:elevation">4dp</item>
-        <item name="android:src">@drawable/ic_favorite</item>
+        <item name="android:button">@drawable/ic_favorite</item>
         <item name="android:layout_marginTop">@dimen/margin2dp</item>
     </style>
 

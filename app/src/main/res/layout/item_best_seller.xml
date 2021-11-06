@@ -92,7 +92,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/product_name_text"
                 tools:src="@color/brand_color" />
 
-            <ImageView
+            <CheckBox
                 android:id="@+id/imageView5"
                 style="@style/WishIconStyle"
                 android:layout_marginEnd="@dimen/margin2x"
