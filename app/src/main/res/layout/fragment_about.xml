@@ -140,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/margin2x"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="@font/monda_bold"
+                        android:fontFamily="@font/monda_regular"
                         android:justificationMode="inter_word"
                         android:text="@string/about_part3"
                         android:textSize="@dimen/text14sp"
