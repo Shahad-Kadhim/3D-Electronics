@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       style="@style/AboutBackgroundCard">
+        android:background="@color/bg_color">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -322,7 +322,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/monda_bold"
                         android:text="3d@3d-iraq.com"
-                        android:textColor="@color/black"
+                        style="@style/AboutBackgroundCard"
                         android:textSize="16dp"
                         android:layout_marginStart="@dimen/margin8dp"
                         app:layout_constraintBottom_toBottomOf="@+id/img_mail"
@@ -335,7 +335,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/monda_bold"
                         android:text="3D electronics"
-                        android:textColor="@color/black"
+                        style="@style/AboutBackgroundCard"
                         android:layout_marginStart="@dimen/margin8dp"
                         android:textSize="16dp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
@@ -348,7 +348,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/monda_bold"
                         android:text="+9647700612084"
-                        android:textColor="@color/black"
+                        style="@style/AboutBackgroundCard"
                         android:textSize="16dp"
                         android:layout_marginStart="@dimen/margin8dp"
                         app:layout_constraintBottom_toBottomOf="@+id/img_phone"

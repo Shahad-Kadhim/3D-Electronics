@@ -95,7 +95,7 @@
     </style>
     
     <style name="AboutBackgroundCard">
-        <item name="android:background">@color/secondary_background_color</item>
+        <item name="android:background">@drawable/company_bg</item>
     </style>
 
     <style name="AboutTextColor">
@@ -103,6 +103,6 @@
     </style>
 
     <style name="AboutBackgroundCompanies">
-        <item name="android:background">@color/secondary_background_color</item>
+        <item name="android:background">@drawable/company_bg</item>
     </style>
 </resources>
