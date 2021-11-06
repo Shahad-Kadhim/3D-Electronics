@@ -95,7 +95,7 @@
     </style>
     
     <style name="AboutBackgroundCard">
-        <item name="android:background">@drawable/company_bg</item>
+        <item name="android:background">@drawable/about_card</item>
     </style>
 
     <style name="AboutTextColor">
