@@ -196,7 +196,7 @@
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/monda_bold"
                         android:text="Our Vendors"
-                        style="@style/AboutTextColor"
+                        style="@style/AboutTitleTextColor"
                         android:textSize="@dimen/text24sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -238,7 +238,7 @@
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/monda_bold"
                         android:text="Other Products"
-                        style="@style/AboutTextColor"
+                        style="@style/AboutTitleTextColor"
                         android:textSize="@dimen/text24sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -312,7 +312,7 @@
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/monda_bold"
                         android:text="Contact us"
-                        style="@style/AboutTextColor"
+                        style="@style/AboutTitleTextColor"
                         android:textSize="@dimen/text24sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

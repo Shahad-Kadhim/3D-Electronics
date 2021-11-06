@@ -98,10 +98,12 @@
         <item name="android:background">@drawable/about_card</item>
     </style>
 
-    <style name="AboutTextColor">
+    <style name="AboutTitleTextColor">
         <item name="android:textColor">@color/primary_text_color</item>
     </style>
-
+    <style name="AboutTextColor">
+        <item name="android:textColor">@color/secondary_text_color</item>
+    </style>
     <style name="AboutBackgroundCompanies">
         <item name="android:background">@drawable/company_bg</item>
     </style>
