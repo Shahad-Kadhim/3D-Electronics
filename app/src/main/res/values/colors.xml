@@ -29,5 +29,6 @@
     <color name="secondary_text_color">#9799A1</color>
 
     <color name="red">#D92727</color>
+    <color name="searchbar_stroke_color">#BBBDC5</color>
 
 </resources>

@@ -13,6 +13,7 @@
     <dimen name="margin4x">28dp</dimen>
     <dimen name="margin5x">32dp</dimen>
     <dimen name="margin6x">40dp</dimen>
+    <dimen name="margin28dp">28dp</dimen>
 
 
     <!--   padding   -->
@@ -20,6 +21,7 @@
     <dimen name="padding2x">16dp</dimen>
     <dimen name="padding3x">24dp</dimen>
     <dimen name="padding4x">32dp</dimen>
+    <dimen name="padding6dp">6dp</dimen>
 
 
     <!--   text size   -->
@@ -32,10 +34,16 @@
     <dimen name="text18sp">18sp</dimen>
     <dimen name="text12sp">12sp</dimen>
     <dimen name="text14sp">14sp</dimen>
-    <dimen name="padding6dp">6dp</dimen>
-    <dimen name="margin28dp">28dp</dimen>
     <dimen name="text24sp">24sp</dimen>
+
+
+    <!--   raduis    -->
     <dimen name="radius2x">16dp</dimen>
     <dimen name="radius3x">24dp</dimen>
+    <dimen name="raduis10dp">10dp</dimen>
 
+
+    <!--   elevation   -->
+    <dimen name="search_bar_elevation">6dp</dimen>
+    <dimen name="elevation2dp">2dp</dimen>
 </resources>

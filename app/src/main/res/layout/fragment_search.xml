@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
 
         <EditText
             android:id="@+id/search_bar"
@@ -19,26 +20,25 @@
             android:hint="@string/search"
             android:text="@={viewModel.searchName}"
             app:onclickSearch="@{viewModel::onclickSearch}"
+            android:background="@drawable/rounded_search"
             app:layout_constraintStart_toEndOf="@id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/search_recycler"/>
+            app:layout_constraintTop_toTopOf="@id/back_button"
+            app:layout_constraintBottom_toBottomOf="@id/back_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin2x"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin3x"
             android:onClick="@{() -> viewModel.onclickBack()}"
             android:background="@drawable/ic_shape_cover"
             android:drawableStart="@drawable/ic_baseline_arrow_back"
             android:drawableTint="@color/secondary_icons_color"
-            android:elevation="2dp"
-            android:gravity="center"
-            android:paddingStart="@dimen/padding6dp"
-            android:paddingEnd="@dimen/padding6dp"
-            android:paddingTop="8dp"
+            android:elevation="@dimen/elevation2dp"
+            android:paddingHorizontal="@dimen/padding6dp"
+            android:paddingTop="@dimen/padding1x"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,4 +85,5 @@
             app:showOnError="@{viewModel.searchResult}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
