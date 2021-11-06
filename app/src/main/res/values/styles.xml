@@ -53,6 +53,7 @@
         <item name="android:textSize">@dimen/text18sp</item>
         <item name="android:fontFamily">@font/monda_bold</item>
         <item name="android:layout_marginStart">@dimen/margin4dp</item>
+        <item name="android:layout_marginBottom">@dimen/margin8dp</item>
     </style>
 
     <style name="ProductImageStyle">

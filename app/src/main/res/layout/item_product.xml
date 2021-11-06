@@ -18,7 +18,7 @@
         android:layout_margin="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="160dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:onClick="@{() -> listener.onClickProduct(item.id)}">
 
@@ -36,7 +36,7 @@
                 android:id="@+id/product_price_text"
                 style="@style/ProductPriceStyle"
                 android:text="@{String.valueOf(item.price) + `$`}"
-                app:layout_constraintBottom_toTopOf="@id/product_old_price_text"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/product_name_text"
                 app:layout_constraintTop_toBottomOf="@id/product_name_text"
                 tools:text="15.77$" />
@@ -46,7 +46,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monda_regular"
-                android:layout_marginTop="@dimen/margin4dp"
                 android:textSize="@dimen/text14sp"
                 android:text="@{String.valueOf(item.oldPrice) + '$'}"
                 android:textColor="@color/secondary_text_color"
