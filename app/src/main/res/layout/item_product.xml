@@ -12,49 +12,66 @@
             type="com.lemon.team.electronics.ui.category.ProductInteractionListener" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/product_background_card"
         style="@style/ProductBackgroundCardStyle"
         android:layout_margin="8dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="160dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:onClick="@{() -> listener.onClickProduct(item.id)}">
 
             <TextView
                 android:id="@+id/product_name_text"
-                style="@style/ProductNameStyle"
-                android:text="@{item.name}"
+                style="@style/ProductNameStyle2"
+                android:text="@{item.name.trim()}"
+                android:textSize="14sp"
+                android:layout_width="140dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="@dimen/margin2x"
                 android:maxLines="1"
-                app:layout_constraintBottom_toTopOf="@id/product_price_text"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:singleLine="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_image"
-                tools:text="Official Original Silicone..." />
+                tools:text="Official Original Silicone..."
+                tools:targetApi="p" />
 
             <TextView
                 android:id="@+id/product_price_text"
-                style="@style/ProductPriceStyle"
-                android:text="@{String.valueOf(item.price)}"
-                app:layout_constraintBottom_toTopOf="@id/product_old_price_text"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:textStyle="bold"
+                android:textColor="@color/primary_text_color"
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/text18sp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintVertical_bias="0"
+                android:text="@{String.valueOf(item.price) + `$`}"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@id/product_name_text"
                 app:layout_constraintTop_toBottomOf="@id/product_name_text"
-                tools:text="15.77 IQ" />
+                tools:text="15.77$" />
 
             <TextView
                 android:id="@+id/product_old_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/monda_regular"
-                android:text="@{String.valueOf(item.oldPrice)}"
+                android:layout_marginBottom="@dimen/margin8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@{String.valueOf(item.oldPrice) + '$'}"
                 android:textColor="@color/secondary_text_color"
+                android:textSize="11sp"
                 app:isVisible="@{item.sale}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/product_price_text"
                 app:layout_constraintStart_toStartOf="@+id/product_price_text"
                 app:layout_constraintTop_toBottomOf="@+id/product_price_text"
-                tools:text="100.54 IQ" />
+                tools:text="100.54$" />
 
             <View
-                android:layout_width="80dp"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="@color/secondary_text_color"
                 app:isVisible="@{item.sale}"
@@ -65,43 +82,48 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/product_image"
-                style="@style/ProductImageStyle"
+                android:layout_height="180dp"
+                android:layout_width="match_parent"
+                app:imageFromUrl="@{item.mainImage}"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:imageFromUrl="@{item.images.get(0).productImageLocation}"
-                tools:src="@color/brand_color" />
+                tools:src="@drawable/img_1" />
+
+            <CheckBox
+                android:id="@+id/wish_button"
+                style="@style/WishIconStyle"
+                android:contentDescription="@string/product_image"
+                android:onClick="@{() ->listener.onClickHeart(item.id)}"
+                app:layout_constraintEnd_toEndOf="@id/wish_background_button"
+                app:layout_constraintStart_toStartOf="@id/wish_background_button"
+                app:layout_constraintBottom_toBottomOf="@id/wish_background_button"
+                app:layout_constraintTop_toTopOf="@id/wish_background_button"/>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/wish_button"
+                android:id="@+id/wish_background_button"
                 style="@style/WishButtonStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                style="@style/WishIconStyle"
-                android:contentDescription="@string/product_image"
-                app:layout_constraintBottom_toBottomOf="@id/wish_button"
-                app:layout_constraintEnd_toEndOf="@+id/wish_button"
-                app:layout_constraintStart_toStartOf="@id/wish_button"
-                app:layout_constraintTop_toTopOf="@id/wish_button" />
-
             <TextView
                 android:id="@+id/product_out_of_stock_text"
-                android:layout_width="94dp"
-                android:layout_height="36dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@drawable/out_of_stock_shape"
                 android:fontFamily="@font/monda_bold"
                 android:gravity="center"
-                android:padding="@dimen/padding1x"
-                android:text="@string/out_of_stock"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="@string/sold_out"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_small"
                 app:isVisible="@{item.sold}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>
