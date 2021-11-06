@@ -21,7 +21,7 @@
     <color name="tertiary_brand_color">#BCD8D7</color>
 
     <color name="background_color">#F9F9F9</color>
-    <color name="secondary_background_color">#F9F9F9</color>
+    <color name="secondary_background_color">#FFFFFF</color>
 
     <color name="primary_icons_color">#646464</color>
     <color name="secondary_icons_color">#9799A1</color>
