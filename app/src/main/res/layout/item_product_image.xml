@@ -24,7 +24,7 @@
             android:layout_height="50dp"
             app:imageFromUrl="@{item}"
             android:onClick="@{() -> listener.onclickImage(item)}"
-            app:shapeAppearanceOverlay="@style/ProductImageRounded"
+            app:shapeAppearanceOverlay="@style/ProductImagesShape"
             android:src="@color/red" />
 
     </com.google.android.material.card.MaterialCardView>
