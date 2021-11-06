@@ -9,4 +9,16 @@
     <string name="total">Total:</string>
     <string name="total_price">Total :</string>
     <string name="best_seller">Best Seller</string>
+
+
+    <string name="about_part1">"We started our journey in the year 1998 in the Hay Al-jameaa street under the name of the three dimensions’ 3D in the Rasheed Commercial Complex, and the name of the scompany was inspired by the revolution in visual designs and electronic games from the two dimensions 2D to the 3D dimensions and it was at its rise at that time."</string>
+
+    <string name="about_part2">"And since then, the company sponsor all the kinds of technology from computers, laptops and tech supplements. The company moved to the Al-senaa street in 2004."</string>
+
+    <string name="about_part3">"We have a long-term experience and a good reputation in the field despite of all the challenges the country is going through and the difficulties ofproviding the finest products quickly with best quality and price. The office is branch of the Al-Itjah Althalith for electronics and commercial agencies.The company is officially recorded in Iraq with same name and has its branches in Dubai, Emirates and Shenzhen China."</string>
+
+    <string name="about_part4">"Our company is a major supplier of computer components, peripherals and accessories to all parts of Iraq. We also provide to many of the main points of sale distributed throughout Iraq, end users, students, public and private sector companies, and education platforms, high quality products and services at the most reasonable prices. The Third Dimension Electronics Company was established in Baghdad in 1998 based on a goal and determination at the time to reach today’s experience and position in the world of electronics and computers, to provide computer products and services to individuals and companies of high quality and lower price and provide the necessary after-sales support with guarantees. Our company is a major importer, distributor and single seller in Iraq. The number of the company's employees is (38) employees distributed between management, marketing, sales and technicians. They have a strong base of knowledge and experience in the information technology sector, and they do everything they have to satisfy the customer." </string>
+
+    <string name="address">"Industry Street - opposite the University of Technology - Al-Numan Complex."</string>
+
 </resources>
