@@ -15,9 +15,9 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/raduis25dp"
+            app:cardCornerRadius="@dimen/raduis24dp"
             app:cardBackgroundColor="@color/white"
-            app:cardElevation="1dp"
+            app:cardElevation="2dp"
             android:layout_margin="@dimen/margin8dp">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -25,16 +25,16 @@
                 android:onClick="@{() -> listener.onClickProduct(item.id)}">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/product_name_text"
-                    android:textColor="@color/primary_text_color"
-                    android:fontFamily="@font/roboto_bold"
-                    android:textSize="@dimen/text_normal"
-                    android:maxLines="1"
-                    android:layout_marginStart="@dimen/margin8dp"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin8dp"
+                    android:layout_marginStart="@dimen/margin8dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:maxLines="1"
                     android:text="@{item.name}"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text14sp"
                     app:layout_constraintBottom_toTopOf="@id/product_price_text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/product_image"
@@ -44,23 +44,34 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:id="@+id/product_price_text"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/roboto_bold"
                     android:textColor="@color/primary_text_color"
                     android:textSize="@dimen/text24sp"
                     android:layout_marginTop="@dimen/margin4dp"
                     android:layout_marginStart="@dimen/margin2x"
                     android:layout_marginBottom="@dimen/margin14dp"
-                    android:text="@{String.valueOf(item.price)+ ` $`}"
+                    android:text="@{String.valueOf(item.price)}"
                     app:layout_constraintBottom_toTopOf="@id/product_name_text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/product_name_text"
-                    tools:text="15.77$" />
+                    tools:text="15.77" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_normal"
+                    android:fontFamily="@font/roboto_bold"
+                    android:layout_marginStart="@dimen/margin4dp"
+                    android:layout_marginBottom="@dimen/margin2dp"
+                    app:layout_constraintStart_toEndOf="@id/product_price_text"
+                    app:layout_constraintBottom_toBottomOf="@id/product_price_text"
+                    android:text="@string/dollar_sign"/>
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
+                    android:layout_height="200dp"
                     android:id="@+id/product_image"
-                    android:layout_margin="@dimen/margin2x"
                     app:imageFromUrl="@{item.mainImage}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -79,18 +90,16 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/add_to_cart_button"
-                    android:layout_width="45dp"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="33dp"
                     android:background="@drawable/shape_button_cart"
                     android:paddingStart="@dimen/padding6dp"
                     android:paddingEnd="@dimen/padding2dp"
                     app:icon="@drawable/ic_add"
                     app:iconGravity="textStart"
                     app:iconTint="@color/white"
-                    android:layout_marginTop="@dimen/margin12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/product_name_text" />
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
