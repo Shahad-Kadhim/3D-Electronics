@@ -115,7 +115,7 @@
                 android:gravity="center"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="8dp"
-                android:text="@string/sold_out"
+                android:text="@string/out_of_stock"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_small"
                 app:isVisible="@{item.sold}"
