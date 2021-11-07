@@ -14,6 +14,13 @@
         android:layout_height="match_parent"
         android:background="@color/background_color">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="56dp" />
+
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
             android:layout_width="wrap_content"
@@ -64,17 +71,18 @@
             android:id="@+id/back_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="@dimen/margin2x"
-            android:layout_marginStart="@dimen/margin3x"
+            android:layout_marginStart="@dimen/margin2x"
+            android:layout_marginTop="16dp"
             android:onClick="@{() -> viewModel.onclickBack()}"
             android:background="@drawable/ic_shape_cover"
-            android:drawableStart="@drawable/ic_baseline_arrow_back"
+            android:drawableTop="@drawable/ic_baseline_arrow_back"
             android:drawableTint="@color/secondary_icons_color"
-            android:elevation="@dimen/elevation2dp"
-            android:paddingHorizontal="@dimen/padding6dp"
-            android:paddingTop="@dimen/padding1x"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:paddingTop="12dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/share_icon"
@@ -91,12 +99,12 @@
         <CheckBox
             android:id="@+id/heart_checkbox"
             style="@style/WishIconStyle"
-            android:layout_marginTop="@dimen/margin3x"
             android:layout_marginEnd="@dimen/margin3x"
             app:showOnSuccess="@{viewModel.detailsProduct}"
             android:onClick="@{() -> viewModel.onclickWish(viewModel.detailsProduct.toData().id)}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/share_icon"
+            app:layout_constraintBottom_toBottomOf="@id/share_icon"/>
 
         <TextView
             android:id="@+id/product_name"
@@ -111,7 +119,7 @@
             android:textSize="@dimen/text20sp"
             android:fontFamily="@font/monda_bold"
             app:layout_constraintStart_toStartOf="@id/back_button"
-            app:layout_constraintTop_toBottomOf="@id/back_button" />
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
 
         <TextView
             android:id="@+id/product_price_text"

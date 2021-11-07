@@ -17,7 +17,7 @@
         <EditText
             android:id="@+id/search_bar"
             style="@style/SearchBarStyle"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin8dp"
             android:layout_marginEnd="@dimen/margin2x"
             android:background="@drawable/rounded_search"
@@ -30,6 +30,15 @@
             app:layout_constraintStart_toEndOf="@id/back_button"
             app:layout_constraintTop_toTopOf="@+id/back_button"
             app:onclickSearch="@{viewModel::onclickSearch}" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="56dp" />
+
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/search"
@@ -62,20 +71,20 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin2x"
-            android:layout_marginTop="@dimen/margin2x"
+            android:layout_marginTop="16dp"
             android:background="@drawable/ic_shape_cover"
-            android:drawableStart="@drawable/ic_baseline_arrow_back"
+            android:drawableTop="@drawable/ic_baseline_arrow_back"
             android:drawableTint="@color/secondary_icons_color"
-            android:elevation="@dimen/elevation2dp"
+            android:elevation="2dp"
+            android:gravity="center"
             android:onClick="@{() -> viewModel.onclickBack()}"
-            android:paddingHorizontal="@dimen/padding6dp"
-            android:paddingTop="@dimen/padding1x"
+            android:paddingTop="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/search_recycler"
