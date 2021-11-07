@@ -28,15 +28,15 @@ class CartFragment: BaseFragment<FragmentCartBinding, CartViewModel>() {
 
     override fun observeEvents(){
 
-        viewModel.clickItemEvent.observeEvent(this){
+        viewModel.clickItemEvent.observeEvent(this) {
             view?.goToFragment(CartFragmentDirections.actionCartFragmentToProductFragment(it))
         }
 
-        viewModel.clickCheckoutEvent.observeEvent(this){
+        viewModel.clickCheckoutEvent.observeEvent(this) {
             view?.goToFragment(CartFragmentDirections.actionCartFragmentToCheckoutFragment())
         }
 
-        viewModel.clickBackEvent.observeEvent(this){
+        viewModel.clickBackEvent.observeEvent(this) {
             findNavController().popBackStack()
         }
 

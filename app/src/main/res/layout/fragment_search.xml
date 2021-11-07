@@ -17,6 +17,7 @@
         <EditText
             android:id="@+id/search_bar"
             style="@style/SearchBarStyle"
+            android:layout_height="48dp"
             android:layout_marginStart="@dimen/margin8dp"
             android:layout_marginEnd="@dimen/margin2x"
             android:background="@drawable/rounded_search"
@@ -30,27 +31,58 @@
             app:layout_constraintTop_toTopOf="@+id/back_button"
             app:onclickSearch="@{viewModel::onclickSearch}" />
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/margin6x"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/search"
+            app:hiddenOnState="@{viewModel.searchResult}"
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/notFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            android:visibility="gone"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/not_found"
+            app:showWhenEmpty="@{viewModel.searchResult.toData().products}" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginStart="@dimen/margin2x"
             android:layout_marginTop="@dimen/margin2x"
-            android:onClick="@{() -> viewModel.onclickBack()}"
             android:background="@drawable/ic_shape_cover"
             android:drawableStart="@drawable/ic_baseline_arrow_back"
             android:drawableTint="@color/secondary_icons_color"
             android:elevation="@dimen/elevation2dp"
+            android:onClick="@{() -> viewModel.onclickBack()}"
             android:paddingHorizontal="@dimen/padding6dp"
             android:paddingTop="@dimen/padding1x"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/search_recycler"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/margin8dp"
+            android:visibility="gone"
             android:orientation="vertical"
             app:items="@{viewModel.searchResult.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -60,8 +92,7 @@
             app:layout_constraintTop_toBottomOf="@id/search_bar"
             app:layout_constraintVertical_bias="0.333"
             app:showOnSuccess="@{viewModel.searchResult}"
-            app:spanCount="2"
-            tools:listitem="@layout/item_product" />
+            app:spanCount="2"/>
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
