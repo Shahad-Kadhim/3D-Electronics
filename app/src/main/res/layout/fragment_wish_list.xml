@@ -31,6 +31,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/notFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            android:visibility="gone"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/not_found"
+            app:showWhenEmpty="@{viewModel.wishListItems.toData().products}" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/wish_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/wish_list"
+            app:hiddenOnState="@{viewModel.wishListItems}"
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/wishlist_recycler"
             android:layout_width="match_parent"
@@ -77,15 +105,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/wishlist"
             android:layout_marginEnd="@dimen/margin28dp"
+            android:fontFamily="@font/monda_bold"
+            android:text="@string/wishlist"
             android:textColor="@color/primary_text_color"
             android:textSize="@dimen/text24sp"
-            android:fontFamily="@font/monda_bold"
-            app:layout_constraintBottom_toTopOf="@+id/wishlist_recycler"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back_button"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/back_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
