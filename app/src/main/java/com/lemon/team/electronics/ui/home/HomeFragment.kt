@@ -81,7 +81,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }
     }
 
-    fun observeResponse() {
+    private fun observeResponse() {
         viewModel.also {
             (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?).apply {
 
