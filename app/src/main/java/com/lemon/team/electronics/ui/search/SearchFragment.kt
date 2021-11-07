@@ -1,5 +1,7 @@
 package com.lemon.team.electronics.ui.search
 
+import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -15,6 +17,14 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
 
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) ->
     FragmentSearchBinding = DataBindingUtil::inflate
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition =
+            TransitionInflater
+                .from(context)
+                .inflateTransition(android.R.transition.move)
+    }
 
     override fun setUpBinding() {
         binding.apply {

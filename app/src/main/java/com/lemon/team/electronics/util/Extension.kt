@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.lifecycle.*
 import androidx.navigation.*
+import androidx.navigation.fragment.FragmentNavigator
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
@@ -13,6 +14,9 @@ fun View.goToFragment(navDir: NavDirections) {
     Navigation.findNavController(this).navigate(navDir)
 }
 
+fun View.goToFragmentWithTransition(navDir: NavDirections,extra: FragmentNavigator.Extras) {
+    Navigation.findNavController(this).navigate(navDir,extra)
+}
 
 fun Context.readJsonAsset(fileName: String): String? {
     return try {

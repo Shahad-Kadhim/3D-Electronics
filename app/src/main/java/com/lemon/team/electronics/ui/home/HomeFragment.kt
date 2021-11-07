@@ -1,8 +1,10 @@
 package com.lemon.team.electronics.ui.home
 
 import android.view.*
+import androidx.cardview.widget.CardView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentHomeBinding
 import com.lemon.team.electronics.model.domain.HomeItem
@@ -12,6 +14,7 @@ import com.lemon.team.electronics.util.Constants.MOUSE_CATEGORY_ID
 import com.lemon.team.electronics.util.Constants.MOUSE_TITLE
 import com.lemon.team.electronics.util.State
 import com.lemon.team.electronics.util.goToFragment
+import com.lemon.team.electronics.util.goToFragmentWithTransition
 import com.lemon.team.electronics.util.observeEvent
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
@@ -39,7 +42,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 binding.cart.goToFragment(HomeFragmentDirections.actionHomeFragmentToCartFragment())
             }
             it.searchEvent.observeEvent(this) {
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+
+                binding.root.goToFragmentWithTransition(
+                    HomeFragmentDirections.actionHomeFragmentToSearchFragment(),
+                    FragmentNavigatorExtras(requireActivity().findViewById<CardView>(R.id.searchCard) to "search")
+                    )
             }
             it.onclickCategoryEvent.observeEvent(this) { category ->
                 binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(

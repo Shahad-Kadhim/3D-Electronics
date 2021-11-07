@@ -13,8 +13,10 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/searchCard"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:transitionName="search"
         android:layout_marginVertical="@dimen/margin2x"
         android:layout_marginHorizontal="@dimen/margin5x"
         app:cardCornerRadius="@dimen/radius3x"
