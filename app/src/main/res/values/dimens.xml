@@ -47,4 +47,6 @@
     <dimen name="search_bar_elevation">6dp</dimen>
     <dimen name="elevation2dp">2dp</dimen>
     <dimen name="radius8dp">8dp</dimen>
+    <dimen name="raduis25dp">25dp</dimen>
+    <dimen name="padding2dp">2dp</dimen>
 </resources>
