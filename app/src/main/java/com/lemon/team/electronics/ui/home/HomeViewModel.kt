@@ -88,4 +88,5 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         _clickSeeMoreForCategory.postValue(Event(category))
     }
 
+    
 }

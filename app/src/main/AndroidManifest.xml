@@ -24,6 +24,8 @@
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="com.google.android.apps.plus.VIEW_DEEP_LINK" />
                 <data android:scheme="vnd.google.deeplink" />
+                <data android:scheme="https" android:host="www.google.com" />
+                <data android:scheme="app" android:host="open.my.app" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.LAUNCHER" />
