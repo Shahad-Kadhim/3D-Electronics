@@ -34,7 +34,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="cardElevation">4dp</item>
         <item name="cardCornerRadius">@dimen/margin3x</item>
-        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardBackgroundColor">@color/secondary_background_color</item>
     </style>
 
     <style name="ProductBackgroundCardStyle.MatchParentWidth">
