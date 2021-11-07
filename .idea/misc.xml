@@ -5,9 +5,12 @@
       <map>
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/activity_main.xml" value="0.19270833333333334" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout-v23/fragment_search.xml" value="0.2798913043478261" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/fragment_cart.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/fragment_category.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/fragment_home.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/fragment_search.xml" value="0.21" />
-        <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/fragment_wish_list.xml" value="0.25" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/fragment_wish_list.xml" value="0.33" />
+        <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/item_best_seller.xml" value="0.20742753623188406" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/item_search.xml" value="0.1707193515704154" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/item_wish_product.xml" value="0.15501519756838905" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/items_slide_show_host.xml" value="0.15273556231003038" />

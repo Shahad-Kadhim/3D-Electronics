@@ -2,6 +2,7 @@ package com.lemon.team.electronics.util
 
 import android.annotation.SuppressLint
 import android.text.Html
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.core.content.ContextCompat
@@ -60,7 +61,6 @@ fun showIsVisible(view: View, value: Boolean) {
     view.isVisible = (value)
 }
 
-
 @BindingAdapter(value = ["app:showOnSuccess"])
 fun <T> showOnSuccess(view: View, state: State<T>?) {
     view.isVisible = (state is State.Success)
@@ -68,9 +68,10 @@ fun <T> showOnSuccess(view: View, state: State<T>?) {
 
 @BindingAdapter(value = ["app:showOnError"])
 fun <T> showOnError(view: View, state: State<T>?) {
+
+    Log.i("hhhhhhhhhWhenError" , state.toString())
     view.isVisible = (state is State.Error)
 }
-
 
 @BindingAdapter(value = ["app:showOnLoading"])
 fun <T> showOnLoading(view: View, state: State<T>?) {
@@ -84,8 +85,7 @@ fun <T> showWhenEmpty(view: View, value: List<T>?) {
 
 @BindingAdapter(value = ["app:hiddenOnState"])
 fun <T> hiddenWhenState(view: View, state: State<T>?) {
-    view.isVisible = (state !is State.Error) && (state !is State.Loading)
-            && (state !is State.Success)
+    view.isVisible = (state !is State)
 }
 
 @BindingAdapter(value = ["app:setBackgroundColorItem"])
