@@ -42,11 +42,11 @@
     <!--   raduis    -->
     <dimen name="radius2x">16dp</dimen>
     <dimen name="radius3x">24dp</dimen>
-    <dimen name="raduis10dp">10dp</dimen>
+    <dimen name="elevation2dp">2dp</dimen>
+    <dimen name="raduis15dp">15dp</dimen>
 
 
     <!--   elevation   -->
     <dimen name="search_bar_elevation">6dp</dimen>
-    <dimen name="elevation2dp">2dp</dimen>
     <dimen name="radius8dp">8dp</dimen>
 </resources>

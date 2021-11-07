@@ -15,6 +15,10 @@
         <item name="cornerSizeTopRight">24dp</item>
     </style>
 
+    <style name="ProductImagesShape" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSize">4dp</item>
+    </style>
+
     <style name="companies" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
@@ -115,7 +119,7 @@
         <item name="android:textSize">@dimen/text14sp</item>
         <item name="android:textColor">@color/primary_text_color</item>
     </style>
-    
+
     <style name="AboutBackgroundCard">
         <item name="android:background">@drawable/about_card</item>
     </style>
@@ -129,4 +133,9 @@
     <style name="AboutBackgroundCompanies">
         <item name="android:background">@drawable/company_bg</item>
     </style>
+
+    <style name="MainProductImageShape" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSize">10%</item>
+    </style>
+
 </resources>

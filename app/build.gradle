@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.lemon.team.electronics"
-        minSdk 22
+        minSdk 23
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -82,6 +82,6 @@ dependencies {
     //image slideshow library
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
-
-    //  implementation "com.github.kojofosu:Quantitizer:1.6.4"
+    //quantitizer library
+    implementation "com.github.kojofosu:Quantitizer:1.6.4"
 }
