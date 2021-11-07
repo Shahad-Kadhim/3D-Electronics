@@ -21,21 +21,21 @@
             app:cardCornerRadius="@dimen/radius2x"
             app:cardElevation="@dimen/margin8dp">
 
-<!--            <com.denzcoskun.imageslider.ImageSlider-->
-<!--                android:id="@+id/image_slider"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                app:iss_auto_cycle="true"-->
-<!--                app:iss_delay="0"-->
-<!--                app:iss_period="1100"-->
-<!--                app:iss_error_image="@drawable/error"-->
-<!--                app:setSliderImagesList="@{products.products}"-->
-<!--                app:iss_selected_dot="@drawable/selected_dot"-->
-<!--                app:iss_unselected_dot="@drawable/unselected_dot"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"/>-->
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:iss_auto_cycle="true"
+                app:iss_delay="0"
+                app:iss_period="1100"
+                app:iss_error_image="@drawable/error"
+                app:setSliderImagesList="@{products.products}"
+                app:iss_selected_dot="@drawable/selected_dot"
+                app:iss_unselected_dot="@drawable/unselected_dot"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </com.google.android.material.card.MaterialCardView>
 

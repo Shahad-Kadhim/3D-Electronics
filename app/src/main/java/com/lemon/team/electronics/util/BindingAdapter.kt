@@ -116,7 +116,6 @@ fun setCategoryIcon(view: ImageView, categoryId: String?) {
     }
 }
 
-
 @SuppressLint("SetTextI18n")
 @BindingAdapter(value = ["app:setText"])
 fun setText(view: TextView, categoryName: String?) {
@@ -125,10 +124,9 @@ fun setText(view: TextView, categoryName: String?) {
     }
 }
 
-//
-//@BindingAdapter(value = ["app:setSliderImagesList"])
-//fun setSliderImages(slider: ImageSlider, images: List<Product>?){
-//    images?.map{
-//        SlideModel(it.mainImage)
-//    }?.let { slider.setImageList(it, ScaleTypes.CENTER_INSIDE) }
-//}
+@BindingAdapter(value = ["app:setSliderImagesList"])
+fun setSliderImages(slider: ImageSlider, images: List<Product>?){
+    images?.map{
+        SlideModel(it.mainImage)
+    }?.let { slider.setImageList(it, ScaleTypes.CENTER_INSIDE) }
+}
