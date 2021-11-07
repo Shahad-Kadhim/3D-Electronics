@@ -45,10 +45,6 @@ class ProductDetailsFragment :
                 // add to wish table when create database
             }
 
-            onclickShare.observeEvent(this@ProductDetailsFragment) {
-                // add code to share link of this product
-            }
-
             onclickBack.observeEvent(this@ProductDetailsFragment) {
                 findNavController().popBackStack()
             }
@@ -58,12 +54,8 @@ class ProductDetailsFragment :
             }
 
             clickSharedProduct.observe(this@ProductDetailsFragment) {
-                Intent(Intent.ACTION_SEND).apply {
-                    type = "text/plain"
-                    putExtra(Intent.EXTRA_SUBJECT, "product link")
-                    putExtra(Intent.EXTRA_TEXT, Constants.URL_PRODUCT_WEBSITE +it)
-                    startActivity(Intent.createChooser(this, "Share using"))
-                }
+                startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(it)
+                    , "Share using"))
             }
         }
     }

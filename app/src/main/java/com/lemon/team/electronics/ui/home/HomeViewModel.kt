@@ -69,7 +69,7 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         // write code when create database
     }
 
-    override fun onClickSharing(productId: String) {
+    override fun onClickShare(productId: String) {
         _clickSharedProduct.postValue(productId)
     }
 

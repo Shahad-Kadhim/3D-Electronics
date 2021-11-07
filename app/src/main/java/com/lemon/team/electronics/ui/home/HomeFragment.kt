@@ -15,6 +15,7 @@ import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.observeEvent
 import android.content.Intent
 import com.lemon.team.electronics.util.Constants.URL_PRODUCT_WEBSITE
+import com.lemon.team.electronics.util.sharingUrl
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
@@ -73,12 +74,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             }
 
             it.clickSharedProduct.observe(this) {
-                Intent(Intent.ACTION_SEND).apply {
-                    type = "text/plain"
-                    putExtra(Intent.EXTRA_SUBJECT, "product link")
-                    putExtra(Intent.EXTRA_TEXT, URL_PRODUCT_WEBSITE+it)
-                    startActivity(Intent.createChooser(this, "Share using"))
-                }
+                startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(it)
+                    , "Share using"))
             }
 
         }
@@ -116,6 +113,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             }
         }
     }
-
 
 }
