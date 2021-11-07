@@ -13,6 +13,9 @@ import com.lemon.team.electronics.util.Constants.MOUSE_TITLE
 import com.lemon.team.electronics.util.State
 import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.observeEvent
+import android.content.Intent
+import com.lemon.team.electronics.util.Constants.URL_PRODUCT_WEBSITE
+
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override val layoutId: Int = R.layout.fragment_home
@@ -30,6 +33,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     }
 
+    override fun setUp() {
+        super.setUp()
+        observeResponse()
+    }
+
     override fun observeEvents() {
         viewModel.also {
             it.aboutEvent.observeEvent(this) {
@@ -39,7 +47,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 binding.cart.goToFragment(HomeFragmentDirections.actionHomeFragmentToCartFragment())
             }
             it.searchEvent.observeEvent(this) {
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+                binding.root.goToFragment(
+                    HomeFragmentDirections.actionHomeFragmentToSearchFragment()
+                    )
             }
             it.onclickCategoryEvent.observeEvent(this) { category ->
                 binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(
@@ -62,12 +72,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     .actionHomeFragmentToCategoryFragment(it.categoryId, it.categoryName))
             }
 
-        }
-    }
+            it.clickSharedProduct.observe(this) {
+                Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_SUBJECT, "product link")
+                    putExtra(Intent.EXTRA_TEXT, URL_PRODUCT_WEBSITE+it)
+                    startActivity(Intent.createChooser(this, "Share using"))
+                }
+            }
 
-    override fun setUp() {
-        super.setUp()
-        observeResponse()
+        }
     }
 
     fun observeResponse() {
@@ -102,4 +116,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             }
         }
     }
+
+
 }

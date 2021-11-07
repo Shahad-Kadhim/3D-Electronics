@@ -8,6 +8,7 @@ interface HomeInteractionListener : BaseInteractionListener {
 
     fun onClickProduct(productId: String)
     fun onClickHeart(productId: String)
+    fun onClickSharing(productId: String)
     fun onClickCategory(categoryId: CategoryResponse)
     fun onclickSearch()
     fun onClickSeeMoreForBestSeller()

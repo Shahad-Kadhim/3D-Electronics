@@ -17,10 +17,9 @@
         <EditText
             android:id="@+id/search_bar"
             style="@style/SearchBarStyle"
-            android:layout_height="48dp"
             android:layout_marginStart="@dimen/margin8dp"
             android:layout_marginEnd="@dimen/margin2x"
-            android:background="@drawable/rounded_search"
+            android:background="@drawable/search_style"
             android:hint="@string/search"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"
@@ -79,10 +78,9 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/search_recycler"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="@dimen/margin8dp"
-            android:visibility="gone"
             android:orientation="vertical"
             app:items="@{viewModel.searchResult.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -91,6 +89,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_bar"
             app:layout_constraintVertical_bias="0.333"
+            tools:listitem="@layout/item_product"
             app:showOnSuccess="@{viewModel.searchResult}"
             app:spanCount="2"/>
 

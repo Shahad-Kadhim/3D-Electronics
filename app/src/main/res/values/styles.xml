@@ -109,7 +109,7 @@
 
     <style name="SearchBarStyle">
         <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">43dp</item>
+        <item name="android:layout_height">49dp</item>
         <item name="android:hint">@string/search</item>
         <item name="android:textColorHint">@color/secondary_text_color</item>
         <item name="android:drawableLeft">@drawable/ic_search_bar</item>
