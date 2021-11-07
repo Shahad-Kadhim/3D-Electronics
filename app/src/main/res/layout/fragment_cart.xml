@@ -27,6 +27,7 @@
             android:elevation="2dp"
             android:gravity="center"
             android:paddingTop="12dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,13 +38,11 @@
             android:clipToPadding="false"
             android:layout_marginTop="@dimen/margin8dp"
             android:orientation="vertical"
-            android:padding="@dimen/margin12dp"
             app:items="@{viewModel.cartItems.toData().products}"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/check_out_background"
-            app:layout_constraintTop_toBottomOf="@+id/back_button"
+            app:layout_constraintTop_toBottomOf="@+id/guideline"
             app:showOnSuccess="@{viewModel.cartItems}"
-            app:spanCount="1"
             tools:listitem="@layout/item_product_in_cart" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -92,14 +91,20 @@
             android:layout_marginStart="8dp"
             android:fontFamily="@font/monda_bold"
             android:gravity="center"
-            android:padding="8dp"
             android:text="@string/cart"
             android:textColor="@color/primary_text_color"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/back_button"
-            app:layout_constraintStart_toEndOf="@+id/back_button" />
+            app:layout_constraintBottom_toBottomOf="@+id/back_button"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            app:layout_constraintTop_toTopOf="@+id/back_button" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="56dp" />
         <View
             android:id="@+id/check_out_background"
             android:layout_width="match_parent"
