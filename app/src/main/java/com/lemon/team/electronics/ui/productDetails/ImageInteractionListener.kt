@@ -5,5 +5,4 @@ import com.lemon.team.electronics.ui.base.BaseInteractionListener
 interface ImageInteractionListener : BaseInteractionListener {
 
     fun onclickImage(url:String)
-
 }

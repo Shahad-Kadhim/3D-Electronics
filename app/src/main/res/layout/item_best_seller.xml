@@ -106,6 +106,7 @@
                 android:id="@+id/imageView6"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:onClick="@{() -> listener.onClickShare(item.id)}"
                 android:layout_marginEnd="@dimen/margin12dp"
                 android:contentDescription="@string/product_image"
                 android:src="@drawable/ic_share"

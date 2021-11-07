@@ -16,6 +16,10 @@ import com.lemon.team.electronics.util.State
 import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.goToFragmentWithTransition
 import com.lemon.team.electronics.util.observeEvent
+import android.content.Intent
+import com.lemon.team.electronics.util.Constants.URL_PRODUCT_WEBSITE
+import com.lemon.team.electronics.util.sharingUrl
+
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override val layoutId: Int = R.layout.fragment_home
@@ -31,6 +35,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel)
         }
 
+    }
+
+    override fun setUp() {
+        super.setUp()
+        observeResponse()
     }
 
     override fun observeEvents() {
@@ -69,15 +78,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     .actionHomeFragmentToCategoryFragment(it.categoryId, it.categoryName))
             }
 
+            it.clickSharedProduct.observe(this) {
+                startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(it)
+                    , "Share using"))
+            }
+
         }
     }
 
-    override fun setUp() {
-        super.setUp()
-        observeResponse()
-    }
-
-    fun observeResponse() {
+    private fun observeResponse() {
         viewModel.also {
             (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?).apply {
 

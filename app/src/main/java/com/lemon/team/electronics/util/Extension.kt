@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.util
 
 import android.content.Context
+import android.content.Intent
 import android.view.View
 import androidx.lifecycle.*
 import androidx.navigation.*
@@ -9,6 +10,7 @@ import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import java.io.IOException
+
 
 fun View.goToFragment(navDir: NavDirections) {
     Navigation.findNavController(this).navigate(navDir)
@@ -37,6 +39,14 @@ fun <T> LiveData<Event<T>>.observeEvent(owner: LifecycleOwner, f:(T) ->Unit){
     this.observe(owner, EventObserver{
         f(it)
     })
+}
+
+fun Intent.sharingUrl(url: String?): Intent? {
+    return  this.apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_SUBJECT, "product link")
+        putExtra(Intent.EXTRA_TEXT, Constants.URL_PRODUCT_WEBSITE +url)
+    }
 }
 
 fun String.convertToCategoryIcon(): Int =

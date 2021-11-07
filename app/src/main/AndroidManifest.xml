@@ -3,6 +3,9 @@
     package="com.lemon.team.electronics">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +22,12 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="com.google.android.apps.plus.VIEW_DEEP_LINK" />
+                <data android:scheme="vnd.google.deeplink" />
+                <data android:scheme="https" android:host="www.google.com" />
+                <data android:scheme="app" android:host="open.my.app" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

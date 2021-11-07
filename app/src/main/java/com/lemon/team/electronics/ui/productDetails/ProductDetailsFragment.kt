@@ -16,7 +16,7 @@ class ProductDetailsFragment :
 
     override val layoutId: Int = R.layout.fragment_product_details
     override val viewModel: ProductDetailsViewModel by viewModels()
-    private val args :ProductDetailsFragmentArgs by navArgs()
+    private val args: ProductDetailsFragmentArgs by navArgs()
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) ->
     FragmentProductDetailsBinding = DataBindingUtil::inflate
 
@@ -30,38 +30,40 @@ class ProductDetailsFragment :
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@ProductDetailsFragment.viewModel
-            productImages.adapter=ProductImageRecyclerAdapter(emptyList(),this@ProductDetailsFragment.viewModel)
+            productImages.adapter =
+                ProductImageRecyclerAdapter(emptyList(), this@ProductDetailsFragment.viewModel)
         }
     }
 
     override fun observeEvents() {
+        viewModel.apply {
+            onclickAddToCart.observeEvent(this@ProductDetailsFragment) {
+                // add to cart table when create database
+            }
 
-        viewModel.onclickAddToCart.observeEvent(this){
-            // add to cart table when create database
+            onclickWish.observeEvent(this@ProductDetailsFragment) {
+                // add to wish table when create database
+            }
+
+            onclickBack.observeEvent(this@ProductDetailsFragment) {
+                findNavController().popBackStack()
+            }
+
+            onclickMainImage.observeEvent(this@ProductDetailsFragment) {
+                goToImageActivity(it)
+            }
+
+            clickSharedProduct.observe(this@ProductDetailsFragment) {
+                startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(it)
+                    , "Share using"))
+            }
         }
-
-        viewModel.onclickWish.observeEvent(this){
-            // add to wish table when create database
-        }
-
-        viewModel.onclickShare.observeEvent(this){
-            // add code to share link of this product
-        }
-
-        viewModel.onclickBack.observeEvent(this){
-            findNavController().popBackStack()
-        }
-
-        viewModel.onclickMainImage.observeEvent(this){
-            goToImageActivity(it)
-        }
-
     }
 
     private fun goToImageActivity(it: String) {
         startActivity(
-            Intent(requireContext(),ImageActivity::class.java).apply {
-                putExtra(Constants.MAIN_URL , it)
+            Intent(requireContext(), ImageActivity::class.java).apply {
+                putExtra(Constants.MAIN_URL, it)
             }
         )
     }

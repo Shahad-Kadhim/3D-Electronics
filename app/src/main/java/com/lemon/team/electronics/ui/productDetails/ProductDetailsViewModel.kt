@@ -14,9 +14,6 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private var _onclickBack =MutableLiveData<Event<Boolean>>()
     val onclickBack :LiveData<Event<Boolean>> = _onclickBack
 
-    private var _onclickShare =MutableLiveData<Event<String>>()
-    val onclickShare :LiveData<Event<String>> = _onclickShare
-
     private var _onclickWish =MutableLiveData<Event<String>>()
     val onclickWish :LiveData<Event<String>> = _onclickWish
 
@@ -26,6 +23,8 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private var _onClickMainImage =MutableLiveData<Event<String>>()
     val onclickMainImage :LiveData<Event<String>> = _onClickMainImage
 
+    private var _clickSharedProduct = MutableLiveData<String>()
+    val clickSharedProduct: LiveData<String> = _clickSharedProduct
 
     val images =Transformations.map(detailsProduct){
         it.toData()?.images?.map { it.productImageLocation }
@@ -50,6 +49,7 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
         mainImage.postValue(url)
     }
 
+
     fun getDetailsProduct(productId: String) {
         collectResponse(Repository.getProductById(productId)) {
             _detailsProduct.postValue(it)
@@ -68,8 +68,8 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
         _onclickAddToCart.postValue(Event(productId))
     }
 
-    fun onclickShare(link:String){
-        _onclickShare.postValue(Event(link))
+    fun onclickShare(productId: String){
+        _clickSharedProduct.postValue(productId)
     }
 
     fun onClickMainImage(){

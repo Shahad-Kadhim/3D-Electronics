@@ -33,6 +33,9 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
     private var _clickSeeMoreForCategory = MutableLiveData<Event<CategoryInfoType>>()
     val clickSeeMoreForCategory: LiveData<Event<CategoryInfoType>> = _clickSeeMoreForCategory
 
+    private var _clickSharedProduct = MutableLiveData<String>()
+    val clickSharedProduct: LiveData<String> = _clickSharedProduct
+
     val categories = Repository.getCategories().asLiveData()
 
     val bestProduct = Repository.getRecommendedProducts().asLiveData()
@@ -66,6 +69,10 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         // write code when create database
     }
 
+    override fun onClickShare(productId: String) {
+        _clickSharedProduct.postValue(productId)
+    }
+
     override fun onClickCategory(categoryId: CategoryResponse) {
         _onclickCategoryEvent.postValue(Event(categoryId))
     }
@@ -81,5 +88,5 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         _clickSeeMoreForCategory.postValue(Event(category))
     }
 
-
+    
 }
