@@ -19,7 +19,7 @@
             style="@style/SearchBarStyle"
             android:layout_height="48dp"
             android:layout_marginStart="@dimen/margin8dp"
-            android:transitionName="@string/search"
+            android:transitionName="search"
             android:layout_marginEnd="@dimen/margin2x"
             android:background="@drawable/rounded_search"
             android:hint="@string/search"
