@@ -17,6 +17,8 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/product_background_card"
         style="@style/ProductBackgroundCardStyle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/radius3x"
         android:layout_marginHorizontal="@dimen/margin8dp"
         android:layout_marginVertical="@dimen/margin2x"
@@ -26,7 +28,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <CheckBox
                 android:id="@+id/imageView4"
@@ -39,10 +41,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <ImageView
                 android:id="@+id/product_image"
-                style="@style/ProductImageStyle"
-                android:layout_margin="@dimen/margin5x"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:paddingTop="@dimen/margin8dp"
                 app:imageFromUrl="@{item.mainImage}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
