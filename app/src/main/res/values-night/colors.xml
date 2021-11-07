@@ -18,13 +18,14 @@
     <color name="secondary_brand_color">#9EB6B5</color>
     <color name="tertiary_brand_color">#BCD8D7</color>
 
-    <color name="background_color">#121212</color>
+    <color name="background_color">#242424</color>
+    <color name="secondary_background_color">#2C2C2C</color>
 
-    <color name="primary_icons_color">#9B9B9B</color>
+    <color name="primary_icons_color">#B6B6B6</color>
     <color name="secondary_icons_color">#68665E</color>
 
-    <color name="primary_text_color">#9B9B9B</color>
-    <color name="secondary_text_color">#68665E</color>
+    <color name="primary_text_color">#F4F4F4</color>
+    <color name="secondary_text_color">#B6B6B6</color>
 
     <color name="red">#D92727</color>
 </resources>

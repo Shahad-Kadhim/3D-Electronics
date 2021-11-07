@@ -11,74 +11,78 @@
     </data>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/bg_color">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/back_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin2x"
-            android:layout_marginTop="16dp"
-            android:onClick="@{() -> viewModel.onclickBack()}"
-            android:background="@drawable/ic_shape_cover"
-            android:drawableStart="@drawable/ic_baseline_arrow_back"
-            android:drawableTint="@color/secondary_icons_color"
-            android:elevation="2dp"
-            android:gravity="center"
-            android:paddingStart="@dimen/padding6dp"
-            android:paddingEnd="@dimen/padding6dp"
-            android:paddingTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/back_button"
-            app:layout_constraintVertical_bias="0.0">
+            android:layout_height="match_parent"
+            android:background="@color/bg_color">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <androidx.cardview.widget.CardView
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="56dp" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/back_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/margin2x"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintBottom_toBottomOf="@id/guideline"
+                    android:background="@drawable/ic_shape_cover"
+                    android:drawableTop="@drawable/ic_baseline_arrow_back"
+                    android:drawableTint="@color/secondary_icons_color"
+                    android:elevation="2dp"
+                    android:gravity="center"
+                    android:onClick="@{() -> viewModel.onclickBack()}"
+                    android:paddingTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardView2"
-                    android:layout_width="0dp"
-                    android:layout_height="200dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="@dimen/margin2x"
                     app:cardCornerRadius="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints">
+                    app:layout_constraintTop_toBottomOf="@+id/guideline">
 
                     <VideoView
                         android:id="@+id/video"
-                        android:layout_width="wrap_content"
-                        android:layout_height="200dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
                         app:video="@{viewModel.video}" />
 
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="-8dp"
+                    app:layout_constraintTop_toTopOf="@id/textView8"
                     android:src="@drawable/ic_outline_location_on_24"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView2"
-                    app:tint="@color/red" />
+                    app:tint="@color/icon_red" />
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="136dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/logo"
+                    android:elevation="@dimen/margin2x"
+                    android:layout_marginStart="@dimen/margin5x"
+                    android:layout_marginTop="@dimen/margin2x"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
                 <TextView
                     android:id="@+id/textView8"
@@ -86,25 +90,26 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="32dp"
-                    android:fontFamily="@font/monda_regular"
-                    android:text="Industry Street - opposite the University
-                     of Technology - Al-Numan Complex."
-                    android:textColor="@color/primary_text_color"
-                    android:textSize="16dp"
+                    android:fontFamily="@font/monda_regular_400"
+                    android:text="@string/address"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView3"
                     app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="24dp"
-                    android:background="@drawable/about_card"
-                    android:padding="@dimen/margin8dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="40dp"
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="@dimen/radius2x"
+                    app:cardBackgroundColor="@color/secondary_background_color"
+                    android:elevation="@dimen/margin4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView8">
@@ -113,74 +118,34 @@
                         android:id="@+id/text1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginHorizontal="@dimen/margin2x"
+                        android:layout_marginTop="42dp"
+                        android:padding="@dimen/margin8dp"
+                        android:layout_marginBottom="@dimen/margin3x"
                         android:fontFamily="@font/monda_regular"
+                        android:textSize="@dimen/text14sp"
                         android:justificationMode="inter_word"
-                        android:text="We started our journey in the year 1998 in the Hay Al-jameaa street under the name of the three dimensions’ 3D in the Rasheed Commercial Complex, and the name of the company was inspired by the revolution in visual designs and electronic games from the two dimensions 2D to the 3D dimensions and it was at its rise at that time. "
+                        android:text="@string/about_part1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/text2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/monda_bold"
-                        android:justificationMode="inter_word"
-                        android:text="And since then, the company sponsor all the kinds of technology from computers, laptops and tech supplements. The company moved to the Al-senaa street in 2004."
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text1" />
+                </com.google.android.material.card.MaterialCardView>
 
-                    <TextView
-                        android:id="@+id/text3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:fontFamily="@font/monda_regular"
-                        android:justificationMode="inter_word"
-                        android:text="We have a long-term experience and a good reputation in the field despite of all the challenges the country is going through and the difficulties of providing the finest products quickly with best quality and price.The office is branch of the Al-Itjah Althalith for electronics and commercial agencies.The company is officially recorded in Iraq with same name and has its branches in Dubai, Emirates and Shenzhen China."
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text2" />
 
-                    <TextView
-                        android:id="@+id/text4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/monda_regular"
-                        android:justificationMode="inter_word"
-                        android:text="Our company is a major supplier of computer components, peripherals and accessories to all parts of Iraq. We also provide to many of the main points of sale distributed throughout Iraq, end users, students, public and private sector companies, and education platforms, high quality products and services at the most reasonable prices. The Third Dimension Electronics Company was established in Baghdad in 1998 based on a goal and determination at the time to reach today’s experience and position in the world of electronics and computers, to provide computer products and services to individuals and companies of high quality and lower price and provide the necessary after-sales support with guarantees. Our company is a major importer, distributor and single seller in Iraq. The number of the company's employees is (38) employees distributed between management, marketing, sales and technicians. They have a strong base of knowledge and experience in the information technology sector, and they do everything they have to satisfy the customer."
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text3" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <ImageView
-                    android:id="@+id/logo"
-                    android:layout_width="136dp"
-                    android:layout_height="55dp"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="32dp"
-                    android:src="@drawable/logo"
-                    app:layout_constraintBottom_toTopOf="@+id/cardView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <View
                     android:id="@+id/companies_bg"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginTop="32dp"
-                    android:background="@drawable/company_bg"
+                    style="@style/AboutBackgroundCompanies"
+                    app:layout_constraintBottom_toBottomOf="@id/companies_recycler"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+                </View>
 
 
                     <TextView
@@ -191,39 +156,38 @@
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/monda_bold"
                         android:text="Our Vendors"
-                        android:textColor="@color/black"
+                        style="@style/AboutTitleTextColor"
                         android:textSize="@dimen/text24sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@id/companies_bg"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/companies_recycler"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="8dp"
                         android:orientation="horizontal"
                         app:items="@{viewModel.companies}"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/companies_bg"
                         app:layout_constraintTop_toBottomOf="@+id/title"
                         tools:listitem="@layout/item_companies_recycler" />
 
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <View
                     android:id="@+id/other_companies"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/company_bg"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/margin2x"
+                    style="@style/AboutBackgroundCompanies"
+                    app:layout_constraintBottom_toBottomOf="@id/other_companies_recycler"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/companies_bg">
+
+                </View>
 
                     <TextView
                         android:id="@+id/title1"
@@ -232,108 +196,100 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/monda_bold"
-                        android:text="Other Vendors"
-                        android:textColor="@color/black"
+                        android:text="Other Products"
+                        style="@style/AboutTitleTextColor"
                         android:textSize="@dimen/text24sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@id/other_companies" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/other_companies_recycler"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         android:layout_marginBottom="16dp"
                         android:orientation="horizontal"
                         app:items="@{viewModel.otherCompanies}"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/title1"
                         tools:listitem="@layout/item_companies_recycler" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
+                <View
+                    android:id="@+id/contactView"
+                    style="@style/AboutBackgroundCompanies"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/company_bg"
+                    android:layout_height="180dp"
+                    android:layout_marginVertical="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/other_companies">
+                    app:layout_constraintTop_toBottomOf="@+id/other_companies" />
+                <TextView
+                    android:id="@+id/contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="Contact us"
+                    style="@style/AboutTitleTextColor"
+                    android:textSize="@dimen/text24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/contactView" />
 
                     <TextView
-                        android:id="@+id/contact"
-                        android:layout_width="match_parent"
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="24dp"
                         android:fontFamily="@font/monda_bold"
-                        android:text="Contact us"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text24sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/facebook"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:fontFamily="@font/monda_bold"
-
-                        android:text="3D electronics"
-                        android:textColor="@color/black"
-                        android:textSize="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="3d@3d-iraq.com"
+                        style="@style/AboutTextColor"
+                        android:textSize="16sp"
+                        android:drawablePadding="@dimen/margin8dp"
+                        android:layout_marginTop="@dimen/margin8dp"
+                        android:drawableLeft="@drawable/ic_facebook"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/contact" />
 
                     <TextView
-                        android:id="@+id/email"
-                        android:layout_width="match_parent"
+                        android:id="@+id/img_mail"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
                         android:fontFamily="@font/monda_bold"
                         android:text="3d@3d-iraq.com"
-                        android:textColor="@color/black"
-                        android:textSize="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        style="@style/AboutTextColor"
+                        android:textSize="16sp"
+                        android:drawablePadding="@dimen/margin8dp"
+                        android:layout_marginTop="@dimen/margin2x"
+                        android:layout_marginStart="@dimen/margin3x"
+                        android:drawableLeft="@drawable/ic_email_"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/facebook" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
 
                     <TextView
-                        android:id="@+id/phone"
-                        android:layout_width="match_parent"
+                        android:id="@+id/img_phone"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="24dp"
                         android:fontFamily="@font/monda_bold"
-                        android:text="+9647700612084"
-                        android:textColor="@color/black"
-                        android:textSize="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="0123456789"
+                        style="@style/AboutTextColor"
+                        android:textSize="16sp"
+                        android:drawablePadding="@dimen/margin8dp"
+                        android:layout_marginTop="@dimen/margin3x"
+                        android:layout_marginBottom="@dimen/margin3x"
+                        android:drawableLeft="@drawable/ic_phone"
+                        app:layout_constraintBottom_toBottomOf="@id/contactView"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/email" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
+                        app:layout_constraintTop_toBottomOf="@+id/img_mail" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

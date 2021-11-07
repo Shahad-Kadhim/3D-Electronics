@@ -17,10 +17,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Categories"
-            android:layout_marginHorizontal="16dp"
+            android:layout_margin="16dp"
             android:textStyle="bold"
             android:fontFamily="@font/monda_bold"
             android:textSize="22sp"
+            android:layout_marginHorizontal="16dp"
             android:textColor="@color/seconder_text_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,21 +41,23 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin8dp"
             android:adapter="@{adapter}"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_title"
             app:layout_constraintVertical_bias="0.0"
-            app:spanCount="2"
             tools:itemCount="6"
-            tools:listitem="@layout/item_categories" />
+            tools:listitem="@layout/item_categories"
+            android:orientation="vertical"
+            android:padding="@dimen/padding1x"
+            android:layout_marginTop="@dimen/margin2x"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

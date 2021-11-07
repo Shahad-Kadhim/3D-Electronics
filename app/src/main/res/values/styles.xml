@@ -28,7 +28,7 @@
     <style name="ProductBackgroundCardStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="cardElevation">0dp</item>
+        <item name="cardElevation">4dp</item>
         <item name="cardCornerRadius">@dimen/margin3x</item>
         <item name="cardBackgroundColor">@color/white</item>
     </style>
@@ -39,11 +39,11 @@
 
     <style name="ProductNameStyle">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:textColor">@color/primary_text_color</item>
         <item name="android:textSize">@dimen/text_normal2x</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
-        <item name="android:layout_marginStart">@dimen/margin8dp</item>
+        <item name="android:layout_marginStart">@dimen/margin2x</item>
     </style>
 
     <style name="ProductNameStyle2">
@@ -73,8 +73,8 @@
     </style>
 
     <style name="ProductImageStyle">
-        <item name="android:layout_height">130dp</item>
-        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">180dp</item>
+        <item name="android:layout_width">180dp</item>
     </style>
 
     <style name="ProductImageStyle2">
@@ -115,5 +115,18 @@
         <item name="android:textSize">@dimen/text14sp</item>
         <item name="android:textColor">@color/primary_text_color</item>
     </style>
+    
+    <style name="AboutBackgroundCard">
+        <item name="android:background">@drawable/about_card</item>
+    </style>
 
+    <style name="AboutTitleTextColor">
+        <item name="android:textColor">@color/primary_text_color</item>
+    </style>
+    <style name="AboutTextColor">
+        <item name="android:textColor">@color/secondary_text_color</item>
+    </style>
+    <style name="AboutBackgroundCompanies">
+        <item name="android:background">@drawable/company_bg</item>
+    </style>
 </resources>

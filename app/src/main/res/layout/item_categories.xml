@@ -18,12 +18,12 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_margin="@dimen/margin4dp"
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:layout_margin="@dimen/margin8dp"
         app:cardCornerRadius="24dp"
-        android:onClick="@{() -> listener.onClickCategory(item)}"
         tools:cardBackgroundColor="#9FC3C2"
+        android:onClick="@{() -> listener.onClickCategory(item)}"
         app:setBackgroundColorItem="@{color}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,18 +44,20 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin3x"
                 android:layout_marginBottom="24dp"
-                android:layout_marginHorizontal="8dp"
-                android:fontFamily="@font/roboto_black"
+                android:ellipsize="end"
                 android:text="@{item.categoryName}"
+                android:fontFamily="@font/roboto_black"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:maxLines="1"
-                android:textAlignment="viewStart"
-                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@+id/icon"
                 tools:text="Case" />
 
