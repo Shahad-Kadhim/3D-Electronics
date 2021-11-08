@@ -1,10 +1,12 @@
 package com.lemon.team.electronics.ui.home
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
+import com.lemon.team.electronics.model.response.CategoriesResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 
 class HomeViewModel :BaseViewModel() , HomeInteractionListener {
@@ -42,14 +44,30 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         Constants.PAGE_NUMBER_ZERO
     ).asLiveData()
 
-    val stateHome: MutableLiveData<State<Boolean>> = MutableLiveData(State.Loading)
-
     val mouseCategories = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
 
-    val tripleMediatorLiveData = TripleMediatorLiveData(categories, bestProduct, slideProducts)
+    var tripleMediatorLiveData = MediatorLiveData<State<Any>>().apply {
+        addSource(categories) {
+            this.postValue(checkState(it))
+        }
+        addSource(bestProduct) {
+           this.postValue(checkState(it))
+        }
+        addSource(slideProducts) {
+           this.postValue(checkState(it))
+        }
+        addSource(mouseCategories) {
+           this.postValue(checkState(it))
+        }
+    }
 
-
+    private fun <T> checkState(state: State<T?>): State<T> =
+        when(state){
+            is State.Error -> State.Error("Error!")
+            State.Loading -> State.Loading
+            is State.Success -> State.Success(state.toData())
+        }
 
     fun onClickCart(){
         _cartEvent.postValue(Event(true))

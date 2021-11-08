@@ -71,8 +71,6 @@ fun <T> showOnSuccess(view: View, state: State<T>?) {
 
 @BindingAdapter(value = ["app:showOnError"])
 fun <T> showOnError(view: View, state: State<T>?) {
-
-    Log.i("hhhhhhhhhWhenError" , state.toString())
     view.isVisible = (state is State.Error)
 }
 

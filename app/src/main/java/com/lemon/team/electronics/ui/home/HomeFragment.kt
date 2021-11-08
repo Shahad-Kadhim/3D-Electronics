@@ -122,18 +122,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     }
                 }
 
-                viewModel.tripleMediatorLiveData.observe(this@HomeFragment) {
-                    when {
-                        it.first is State.Loading || it.second is State.Loading || it.third is State.Loading -> {
-                            viewModel.stateHome.postValue(State.Loading)
-                        }
-                        it.first is State.Success || it.second is State.Success || it.third is State.Success -> {
-                            viewModel.stateHome.postValue(State.Success(true))
-                        }
-                        else -> viewModel.stateHome.postValue(State.Error("Error!"))
-                    }
-                }
-
             }
         }
     }

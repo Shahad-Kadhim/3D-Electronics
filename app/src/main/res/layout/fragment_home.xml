@@ -50,7 +50,7 @@
             android:layout_marginTop="16dp"
             android:orientation="vertical"
             android:clipToPadding="false"
-            app:showOnSuccess="@{viewModel.stateHome}"
+            app:showOnSuccess="@{viewModel.tripleMediatorLiveData}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/loading_game"
-            app:showOnLoading="@{viewModel.stateHome}" />
+            app:showOnLoading="@{viewModel.tripleMediatorLiveData}" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/error"
@@ -81,7 +81,7 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/error"
-            app:showOnError="@{viewModel.stateHome}" />
+            app:showOnError="@{viewModel.tripleMediatorLiveData}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
