@@ -6,32 +6,40 @@
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/activity_main.xml" value="0.19270833333333334" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/about_card.xml" value="0.22291666666666668" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_baseline_arrow_back.xml" value="0.16525096525096525" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_category.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_email.xml" value="0.1671875" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_email_.xml" value="0.1671875" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_facebook.xml" value="0.1671875" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_mail.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_mobile.xml" value="0.1671875" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_outline_location_on_24.xml" value="0.1671875" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_phone.xml" value="0.1671875" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/rounded_search.xml" value="0.1671875" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/search_style.xml" value="0.1671875" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/activity_main.xml" value="0.13472222222222222" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_about.xml" value="0.22" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_cart.xml" value="0.18" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_categories.xml" value="0.16" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_about.xml" value="0.2863070539419087" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_cart.xml" value="0.22" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_categories.xml" value="0.37568058076225047" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_category.xml" value="0.22" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_checkout.xml" value="0.19184430027803523" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_home.xml" value="0.14791666666666667" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_product_details.xml" value="0.25" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_product_details.xml" value="0.2" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_search.xml" value="0.22" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_wish_list.xml" value="0.16" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_best_seller.xml" value="0.21" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_best_seller.xml" value="0.22" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_categories.xml" value="0.2" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_categories_recycle.xml" value="0.14791666666666667" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_category.xml" value="0.16" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_category_product.xml" value="0.25" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_companies_recycler.xml" value="0.20677083333333332" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_elements_categories.xml" value="0.22" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_elements_categories.xml" value="0.25" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_product.xml" value="0.25" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_product_image.xml" value="0.14791666666666667" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_product_in_cart.xml" value="0.155078125" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_product_in_cart.xml" value="0.33" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_search.xml" value="0.13472222222222222" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_slide_image.xml" value="0.22" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_slide_show.xml" value="0.13472222222222222" />
-        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_wish_product.xml" value="0.13472222222222222" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_wish_product.xml" value="0.18" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/items_horizontal_best_seller_host.xml" value="0.14791666666666667" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/items_horizontal_category_host.xml" value="0.14791666666666667" />
         <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/items_slide_show_host.xml" value="0.14791666666666667" />
@@ -84,7 +92,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.16" />
+        <option name="scale" value="0.33" />
       </ProjectState>
     </option>
   </component>

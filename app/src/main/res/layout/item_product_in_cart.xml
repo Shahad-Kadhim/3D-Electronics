@@ -29,8 +29,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin3x"
                 android:layout_marginStart="@dimen/margin2x"
+                android:ellipsize="end"
                 android:fontFamily="@font/monda_regular"
-                android:maxLines="3"
+                android:maxLines="2"
                 android:text="@{item.name}"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text14sp"
@@ -39,18 +40,30 @@
                 tools:text="MIMD HSY-013 Wireless Controller for Nintendo Switch" />
 
             <TextView
+                android:id="@+id/quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 piece"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/seconder_text_color"
+                android:textSize="14sp"
+                android:layout_marginTop="@dimen/margin2x"
+                app:layout_constraintStart_toStartOf="@+id/product_name_text"
+                app:layout_constraintTop_toBottomOf="@+id/product_name_text" />
+            <TextView
                 android:id="@+id/product_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin2x"
+                android:layout_marginVertical="@dimen/margin8dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@{String.valueOf(item.price)+` $`}"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text18sp"
                 android:textStyle="bold"
+                app:layout_constraintVertical_bias="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/product_name_text"
-                app:layout_constraintTop_toBottomOf="@+id/product_name_text"
+                app:layout_constraintTop_toBottomOf="@+id/quantity"
                 tools:text="15.77 $" />
 
             <com.google.android.material.imageview.ShapeableImageView

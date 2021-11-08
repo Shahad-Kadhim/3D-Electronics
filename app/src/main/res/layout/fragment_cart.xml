@@ -161,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin2x"
             android:fontFamily="@font/monda_regular"
-            android:text="@string/total_price"
+            android:text="3 products"
             android:layout_marginTop="@dimen/margin8dp"
             android:textColor="@color/white"
             android:textSize="@dimen/text14sp"
