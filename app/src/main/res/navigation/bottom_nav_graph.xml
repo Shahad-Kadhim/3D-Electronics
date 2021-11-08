@@ -104,6 +104,10 @@
         <argument
             android:name="productId"
             app:argType="string" />
+        <deepLink
+            android:id="@+id/deepLink"
+            android:autoVerify="true"
+            app:uri="https://www.3d-iraq.com/product/{productId}" />
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
