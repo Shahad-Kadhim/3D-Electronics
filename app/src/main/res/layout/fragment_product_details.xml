@@ -47,22 +47,22 @@
             app:lottie_rawRes="@raw/error"
             app:showOnError="@{viewModel.detailsProduct}" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/add_button"
-            android:layout_width="115dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="@dimen/margin2x"
-            android:layout_marginBottom="@dimen/margin2x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin2x"
             android:text="@string/add"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            app:icon="@drawable/ic_cart_white"
+            app:iconTint="@color/white"
             app:showOnSuccess="@{viewModel.detailsProduct}"
             android:onClick="@{() -> viewModel.onclickAddToCart(viewModel.detailsProduct.toData().id)}"
             android:textSize="@dimen/text18sp"
             android:textAllCaps="false"
-            android:paddingStart="@dimen/padding2x"
             android:fontFamily="@font/monda_bold"
             android:textColor="@color/white"
-            android:drawableStart="@drawable/ic_cart_white"
-            android:background="@drawable/add_button_background"
+            android:maxLines="1"
             app:checkProduct="@{viewModel.detailsProduct.toData().sale}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -102,6 +102,7 @@
             android:id="@+id/product_name"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:layout_marginTop="@dimen/margin3x"
             android:maxLines="2"
             tools:text="@string/product_name"
@@ -185,9 +186,12 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin3x"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin3x"
+            android:layout_marginBottom="@dimen/margin2x"
+            android:layout_marginHorizontal="@dimen/margin2x"
             android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/main_product_image"

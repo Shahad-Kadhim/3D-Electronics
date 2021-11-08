@@ -21,7 +21,7 @@ import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 @BindingAdapter(value = ["app:htmlText"])
 fun parseHtml(view: TextView, text: String?) {
     text?.let {
-        view.text = Html.fromHtml(text)
+        view.text = Html.fromHtml(text).trim()
     }
 }
 
