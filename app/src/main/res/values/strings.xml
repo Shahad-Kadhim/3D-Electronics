@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">3D Electronics</string>
     <string name="product_image">product image</string>
-    <string name="out_of_stock">Out Of Stock</string>
+    <string name="out_of_stock">Sold out</string>
     <string name="search">Search ...</string>
     <string name="wishlist">WishList</string>
     <string name="cart">Cart</string>
@@ -20,4 +20,5 @@
     <string name="facebook">3D electronics</string>
     <string name="phone_number">9647700612084</string>
     <string name="categories">Categories</string>
+    <string name="wish_list">Wish List</string>
 </resources>

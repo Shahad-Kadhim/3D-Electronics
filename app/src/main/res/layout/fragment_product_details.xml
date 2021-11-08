@@ -69,18 +69,10 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin2x"
-            android:layout_marginTop="16dp"
+            style="@style/ButtonBack"
             android:onClick="@{() -> viewModel.onclickBack()}"
             android:background="@drawable/ic_shape_cover"
-            android:drawableTop="@drawable/ic_baseline_arrow_back"
-            android:drawableTint="@color/secondary_icons_color"
-            android:elevation="2dp"
-            android:gravity="center"
-            android:paddingTop="12dp"
-            app:layout_constraintBottom_toTopOf="@id/guideline"
+           app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

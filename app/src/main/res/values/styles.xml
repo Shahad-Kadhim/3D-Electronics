@@ -148,6 +148,7 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_marginStart">@dimen/margin3x</item>
     </style>
+
     <style name="TitleText">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">280dp</item>
@@ -157,4 +158,18 @@
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="ButtonBack">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_marginStart">@dimen/margin2x</item>
+        <item name="android:layout_marginTop">@dimen/margin2x</item>
+        <item name="android:drawableTop">@drawable/ic_baseline_arrow_back</item>
+        <item name="drawableTint">@color/secondary_icons_color</item>
+        <item name="elevation">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="layout_constraintVertical_bias">0</item>
+    </style>
+
 </resources>
