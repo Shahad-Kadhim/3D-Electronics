@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3DElectronics">
         <activity
-            android:name=".ui.ImageActivity"
+            android:name=".ui.image.ImageActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

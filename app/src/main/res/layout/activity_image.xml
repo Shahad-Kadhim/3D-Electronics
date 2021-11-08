@@ -4,13 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.lemon.team.electronics.ui.image.ImageViewModel" />
 
+        <variable
+            name="imageUrl"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.ImageActivity">
+        tools:context=".ui.image.ImageActivity">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_button"
+            style="@style/ButtonBack"
+            android:onClick="@{() -> viewModel.onclickBack()}"
+            android:background="@drawable/ic_shape_cover"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.ortiz.touchview.TouchImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:imageFromUrl="@{imageUrl}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
