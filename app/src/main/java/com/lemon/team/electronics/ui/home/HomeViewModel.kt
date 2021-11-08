@@ -1,12 +1,10 @@
 package com.lemon.team.electronics.ui.home
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
-import com.lemon.team.electronics.model.response.CategoriesResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 
 class HomeViewModel :BaseViewModel() , HomeInteractionListener {
@@ -69,11 +67,11 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
             is State.Success -> State.Success(state.toData())
         }
 
-    fun onClickCart(){
+    fun onClickCart() {
         _cartEvent.postValue(Event(true))
     }
 
-    fun onClickAbout(){
+    fun onClickAbout() {
         _aboutEvent.postValue(Event(true))
     }
 
