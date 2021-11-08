@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin3x"
                 android:ellipsize="end"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/roboto_regular"
                 android:maxLines="2"
                 android:text="@{item.categoryName}"
                 android:textAlignment="viewStart"

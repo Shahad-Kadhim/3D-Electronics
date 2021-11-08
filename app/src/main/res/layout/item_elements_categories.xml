@@ -79,13 +79,13 @@
                 android:id="@+id/product_price_text"
                 style="@style/ProductPriceStyle"
                 android:fontFamily="@font/roboto_regular"
-                android:text="@{String.valueOf(item.price) + ` IQ`}"
+                android:text="@{String.valueOf(item.price) + ` $`}"
                 android:textSize="@dimen/text24sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/category_name"
-                tools:text="15.77 IQ" />
+                tools:text="15.77 $" />
 
             <TextView
                 android:id="@+id/product_old_price_text"
@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin8dp"
                 android:fontFamily="@font/monda_regular"
-                android:text="@{String.valueOf(item.oldPrice)}"
+                android:text="@{String.valueOf(item.oldPrice) + ` $`}"
                 android:textColor="@color/secondary_text_color"
                 android:textSize="@dimen/text_small"
                 app:isVisible="@{item.sale}"
@@ -101,7 +101,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/product_price_text"
                 app:layout_constraintStart_toStartOf="@+id/product_price_text"
                 app:layout_constraintTop_toBottomOf="@+id/product_price_text"
-                tools:text="100.54 IQ" />
+                tools:text="100.54 $" />
 
             <View
                 android:layout_width="0dp"
