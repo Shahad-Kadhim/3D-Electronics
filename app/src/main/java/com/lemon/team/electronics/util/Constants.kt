@@ -18,8 +18,8 @@ object Constants {
     val  colors = listOf(
         ColorsRecycler.COLOR_ONE,
         ColorsRecycler.COLOR_TWO,
-        ColorsRecycler.COLOR_TWO,
         ColorsRecycler.COLOR_THREE,
+        ColorsRecycler.COLOR_TWO,
         ColorsRecycler.COLOR_THREE,
         ColorsRecycler.COLOR_ONE)
 }

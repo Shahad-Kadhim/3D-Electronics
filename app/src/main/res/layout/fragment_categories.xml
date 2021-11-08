@@ -15,47 +15,42 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin2x"
-            android:layout_marginTop="16dp"
+            style="@style/ButtonBack"
             android:onClick="@{() -> viewModel.onclickBack()}"
             android:background="@drawable/ic_shape_cover"
-            android:drawableTop="@drawable/ic_baseline_arrow_back"
-            android:drawableTint="@color/secondary_icons_color"
-            android:elevation="2dp"
-            android:gravity="center"
-            android:paddingTop="12dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/monda_bold"
-            android:gravity="center"
-            android:text="Categories"
-            android:textColor="@color/seconder_text_color"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            style="@style/TitleText"
+            android:text="@string/categories"
+            app:layout_constraintBottom_toBottomOf="@+id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/back_button" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="56dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categories_recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:padding="8dp"
-            android:layout_marginTop="@dimen/margin2x"
+            android:paddingHorizontal="8dp"
+            android:layout_marginTop="@dimen/margin8dp"
             android:clipToPadding="false"
             app:items="@{viewModel.categoryList.toData()}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/back_button"
+            app:layout_constraintTop_toBottomOf="@+id/guideline"
             app:showOnSuccess="@{viewModel.categoryList}"
             app:spanCount="3"
             tools:listitem="@layout/item_category" />

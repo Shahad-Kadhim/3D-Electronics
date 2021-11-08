@@ -18,6 +18,7 @@
         android:id="@+id/product_background_card"
         style="@style/ProductBackgroundCardStyle"
         app:cardCornerRadius="@dimen/radius3x"
+        app:cardBackgroundColor="@color/secondary_background_color"
         android:layout_marginHorizontal="@dimen/margin8dp"
         android:layout_marginVertical="@dimen/margin2x"
         app:cardElevation="@dimen/margin4dp">
@@ -81,17 +82,24 @@
                 app:layout_constraintStart_toStartOf="@id/product_old_price_text"
                 app:layout_constraintTop_toTopOf="@id/product_old_price_text" />
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <ImageView
                 android:id="@+id/product_image"
-                style="@style/ProductImageStyle"
-                android:layout_marginHorizontal="@dimen/margin3x"
-                android:layout_marginTop="32dp"
+                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
                 app:imageFromUrl="@{item.mainImage}"
+                app:layout_constraintBottom_toBottomOf="@id/guideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/product_name_text"
                 tools:src="@color/brand_color" />
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="288dp" />
             <CheckBox
                 android:id="@+id/imageView5"
                 style="@style/WishIconStyle"
@@ -115,14 +123,10 @@
                 app:layout_constraintTop_toTopOf="@+id/product_name_text" />
 
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/add_to_cart_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/AddButton"
                 android:background="@drawable/shape_button_cart"
-                android:src="@drawable/ic_baseline_add_24"
-                android:padding="16dp"
-                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 

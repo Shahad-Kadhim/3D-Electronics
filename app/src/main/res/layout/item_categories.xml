@@ -41,24 +41,31 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/ic_fan" />
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="70dp" />
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin3x"
-                android:layout_marginBottom="24dp"
                 android:ellipsize="end"
+                android:fontFamily="@font/roboto_regular"
+                android:maxLines="2"
                 android:text="@{item.categoryName}"
-                android:fontFamily="@font/roboto_black"
-                android:maxLines="1"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:textSize="12sp"
+                app:layout_constraintVertical_bias="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="@+id/icon"
+                app:layout_constraintTop_toBottomOf="@+id/guideline"
                 tools:text="Case" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
