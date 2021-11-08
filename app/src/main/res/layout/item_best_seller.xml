@@ -122,14 +122,10 @@
                 app:layout_constraintTop_toTopOf="@+id/product_name_text" />
 
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/add_to_cart_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/AddButton"
                 android:background="@drawable/shape_button_cart"
-                android:src="@drawable/ic_baseline_add_24"
-                android:padding="16dp"
-                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
