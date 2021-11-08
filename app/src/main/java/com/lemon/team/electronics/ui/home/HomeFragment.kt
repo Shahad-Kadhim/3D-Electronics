@@ -7,8 +7,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentHomeBinding
-import com.lemon.team.electronics.model.domain.HomeItem
 import com.lemon.team.electronics.model.domain.CategoryInfoType
+import com.lemon.team.electronics.model.domain.HomeItem
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.Constants.MOUSE_CATEGORY_ID
 import com.lemon.team.electronics.util.Constants.MOUSE_TITLE
@@ -28,7 +28,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@HomeFragment.viewModel
             recyclerViewHome.adapter =
-                HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel)
+                HomeRecyclerAdapter(
+                    mutableListOf(HomeItem.SearchType()),
+                    this@HomeFragment.viewModel
+                )
         }
 
     }
@@ -46,16 +49,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 binding.root.goToFragmentWithTransition(
                     HomeFragmentDirections.actionHomeFragmentToSearchFragment(),
                     FragmentNavigatorExtras(requireActivity().findViewById<CardView>(R.id.searchCard) to "search")
-                    )
+                )
             }
             it.onclickCategoryEvent.observeEvent(this) { category ->
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(
-                    category.id,
-                    category.categoryName))
+                binding.root.goToFragment(
+                    HomeFragmentDirections.actionHomeFragmentToCategoryFragment(
+                        category.id,
+                        category.categoryName
+                    )
+                )
             }
             it.onclickProductEvent.observeEvent(this) { id ->
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToProductFragment(
-                    id))
+                binding.root.goToFragment(
+                    HomeFragmentDirections.actionHomeFragmentToProductFragment(
+                        id
+                    )
+                )
             }
 
             it.clickSeeMoreForCategories.observeEvent(this) {
@@ -65,8 +74,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 //  binding.root.goToFragment(HomeFragmentDirections)
             }
             it.clickSeeMoreForCategory.observeEvent(this) {
-                binding.root.goToFragment(HomeFragmentDirections
-                    .actionHomeFragmentToCategoryFragment(it.categoryId, it.categoryName))
+                binding.root.goToFragment(
+                    HomeFragmentDirections
+                        .actionHomeFragmentToCategoryFragment(it.categoryId, it.categoryName)
+                )
             }
 
         }
@@ -75,6 +86,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun setUp() {
         super.setUp()
         observeResponse()
+
     }
 
     fun observeResponse() {
@@ -84,8 +96,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 it.mouseCategories.observe(this@HomeFragment) { state ->
                     if (state is State.Success) {
                         this?.addItem(
-                            HomeItem.ElementCategoriesType(state.toData()?.products!!,
-                                CategoryInfoType(MOUSE_CATEGORY_ID, MOUSE_TITLE)))
+                            HomeItem.ElementCategoriesType(
+                                state.toData()?.products!!,
+                                CategoryInfoType(MOUSE_CATEGORY_ID, MOUSE_TITLE)
+                            )
+                        )
                     }
                 }
 
@@ -103,9 +118,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
                 it.slideProducts.observe(this@HomeFragment) { state ->
                     if (state is State.Success) {
-                            this?.addItem(HomeItem.SlideType(state.toData()!!))
+                        this?.addItem(HomeItem.SlideType(state.toData()!!))
                     }
                 }
+
+                viewModel.tripleMediatorLiveData.observe(this@HomeFragment) {
+                    when {
+                        it.first is State.Loading || it.second is State.Loading || it.third is State.Loading -> {
+                            viewModel.stateHome.postValue(State.Loading)
+                        }
+                        it.first is State.Success || it.second is State.Success || it.third is State.Success -> {
+                            viewModel.stateHome.postValue(State.Success(true))
+                        }
+                        else -> viewModel.stateHome.postValue(State.Error("Error!"))
+                    }
+                }
+
             }
         }
     }

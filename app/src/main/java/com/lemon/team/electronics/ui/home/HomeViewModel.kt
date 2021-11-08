@@ -42,8 +42,13 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         Constants.PAGE_NUMBER_ZERO
     ).asLiveData()
 
+    val stateHome: MutableLiveData<State<Boolean>> = MutableLiveData(State.Loading)
+
     val mouseCategories = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
+
+    val tripleMediatorLiveData = TripleMediatorLiveData(categories, bestProduct, slideProducts)
+
 
 
     fun onClickCart(){
@@ -81,5 +86,17 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         _clickSeeMoreForCategory.postValue(Event(category))
     }
 
+}
 
+
+class TripleMediatorLiveData<F, S, T>(
+    firstLiveData: LiveData<F>,
+    secondLiveData: LiveData<S>,
+    thirdLiveData: LiveData<T>
+) : MediatorLiveData<Triple<F?, S?, T?>>() {
+    init {
+        addSource(firstLiveData) { firstLiveDataValue: F -> value = Triple(firstLiveDataValue, secondLiveData.value, thirdLiveData.value) }
+        addSource(secondLiveData) { secondLiveDataValue: S -> value = Triple(firstLiveData.value, secondLiveDataValue, thirdLiveData.value) }
+        addSource(thirdLiveData) { thirdLiveDataValue: T -> value = Triple(firstLiveData.value, secondLiveData.value, thirdLiveDataValue) }
+    }
 }
