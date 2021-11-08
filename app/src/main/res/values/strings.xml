@@ -16,4 +16,8 @@
     <string name="add">Add</string>
     <string name="product_name">Product Name</string>
     <string name="aboutTitle">About</string>
+    <string name="email">3d@3d-iraq.com</string>
+    <string name="facebook">3D electronics</string>
+    <string name="phone_number">9647700612084</string>
+    <string name="categories">Categories</string>
 </resources>

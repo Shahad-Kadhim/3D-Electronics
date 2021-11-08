@@ -35,20 +35,14 @@
             android:gravity="center"
             android:onClick="@{() -> viewModel.onclickBack()}"
             android:paddingTop="12dp"
+            app:layout_constraintVertical_bias="0"
             app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:fontFamily="@font/monda_bold"
-            android:gravity="center"
+            style="@style/TitleText"
             android:text="@string/aboutTitle"
-            android:textColor="@color/seconder_text_color"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +52,7 @@
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/guideline">
 
@@ -89,11 +84,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="-8dp"
                     android:src="@drawable/ic_outline_location_on_24"
+                    app:layout_constraintVertical_bias="0.1"
+                    app:layout_constraintBottom_toBottomOf="@id/textView8"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/textView8"
-                    app:tint="@color/icon_red" />
+                    app:layout_constraintTop_toTopOf="@id/textView8" />
 
                 <ImageView
                     android:id="@+id/logo"
@@ -264,51 +259,33 @@
 
                 <TextView
                     android:id="@+id/imageView7"
-                    style="@style/AboutTextColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    style="@style/contactText"
                     android:layout_marginTop="@dimen/margin8dp"
-                    android:drawableLeft="@drawable/ic_facebook"
-                    android:drawablePadding="@dimen/margin8dp"
-                    android:fontFamily="@font/monda_bold"
-                    android:text="3d@3d-iraq.com"
-                    android:textSize="16sp"
+                    android:text="@string/facebook"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contact" />
+                    app:layout_constraintTop_toBottomOf="@+id/contact"
+                    app:drawableLeftCompat="@drawable/ic_facebook" />
 
                 <TextView
                     android:id="@+id/img_mail"
-                    style="@style/AboutTextColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin3x"
+                    style="@style/contactText"
                     android:layout_marginTop="@dimen/margin2x"
-                    android:drawableLeft="@drawable/ic_email_"
-                    android:drawablePadding="@dimen/margin8dp"
-                    android:fontFamily="@font/monda_bold"
-                    android:text="3d@3d-iraq.com"
-                    android:textSize="16sp"
+                    android:text="@string/email"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                    app:drawableLeftCompat="@drawable/ic_email_" />
 
 
                 <TextView
                     android:id="@+id/img_phone"
-                    style="@style/AboutTextColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    style="@style/contactText"
                     android:layout_marginTop="@dimen/margin3x"
                     android:layout_marginBottom="@dimen/margin3x"
-                    android:drawableLeft="@drawable/ic_phone"
-                    android:drawablePadding="@dimen/margin8dp"
-                    android:fontFamily="@font/monda_bold"
-                    android:text="0123456789"
-                    android:textSize="16sp"
+                    android:text="@string/phone_number"
                     app:layout_constraintBottom_toBottomOf="@id/contactView"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/img_mail" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_mail"
+                    app:drawableLeftCompat="@drawable/ic_call" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

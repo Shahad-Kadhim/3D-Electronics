@@ -138,4 +138,23 @@
         <item name="cornerSize">10%</item>
     </style>
 
+    <style name="contactText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/text14sp</item>
+        <item name="android:drawablePadding">@dimen/padding1x</item>
+        <item name="android:textColor">@color/secondary_text_color</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">@dimen/margin3x</item>
+    </style>
+    <style name="TitleText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">280dp</item>
+        <item name="android:textColor">@color/seconder_text_color</item>
+        <item name="android:textSize">@dimen/text24sp</item>
+        <item name="fontFamily">@font/monda_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>
