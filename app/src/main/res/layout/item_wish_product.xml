@@ -78,16 +78,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@color/brand_color" />
 
-                <com.google.android.material.checkbox.MaterialCheckBox
-                    android:id="@+id/check_wished_product_button"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:checked="true"
-                    android:layout_margin="@dimen/margin12dp"
-                    android:button="@drawable/wish_checkbox"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/add_to_cart_button"
                     style="@style/AddButton"
