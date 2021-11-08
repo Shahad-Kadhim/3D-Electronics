@@ -133,3 +133,12 @@ fun setSliderImages(slider: ImageSlider, images: List<Product>?){
         SlideModel(it.mainImage)
     }?.let { slider.setImageList(it, ScaleTypes.CENTER_INSIDE) }
 }
+
+@BindingAdapter(value = ["app:showLoading"])
+fun <T> loading(view: View, state: State<T>?) {
+    view.visibility=if(state ==null){
+        View.VISIBLE
+    }else {
+        View.GONE
+    }
+}

@@ -48,6 +48,35 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
     val mouseCategories = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
 
+    val state=MediatorLiveData<State<Any>>().apply {
+        addSource(slideProducts,this@HomeViewModel::checkIfSuccess)
+        addSource(categories,this@HomeViewModel::checkIfSuccess)
+        addSource(bestProduct,this@HomeViewModel::checkIfSuccess)
+        addSource(mouseCategories,this@HomeViewModel::checkIfSuccess)
+    }
+
+
+    private fun <T>checkIfSuccess(currentState:State<T>){
+        if(currentState is State.Success){
+            state.postValue(currentState as State<Any>)
+        }
+        takeIf { currentState is State.Error }?.let {
+            if(ifAllStateError()){
+                state.postValue(State.Error("No Internet Connection"))
+            }
+        }
+    }
+
+    private fun ifAllStateError() =
+        checkState(
+            slideProducts.value,
+            categories.value,
+            bestProduct.value,
+            mouseCategories.value
+        )
+
+
+    private fun <T>checkState(vararg state:State<T>?) = state.all { it is State.Error }
 
     fun onClickCart(){
         _cartEvent.postValue(Event(true))
