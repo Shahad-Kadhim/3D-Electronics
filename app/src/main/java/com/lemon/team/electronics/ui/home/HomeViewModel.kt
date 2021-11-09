@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.ui.home
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
@@ -24,8 +25,6 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
     private var _onclickCategoryEvent = MutableLiveData<Event<CategoryResponse>>()
     val onclickCategoryEvent: LiveData<Event<CategoryResponse>> = _onclickCategoryEvent
 
-    private var _clickSeeMoreForBestSeller = MutableLiveData<Event<Boolean>>()
-    val clickSeeMoreForBestSeller: LiveData<Event<Boolean>> = _clickSeeMoreForBestSeller
 
     private var _clickSeeMoreForCategories = MutableLiveData<Event<Boolean>>()
     val clickSeeMoreForCategories: LiveData<Event<Boolean>> = _clickSeeMoreForCategories
@@ -45,14 +44,19 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         Constants.PAGE_NUMBER_ZERO
     ).asLiveData()
 
-    val mouseCategories = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
+    val mouseCategory = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
+
+    val headphoneCategory = Repository.getProductsByCategoryId(Constants.HEADPHONE_CATEGORY_ID,
+        Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
+
 
     val state=MediatorLiveData<State<Any>>().apply {
         addSource(slideProducts,this@HomeViewModel::checkIfSuccess)
         addSource(categories,this@HomeViewModel::checkIfSuccess)
         addSource(bestProduct,this@HomeViewModel::checkIfSuccess)
-        addSource(mouseCategories,this@HomeViewModel::checkIfSuccess)
+        addSource(mouseCategory,this@HomeViewModel::checkIfSuccess)
+        addSource(headphoneCategory,this@HomeViewModel::checkIfSuccess)
     }
 
 
@@ -72,7 +76,7 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
             slideProducts.value,
             categories.value,
             bestProduct.value,
-            mouseCategories.value
+            mouseCategory.value
         )
 
 
@@ -105,9 +109,6 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
     override fun onClickCategory(categoryId: CategoryResponse) {
         _onclickCategoryEvent.postValue(Event(categoryId))
     }
-    override fun onClickSeeMoreForBestSeller() {
-        _clickSeeMoreForBestSeller.postValue(Event(true))
-    }
 
     override fun onClickSeeMoreForCategories() {
         _clickSeeMoreForCategories.postValue(Event(true))
@@ -117,5 +118,9 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
         _clickSeeMoreForCategory.postValue(Event(category))
     }
 
-    
+    override fun onclickSlider(position: Int) {
+        Log.i(Constants.LOG_TAG,"$position")
+    }
+
+
 }

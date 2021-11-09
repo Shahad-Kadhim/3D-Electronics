@@ -11,8 +11,8 @@ interface HomeInteractionListener : BaseInteractionListener {
     fun onClickShare(productId: String)
     fun onClickCategory(categoryId: CategoryResponse)
     fun onclickSearch()
-    fun onClickSeeMoreForBestSeller()
     fun onClickSeeMoreForCategories()
     fun onClickSeeMoreForCategory(category: CategoryInfoType)
+    fun onclickSlider(position: Int)
 
 }

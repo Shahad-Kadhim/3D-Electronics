@@ -2,6 +2,8 @@ package com.lemon.team.electronics.util
 
 object Constants {
 
+    const val HEADPHONE_TITLE: String ="HEADSETS سماعات رأسيه"
+    const val HEADPHONE_CATEGORY_ID= "57289db8-1692-40f3-9c2e-beb49b9be0bc"
     const val MAIN_URL = "MAIN_URL"
     const val BASE_URL = "https://www.3d-iraq.com/api/"
     const val URL_PRODUCT_WEBSITE = "https://www.3d-iraq.com/product/"

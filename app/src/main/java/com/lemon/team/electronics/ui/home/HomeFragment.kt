@@ -6,18 +6,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentHomeBinding
-import com.lemon.team.electronics.model.domain.HomeItem
-import com.lemon.team.electronics.model.domain.CategoryInfoType
+import com.lemon.team.electronics.model.domain.*
 import com.lemon.team.electronics.ui.base.BaseFragment
-import com.lemon.team.electronics.util.Constants.MOUSE_CATEGORY_ID
-import com.lemon.team.electronics.util.Constants.MOUSE_TITLE
-import com.lemon.team.electronics.util.State
-import com.lemon.team.electronics.util.goToFragment
-import com.lemon.team.electronics.util.goToFragmentWithTransition
-import com.lemon.team.electronics.util.observeEvent
 import android.content.Intent
 import androidx.fragment.app.activityViewModels
-import com.lemon.team.electronics.util.sharingUrl
+import androidx.lifecycle.LiveData
+import androidx.navigation.NavDirections
+import com.lemon.team.electronics.model.response.ProductsResponse
+import com.lemon.team.electronics.util.*
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
@@ -42,79 +38,106 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     override fun observeEvents() {
-        viewModel.also {
-            it.aboutEvent.observeEvent(this) {
-                binding.about.goToFragment(HomeFragmentDirections.actionHomeFragmentToAboutFragment())
+        viewModel.apply {
+            navOnEvent(aboutEvent){
+                HomeFragmentDirections.actionHomeFragmentToAboutFragment()
             }
-            it.cartEvent.observeEvent(this) {
-                binding.cart.goToFragment(HomeFragmentDirections.actionHomeFragmentToCartFragment())
+            navOnEvent(cartEvent){
+                HomeFragmentDirections.actionHomeFragmentToCartFragment()
             }
-            it.searchEvent.observeEvent(this) {
+            navOnEvent(onclickCategoryEvent){ category ->
+                HomeFragmentDirections.actionHomeFragmentToCategoryFragment(
+                    category.id,
+                    category.categoryName
+                )
+            }
+            navOnEvent(onclickProductEvent){ id ->
+                HomeFragmentDirections.actionHomeFragmentToProductFragment(id)
+            }
 
+            navOnEvent(clickSeeMoreForCategories){
+                HomeFragmentDirections.actionHomeFragmentToCategoriesFragment()
+            }
+            navOnEvent(clickSeeMoreForCategory){ categoryInfo ->
+                HomeFragmentDirections
+                    .actionHomeFragmentToCategoryFragment(
+                        categoryInfo.categoryId,
+                        categoryInfo.categoryName
+                    )
+            }
+
+            searchEvent.observeEvent(this@HomeFragment) {
                 binding.root.goToFragmentWithTransition(
                     HomeFragmentDirections.actionHomeFragmentToSearchFragment(),
                     FragmentNavigatorExtras(requireActivity().findViewById<CardView>(R.id.searchCard) to "search")
                     )
             }
-            it.onclickCategoryEvent.observeEvent(this) { category ->
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoryFragment(
-                    category.id,
-                    category.categoryName))
-            }
-            it.onclickProductEvent.observeEvent(this) { id ->
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToProductFragment(
-                    id))
-            }
 
-            it.clickSeeMoreForCategories.observeEvent(this) {
-                binding.root.goToFragment(HomeFragmentDirections.actionHomeFragmentToCategoriesFragment())
-            }
-            it.clickSeeMoreForBestSeller.observeEvent(this) {
-                //  binding.root.goToFragment(HomeFragmentDirections)
-            }
-            it.clickSeeMoreForCategory.observeEvent(this) {
-                binding.root.goToFragment(HomeFragmentDirections
-                    .actionHomeFragmentToCategoryFragment(it.categoryId, it.categoryName))
-            }
-
-            it.clickSharedProduct.observe(this) {
-                startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(it)
-                    , "Share using"))
+            clickSharedProduct.observe(this@HomeFragment) { productUrl ->
+                shareProduct(productUrl)
             }
 
         }
+    }
+
+    private fun <T>navOnEvent(event: LiveData<Event<T>>, action:(T) -> NavDirections ){
+        event.observeEvent(this) {
+            binding.root.goToFragment(action(it))
+        }
+    }
+
+    private fun shareProduct(productUrl:String){
+        startActivity(
+            Intent.createChooser(
+                Intent(Intent.ACTION_SEND).sharingUrl(productUrl), "Share using")
+        )
     }
 
     private fun observeResponse() {
-        viewModel.also {
-            (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?).apply {
+        viewModel.apply {
+            (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?)?.apply {
 
-                it.mouseCategories.observe(this@HomeFragment) { state ->
-                    if (state is State.Success) {
-                        this?.addItem(
-                            HomeItem.ElementCategoriesType(state.toData()?.products!!,
-                                CategoryInfoType(MOUSE_CATEGORY_ID, MOUSE_TITLE)))
-                    }
+                addCategoryItem(mouseCategory,CategoryInfoType(Constants.MOUSE_CATEGORY_ID, Constants.MOUSE_TITLE))
+                addCategoryItem(headphoneCategory,CategoryInfoType(Constants.HEADPHONE_CATEGORY_ID, Constants.HEADPHONE_TITLE))
+
+                addItem(categories){ state ->
+                    addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))
                 }
 
-                it.categories.observe(this@HomeFragment) { state ->
-                    if (state is State.Success) {
-                        this?.addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))
-                    }
+                addItem(bestProduct){ state ->
+                    addItem(HomeItem.BestProductType(state.toData()!!))
                 }
 
-                it.bestProduct.observe(this@HomeFragment) { state ->
-                    if (state is State.Success) {
-                        this?.addItem(HomeItem.BestProductType(state.toData()!!))
-                    }
+                addItem(slideProducts){ state ->
+                    addItem(HomeItem.SlideType(state.toData()!!))
                 }
 
-                it.slideProducts.observe(this@HomeFragment) { state ->
-                    if (state is State.Success) {
-                            this?.addItem(HomeItem.SlideType(state.toData()!!))
-                    }
+            }
+        }
+    }
+
+    private fun addCategoryItem(
+        category: LiveData<State<ProductsResponse?>>,
+        categoryInfoType: CategoryInfoType
+    ){
+        addItem(category){
+            (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?)?.apply {
+                this.addItem(HomeItem.ElementCategoriesType(it.toData()?.products!!, categoryInfoType))
+            }
+        }
+    }
+
+    private fun <T>addItem(
+        response :  LiveData<State<T?>>,
+        add: (State.Success<T?>) ->Unit
+    ){
+        (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?)?.apply {
+            response.observe(this@HomeFragment) { state ->
+                if (state is State.Success) {
+                    add(state)
                 }
             }
         }
     }
+
 }

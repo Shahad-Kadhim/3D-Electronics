@@ -7,6 +7,9 @@
         <variable
             name="products"
             type="com.lemon.team.electronics.model.response.ProductsResponse" />
+        <variable
+            name="listener"
+            type="com.lemon.team.electronics.ui.home.HomeInteractionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

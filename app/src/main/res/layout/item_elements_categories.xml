@@ -60,7 +60,7 @@
                 android:maxLines="1"
                 android:paddingVertical="4dp"
                 android:singleLine="true"
-                android:text="@{item.category.categoryName}"
+                android:text="@{item.name}"
                 android:textSize="@dimen/text_normal"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/product_price_text"

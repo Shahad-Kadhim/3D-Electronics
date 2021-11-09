@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="out_of_stock">Out Of Stock</string>
+    <string name="out_of_stock">Sold out</string>
     <string name="wishlist">WishList</string>
 </resources>
