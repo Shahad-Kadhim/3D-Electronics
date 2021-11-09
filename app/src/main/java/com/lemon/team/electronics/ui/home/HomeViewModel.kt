@@ -8,7 +8,7 @@ import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.ui.base.BaseViewModel
 
-class HomeViewModel :BaseViewModel() , HomeInteractionListener {
+class HomeViewModel :BaseViewModel() , HomeInteractionListener ,SliderListener{
 
     private var _cartEvent = MutableLiveData<Event<Boolean>>()
     val cartEvent: LiveData<Event<Boolean>> = _cartEvent
@@ -119,6 +119,10 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener {
     }
 
     override fun onclickSlider(position: Int) {
+        Log.i(Constants.LOG_TAG,"$position")
+    }
+
+    override fun onclick(position: Int) {
         Log.i(Constants.LOG_TAG,"$position")
     }
 

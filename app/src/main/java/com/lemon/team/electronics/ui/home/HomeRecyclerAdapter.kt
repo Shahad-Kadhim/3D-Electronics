@@ -11,6 +11,7 @@ import com.lemon.team.electronics.util.setVariableAdapter
 class HomeRecyclerAdapter(
     private var itemsNested: MutableList<HomeItem>,
     private val listener: HomeInteractionListener,
+    private val sliderListener:SliderListener
 ) : BaseRecyclerAdapter<Any>(itemsNested, listener) {
 
     override var layoutId: Int = 0
@@ -60,6 +61,7 @@ class HomeRecyclerAdapter(
             }
             is HomeItem.SlideType -> {
                 holder.binding.setVariable(BR.products, currentItem.items)
+                holder.binding.setVariable(BR.slider, sliderListener)
             }
         }
     }

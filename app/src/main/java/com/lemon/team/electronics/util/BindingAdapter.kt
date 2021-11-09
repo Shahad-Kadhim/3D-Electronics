@@ -25,7 +25,10 @@ import android.widget.Toast
 import android.content.Intent
 
 import android.widget.ImageButton
+import com.denzcoskun.imageslider.constants.ActionTypes
+import com.denzcoskun.imageslider.interfaces.TouchListener
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
+import com.lemon.team.electronics.ui.home.SliderListener
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -145,13 +148,23 @@ fun setSliderImages(slider: ImageSlider, images: List<Product>?){
 }
 
 @BindingAdapter(value=["app:itemClick"])
-fun onclick(view:ImageSlider , listener:(Int) -> Unit): Int {
+fun onclick(view:ImageSlider , listener: SliderListener?) {
+
+    Log.i("LEMON_TEAMK","1111")
     view.setItemClickListener(object : ItemClickListener {
         override fun onItemSelected(position: Int) {
-//            listener.onclickSlider(position)
+            Log.i("LEMON_TEAMS","1111")
+            listener?.onclick(position)
         }
     })
-    return 1
+    view.setTouchListener(object :TouchListener{
+        override fun onTouched(touched: ActionTypes) {
+            Log.i("LEMON_TEAMT","1111")
+        }
+    })
+    view.setOnClickListener {
+        Log.i("LEMON_TEAMN","1111")
+    }
 }
 
 @BindingAdapter(value = ["app:showLoading"])

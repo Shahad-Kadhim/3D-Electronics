@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@HomeFragment.viewModel
             recyclerViewHome.adapter =
-                HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel)
+                HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel,this@HomeFragment.viewModel)
         }
 
     }

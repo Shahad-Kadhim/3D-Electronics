@@ -10,6 +10,9 @@
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.home.HomeInteractionListener" />
+        <variable
+            name="slider"
+            type="com.lemon.team.electronics.ui.home.SliderListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +34,7 @@
                 app:iss_auto_cycle="true"
                 app:iss_delay="0"
                 app:iss_period="1100"
+                app:itemClick="@{slider}"
                 app:iss_error_image="@drawable/error"
                 app:setSliderImagesList="@{products.products}"
                 app:iss_selected_dot="@drawable/selected_dot"
