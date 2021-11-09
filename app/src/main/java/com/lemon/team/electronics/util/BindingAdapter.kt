@@ -149,22 +149,11 @@ fun setSliderImages(slider: ImageSlider, images: List<Product>?){
 
 @BindingAdapter(value=["app:itemClick"])
 fun onclick(view:ImageSlider , listener: SliderListener?) {
-
-    Log.i("LEMON_TEAMK","1111")
     view.setItemClickListener(object : ItemClickListener {
         override fun onItemSelected(position: Int) {
-            Log.i("LEMON_TEAMS","1111")
             listener?.onclick(position)
         }
     })
-    view.setTouchListener(object :TouchListener{
-        override fun onTouched(touched: ActionTypes) {
-            Log.i("LEMON_TEAMT","1111")
-        }
-    })
-    view.setOnClickListener {
-        Log.i("LEMON_TEAMN","1111")
-    }
 }
 
 @BindingAdapter(value = ["app:showLoading"])

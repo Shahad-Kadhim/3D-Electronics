@@ -58,10 +58,12 @@
         <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/items_horizontal_best_seller_host.xml" value="0.1707193515704154" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/items_horizontal_category_host.xml" value="0.1707193515704154" />
         <entry key="..\:/Users/msi/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/items_slide_show_host.xml" value="0.1707193515704154" />
+        <entry key="app/src/main/res/layout/item_category.xml" value="0.22083333333333333" />
+        <entry key="app/src/main/res/layout/items_slide_show_host.xml" value="0.16770833333333332" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
