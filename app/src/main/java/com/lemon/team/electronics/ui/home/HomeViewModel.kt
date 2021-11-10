@@ -123,6 +123,9 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener ,SliderListener{
     }
 
     override fun onclick(position: Int) {
+        slideProducts.value?.toData()?.products?.let {
+            _onclickProductEvent.postValue(Event(it[position].id))
+        }
         Log.i(Constants.LOG_TAG,"$position")
     }
 
