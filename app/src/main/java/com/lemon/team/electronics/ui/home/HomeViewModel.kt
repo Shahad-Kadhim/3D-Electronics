@@ -32,8 +32,8 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener ,SliderListener{
     private var _clickSeeMoreForCategory = MutableLiveData<Event<CategoryInfoType>>()
     val clickSeeMoreForCategory: LiveData<Event<CategoryInfoType>> = _clickSeeMoreForCategory
 
-    private var _clickSharedProduct = MutableLiveData<String>()
-    val clickSharedProduct: LiveData<String> = _clickSharedProduct
+    private var _clickSharedProduct = MutableLiveData<Event<String>>()
+    val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
 
     val categories = Repository.getCategories().asLiveData()
 
@@ -103,7 +103,7 @@ class HomeViewModel :BaseViewModel() , HomeInteractionListener ,SliderListener{
     }
 
     override fun onClickShare(productId: String) {
-        _clickSharedProduct.postValue(productId)
+        _clickSharedProduct.postValue(Event(productId))
     }
 
     override fun onClickCategory(categoryId: CategoryResponse) {

@@ -73,7 +73,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     )
             }
 
-            clickSharedProduct.observe(this@HomeFragment) { productUrl ->
+            clickSharedProduct.observeEvent(this@HomeFragment) { productUrl ->
                 shareProduct(productUrl)
             }
 
