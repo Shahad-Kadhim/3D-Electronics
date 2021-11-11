@@ -23,10 +23,10 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>(private va
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) : View? {
+        viewModel = getViewM()
         _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         _binding.lifecycleOwner = this
         _binding.setVariable(BR.viewModel, viewModel)
-        viewModel = getViewM()
         return _binding.root
     }
 
