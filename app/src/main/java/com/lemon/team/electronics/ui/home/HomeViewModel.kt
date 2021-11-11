@@ -38,7 +38,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     val bestProduct = Repository.getRecommendedProducts().asLiveData()
 
-    val sliderProducts = Repository.getHomeScreenMainImages().asLiveData()
+    val homeImages = Repository.getHomeScreenMainImages().asLiveData()
 
     val mouseCategory = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
@@ -48,7 +48,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
 
     val state=MediatorLiveData<State<Any>>().apply {
-        addSource(sliderProducts,this@HomeViewModel::checkIfSuccess)
+        addSource(homeImages,this@HomeViewModel::checkIfSuccess)
         addSource(categories,this@HomeViewModel::checkIfSuccess)
         addSource(bestProduct,this@HomeViewModel::checkIfSuccess)
         addSource(mouseCategory,this@HomeViewModel::checkIfSuccess)
@@ -69,7 +69,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     private fun ifAllStateError() =
         checkState(
-            sliderProducts.value,
+            homeImages.value,
             categories.value,
             bestProduct.value,
             mouseCategory.value
@@ -115,7 +115,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     }
 
     override fun onClickSliderItem(position: Int) {
-        sliderProducts.value?.toData()?.let {
+        homeImages.value?.toData()?.let {
             _onclickProductEvent.postValue(Event(it[position].productId))
         }
     }

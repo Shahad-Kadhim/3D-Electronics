@@ -108,7 +108,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     addItem(HomeItem.BestProductType(state.toData()!!))
                 }
 
-                addItem(sliderProducts){ state ->
+                addItem(homeImages){ state ->
                     addItem(HomeItem.SlideType(state.toData()!!))
                 }
 
