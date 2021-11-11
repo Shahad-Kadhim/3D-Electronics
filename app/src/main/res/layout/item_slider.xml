@@ -14,7 +14,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="128dp">
+        android:layout_height="176dp">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -28,10 +28,9 @@
                 android:id="@+id/image_slider"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="2dp"
                 app:iss_auto_cycle="true"
                 app:iss_delay="0"
-                app:iss_period="1100"
+                app:iss_period="1750"
                 app:iss_error_image="@drawable/error"
                 app:setSliderImagesList="@{products}"
                 app:itemClick="@{listener}"
