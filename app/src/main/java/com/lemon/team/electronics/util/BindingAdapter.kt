@@ -135,7 +135,7 @@ fun setText(view: TextView, categoryName: String?) {
 fun setSliderImages(slider: ImageSlider, images: List<HomeImagesItem>?){
     images?.map {
         SlideModel(it.productImage)
-    }?.let { slider.setImageList(it, ScaleTypes.CENTER_INSIDE) }
+    }?.let { slider.setImageList(it, ScaleTypes.FIT) }
 }
 
 @BindingAdapter(value=["app:itemClick"])
