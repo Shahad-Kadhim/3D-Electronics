@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.core.content.ContextCompat
-import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -17,18 +16,10 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.generated.callback.OnClickListener
-import com.lemon.team.electronics.model.response.Product
+import com.lemon.team.electronics.model.response.HomeImage
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
-import android.widget.Toast
 
-import android.content.Intent
-
-import android.widget.ImageButton
-import com.denzcoskun.imageslider.constants.ActionTypes
-import com.denzcoskun.imageslider.interfaces.TouchListener
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
-import com.lemon.team.electronics.ui.home.SliderListener
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -141,17 +132,17 @@ fun setText(view: TextView, categoryName: String?) {
 }
 
 @BindingAdapter(value = ["app:setSliderImagesList"])
-fun setSliderImages(slider: ImageSlider, images: List<Product>?){
-    images?.map     {
-        SlideModel(it.mainImage)
-    }?.let { slider.setImageList(it, ScaleTypes.CENTER_INSIDE) }
+fun setSliderImages(slider: ImageSlider, images: List<HomeImage>?){
+    images?.map {
+        SlideModel(it.productImage)
+    }?.let { slider.setImageList(it, ScaleTypes.FIT) }
 }
 
 @BindingAdapter(value=["app:itemClick"])
-fun onclick(view:ImageSlider , listener: SliderListener?) {
+fun onClickSliderItem(view:ImageSlider , listener: HomeInteractionListener?) {
     view.setItemClickListener(object : ItemClickListener {
         override fun onItemSelected(position: Int) {
-            listener?.onclick(position)
+            listener?.onClickSliderItem(position)
         }
     })
 }

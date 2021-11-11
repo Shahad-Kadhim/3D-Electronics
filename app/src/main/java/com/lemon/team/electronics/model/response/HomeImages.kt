@@ -1,3 +1,3 @@
 package com.lemon.team.electronics.model.response
 
-class HomeImages : ArrayList<HomeImagesItem>()
+class HomeImages : ArrayList<HomeImage>()

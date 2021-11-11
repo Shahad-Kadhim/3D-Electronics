@@ -23,7 +23,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun setUpBinding() {
         binding.apply {
             recyclerViewHome.adapter =
-                HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel,this@HomeFragment.viewModel)
+                HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel)
         }
 
     }
@@ -104,7 +104,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     addItem(HomeItem.BestProductType(state.toData()!!))
                 }
 
-                addItem(slideProducts){ state ->
+                addItem(homeImages){ state ->
                     addItem(HomeItem.SlideType(state.toData()!!))
                 }
 

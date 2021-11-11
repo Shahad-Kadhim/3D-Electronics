@@ -13,6 +13,6 @@ interface HomeInteractionListener : BaseInteractionListener {
     fun onclickSearch()
     fun onClickSeeMoreForCategories()
     fun onClickSeeMoreForCategory(category: CategoryInfoType)
-    fun onclickSlider(position: Int)
+    fun onClickSliderItem(position: Int)
 
 }
