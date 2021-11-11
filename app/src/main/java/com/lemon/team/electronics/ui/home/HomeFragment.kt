@@ -16,16 +16,13 @@ import com.lemon.team.electronics.model.response.ProductsResponse
 import com.lemon.team.electronics.util.*
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(HomeViewModel::class.java) {
     override val layoutId: Int = R.layout.fragment_home
-    override val viewModel: HomeViewModel by activityViewModels()
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentHomeBinding =
         DataBindingUtil::inflate
 
     override fun setUpBinding() {
         binding.apply {
-            lifecycleOwner = viewLifecycleOwner
-            viewModel = this@HomeFragment.viewModel
             recyclerViewHome.adapter =
                 HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel,this@HomeFragment.viewModel)
         }

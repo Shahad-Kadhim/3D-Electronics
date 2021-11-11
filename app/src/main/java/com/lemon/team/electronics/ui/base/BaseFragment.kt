@@ -2,24 +2,33 @@ package com.lemon.team.electronics.ui.base
 
 import android.os.Bundle
 import android.view.*
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
+import androidx.lifecycle.ViewModelProvider
+import com.lemon.team.electronics.BR
 
-abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
+abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>(private val viewModelClass: Class<VM>) : Fragment() {
 
     abstract val layoutId: Int
-    abstract val viewModel: VM
+    lateinit var viewModel: VM
     abstract val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> VB
-    private lateinit var _binding: ViewBinding
+    private lateinit var _binding: VB
     val binding: VB
-        get() = _binding as VB
+        get() = _binding
 
-
+    private fun getViewM(): VM = ViewModelProvider(this).get(viewModelClass)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = bindingInflater(inflater, layoutId, container, false).apply { _binding = this }.root
+    ) : View? {
+        _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
+        _binding.lifecycleOwner = this
+        _binding.setVariable(BR.viewModel, viewModel)
+        viewModel = getViewM()
+        return _binding.root
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

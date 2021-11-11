@@ -12,10 +12,9 @@ import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.observeEvent
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel>() {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel>(CategoryViewModel::class.java) {
 
     override val layoutId: Int = R.layout.fragment_category
-    override val viewModel: CategoryViewModel by viewModels()
     private val args: CategoryFragmentArgs by navArgs()
 
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCategoryBinding =
@@ -28,8 +27,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
 
     override fun setUpBinding() {
         binding.apply {
-            lifecycleOwner = viewLifecycleOwner
-            viewModel = this@CategoryFragment.viewModel
             categoryName = args.categoryName
             categoryRecycler.adapter =
                 CategoryRecyclerAdapter(mutableListOf(), this@CategoryFragment.viewModel)

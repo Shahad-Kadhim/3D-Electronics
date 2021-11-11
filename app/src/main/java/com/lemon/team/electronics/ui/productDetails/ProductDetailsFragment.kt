@@ -12,10 +12,9 @@ import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
 
 class ProductDetailsFragment :
-    BaseFragment<FragmentProductDetailsBinding, ProductDetailsViewModel>() {
+    BaseFragment<FragmentProductDetailsBinding, ProductDetailsViewModel>(ProductDetailsViewModel::class.java) {
 
     override val layoutId: Int = R.layout.fragment_product_details
-    override val viewModel: ProductDetailsViewModel by viewModels()
     private val args: ProductDetailsFragmentArgs by navArgs()
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) ->
     FragmentProductDetailsBinding = DataBindingUtil::inflate
@@ -28,8 +27,6 @@ class ProductDetailsFragment :
 
     override fun setUpBinding() {
         binding.apply {
-            lifecycleOwner = viewLifecycleOwner
-            viewModel = this@ProductDetailsFragment.viewModel
             productImages.adapter =
                 ProductImageRecyclerAdapter(emptyList(), this@ProductDetailsFragment.viewModel)
         }

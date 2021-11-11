@@ -9,10 +9,9 @@ import com.lemon.team.electronics.databinding.FragmentAboutBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.observeEvent
 
-class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
+class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>(AboutViewModel::class.java) {
 
     override val layoutId: Int = R.layout.fragment_about
-    override val viewModel: AboutViewModel by viewModels()
 
     override val bindingInflater
         : (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentAboutBinding =
@@ -20,8 +19,6 @@ class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
 
     override fun setUpBinding(){
         binding.apply {
-            lifecycleOwner= viewLifecycleOwner
-            viewModel= this@AboutFragment.viewModel
             companiesRecycler.adapter =
                 CompaniesRecyclerAdapter(mutableListOf(),this@AboutFragment.viewModel)
             otherCompaniesRecycler.adapter =

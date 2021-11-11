@@ -10,18 +10,15 @@ import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
 
 
-class CategoriesFragment: BaseFragment<FragmentCategoriesBinding,CategoriesViewModel>() {
+class CategoriesFragment: BaseFragment<FragmentCategoriesBinding,CategoriesViewModel>(CategoriesViewModel::class.java) {
 
     override val layoutId: Int = R.layout.fragment_categories
-    override val viewModel: CategoriesViewModel by activityViewModels()
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCategoriesBinding
         =DataBindingUtil::inflate
 
 
     override fun setUpBinding() {
         binding.apply {
-            lifecycleOwner= viewLifecycleOwner
-            viewModel= this@CategoriesFragment.viewModel
             categoriesRecycler.adapter =
                 CategoriesRecyclerAdapter(mutableListOf(),this@CategoriesFragment.viewModel)
         }

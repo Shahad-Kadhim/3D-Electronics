@@ -11,9 +11,8 @@ import com.lemon.team.electronics.databinding.FragmentSearchBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
 
-class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
+class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(SearchViewModel::class.java) {
     override val layoutId: Int = R.layout.fragment_search
-    override val viewModel: SearchViewModel by viewModels()
 
     override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) ->
     FragmentSearchBinding = DataBindingUtil::inflate
@@ -28,8 +27,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
 
     override fun setUpBinding() {
         binding.apply {
-            lifecycleOwner = viewLifecycleOwner
-            viewModel = this@SearchFragment.viewModel
             searchRecycler.adapter =
                 SearchRecyclerAdapter(mutableListOf(), this@SearchFragment.viewModel)
         }
