@@ -32,7 +32,7 @@ class HomeRecyclerAdapter(
 
     private fun getLayout(viewType: Int): Int =
         when (viewType) {
-            TYPE_SLIDE_SHOW -> R.layout.items_slider_show_host
+            TYPE_SLIDE_SHOW -> R.layout.item_slider
             TYPE_SEARCH -> R.layout.item_search
             TYPE_CATEGORIES -> R.layout.item_categories_recycle
             TYPE_BEST_SELLER -> R.layout.items_horizontal_best_seller_host
