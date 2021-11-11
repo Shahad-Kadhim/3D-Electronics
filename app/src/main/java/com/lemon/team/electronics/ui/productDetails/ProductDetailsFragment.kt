@@ -12,12 +12,11 @@ import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
 
 class ProductDetailsFragment :
-    BaseFragment<FragmentProductDetailsBinding, ProductDetailsViewModel>(ProductDetailsViewModel::class.java) {
+    BaseFragment<FragmentProductDetailsBinding, ProductDetailsViewModel>() {
 
     override val layoutId: Int = R.layout.fragment_product_details
     private val args: ProductDetailsFragmentArgs by navArgs()
-    override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) ->
-    FragmentProductDetailsBinding = DataBindingUtil::inflate
+    override val viewModelClass = ProductDetailsViewModel::class.java
 
     override fun setUp() {
         super.setUp()

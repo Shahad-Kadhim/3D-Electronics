@@ -7,10 +7,9 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCheckoutBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 
-class CheckoutFragment:BaseFragment<FragmentCheckoutBinding,CheckoutViewModel>(CheckoutViewModel::class.java) {
+class CheckoutFragment:BaseFragment<FragmentCheckoutBinding,CheckoutViewModel>() {
     override val layoutId: Int = R.layout.fragment_checkout
-    override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCheckoutBinding
-        =DataBindingUtil::inflate
+    override val viewModelClass = CheckoutViewModel::class.java
 
     override fun observeEvents() {
 

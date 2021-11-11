@@ -9,13 +9,11 @@ import com.lemon.team.electronics.databinding.FragmentAboutBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.observeEvent
 
-class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>(AboutViewModel::class.java) {
+class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
 
     override val layoutId: Int = R.layout.fragment_about
+    override val viewModelClass = AboutViewModel::class.java
 
-    override val bindingInflater
-        : (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentAboutBinding =
-            DataBindingUtil::inflate
 
     override fun setUpBinding(){
         binding.apply {

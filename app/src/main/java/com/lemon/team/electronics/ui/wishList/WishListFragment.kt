@@ -9,12 +9,10 @@ import com.lemon.team.electronics.databinding.FragmentWishListBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
 
-class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>(WishListViewModel::class.java) {
+class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>() {
 
     override val layoutId: Int = R.layout.fragment_wish_list
-
-    override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentWishListBinding
-        = DataBindingUtil::inflate
+    override val viewModelClass = WishListViewModel::class.java
 
     override fun setUpBinding() {
         binding.apply {

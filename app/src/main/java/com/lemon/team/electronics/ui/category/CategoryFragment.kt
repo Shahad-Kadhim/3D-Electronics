@@ -12,13 +12,12 @@ import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.observeEvent
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel>(CategoryViewModel::class.java) {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel>() {
 
     override val layoutId: Int = R.layout.fragment_category
     private val args: CategoryFragmentArgs by navArgs()
+    override val viewModelClass = CategoryViewModel::class.java
 
-    override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCategoryBinding =
-        DataBindingUtil::inflate
 
     override fun setUp() {
         super.setUp()

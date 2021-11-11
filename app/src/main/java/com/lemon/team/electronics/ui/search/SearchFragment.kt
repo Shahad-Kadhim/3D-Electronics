@@ -11,11 +11,10 @@ import com.lemon.team.electronics.databinding.FragmentSearchBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
 
-class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(SearchViewModel::class.java) {
-    override val layoutId: Int = R.layout.fragment_search
+class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
 
-    override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) ->
-    FragmentSearchBinding = DataBindingUtil::inflate
+    override val layoutId: Int = R.layout.fragment_search
+    override val viewModelClass = SearchViewModel::class.java
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

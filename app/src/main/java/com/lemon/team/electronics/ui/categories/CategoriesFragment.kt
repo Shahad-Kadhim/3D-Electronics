@@ -10,11 +10,10 @@ import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
 
 
-class CategoriesFragment: BaseFragment<FragmentCategoriesBinding,CategoriesViewModel>(CategoriesViewModel::class.java) {
+class CategoriesFragment: BaseFragment<FragmentCategoriesBinding,CategoriesViewModel>() {
 
     override val layoutId: Int = R.layout.fragment_categories
-    override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentCategoriesBinding
-        =DataBindingUtil::inflate
+    override val viewModelClass = CategoriesViewModel::class.java
 
 
     override fun setUpBinding() {

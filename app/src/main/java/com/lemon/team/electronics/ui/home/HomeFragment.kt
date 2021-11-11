@@ -16,10 +16,9 @@ import com.lemon.team.electronics.model.response.ProductsResponse
 import com.lemon.team.electronics.util.*
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(HomeViewModel::class.java) {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override val layoutId: Int = R.layout.fragment_home
-    override val bindingInflater: (LayoutInflater, Int, ViewGroup?, Boolean) -> FragmentHomeBinding =
-        DataBindingUtil::inflate
+    override val viewModelClass = HomeViewModel::class.java
 
     override fun setUpBinding() {
         binding.apply {
