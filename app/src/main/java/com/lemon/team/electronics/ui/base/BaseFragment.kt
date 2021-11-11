@@ -10,6 +10,8 @@ import com.lemon.team.electronics.BR
 
 abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment() {
 
+    open var useActivityViewModel: Boolean = true
+
     abstract val layoutId: Int
     lateinit var viewModel: VM
     abstract val viewModelClass: Class<VM>
@@ -17,19 +19,25 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
     val binding: VB
         get() = _binding
 
-    private fun getViewM(): VM = ViewModelProvider(requireActivity()).get(viewModelClass)
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) : View? {
-        viewModel = getViewM()
+        initViewModel()
         _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         _binding.apply {
             lifecycleOwner = this@BaseFragment
             setVariable(BR.viewModel, viewModel)
             return root
+        }
+    }
+
+    private fun initViewModel() {
+        viewModel = if (useActivityViewModel) {
+            ViewModelProvider(requireActivity()).get(viewModelClass)
+        } else {
+            ViewModelProvider(this).get(viewModelClass)
         }
     }
 
