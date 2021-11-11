@@ -3,6 +3,7 @@ package com.lemon.team.electronics.ui.base
 import android.annotation.SuppressLint
 import android.view.*
 import androidx.databinding.*
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.lemon.team.electronics.BR
 
@@ -40,8 +41,9 @@ abstract class BaseRecyclerAdapter<T>(
     override fun getItemCount(): Int = items.size
 
     fun setItems(newItems: List<T>) {
+        val diffResult = DiffUtil.calculateDiff(DiffUtil(items, newItems))
         items = newItems
-        notifyDataSetChanged()
+        diffResult.dispatchUpdatesTo(this)
     }
 
     fun getItems() = items
