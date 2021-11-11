@@ -49,7 +49,7 @@ class ProductDetailsFragment :
                 goToImageActivity(it)
             }
 
-            clickSharedProduct.observe(this@ProductDetailsFragment) {
+            clickSharedProduct.observeEvent(this@ProductDetailsFragment) {
                 startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(it)
                     , "Share using"))
             }
