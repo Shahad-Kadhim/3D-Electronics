@@ -6,7 +6,7 @@
     <data>
         <variable
             name="products"
-            type="com.lemon.team.electronics.model.response.SliderImagesList" />
+            type="com.lemon.team.electronics.model.response.HomeImages" />
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.home.HomeInteractionListener" />
@@ -14,7 +14,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="164dp">
+        android:layout_height="128dp">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -28,6 +28,7 @@
                 android:id="@+id/image_slider"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginVertical="2dp"
                 app:iss_auto_cycle="true"
                 app:iss_delay="0"
                 app:iss_period="1100"

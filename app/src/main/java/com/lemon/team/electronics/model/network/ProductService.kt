@@ -33,6 +33,6 @@ interface ProductService {
     ): Response<Product>
 
     @GET("resources/products/product-home-screen-images")
-    suspend fun getSliderImages(): Response<SliderImagesList>
+    suspend fun getHomeScreenMainImages(): Response<HomeImages>
 
 }

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class HomeImagesItem(
     @SerializedName("productHomeScreenPicLocation")
-    val productImage: String? = null,
+    val productImage: String?,
     @SerializedName("productId")
     val productId: String
 )

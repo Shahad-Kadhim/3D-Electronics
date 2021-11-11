@@ -16,9 +16,9 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
+import com.lemon.team.electronics.model.response.HomeImagesItem
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
-import com.lemon.team.electronics.model.response.SliderImages
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
 
 
@@ -132,9 +132,9 @@ fun setText(view: TextView, categoryName: String?) {
 }
 
 @BindingAdapter(value = ["app:setSliderImagesList"])
-fun setSliderImages(slider: ImageSlider, images: List<SliderImages>?){
+fun setSliderImages(slider: ImageSlider, images: List<HomeImagesItem>?){
     images?.map {
-        SlideModel(it.sliderImage)
+        SlideModel(it.productImage)
     }?.let { slider.setImageList(it, ScaleTypes.CENTER_INSIDE) }
 }
 

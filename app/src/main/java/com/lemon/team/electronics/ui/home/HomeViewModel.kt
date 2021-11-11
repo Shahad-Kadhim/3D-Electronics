@@ -38,7 +38,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     val bestProduct = Repository.getRecommendedProducts().asLiveData()
 
-    val sliderProducts = Repository.getSliderImages().asLiveData()
+    val sliderProducts = Repository.getHomeScreenMainImages().asLiveData()
 
     val mouseCategory = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()

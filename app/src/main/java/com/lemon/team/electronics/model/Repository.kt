@@ -80,8 +80,8 @@ object Repository{
         localData.getCompanies(fileName)
 
 
-    fun getSliderImages(): Flow<State<SliderImagesList?>> =
-        wrapWithFlow { API.apiService.getSliderImages() }
+    fun getHomeScreenMainImages(): Flow<State<HomeImages?>> =
+        wrapWithFlow { API.apiService.getHomeScreenMainImages() }
 
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
