@@ -80,6 +80,10 @@ object Repository{
         localData.getCompanies(fileName)
 
 
+    fun getSliderImages(): Flow<State<SliderImagesList?>> =
+        wrapWithFlow { API.apiService.getSliderImages() }
+
+
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
         return flow {
             emit(State.Loading)

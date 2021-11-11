@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@HomeFragment.viewModel
             recyclerViewHome.adapter =
-                HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel,this@HomeFragment.viewModel)
+                HomeRecyclerAdapter(mutableListOf(HomeItem.SearchType()), this@HomeFragment.viewModel)
         }
 
     }
@@ -108,7 +108,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     addItem(HomeItem.BestProductType(state.toData()!!))
                 }
 
-                addItem(slideProducts){ state ->
+                addItem(sliderProducts){ state ->
                     addItem(HomeItem.SlideType(state.toData()!!))
                 }
 
