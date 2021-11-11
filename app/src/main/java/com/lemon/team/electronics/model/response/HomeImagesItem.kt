@@ -7,5 +7,5 @@ data class HomeImagesItem(
     @SerializedName("productHomeScreenPicLocation")
     val productImage: String?,
     @SerializedName("productId")
-    val productId: String?
+    val productId: String
 )
