@@ -14,6 +14,8 @@ import com.lemon.team.electronics.util.observeEvent
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel>() {
 
+    override val useActivityViewModel = false
+
     override val layoutId: Int = R.layout.fragment_category
     private val args: CategoryFragmentArgs by navArgs()
     override val viewModelClass = CategoryViewModel::class.java

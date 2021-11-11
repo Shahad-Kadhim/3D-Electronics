@@ -11,6 +11,8 @@ import com.lemon.team.electronics.util.observeEvent
 
 class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
 
+    override val useActivityViewModel = false
+
     override val layoutId: Int = R.layout.fragment_about
     override val viewModelClass = AboutViewModel::class.java
 

@@ -14,6 +14,8 @@ import com.lemon.team.electronics.util.*
 class ProductDetailsFragment :
     BaseFragment<FragmentProductDetailsBinding, ProductDetailsViewModel>() {
 
+    override val useActivityViewModel = false
+
     override val layoutId: Int = R.layout.fragment_product_details
     private val args: ProductDetailsFragmentArgs by navArgs()
     override val viewModelClass = ProductDetailsViewModel::class.java

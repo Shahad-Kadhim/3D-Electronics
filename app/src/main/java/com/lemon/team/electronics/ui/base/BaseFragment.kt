@@ -10,7 +10,7 @@ import com.lemon.team.electronics.BR
 
 abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment() {
 
-    open var useActivityViewModel: Boolean = true
+    open val useActivityViewModel: Boolean = true
 
     abstract val layoutId: Int
     lateinit var viewModel: VM
