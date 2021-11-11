@@ -2,13 +2,14 @@ package com.lemon.team.electronics.ui.base
 
 import android.os.Bundle
 import android.view.*
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import androidx.databinding.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.lemon.team.electronics.BR
 
 abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment() {
+
+    open val useActivityViewModel: Boolean = true
 
     abstract val layoutId: Int
     lateinit var viewModel: VM
@@ -17,19 +18,25 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
     val binding: VB
         get() = _binding
 
-    private fun getViewM(): VM = ViewModelProvider(requireActivity()).get(viewModelClass)
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) : View? {
-        viewModel = getViewM()
+        initViewModel()
         _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         _binding.apply {
             lifecycleOwner = this@BaseFragment
             setVariable(BR.viewModel, viewModel)
             return root
+        }
+    }
+
+    private fun initViewModel() {
+        viewModel = if (useActivityViewModel) {
+            ViewModelProvider(requireActivity()).get(viewModelClass)
+        } else {
+            ViewModelProvider(this).get(viewModelClass)
         }
     }
 
