@@ -37,8 +37,8 @@ fun BaseRecyclerAdapter.ItemViewHolder.setVariableAdapter(item: Any?) {
 
 
 fun <T> LiveData<Event<T>>.observeEvent(owner: LifecycleOwner, function:(T) ->Unit){
-    this.observe(owner, EventObserver{ event ->
-        function(event)
+    this.observe(owner, EventObserver{ it ->
+        function(it)
     })
 }
 

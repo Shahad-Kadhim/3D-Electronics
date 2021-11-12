@@ -34,9 +34,9 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
 
     private fun initViewModel() {
         viewModel = if (useActivityViewModel) {
-            ViewModelProvider(requireActivity()).get(viewModelClass)
+            ViewModelProvider(requireActivity())[viewModelClass]
         } else {
-            ViewModelProvider(this).get(viewModelClass)
+            ViewModelProvider(this)[viewModelClass]
         }
     }
 

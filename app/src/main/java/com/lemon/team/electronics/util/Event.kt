@@ -1,6 +1,5 @@
 package com.lemon.team.electronics.util
 
-import android.util.Log
 import androidx.lifecycle.Observer
 
 open class Event<out T>(private val content: T) {
@@ -24,8 +23,8 @@ open class Event<out T>(private val content: T) {
 
 class EventObserver<T>(private val onEventUnhandledContent: (T) -> Unit) : Observer<Event<T>> {
     override fun onChanged(event: Event<T>?) {
-        event?.getContentIfHandled()?.let { event ->
-            onEventUnhandledContent(event)
+        event?.getContentIfHandled()?.let { it ->
+            onEventUnhandledContent(it)
         }
     }
 }
