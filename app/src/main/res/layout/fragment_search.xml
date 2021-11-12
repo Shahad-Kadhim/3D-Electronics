@@ -73,7 +73,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
             style="@style/ButtonBack"
-            android:background="@drawable/ic_shape_cover"
+            android:background="@drawable/button_back"
             android:onClick="@{() -> viewModel.onclickBack()}"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
