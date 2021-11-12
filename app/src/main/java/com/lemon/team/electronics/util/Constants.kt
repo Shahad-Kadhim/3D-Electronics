@@ -21,12 +21,9 @@ object Constants {
     const val SHARE_KEY ="share using"
 
 
-    const val MOUSE_CATEGORY_HEADLINE = "Mouse"
     const val HEADSET_CATEGORY_HEADLINE ="Headset"
     const val LAPTOP_CATEGORY_HEADLINE ="Laptop"
-    const val LAPTOP_FAN_CATEGORY_HEADLINE ="Headset"
     const val MOUSE_PAD_CATEGORY_HEADLINE ="Mouse Pad"
-    const val CPU_CATEGORY_HEADLINE ="CPU"
     const val CASE_CATEGORY_HEADLINE ="Case"
 
 
