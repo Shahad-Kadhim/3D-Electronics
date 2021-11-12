@@ -63,7 +63,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             searchEvent.observeEvent(this@HomeFragment) {
                 binding.root.goToFragmentWithTransition(
                     HomeFragmentDirections.actionHomeFragmentToSearchFragment(),
-                    FragmentNavigatorExtras(requireActivity().findViewById<CardView>(R.id.searchCard) to "search")
+                    FragmentNavigatorExtras(requireActivity().findViewById<CardView>(R.id.searchCard) to Constants.SEARCH_KEY)
                     )
             }
 
@@ -83,7 +83,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     private fun shareProduct(productUrl:String){
         startActivity(
             Intent.createChooser(
-                Intent(Intent.ACTION_SEND).sharingUrl(productUrl), "Share using")
+                Intent(Intent.ACTION_SEND).sharingUrl(productUrl), Constants.SHARE_KEY)
         )
     }
 

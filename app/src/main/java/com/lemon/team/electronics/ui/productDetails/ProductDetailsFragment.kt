@@ -53,7 +53,7 @@ class ProductDetailsFragment :
 
             clickSharedProduct.observeEvent(this@ProductDetailsFragment) {
                 startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(it)
-                    , "Share using"))
+                    , Constants.SHARE_KEY))
             }
         }
     }

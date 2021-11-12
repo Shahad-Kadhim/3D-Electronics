@@ -46,7 +46,7 @@ object Repository{
     fun getWishedProducts(): Flow<State<ProductsResponse?>> =
         wrapWithFlow { API.apiService
             .getProductsByCategoryId(
-                categoryId = "54653fdb-db67-4e72-8840-1d842e3c4f04",
+                categoryId = CategoriesId.MONITORS,
                 page = Constants.PAGE_NUMBER_ZERO,
                 sortBy = Constants.SORT_BY_CREATED_DATE
             )
