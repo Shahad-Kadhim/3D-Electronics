@@ -2,7 +2,7 @@ package com.lemon.team.electronics.ui.base
 
 import androidx.recyclerview.widget.DiffUtil
 
-class DiffUtil<T>(
+class AppDiffUtil<T>(
     private val oldList: List<T>,
     private val newList: List<T>,
     val function : (Int, Int, List<T>) -> Boolean
