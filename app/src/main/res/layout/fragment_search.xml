@@ -56,20 +56,6 @@
             app:hiddenOnState="@{viewModel.searchResult}"
             />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/notFound"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            android:visibility="gone"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/not_found"
-            app:showWhenEmpty="@{viewModel.searchResult.toData().products}" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
             style="@style/ButtonBack"
@@ -104,6 +90,10 @@
         <include android:id="@+id/error"
             app:showOnError="@{viewModel.searchResult}"
             layout="@layout/error"/>
+
+        <include android:id="@+id/not_found"
+            app:showWhenEmpty="@{viewModel.searchResult.toData().products}"
+            layout="@layout/not_found"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

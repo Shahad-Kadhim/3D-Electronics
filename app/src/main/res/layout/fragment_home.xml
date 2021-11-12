@@ -65,7 +65,5 @@
             layout="@layout/error"/>
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
