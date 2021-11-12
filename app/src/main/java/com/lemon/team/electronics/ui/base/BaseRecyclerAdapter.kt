@@ -3,6 +3,7 @@ package com.lemon.team.electronics.ui.base
 import android.annotation.SuppressLint
 import android.view.*
 import androidx.databinding.*
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.lemon.team.electronics.BR
 
@@ -13,6 +14,8 @@ abstract class BaseRecyclerAdapter<T>(
 ): RecyclerView.Adapter<BaseRecyclerAdapter.BaseViewHolder>(){
 
     abstract val layoutId: Int
+
+    abstract fun <T> areItemsTheSame(oldItemPosition: Int, newItemPosition: Int, newItems: List<T>) : Boolean
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -27,21 +30,20 @@ abstract class BaseRecyclerAdapter<T>(
             )
         )
 
-
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
 
         if (holder is ItemViewHolder && items.isNotEmpty() ) {
                 holder.binding.setVariable(BR.item, items[position])
                 holder.binding.setVariable(BR.listener, listener)
         }
-
     }
 
     override fun getItemCount(): Int = items.size
 
     fun setItems(newItems: List<T>) {
+        val diffResult = DiffUtil.calculateDiff(AppDiffUtil(items, newItems, ::areItemsTheSame))
         items = newItems
-        notifyDataSetChanged()
+        diffResult.dispatchUpdatesTo(this)
     }
 
     fun getItems() = items

@@ -1,9 +1,11 @@
 package com.lemon.team.electronics.ui.home
 
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.domain.HomeItem
+import com.lemon.team.electronics.ui.base.AppDiffUtil
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.util.getSixItems
 import com.lemon.team.electronics.util.setVariableAdapter
@@ -12,19 +14,27 @@ import com.lemon.team.electronics.util.setVariableAdapter
 class HomeRecyclerAdapter(
     private var itemsNested: MutableList<HomeItem>,
     private val listener: HomeInteractionListener
-) : BaseRecyclerAdapter<Any>(itemsNested, listener) {
+) : BaseRecyclerAdapter<HomeItem>(itemsNested, listener) {
 
     override var layoutId: Int = 0
 
     fun addItem(newItems: HomeItem) {
-        itemsNested.apply {
+        val newItemsList = itemsNested.apply {
             add(newItems)
             sortBy {
                 it.rank
             }
         }
-        notifyDataSetChanged()
+        val diffResult = DiffUtil.calculateDiff(AppDiffUtil(itemsNested, newItemsList, ::areItemsTheSame))
+        diffResult.dispatchUpdatesTo(this)
     }
+
+    override fun <T> areItemsTheSame(
+        oldItemPosition: Int,
+        newItemPosition: Int,
+        newItems: List<T>
+    ) =
+        getItems()[oldItemPosition].rank == (newItems[newItemPosition] as HomeItem).rank
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         layoutId = getLayout(viewType)

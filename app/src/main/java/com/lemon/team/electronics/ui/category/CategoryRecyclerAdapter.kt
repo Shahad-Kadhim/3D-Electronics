@@ -10,4 +10,11 @@ class CategoryRecyclerAdapter(
     listener: ProductInteractionListener
 ): BaseRecyclerAdapter<Product>(items, listener) {
     override val layoutId: Int = R.layout.item_product
+
+    override fun <T> areItemsTheSame(
+        oldItemPosition: Int,
+        newItemPosition: Int,
+        newItems: List<T>
+    ) =
+        getItems()[oldItemPosition].id == (newItems[newItemPosition] as Product).id
 }
