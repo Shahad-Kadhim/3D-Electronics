@@ -2,8 +2,6 @@ package com.lemon.team.electronics.ui.productDetails
 
 import android.content.Intent
 import android.view.*
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.*
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentProductDetailsBinding

@@ -4,8 +4,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
+import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.model.domain.HomeItem
+import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.ui.base.AppDiffUtil
+import com.lemon.team.electronics.ui.base.BaseInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.util.getSixItems
 import com.lemon.team.electronics.util.setVariableAdapter
@@ -96,6 +99,18 @@ class HomeRecyclerAdapter(
 
 }
 
+interface HomeInteractionListener : BaseInteractionListener {
+
+    fun onClickProduct(productId: String)
+    fun onClickHeart(productId: String)
+    fun onClickShare(productId: String)
+    fun onClickCategory(categoryId: CategoryResponse)
+    fun onclickSearch()
+    fun onClickSeeMoreForCategories()
+    fun onClickSeeMoreForCategory(category: CategoryInfoType)
+    fun onClickSliderItem(position: Int)
+
+}
 
 
 

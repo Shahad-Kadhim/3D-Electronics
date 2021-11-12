@@ -55,3 +55,5 @@ abstract class BaseRecyclerAdapter<T>(
         : BaseViewHolder(binding)
 
 }
+
+interface BaseInteractionListener
