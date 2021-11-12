@@ -2,14 +2,12 @@ package com.lemon.team.electronics.ui.home
 
 import android.view.*
 import androidx.cardview.widget.CardView
-import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentHomeBinding
 import com.lemon.team.electronics.model.domain.*
 import com.lemon.team.electronics.ui.base.BaseFragment
 import android.content.Intent
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavDirections
 import com.lemon.team.electronics.model.response.ProductsResponse
@@ -93,8 +91,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         viewModel.apply {
             (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?)?.apply {
 
-                addCategoryItem(mouseCategory,CategoryInfoType(Constants.MOUSE_CATEGORY_ID, Constants.MOUSE_TITLE))
-                addCategoryItem(headphoneCategory,CategoryInfoType(Constants.HEADPHONE_CATEGORY_ID, Constants.HEADPHONE_TITLE))
+                addCategoryItem(mouseCategory,CategoryInfoType(CategoriesId.MOUSE, Constants.MOUSE_TITLE))
+                addCategoryItem(headsetsCategory,CategoryInfoType(CategoriesId.HEADSETS, Constants.HEADPHONE_TITLE))
 
                 addItem(categories){ state ->
                     addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))

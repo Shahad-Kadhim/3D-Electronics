@@ -40,11 +40,11 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     val homeImages = Repository.getHomeImages().asLiveData()
 
-    val mouseCategory = Repository.getProductsByCategoryId(Constants.MOUSE_CATEGORY_ID,
-        Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
+    val mouseCategory = Repository.getProductsByCategoryId(CategoriesId.MOUSE,
+        Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
-    val headphoneCategory = Repository.getProductsByCategoryId(Constants.HEADPHONE_CATEGORY_ID,
-        Constants.PAGE_NUMBER_ZERO, Constants.SORT_CREATE_AT).asLiveData()
+    val headsetsCategory = Repository.getProductsByCategoryId(CategoriesId.HEADSETS,
+        Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
 
     val state=MediatorLiveData<State<Any>>().apply {
@@ -52,7 +52,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         addSource(categories,this@HomeViewModel::checkIfSuccess)
         addSource(bestProduct,this@HomeViewModel::checkIfSuccess)
         addSource(mouseCategory,this@HomeViewModel::checkIfSuccess)
-        addSource(headphoneCategory,this@HomeViewModel::checkIfSuccess)
+        addSource(headsetsCategory,this@HomeViewModel::checkIfSuccess)
     }
 
 

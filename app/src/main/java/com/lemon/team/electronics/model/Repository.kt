@@ -21,7 +21,7 @@ object Repository{
     fun getProductsByCategoryId(
         categoryId: String,
         page: Int,
-        sortBy: String = "createdAt"
+        sortBy: String = Constants.SORT_BY_CREATED_DATE
     ): Flow<State<ProductsResponse?>> =
         wrapWithFlow { API.apiService.getProductsByCategoryId(categoryId, page, sortBy) }
 
@@ -29,7 +29,7 @@ object Repository{
     fun getProductByName(
         productName: String,
         page: Int,
-        sortBy: String = "createdAt"
+        sortBy: String = Constants.SORT_BY_CREATED_DATE
     ): Flow<State<ProductsResponse?>> =
         wrapWithFlow { API.apiService.getProductByName(productName, page, sortBy) }
 
@@ -48,7 +48,7 @@ object Repository{
             .getProductsByCategoryId(
                 categoryId = "54653fdb-db67-4e72-8840-1d842e3c4f04",
                 page = Constants.PAGE_NUMBER_ZERO,
-                sortBy = "createdAt"
+                sortBy = Constants.SORT_BY_CREATED_DATE
             )
         }
 
@@ -57,9 +57,9 @@ object Repository{
     fun getProductsInCart(): Flow<State<ProductsResponse?>> =
         wrapWithFlow { API.apiService
             .getProductsByCategoryId(
-                categoryId = "54653fdb-db67-4e72-8840-1d842e3c4f04",
+                categoryId = CategoriesId.PC_SPEAKER,
                 page = Constants.PAGE_NUMBER_ZERO,
-                sortBy = "createdAt"
+                sortBy = Constants.SORT_BY_CREATED_DATE
             )
         }
 
@@ -69,11 +69,11 @@ object Repository{
 
 
     fun getCompanies(): List<CompaniesImgUrl>? =
-        getAllCompanies("companies.json").companiesImgUrl
+        getAllCompanies(Constants.COMPANY_FILE_NAME).companiesImgUrl
     
 
     fun getOtherCompanies(): List<CompaniesImgUrl>? =
-        getAllCompanies("companies.json").otherCompaniesImgUrl
+        getAllCompanies(Constants.COMPANY_FILE_NAME).otherCompaniesImgUrl
 
 
     private fun getAllCompanies(fileName: String) =
