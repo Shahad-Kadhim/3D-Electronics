@@ -56,20 +56,6 @@
             app:hiddenOnState="@{viewModel.searchResult}"
             />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/notFound"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            android:visibility="gone"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/not_found"
-            app:showWhenEmpty="@{viewModel.searchResult.toData().products}" />
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
             style="@style/ButtonBack"
@@ -96,31 +82,19 @@
             app:showOnSuccess="@{viewModel.searchResult}"
             app:spanCount="2"/>
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/loading"
-            app:showOnLoading="@{viewModel.searchResult}" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/error"
-            app:showOnError="@{viewModel.searchResult}" />
+        <include android:id="@+id/loading"
+            app:showOnLoading="@{viewModel.searchResult}"
+            layout="@layout/loading"/>
+
+        <include android:id="@+id/error"
+            app:showOnError="@{viewModel.searchResult}"
+            layout="@layout/error"/>
+
+        <include android:id="@+id/not_found"
+            app:showWhenEmpty="@{viewModel.searchResult.toData().products}"
+            layout="@layout/not_found"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

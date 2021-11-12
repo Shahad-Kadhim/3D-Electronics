@@ -55,31 +55,14 @@
             app:spanCount="3"
             tools:listitem="@layout/item_category" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:lottie_rawRes="@raw/loading"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true"
+        <include android:id="@+id/loading"
             app:showOnLoading="@{viewModel.categoryList}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            layout="@layout/loading"/>
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:lottie_rawRes="@raw/error"
+        <include android:id="@+id/error"
             app:showOnError="@{viewModel.categoryList}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            layout="@layout/error"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
