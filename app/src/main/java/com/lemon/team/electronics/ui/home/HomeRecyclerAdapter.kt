@@ -5,6 +5,7 @@ import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.domain.HomeItem
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
+import com.lemon.team.electronics.util.getSixItems
 import com.lemon.team.electronics.util.setVariableAdapter
 
 
@@ -49,7 +50,7 @@ class HomeRecyclerAdapter(
                 holder.setVariableAdapter(BestSellerRecyclerAdapter(currentItem.items, listener))
             }
             is HomeItem.CategoriesType -> {
-                holder.setVariableAdapter(CategoriesAdapter(currentItem.items.take(6), listener))
+                holder.setVariableAdapter(CategoriesAdapter(getSixItems(currentItem.items), listener))
             }
             is HomeItem.ElementCategoriesType -> {
                 holder.setVariableAdapter(CategoryAdapter(currentItem.items, listener))
