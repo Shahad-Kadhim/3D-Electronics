@@ -32,8 +32,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
     }
 
     override fun observeEvents(){
-        viewModel.clickItemEvent.observeEvent(this){
-            view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(it))
+        viewModel.clickItemEvent.observeEvent(this){ productId ->
+            view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(productId))
         }
 
         viewModel.clickBackEvent.observeEvent(this){

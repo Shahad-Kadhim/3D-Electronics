@@ -116,8 +116,8 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     }
 
     override fun onClickSliderItem(position: Int) {
-        homeImages.value?.toData()?.let {
-            _onclickProductEvent.postValue(Event(it[position].productId))
+        homeImages.value?.toData()?.let { images ->
+            _onclickProductEvent.postValue(Event(images[position].productId))
         }
     }
 

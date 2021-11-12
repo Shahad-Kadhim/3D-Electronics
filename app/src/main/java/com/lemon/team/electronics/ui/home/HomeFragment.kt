@@ -8,6 +8,7 @@ import com.lemon.team.electronics.databinding.FragmentHomeBinding
 import com.lemon.team.electronics.model.domain.*
 import com.lemon.team.electronics.ui.base.BaseFragment
 import android.content.Intent
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavDirections
 import com.lemon.team.electronics.model.response.ProductsResponse
@@ -75,8 +76,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun <T>navOnEvent(event: LiveData<Event<T>>, action:(T) -> NavDirections ){
-        event.observeEvent(this) {
-            binding.root.goToFragment(action(it))
+        event.observeEvent(this) { response ->
+            binding.root.goToFragment(action(response))
         }
     }
 
@@ -114,9 +115,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         category: LiveData<State<ProductsResponse?>>,
         categoryInfoType: CategoryInfoType
     ){
-        addItem(category){
+        addItem(category){ state ->
             (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?)?.apply {
-                this.addItem(HomeItem.ElementCategoriesType(it.toData()?.products!!, categoryInfoType))
+                this.addItem(HomeItem.ElementCategoriesType(state.toData()?.products!!, categoryInfoType))
             }
         }
     }

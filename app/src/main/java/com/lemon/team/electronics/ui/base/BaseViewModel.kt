@@ -11,8 +11,8 @@ abstract class BaseViewModel: ViewModel() {
 
         viewModelScope.launch {
             flow.flowOn(Dispatchers.IO)
-                .collect {
-                    function(it)
+                .collect { state ->
+                    function(state)
                 }
         }
 

@@ -1,8 +1,6 @@
 package com.lemon.team.electronics.util
 
-import android.annotation.SuppressLint
 import android.text.Html
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.core.content.ContextCompat
@@ -24,8 +22,8 @@ import com.lemon.team.electronics.ui.home.HomeInteractionListener
 
 @BindingAdapter(value = ["app:htmlText"])
 fun parseHtml(view: TextView, text: String?) {
-    text?.let {
-        view.text = Html.fromHtml(text).trim()
+    text?.let { stringText ->
+        view.text = Html.fromHtml(stringText).trim()
     }
 }
 
@@ -37,9 +35,9 @@ fun playVideo(view: VideoView, path: String?) {
 
 @BindingAdapter(value = ["app:imageFromUrl"])
 fun setImage(view: ImageView, url: String?) {
-    url?.let {
+    url?.let { imageUrl ->
         Glide.with(view)
-            .load(url)
+            .load(imageUrl)
             .centerCrop()
             .into(view)
     }
@@ -52,7 +50,10 @@ fun checkStateProduct(view: View, value: Boolean) {
 
 @BindingAdapter(value = ["app:items"])
 fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
-    items?.let { (view.adapter as BaseRecyclerAdapter<T>?)?.setItems(it) }
+    items?.let { listItems ->
+        (view.adapter as BaseRecyclerAdapter<T>?)
+            ?.setItems(listItems)
+    }
 }
 
 @BindingAdapter(value = ["app:onclickSearch"])
@@ -75,8 +76,6 @@ fun <T> showOnSuccess(view: View, state: State<T>?) {
 
 @BindingAdapter(value = ["app:showOnError"])
 fun <T> showOnError(view: View, state: State<T>?) {
-
-    Log.i("hhhhhhhhhWhenError" , state.toString())
     view.isVisible = (state is State.Error)
 }
 
@@ -97,11 +96,11 @@ fun <T> hiddenWhenState(view: View, state: State<T>?) {
 
 @BindingAdapter(value = ["app:setBackgroundColorItem"])
 fun setBackgroundColor(view: MaterialCardView, color: ColorsRecycler?) {
-    color?.let {
+    color?.let { colorsRecycler ->
         view.setCardBackgroundColor(
             ContextCompat.getColor(
                 view.context,
-                when (color) {
+                when (colorsRecycler) {
                     ColorsRecycler.COLOR_ONE -> R.color.brand_color
                     ColorsRecycler.COLOR_TWO -> R.color.color_two
                     ColorsRecycler.COLOR_THREE -> R.color.color_three
@@ -123,19 +122,13 @@ fun setCategoryIcon(view: ImageView, categoryId: String?) {
     }
 }
 
-@SuppressLint("SetTextI18n")
-@BindingAdapter(value = ["app:setText"])
-fun setText(view: TextView, categoryName: String?) {
-    categoryName?.let { idName ->
-        view.text = idName.first() + idName.lowercase().substring(1)
-    }
-}
-
 @BindingAdapter(value = ["app:setSliderImagesList"])
 fun setSliderImages(slider: ImageSlider, images: List<HomeImage>?){
-    images?.map {
-        SlideModel(it.productImage)
-    }?.let { slider.setImageList(it, ScaleTypes.FIT) }
+    images?.map { image ->
+        SlideModel(image.productImage)
+    }?.let { list ->
+        slider.setImageList(list, ScaleTypes.FIT)
+    }
 }
 
 @BindingAdapter(value=["app:itemClick"])

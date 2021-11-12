@@ -24,8 +24,8 @@ class HomeRecyclerAdapter(
     fun addItem(newItems: HomeItem) {
         val newItemsList = itemsNested.apply {
             add(newItems)
-            sortBy {
-                it.rank
+            sortBy { item ->
+                item.rank
             }
         }
         val diffResult = DiffUtil.calculateDiff(AppDiffUtil(itemsNested, newItemsList, ::areItemsTheSame))

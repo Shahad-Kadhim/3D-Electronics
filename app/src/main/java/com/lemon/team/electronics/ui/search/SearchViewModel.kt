@@ -28,9 +28,9 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
     }
 
     fun onclickSearch() {
-        searchName.value?.let {
+        searchName.value?.let { nameYouSearch ->
             collectResponse(
-                Repository.getProductByName(it, 0)){ product ->
+                Repository.getProductByName(nameYouSearch, 0)){ product ->
                 searchResult.postValue(product)
             }
         }

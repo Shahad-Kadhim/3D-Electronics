@@ -26,14 +26,16 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private var _clickSharedProduct = MutableLiveData<Event<String>>()
     val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
 
-    val images =Transformations.map(detailsProduct){
-        it.toData()?.images?.map { it.productImageLocation }
+    val images =Transformations.map(detailsProduct){ state ->
+        state.toData()?.images?.map { imageResponse ->
+            imageResponse.productImageLocation
+        }
     }
 
     val mainImage= MediatorLiveData<String>().apply {
-        addSource(detailsProduct){
-            if(it is State.Success){
-                it.data?.mainImage?.let { url ->
+        addSource(detailsProduct){ state ->
+            if(state is State.Success){
+                state.data?.mainImage?.let { url ->
                     updateMainImage(url)
                 }
             }
@@ -51,8 +53,8 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
 
     fun getDetailsProduct(productId: String) {
-        collectResponse(Repository.getProductById(productId)) {
-            _detailsProduct.postValue(it)
+        collectResponse(Repository.getProductById(productId)) { state ->
+            _detailsProduct.postValue(state)
         }
     }
 
