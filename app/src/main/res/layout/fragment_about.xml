@@ -25,7 +25,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
             style="@style/ButtonBack"
-            android:background="@drawable/ic_shape_cover"
+            android:background="@drawable/button_back"
             android:onClick="@{() -> viewModel.onclickBack()}"
             app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,11 +85,11 @@
                     android:id="@+id/logo"
                     android:layout_width="136dp"
                     android:layout_height="55dp"
-                    android:layout_marginStart="@dimen/margin5x"
+                    android:layout_marginLeft="@dimen/margin5x"
                     android:layout_marginTop="@dimen/margin2x"
                     android:elevation="@dimen/margin2x"
                     android:src="@drawable/logo"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
                 <TextView
@@ -163,7 +163,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/monda_bold"
-                    android:text="Our Vendors"
+                    android:text="@string/our_vendors"
                     android:textSize="@dimen/text24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/companies_bg" />
@@ -204,7 +204,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/monda_bold"
-                    android:text="Other Products"
+                    android:text="@string/other_products"
                     android:textSize="@dimen/text24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/other_companies" />
@@ -243,7 +243,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/monda_bold"
-                    android:text="Contact us"
+                    android:text="@string/contact_us"
                     android:textSize="@dimen/text24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/contactView" />
@@ -255,7 +255,7 @@
                     android:text="@string/facebook"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/contact"
-                    app:drawableLeftCompat="@drawable/ic_facebook" />
+                    app:drawableStartCompat="@drawable/ic_facebook" />
 
                 <TextView
                     android:id="@+id/img_mail"
@@ -264,7 +264,7 @@
                     android:text="@string/email"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView7"
-                    app:drawableLeftCompat="@drawable/ic_email_" />
+                    app:drawableStartCompat="@drawable/ic_email_" />
 
 
                 <TextView
@@ -276,7 +276,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/contactView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/img_mail"
-                    app:drawableLeftCompat="@drawable/ic_call" />
+                    app:drawableStartCompat="@drawable/ic_call" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

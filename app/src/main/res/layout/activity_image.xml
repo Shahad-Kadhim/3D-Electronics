@@ -22,7 +22,7 @@
             android:id="@+id/back_button"
             style="@style/ButtonBack"
             android:onClick="@{() -> viewModel.onclickBack()}"
-            android:background="@drawable/ic_shape_cover"
+            android:background="@drawable/button_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
