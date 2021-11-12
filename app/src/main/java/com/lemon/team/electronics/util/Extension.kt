@@ -50,7 +50,7 @@ fun Intent.sharingUrl(url: String?): Intent? {
 }
 
 
-fun <T> getSixItems(itemList: List<T>) = itemList.take(6)
+fun <T> List<T>.getSixItems() = this.take(6)
 
 
 fun String.convertToCategoryIcon(): Int =
