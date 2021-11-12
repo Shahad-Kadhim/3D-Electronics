@@ -1,9 +1,9 @@
-package com.lemon.team.electronics.ui
+package com.lemon.team.electronics.ui.category
 
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.Product
+import com.lemon.team.electronics.ui.base.BaseInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
-import com.lemon.team.electronics.ui.category.ProductInteractionListener
 
 class CategoryRecyclerAdapter(
     items: List<Product>,
@@ -17,4 +17,9 @@ class CategoryRecyclerAdapter(
         newItems: List<T>
     ) =
         getItems()[oldItemPosition].id == (newItems[newItemPosition] as Product).id
+}
+
+interface ProductInteractionListener: BaseInteractionListener {
+    fun onClickProduct(productId : String)
+    fun onClickHeart(productId : String)
 }
