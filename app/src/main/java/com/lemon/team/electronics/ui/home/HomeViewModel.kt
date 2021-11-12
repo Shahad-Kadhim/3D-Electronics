@@ -41,10 +41,25 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     val homeImages = Repository.getHomeImages().asLiveData()
 
-    val mouseCategory = Repository.getProductsByCategoryId(CategoriesId.MOUSE,
+    val laptopCategory = Repository.getProductsByCategoryId(CategoriesId.LAPTOP,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
     val headsetsCategory = Repository.getProductsByCategoryId(CategoriesId.HEADSETS,
+        Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
+
+    val caseCategory = Repository.getProductsByCategoryId(CategoriesId.CASE,
+        Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
+
+    val cpuCategory = Repository.getProductsByCategoryId(CategoriesId.CPU,
+        Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
+
+    val mouseCategory = Repository.getProductsByCategoryId(CategoriesId.MOUSE,
+        Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
+
+    val laptopFanCategory = Repository.getProductsByCategoryId(CategoriesId.LAPTOP_FAN,
+        Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
+
+    val padMouseCategory = Repository.getProductsByCategoryId(CategoriesId.PAD_MOUSE,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
 
@@ -52,8 +67,13 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         addSource(homeImages,this@HomeViewModel::checkIfSuccess)
         addSource(categories,this@HomeViewModel::checkIfSuccess)
         addSource(bestProduct,this@HomeViewModel::checkIfSuccess)
-        addSource(mouseCategory,this@HomeViewModel::checkIfSuccess)
+        addSource(laptopCategory,this@HomeViewModel::checkIfSuccess)
         addSource(headsetsCategory,this@HomeViewModel::checkIfSuccess)
+        addSource(caseCategory,this@HomeViewModel::checkIfSuccess)
+        addSource(cpuCategory,this@HomeViewModel::checkIfSuccess)
+        addSource(mouseCategory,this@HomeViewModel::checkIfSuccess)
+        addSource(laptopFanCategory,this@HomeViewModel::checkIfSuccess)
+        addSource(padMouseCategory,this@HomeViewModel::checkIfSuccess)
     }
 
 

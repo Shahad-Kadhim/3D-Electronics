@@ -91,8 +91,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         viewModel.apply {
             (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?)?.apply {
 
-                addCategoryItem(mouseCategory,CategoryInfoType(CategoriesId.MOUSE, Constants.MOUSE_TITLE))
-                addCategoryItem(headsetsCategory,CategoryInfoType(CategoriesId.HEADSETS, Constants.HEADPHONE_TITLE))
+                addCategoryItem(mouseCategory,
+                    CategoryInfoType(CategoriesId.MOUSE, Constants.MOUSE_CATEGORY_HEADLINE)
+                )
+                addCategoryItem(headsetsCategory,
+                    CategoryInfoType(CategoriesId.HEADSETS, Constants.HEADSET_CATEGORY_HEADLINE)
+                )
+                addCategoryItem(padMouseCategory,
+                    CategoryInfoType(CategoriesId.PAD_MOUSE, Constants.MOUSE_PAD_CATEGORY_HEADLINE)
+                )
+                addCategoryItem(laptopCategory,
+                    CategoryInfoType(CategoriesId.LAPTOP, Constants.LAPTOP_CATEGORY_HEADLINE)
+                )
+                addCategoryItem(caseCategory,
+                    CategoryInfoType(CategoriesId.CASE, Constants.CASE_CATEGORY_HEADLINE)
+                )
+                addCategoryItem(laptopFanCategory,
+                    CategoryInfoType(CategoriesId.LAPTOP_FAN, Constants.LAPTOP_FAN_CATEGORY_HEADLINE)
+                )
+                addCategoryItem(cpuCategory,
+                    CategoryInfoType(CategoriesId.CPU, Constants.CPU_CATEGORY_HEADLINE)
+                )
+
 
                 addItem(categories){ state ->
                     addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))
