@@ -110,7 +110,7 @@
                 android:id="@+id/product_out_of_stock_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/out_of_stock_shape"
+                android:background="@drawable/sold_out_shape"
                 android:fontFamily="@font/monda_bold"
                 android:gravity="center"
                 android:paddingHorizontal="16dp"
