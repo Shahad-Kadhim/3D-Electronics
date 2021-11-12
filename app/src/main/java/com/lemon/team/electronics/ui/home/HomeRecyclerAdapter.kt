@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.domain.HomeItem
+import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.util.setVariableAdapter
 
@@ -11,7 +12,14 @@ import com.lemon.team.electronics.util.setVariableAdapter
 class HomeRecyclerAdapter(
     private var itemsNested: MutableList<HomeItem>,
     private val listener: HomeInteractionListener
-) : BaseRecyclerAdapter<Any>(itemsNested, listener) {
+) : BaseRecyclerAdapter<HomeItem>(itemsNested, listener) {
+
+    override fun <T> areItemsTheSame(
+        oldItemPosition: Int,
+        newItemPosition: Int,
+        newItems: List<T>
+    ) =
+        getItems()[oldItemPosition].rank == (newItems[newItemPosition] as HomeItem).rank
 
     override var layoutId: Int = 0
 

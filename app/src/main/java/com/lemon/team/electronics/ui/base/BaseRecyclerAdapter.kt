@@ -41,10 +41,12 @@ abstract class BaseRecyclerAdapter<T>(
     override fun getItemCount(): Int = items.size
 
     fun setItems(newItems: List<T>) {
-        val diffResult = DiffUtil.calculateDiff(DiffUtil(items, newItems))
+        val diffResult = DiffUtil.calculateDiff(DiffUtil(items, newItems, ::areItemsTheSame))
         items = newItems
         diffResult.dispatchUpdatesTo(this)
     }
+
+    abstract fun <T> areItemsTheSame(oldItemPosition: Int, newItemPosition: Int, newItems: List<T>) : Boolean
 
     fun getItems() = items
 

@@ -11,4 +11,11 @@ class BestSellerRecyclerAdapter(
 
     override val layoutId: Int = R.layout.item_best_seller
 
+    override fun <T> areItemsTheSame(
+        oldItemPosition: Int,
+        newItemPosition: Int,
+        newItems: List<T>
+    ) =
+        getItems()[oldItemPosition].id == (newItems[newItemPosition] as Product).id
+
 }
