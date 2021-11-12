@@ -123,14 +123,6 @@ fun setCategoryIcon(view: ImageView, categoryId: String?) {
     }
 }
 
-@SuppressLint("SetTextI18n")
-@BindingAdapter(value = ["app:setText"])
-fun setText(view: TextView, categoryName: String?) {
-    categoryName?.let { idName ->
-        view.text = idName.first() + idName.lowercase().substring(1)
-    }
-}
-
 @BindingAdapter(value = ["app:setSliderImagesList"])
 fun setSliderImages(slider: ImageSlider, images: List<HomeImage>?){
     images?.map {
