@@ -65,7 +65,7 @@
             android:maxLines="1"
             app:checkProduct="@{viewModel.detailsProduct.toData().sale}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"

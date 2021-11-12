@@ -25,9 +25,9 @@
         android:background="@drawable/search_style">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin2x"
+            android:layout_marginHorizontal="@dimen/margin2x"
             android:text="@string/search"
             android:padding="@dimen/margin8dp"
             android:textColor="@color/secondary_icons_color"
@@ -36,10 +36,7 @@
             android:textSize="@dimen/text_normal"
             android:drawablePadding="@dimen/margin2x"
             android:layout_gravity="center_vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:drawableLeftCompat="@drawable/ic_search"
+            android:drawableStart="@drawable/ic_search"
             app:drawableTint="@color/secondary_icons_color" />
 
     </com.google.android.material.card.MaterialCardView>
