@@ -6,6 +6,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCategoriesBinding
+import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
 
@@ -25,9 +26,9 @@ class CategoriesFragment: BaseFragment<FragmentCategoriesBinding,CategoriesViewM
 
     override fun observeEvents() {
 
-        viewModel.categoryId.observeEvent(this){
+        viewModel.categoryId.observeEvent(this){ categoryResponse ->
             view?.goToFragment(CategoriesFragmentDirections
-                .actionCategoriesFragmentToCategoryFragment(it.id, it.categoryName)
+                .actionCategoriesFragmentToCategoryFragment(categoryResponse.id, categoryResponse.categoryName)
             )
         }
 

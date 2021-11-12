@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import android.content.Intent
+import android.util.Log
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -47,21 +48,21 @@ class ProductDetailsFragment :
                 findNavController().popBackStack()
             }
 
-            onclickMainImage.observeEvent(this@ProductDetailsFragment) {
-                goToImageActivity(it)
+            onclickMainImage.observeEvent(this@ProductDetailsFragment) { imageUrl ->
+                goToImageActivity(imageUrl)
             }
 
-            clickSharedProduct.observeEvent(this@ProductDetailsFragment) {
-                startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(it)
+            clickSharedProduct.observeEvent(this@ProductDetailsFragment) { imageUrl ->
+                startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(imageUrl)
                     , Constants.SHARE_KEY))
             }
         }
     }
 
-    private fun goToImageActivity(it: String) {
+    private fun goToImageActivity(imageUrl: String) {
         startActivity(
             Intent(requireContext(), ImageActivity::class.java).apply {
-                putExtra(Constants.MAIN_URL, it)
+                putExtra(Constants.MAIN_URL, imageUrl)
             }
         )
     }

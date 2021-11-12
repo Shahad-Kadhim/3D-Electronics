@@ -18,8 +18,8 @@ class HomeRecyclerAdapter(
     fun addItem(newItems: HomeItem) {
         itemsNested.apply {
             add(newItems)
-            sortBy {
-                it.rank
+            sortBy { item ->
+                item.rank
             }
         }
         notifyDataSetChanged()

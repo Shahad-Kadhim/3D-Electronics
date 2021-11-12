@@ -2,6 +2,7 @@ package com.lemon.team.electronics.util
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.*
 import androidx.navigation.*
@@ -35,9 +36,9 @@ fun BaseRecyclerAdapter.ItemViewHolder.setVariableAdapter(item: Any?) {
 }
 
 
-fun <T> LiveData<Event<T>>.observeEvent(owner: LifecycleOwner, f:(T) ->Unit){
-    this.observe(owner, EventObserver{
-        f(it)
+fun <T> LiveData<Event<T>>.observeEvent(owner: LifecycleOwner, function:(T) ->Unit){
+    this.observe(owner, EventObserver{ event ->
+        function(event)
     })
 }
 

@@ -23,8 +23,8 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
     fun getProductsByCategoryId(categoryId: String){
 
         collectResponse(
-            Repository.getProductsByCategoryId(categoryId, Constants.PAGE_NUMBER_ZERO)){
-            _categoryItems.postValue(it)
+            Repository.getProductsByCategoryId(categoryId, Constants.PAGE_NUMBER_ZERO)){ state ->
+            _categoryItems.postValue(state)
         }
     }
 
