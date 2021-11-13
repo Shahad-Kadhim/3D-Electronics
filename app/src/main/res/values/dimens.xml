@@ -51,4 +51,5 @@
     <dimen name="radius8dp">8dp</dimen>
     <dimen name="raduis24dp">24dp</dimen>
     <dimen name="padding2dp">2dp</dimen>
+    <dimen name="radius1_5x">12dp</dimen>
 </resources>
