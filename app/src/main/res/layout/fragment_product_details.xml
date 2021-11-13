@@ -158,7 +158,7 @@
                 app:layout_constraintTop_toTopOf="@id/product_old_price_text" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/product_images"
+                android:id="@+id/product_images_recycler"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:orientation="vertical"
