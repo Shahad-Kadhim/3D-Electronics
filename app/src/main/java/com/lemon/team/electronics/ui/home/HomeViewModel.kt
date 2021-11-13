@@ -81,7 +81,10 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
             homeImages.value,
             categories.value,
             bestProduct.value,
-            laptopCategory.value
+            laptopCategory.value,
+            caseCategory.value,
+            headsetsCategory.value,
+            padMouseCategory.value
         )
 
 
