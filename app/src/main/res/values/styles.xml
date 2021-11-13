@@ -31,10 +31,13 @@
 
     <style name="ProductBackgroundCardStyle">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
         <item name="cardElevation">@dimen/elevation_normal</item>
         <item name="cardCornerRadius">@dimen/radius_large</item>
         <item name="cardBackgroundColor">@color/secondary_background_color</item>
+    </style>
+
+    <style name="ProductBackgroundCardStyle.WrapContentWidth">
+        <item name="android:layout_width">wrap_content</item>
     </style>
 
     <style name="ProductBackgroundCardStyle.MatchParentWidth">

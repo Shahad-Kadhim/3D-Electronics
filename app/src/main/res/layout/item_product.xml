@@ -14,11 +14,11 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/product_background_card"
-        style="@style/ProductBackgroundCardStyle"
+        style="@style/ProductBackgroundCardStyle.MatchParentWidth"
         android:layout_margin="@dimen/margin_small">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="180dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{() -> listener.onClickProduct(item.id)}">
 

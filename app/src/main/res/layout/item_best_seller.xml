@@ -16,9 +16,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/product_background_card"
-        style="@style/ProductBackgroundCardStyle"
-        app:cardCornerRadius="@dimen/radius_large"
-        app:cardBackgroundColor="@color/secondary_background_color"
+        style="@style/ProductBackgroundCardStyle.WrapContentWidth"
         android:layout_marginHorizontal="@dimen/margin_small"
         android:layout_marginVertical="@dimen/margin2x"
         app:cardElevation="@dimen/margin_small">
