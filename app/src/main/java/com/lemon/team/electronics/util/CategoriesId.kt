@@ -33,5 +33,6 @@ object CategoriesId {
     const val HEADSETS  ="57289db8-1692-40f3-9c2e-beb49b9be0bc"
     const val KEYBOARD  ="4b1e4d14-6d2c-485d-b41e-eef6183e1f49"
     const val EXTERNAL_HARD  ="2abbd3d7-bc41-429d-9e63-9a6591d02300"
+    const val PC_SPEAKERS = "54653fdb-db67-4e72-8840-1d842e3c4f04"
 
 }

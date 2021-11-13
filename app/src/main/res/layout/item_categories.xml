@@ -56,7 +56,7 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_regular"
                 android:maxLines="2"
-                android:text="@{item.categoryName}"
+                app:categoryName="@{item}"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
