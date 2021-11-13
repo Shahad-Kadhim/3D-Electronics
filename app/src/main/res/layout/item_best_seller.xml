@@ -17,11 +17,11 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/product_background_card"
         style="@style/ProductBackgroundCardStyle"
-        app:cardCornerRadius="@dimen/radius3x"
+        app:cardCornerRadius="@dimen/radius_large"
         app:cardBackgroundColor="@color/secondary_background_color"
-        android:layout_marginHorizontal="@dimen/margin8dp"
+        android:layout_marginHorizontal="@dimen/margin_small"
         android:layout_marginVertical="@dimen/margin2x"
-        app:cardElevation="@dimen/margin4dp">
+        app:cardElevation="@dimen/margin_small">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="230dp"
@@ -37,7 +37,7 @@
                 android:padding="8dp"
                 android:singleLine="true"
                 android:text="@{item.name}"
-                android:textSize="@dimen/text20sp"
+                android:textSize="@dimen/text3x"
                 android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintEnd_toStartOf="@+id/imageView6"
@@ -62,11 +62,11 @@
                 android:id="@+id/product_old_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin4dp"
+                android:layout_marginStart="@dimen/margin_tiny"
                 android:fontFamily="@font/monda_regular"
                 android:text="@{String.valueOf(item.oldPrice)}"
                 android:textColor="@color/secondary_text_color"
-                android:textSize="@dimen/text12sp"
+                android:textSize="@dimen/text_small"
                 app:isVisible="@{item.sale}"
                 app:layout_constraintBottom_toBottomOf="@+id/product_price_text"
                 app:layout_constraintStart_toEndOf="@+id/product_price_text"
@@ -115,7 +115,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:onClick="@{() -> listener.onClickShare(item.id)}"
-                android:layout_marginEnd="@dimen/margin12dp"
+                android:layout_marginEnd="@dimen/margin2x"
                 android:contentDescription="@string/product_image"
                 android:src="@drawable/ic_share"
                 app:layout_constraintBottom_toBottomOf="@+id/product_name_text"

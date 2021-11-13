@@ -19,10 +19,10 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin2x"
+            android:layout_margin="@dimen/margin_normal"
             app:cardBackgroundColor="@color/secondary_background_color"
-            app:cardCornerRadius="@dimen/radius2x"
-            app:cardElevation="@dimen/margin4dp">
+            app:cardCornerRadius="@dimen/radius_normal"
+            app:cardElevation="@dimen/margin1x">
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/image_slider"

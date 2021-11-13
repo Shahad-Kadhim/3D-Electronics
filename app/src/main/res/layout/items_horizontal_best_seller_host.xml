@@ -21,7 +21,7 @@
             android:layout_margin="16dp"
             android:textStyle="bold"
             android:fontFamily="@font/monda_bold"
-            android:textSize="22sp"
+            android:textSize="@dimen/text4x"
             android:textColor="@color/seconder_text_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +34,7 @@
             android:visibility="gone"
             android:text="see more >"
             android:textColor="@color/seconder_text_color"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_normal"
             app:layout_constraintBottom_toBottomOf="@+id/text_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/text_title" />
@@ -46,8 +46,8 @@
             android:adapter="@{adapter}"
             android:clipToPadding="false"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/margin8dp"
-            android:layout_marginHorizontal="@dimen/margin8dp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginHorizontal="@dimen/margin_small"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

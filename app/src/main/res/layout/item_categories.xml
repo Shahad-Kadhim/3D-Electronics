@@ -20,7 +20,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="114dp"
-        android:layout_margin="@dimen/margin8dp"
+        android:layout_margin="@dimen/margin_small"
         app:cardCornerRadius="24dp"
         tools:cardBackgroundColor="#9FC3C2"
         android:onClick="@{() -> listener.onClickCategory(item)}"
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin3x"
+                android:layout_marginEnd="@dimen/margin_large"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_regular"
                 android:maxLines="2"

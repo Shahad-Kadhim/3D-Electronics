@@ -19,11 +19,11 @@
         style="@style/ProductBackgroundCardStyle"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/radius3x"
-        android:layout_marginHorizontal="@dimen/margin8dp"
+        app:cardCornerRadius="@dimen/radius_large"
+        android:layout_marginHorizontal="@dimen/margin_small"
         android:layout_marginVertical="@dimen/margin2x"
         android:onClick="@{() -> listener.onClickProduct(item.id)}"
-        app:cardElevation="@dimen/margin4dp">
+        app:cardElevation="@dimen/margin_tiny">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,7 +58,7 @@
                 android:layout_marginStart="@dimen/margin2x"
                 android:layout_marginTop="@dimen/margin2x"
                 android:maxLines="1"
-                android:paddingVertical="4dp"
+                android:paddingVertical="@dimen/padding_small"
                 android:singleLine="true"
                 android:text="@{item.name}"
                 android:textSize="@dimen/text_normal"
@@ -80,7 +80,7 @@
                 style="@style/ProductPriceStyle"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@{String.valueOf(item.price) + ` $`}"
-                android:textSize="@dimen/text24sp"
+                android:textSize="@dimen/text_large"
                 android:textStyle="bold"
                 android:layout_marginBottom="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -91,7 +91,7 @@
                 android:id="@+id/product_old_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin8dp"
+                android:layout_marginBottom="@dimen/margin_small"
                 android:fontFamily="@font/monda_regular"
                 android:text="@{String.valueOf(item.oldPrice) + ` $`}"
                 android:textColor="@color/secondary_text_color"

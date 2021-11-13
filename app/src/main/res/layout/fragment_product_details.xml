@@ -41,7 +41,7 @@
             app:iconTint="@color/white"
             app:showOnSuccess="@{viewModel.detailsProduct}"
             android:onClick="@{() -> viewModel.onclickAddToCart(viewModel.detailsProduct.toData().id)}"
-            android:textSize="@dimen/text18sp"
+            android:textSize="@dimen/text2x"
             android:textAllCaps="false"
             android:fontFamily="@font/monda_bold"
             android:textColor="@color/white"
@@ -92,7 +92,7 @@
             app:showOnSuccess="@{viewModel.detailsProduct}"
             android:text="@{viewModel.detailsProduct.toData().name}"
             android:textColor="@color/primary_text_color"
-            android:textSize="@dimen/text20sp"
+            android:textSize="@dimen/text3x"
             android:fontFamily="@font/monda_bold"
             app:layout_constraintStart_toStartOf="@id/back_button"
             app:layout_constraintTop_toBottomOf="@id/guideline" />
@@ -106,7 +106,7 @@
             android:text="@{String.valueOf(viewModel.detailsProduct.toData().price) +'$'}"
             android:textColor="@color/primary_text_color"
             android:fontFamily="@font/monda_bold"
-            android:textSize="@dimen/text18sp"
+            android:textSize="@dimen/text2x"
             android:layout_marginEnd="@dimen/margin5x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/product_name" />

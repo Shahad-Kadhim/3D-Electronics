@@ -15,7 +15,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/wish_product_background_card"
         style="@style/ProductBackgroundCardStyle.MatchParentWidth"
-        android:layout_marginVertical="@dimen/margin8dp"
+        android:layout_marginVertical="@dimen/margin_small"
         android:layout_marginHorizontal="@dimen/margin2x">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,7 +34,7 @@
                 android:maxLines="2"
                 android:text="@{item.name}"
                 android:textColor="@color/text_color"
-                android:textSize="@dimen/text14sp"
+                android:textSize="@dimen/text_default"
                 app:layout_constraintLeft_toRightOf="@id/product_image"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="MIMD HSY-013 Wireless Controller for Nintendo Switch" />
@@ -54,11 +54,11 @@
                 android:id="@+id/product_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin8dp"
+                android:layout_marginVertical="@dimen/margin_small"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@{String.valueOf(item.price)+` $`}"
                 android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text18sp"
+                android:textSize="@dimen/text2x"
                 android:textStyle="bold"
                 app:layout_constraintVertical_bias="0"
                 app:layout_constraintBottom_toBottomOf="parent"

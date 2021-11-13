@@ -19,7 +19,7 @@
         android:transitionName="search"
         android:layout_marginVertical="@dimen/margin2x"
         android:layout_marginHorizontal="@dimen/margin3x"
-        app:cardCornerRadius="@dimen/radius3x"
+        app:cardCornerRadius="@dimen/radius_large"
         app:cardElevation="4dp"
         android:onClick="@{() -> listener.onclickSearch()}"
         android:background="@drawable/search_style">
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin2x"
             android:text="@string/search"
-            android:padding="@dimen/margin8dp"
+            android:padding="@dimen/margin_small"
             android:textColor="@color/secondary_icons_color"
             android:fontFamily="@font/roboto_regular"
             android:gravity="center_vertical"
