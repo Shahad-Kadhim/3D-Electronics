@@ -22,4 +22,8 @@
     <string name="home">الرئيسية</string>
     <string name="search_word">البحث </string>
     <string name="see_more">عرض الكل ></string>
+    <string name="delivery_fees">تكاليف النقل</string>
+    <string name="pay_now">أدفع الان</string>
+    <string name="subtotal">المبلغ</string>
+    <string name="order_summary">"ملخص الطلب "</string>
 </resources>

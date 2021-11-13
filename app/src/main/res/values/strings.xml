@@ -27,4 +27,8 @@
     <string name="home">Home</string>
     <string name="search_word">search</string>
     <string name="see_more">see more > </string>
+    <string name="order_summary">Order Summary</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="delivery_fees">Delivery Fees:</string>
+    <string name="pay_now">pay now</string>
 </resources>

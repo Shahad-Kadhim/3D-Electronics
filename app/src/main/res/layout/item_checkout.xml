@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin2x"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/text_normal2x"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Xbox controller" />
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin2x"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/text_normal2x"
+            app:layout_constraintBaseline_toBaselineOf="@+id/item_name"
+            app:layout_constraintStart_toEndOf="@+id/item_name"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin2x"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/text_normal2x"
+            app:layout_constraintBaseline_toBaselineOf="@+id/quantity"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="55.77 IQ" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
