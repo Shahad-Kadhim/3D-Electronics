@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -19,7 +20,6 @@
             android:layout_height="match_parent"
             android:background="@color/background_color"
             app:layoutDescription="@xml/fragment_product_details_scene">
-
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
@@ -113,11 +113,15 @@
                 android:id="@+id/product_name"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:layout_marginTop="@dimen/margin3x"
                 android:maxLines="2"
+                tools:text="@string/product_name"
+                app:showOnSuccess="@{viewModel.detailsProduct}"
                 android:text="@{viewModel.detailsProduct.toData().name}"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text20sp"
+                android:fontFamily="@font/monda_bold"
                 app:layout_constraintStart_toStartOf="@id/back_button"
                 app:layout_constraintTop_toBottomOf="@id/guideline" />
 
