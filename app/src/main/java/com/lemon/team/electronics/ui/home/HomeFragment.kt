@@ -8,7 +8,6 @@ import com.lemon.team.electronics.databinding.FragmentHomeBinding
 import com.lemon.team.electronics.model.domain.*
 import com.lemon.team.electronics.ui.base.BaseFragment
 import android.content.Intent
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavDirections
 import com.lemon.team.electronics.model.response.ProductsResponse
@@ -92,8 +91,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         viewModel.apply {
             (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?)?.apply {
 
-                addCategoryItem(mouseCategory,CategoryInfoType(CategoriesId.MOUSE, Constants.MOUSE_TITLE))
-                addCategoryItem(headsetsCategory,CategoryInfoType(CategoriesId.HEADSETS, Constants.HEADPHONE_TITLE))
+                addCategoryItem(headsetsCategory,
+                    CategoryInfoType(CategoriesId.HEADSETS, Constants.HEADSET_CATEGORY_HEADLINE)
+                )
+                addCategoryItem(laptopCategory,
+                    CategoryInfoType(CategoriesId.LAPTOP, Constants.LAPTOP_CATEGORY_HEADLINE)
+                )
+                addCategoryItem(caseCategory,
+                    CategoryInfoType(CategoriesId.CASE, Constants.CASE_CATEGORY_HEADLINE)
+                )
+                addCategoryItem(padMouseCategory,
+                    CategoryInfoType(CategoriesId.PAD_MOUSE, Constants.MOUSE_PAD_CATEGORY_HEADLINE)
+                )
+
 
                 addItem(categories){ state ->
                     addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))
