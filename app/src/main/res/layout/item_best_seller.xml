@@ -40,7 +40,7 @@
                 android:textSize="@dimen/text20sp"
                 android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintEnd_toStartOf="@+id/imageView6"
+                app:layout_constraintEnd_toStartOf="@+id/share_icon"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Headphone" />
@@ -101,7 +101,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="288dp" />
             <CheckBox
-                android:id="@+id/imageView5"
+                android:id="@+id/heart_checkbox"
                 style="@style/WishIconStyle"
                 android:layout_marginEnd="@dimen/margin2x"
                 android:onClick="@{() ->listener.onClickHeart(item.id)}"
@@ -111,7 +111,7 @@
                 app:layout_constraintTop_toTopOf="@+id/product_name_text" />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/share_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:onClick="@{() -> listener.onClickShare(item.id)}"
@@ -119,7 +119,7 @@
                 android:contentDescription="@string/product_image"
                 android:src="@drawable/ic_share"
                 app:layout_constraintBottom_toBottomOf="@+id/product_name_text"
-                app:layout_constraintEnd_toStartOf="@+id/imageView5"
+                app:layout_constraintEnd_toStartOf="@+id/heart_checkbox"
                 app:layout_constraintTop_toTopOf="@+id/product_name_text" />
 
 

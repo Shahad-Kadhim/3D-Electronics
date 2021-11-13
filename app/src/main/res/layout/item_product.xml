@@ -92,7 +92,7 @@
                 tools:src="@drawable/img_1" />
 
             <CheckBox
-                android:id="@+id/wish_button"
+                android:id="@+id/heart_checkbox"
                 style="@style/WishIconStyle"
                 android:contentDescription="@string/product_image"
                 android:onClick="@{() ->listener.onClickHeart(item.id)}"

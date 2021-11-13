@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/cart"
+            android:id="@+id/cart_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -30,17 +30,17 @@
             android:src="@drawable/ic_cart"
             app:layout_constraintBottom_toBottomOf="@+id/about"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/about" />
+            app:layout_constraintTop_toTopOf="@+id/about_icon" />
 
         <ImageView
-            android:id="@+id/about"
+            android:id="@+id/about_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:onClick="@{() -> viewModel.onClickAbout()}"
             android:src="@drawable/ic_about"
             app:layout_constraintBottom_toBottomOf="@+id/logo_image"
-            app:layout_constraintRight_toLeftOf="@+id/cart"
+            app:layout_constraintRight_toLeftOf="@+id/cart_icon"
             app:layout_constraintTop_toTopOf="@+id/logo_image" />
 
         <androidx.recyclerview.widget.RecyclerView

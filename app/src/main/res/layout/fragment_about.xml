@@ -32,6 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/about_headline"
             style="@style/TitleText"
             android:text="@string/aboutTitle"
             app:layout_constraintBottom_toBottomOf="@+id/back_button"
@@ -40,7 +41,7 @@
             app:layout_constraintTop_toTopOf="@+id/back_button" />
 
         <ScrollView
-            android:id="@+id/scrollView2"
+            android:id="@+id/about_information"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin8dp"
@@ -52,7 +53,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardView2"
+                    android:id="@+id/about_video_background_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="24dp"
@@ -71,15 +72,15 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/location_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:src="@drawable/ic_outline_location_on_24"
                     app:layout_constraintVertical_bias="0.1"
-                    app:layout_constraintBottom_toBottomOf="@id/textView8"
+                    app:layout_constraintBottom_toBottomOf="@id/location_text"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/textView8" />
+                    app:layout_constraintTop_toTopOf="@id/location_text" />
 
                 <ImageView
                     android:id="@+id/logo"
@@ -90,10 +91,10 @@
                     android:elevation="@dimen/margin2x"
                     android:src="@drawable/logo"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                    app:layout_constraintTop_toBottomOf="@+id/location_text" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/location_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
@@ -104,12 +105,12 @@
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@+id/imageView3"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+                    app:layout_constraintStart_toEndOf="@+id/location_icon"
+                    app:layout_constraintTop_toBottomOf="@+id/about_video_background_card" />
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardView"
+                    android:id="@+id/about_text_background_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="24dp"
@@ -120,10 +121,10 @@
                     app:cardElevation="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8">
+                    app:layout_constraintTop_toBottomOf="@+id/location_text">
 
                     <TextView
-                        android:id="@+id/text1"
+                        android:id="@+id/about_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/margin2x"
@@ -150,13 +151,10 @@
                     app:layout_constraintBottom_toBottomOf="@id/companies_recycler"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView">
-
-                </View>
-
+                    app:layout_constraintTop_toBottomOf="@+id/about_text_background_card"/>
 
                 <TextView
-                    android:id="@+id/title"
+                    android:id="@+id/our_vendors_text"
                     style="@style/AboutTitleTextColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -180,7 +178,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/companies_bg"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/title"
+                    app:layout_constraintTop_toBottomOf="@+id/our_vendors_text"
                     tools:listitem="@layout/item_companies_recycler" />
 
                 <View
@@ -192,12 +190,10 @@
                     app:layout_constraintBottom_toBottomOf="@id/other_companies_recycler"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/companies_bg">
-
-                </View>
+                    app:layout_constraintTop_toBottomOf="@+id/companies_bg"/>
 
                 <TextView
-                    android:id="@+id/title1"
+                    android:id="@+id/other_products_text"
                     style="@style/AboutTitleTextColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -219,12 +215,12 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/title1"
+                    app:layout_constraintTop_toBottomOf="@+id/other_products_text"
                     tools:listitem="@layout/item_companies_recycler" />
 
 
                 <View
-                    android:id="@+id/contactView"
+                    android:id="@+id/contacts_background"
                     style="@style/AboutBackgroundCompanies"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
@@ -235,7 +231,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/other_companies" />
 
                 <TextView
-                    android:id="@+id/contact"
+                    android:id="@+id/contacts_text"
                     style="@style/AboutTitleTextColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -246,36 +242,36 @@
                     android:text="@string/contact_us"
                     android:textSize="@dimen/text24sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/contactView" />
+                    app:layout_constraintTop_toTopOf="@id/contacts_background" />
 
                 <TextView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/facebook_page_text"
                     style="@style/contactText"
                     android:layout_marginTop="@dimen/margin8dp"
                     android:text="@string/facebook"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/contact"
+                    app:layout_constraintTop_toBottomOf="@+id/contacts_text"
                     app:drawableStartCompat="@drawable/ic_facebook" />
 
                 <TextView
-                    android:id="@+id/img_mail"
+                    android:id="@+id/email_text"
                     style="@style/contactText"
                     android:layout_marginTop="@dimen/margin2x"
                     android:text="@string/email"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                    app:layout_constraintTop_toBottomOf="@+id/facebook_page_text"
                     app:drawableStartCompat="@drawable/ic_email_" />
 
 
                 <TextView
-                    android:id="@+id/img_phone"
+                    android:id="@+id/phone_number_text"
                     style="@style/contactText"
                     android:layout_marginTop="@dimen/margin3x"
                     android:layout_marginBottom="@dimen/margin3x"
                     android:text="@string/phone_number"
-                    app:layout_constraintBottom_toBottomOf="@id/contactView"
+                    app:layout_constraintBottom_toBottomOf="@id/contacts_background"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/img_mail"
+                    app:layout_constraintTop_toBottomOf="@+id/email_text"
                     app:drawableStartCompat="@drawable/ic_call" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

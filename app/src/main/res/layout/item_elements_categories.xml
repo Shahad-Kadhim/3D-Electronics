@@ -31,7 +31,7 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/imageView4"
+                android:id="@+id/heart_checkbox"
                 style="@style/WishIconStyle"
                 android:layout_width="@dimen/margin3x"
                 android:layout_margin="16dp"
@@ -52,7 +52,7 @@
                 tools:src="@color/brand_color" />
 
             <TextView
-                android:id="@+id/category_name"
+                android:id="@+id/product_name"
                 style="@style/ProductNameStyle"
                 android:layout_width="150dp"
                 android:layout_marginStart="@dimen/margin2x"
@@ -84,7 +84,7 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/category_name"
+                app:layout_constraintStart_toStartOf="@+id/product_name"
                 tools:text="15.77 $" />
 
             <TextView

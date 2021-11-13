@@ -23,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/categories_headline"
             style="@style/TitleText"
             android:text="@string/categories"
             app:layout_constraintBottom_toBottomOf="@+id/back_button"

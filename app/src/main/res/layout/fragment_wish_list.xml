@@ -24,6 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/wishlist_headline"
             style="@style/TitleText"
             android:text="@string/wish_list"
             app:layout_constraintBottom_toBottomOf="@+id/back_button"
