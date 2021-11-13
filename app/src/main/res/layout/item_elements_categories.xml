@@ -33,8 +33,8 @@
             <CheckBox
                 android:id="@+id/heart_checkbox"
                 style="@style/WishIconStyle"
-                android:layout_width="@dimen/margin3x"
-                android:layout_margin="16dp"
+                android:layout_width="24dp"
+                android:layout_margin="@dimen/margin_normal"
                 android:onClick="@{() ->listener.onClickHeart(item.id)}"
                 android:contentDescription="@string/product_image"
                 app:layout_constraintEnd_toEndOf="parent"
