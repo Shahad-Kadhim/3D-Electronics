@@ -19,6 +19,7 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/category_headline"
             style="@style/TitleText"
             android:ellipsize="end"
             android:maxLines="1"

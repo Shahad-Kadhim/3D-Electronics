@@ -40,7 +40,7 @@
                 tools:text="MIMD HSY-013 Wireless Controller for Nintendo Switch" />
 
             <TextView
-                android:id="@+id/quantity"
+                android:id="@+id/quantity_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3 piece"
@@ -63,7 +63,7 @@
                 app:layout_constraintVertical_bias="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="@+id/product_name_text"
-                app:layout_constraintTop_toBottomOf="@+id/quantity"
+                app:layout_constraintTop_toBottomOf="@+id/quantity_text"
                 tools:text="15.77 $" />
 
             <com.google.android.material.imageview.ShapeableImageView

@@ -51,6 +51,7 @@
             layout="@layout/error"/>
 
         <TextView
+            android:id="@+id/cart_headline"
             style="@style/TitleText"
             android:text="@string/cart"
             app:layout_constraintBottom_toBottomOf="@+id/back_button"
