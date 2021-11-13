@@ -155,7 +155,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="100.54 IQ"
                     android:textColor="@color/primary_text_color"
-                    android:textSize="@dimen/text_large"
+                    android:textSize="@dimen/text20sp"
                     app:layout_constraintBaseline_toBaselineOf="@+id/total"
                     app:layout_constraintEnd_toEndOf="parent" />
 
