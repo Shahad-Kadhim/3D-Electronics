@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin2x"
                     android:text="@string/subtotal"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/seconder_text_color"
                     android:textSize="@dimen/text_normal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/break_line" />
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin2x"
                     android:text="94.54 IQ"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/seconder_text_color"
                     android:textSize="@dimen/text_normal"
                     app:layout_constraintBaseline_toBaselineOf="@+id/sub_total"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin2x"
                     android:text="@string/delivery_fees"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/seconder_text_color"
                     android:textSize="@dimen/text_normal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sub_total" />
@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin2x"
                     android:text="10.00 IQ"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/seconder_text_color"
                     android:textSize="@dimen/text_normal"
                     app:layout_constraintBaseline_toBaselineOf="@+id/delivery_fees"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin2x"
                     android:text="@string/total"
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/seconder_text_color"
                     android:textSize="@dimen/text_normal"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/secondary_break_line" />
