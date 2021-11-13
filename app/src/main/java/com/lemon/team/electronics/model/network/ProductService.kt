@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface ProductService {
 
     @GET("resources/categories/")
-    suspend fun getCategories(): Response<CategoriesResponse>
+    suspend fun getCategories(): Response<List<CategoryResponse>>
 
     @GET("resources/products/category-id/")
     suspend fun getProductsByCategoryId(
@@ -25,7 +25,7 @@ interface ProductService {
     ): Response<ProductsResponse>
 
     @GET("resources/products/recommended/")
-    suspend fun getRecommendedProducts(): Response<RecommendedProductsResponse>
+    suspend fun getRecommendedProducts(): Response<List<Product>>
 
     @GET("resources/products/product")
     suspend fun getProductById(
@@ -33,6 +33,6 @@ interface ProductService {
     ): Response<Product>
 
     @GET("resources/products/product-home-screen-images")
-    suspend fun getHomeImages(): Response<HomeImages>
+    suspend fun getHomeImages(): Response<List<HomeImage>>
 
 }

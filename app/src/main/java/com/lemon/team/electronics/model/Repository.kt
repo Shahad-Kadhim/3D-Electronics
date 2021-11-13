@@ -14,7 +14,7 @@ object Repository{
 
     private val localData: LocalData = LocalData(Gson())
 
-    fun getCategories(): Flow<State<CategoriesResponse?>> =
+    fun getCategories(): Flow<State<List<CategoryResponse>?>> =
         wrapWithFlow { API.apiService.getCategories() }
 
 
@@ -34,7 +34,7 @@ object Repository{
         wrapWithFlow { API.apiService.getProductByName(productName, page, sortBy) }
 
 
-    fun getRecommendedProducts(): Flow<State<RecommendedProductsResponse?>> =
+    fun getRecommendedProducts(): Flow<State<List<Product>?>> =
         wrapWithFlow { API.apiService.getRecommendedProducts() }
 
 
@@ -80,7 +80,7 @@ object Repository{
         localData.getCompanies(fileName)
 
 
-    fun getHomeImages(): Flow<State<HomeImages?>> =
+    fun getHomeImages(): Flow<State<List<HomeImage>?>> =
         wrapWithFlow { API.apiService.getHomeImages() }
 
 

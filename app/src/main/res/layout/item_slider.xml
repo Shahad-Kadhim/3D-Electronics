@@ -6,7 +6,7 @@
     <data>
         <variable
             name="products"
-            type="com.lemon.team.electronics.model.response.HomeImages" />
+            type="java.util.List&lt;com.lemon.team.electronics.model.response.HomeImage&gt;"/>
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.home.HomeInteractionListener" />
