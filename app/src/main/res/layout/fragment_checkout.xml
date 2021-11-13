@@ -168,6 +168,7 @@
                     android:layout_marginEnd="@dimen/margin2x"
                     android:fontFamily="@font/lato_regular"
                     android:textStyle="bold"
+                    android:textSize="@dimen/text14sp"
                     android:text="@string/pay_now"
                     android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
