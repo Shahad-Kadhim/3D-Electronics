@@ -32,31 +32,33 @@
                 android:id="@+id/main_product_image"
                 android:layout_width="260dp"
                 android:layout_height="260dp"
-                app:shapeAppearanceOverlay="@style/MainProductImageShape"
                 android:layout_marginTop="@dimen/margin5x"
                 android:layout_marginEnd="@dimen/margin3x"
                 android:elevation="2dp"
-                android:scaleType="centerCrop"
-                app:showOnSuccess="@{viewModel.detailsProduct}"
-                tools:src="@color/brand_color"
                 android:onClick="@{()-> viewModel.onClickMainImage()}"
+                android:scaleType="centerCrop"
+                app:imageFromUrl="@{viewModel.mainImage}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_name"
                 app:shapeAppearance="@style/ShapeAppearanceOverlay"
-                app:imageFromUrl="@{viewModel.mainImage}" />
+                app:shapeAppearanceOverlay="@style/MainProductImageShape"
+                app:showOnSuccess="@{viewModel.detailsProduct}"
+                tools:src="@color/brand_color" />
 
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/product_image"
+            <ImageView
+                android:id="@+id/product_image_alpha"
                 android:layout_width="260dp"
                 android:layout_height="260dp"
-                android:layout_marginTop="@dimen/margin5x"
-                android:layout_marginEnd="@dimen/margin3x"
-                android:visibility="invisible"
-                android:src="@drawable/product_image"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/product_name"
-                app:shapeAppearance="@style/ShapeAppearanceOverlay" />
+                android:alpha="0.0"
+                android:elevation="2dp"
+                android:src="@drawable/product_image_alpha"
+                app:layout_constraintBottom_toBottomOf="@+id/main_product_image"
+                app:layout_constraintEnd_toEndOf="@+id/main_product_image"
+                app:layout_constraintStart_toStartOf="@+id/main_product_image"
+                app:layout_constraintTop_toTopOf="@+id/main_product_image"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay"
+                />
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/add_button"
@@ -84,55 +86,57 @@
                 android:onClick="@{() -> viewModel.onclickBack()}"
                 app:layout_constraintBottom_toTopOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/share_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin2x"
+                android:elevation="8dp"
                 android:onClick="@{() -> viewModel.onclickShare(viewModel.detailsProduct.toData().id)}"
                 android:src="@drawable/ic_share"
-                android:layout_marginEnd="@dimen/margin2x"
-                app:showOnSuccess="@{viewModel.detailsProduct}"
                 app:layout_constraintBottom_toBottomOf="@+id/back_button"
                 app:layout_constraintEnd_toStartOf="@id/heart_checkbox"
-                app:layout_constraintTop_toTopOf="@+id/back_button" />
+                app:layout_constraintTop_toTopOf="@+id/back_button"
+                app:showOnSuccess="@{viewModel.detailsProduct}" />
 
             <CheckBox
                 android:id="@+id/heart_checkbox"
                 style="@style/WishIconStyle"
                 android:layout_marginEnd="@dimen/margin3x"
-                app:showOnSuccess="@{viewModel.detailsProduct}"
                 android:onClick="@{() -> viewModel.onclickWish(viewModel.detailsProduct.toData().id)}"
+                app:layout_constraintBottom_toBottomOf="@id/share_icon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/share_icon"
-                app:layout_constraintBottom_toBottomOf="@id/share_icon"/>
+                app:showOnSuccess="@{viewModel.detailsProduct}" />
 
             <TextView
                 android:id="@+id/product_name"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:layout_marginTop="@dimen/margin3x"
+                android:elevation="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/monda_bold"
                 android:maxLines="2"
-                tools:text="@string/product_name"
-                app:showOnSuccess="@{viewModel.detailsProduct}"
                 android:text="@{viewModel.detailsProduct.toData().name}"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text20sp"
-                android:fontFamily="@font/monda_bold"
                 app:layout_constraintStart_toStartOf="@id/back_button"
-                app:layout_constraintTop_toBottomOf="@id/guideline" />
+                app:layout_constraintTop_toBottomOf="@id/guideline"
+                app:showOnSuccess="@{viewModel.detailsProduct}"
+                tools:text="@string/product_name" />
 
             <TextView
                 android:id="@+id/product_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/text24sp"
+                android:elevation="8dp"
                 android:text="@{String.valueOf(viewModel.detailsProduct.toData().price) +'$'}"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text18sp"
-                android:layout_marginRight="@dimen/text24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/product_name"
                 app:showOnSuccess="@{viewModel.detailsProduct}"
@@ -142,6 +146,7 @@
                 android:id="@+id/product_old_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:elevation="8dp"
                 android:text="@{String.valueOf(viewModel.detailsProduct.toData().oldPrice) +'$'}"
                 android:textColor="@color/secondary_text_color"
                 android:textSize="@dimen/text_small"
@@ -156,6 +161,7 @@
                 android:layout_width="30dp"
                 android:layout_height="1dp"
                 android:background="@color/secondary_text_color"
+                android:elevation="8dp"
                 app:isVisible="@{viewModel.detailsProduct.toData().sale}"
                 app:layout_constraintBottom_toBottomOf="@id/product_old_price_text"
                 app:layout_constraintEnd_toEndOf="@id/product_old_price_text"
@@ -173,7 +179,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/main_product_image"
                 tools:listitem="@layout/item_product_image" />
-
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/scrollView4"
