@@ -82,13 +82,9 @@
         <OnSwipe
             motion:touchAnchorId="@+id/scrollView4"
             motion:dragDirection="dragUp"
+            motion:touchAnchorSide="top"
             />
-
-        <OnClick
-            motion:targetId="@+id/product_name"
-            motion:clickAction="toggle"
-            />
-
     </Transition>
+
 
 </MotionScene>

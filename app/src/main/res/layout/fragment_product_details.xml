@@ -9,7 +9,7 @@
             type="com.lemon.team.electronics.ui.productDetails.ProductDetailsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -89,6 +89,8 @@
                 android:layout_height="wrap_content"
                 android:onClick="@{() -> viewModel.onclickShare(viewModel.detailsProduct.toData().id)}"
                 android:src="@drawable/ic_share"
+                android:layout_marginEnd="@dimen/margin2x"
+                app:showOnSuccess="@{viewModel.detailsProduct}"
                 app:layout_constraintBottom_toBottomOf="@+id/back_button"
                 app:layout_constraintEnd_toStartOf="@id/heart_checkbox"
                 app:layout_constraintTop_toTopOf="@+id/back_button" />
@@ -97,10 +99,11 @@
                 android:id="@+id/heart_checkbox"
                 style="@style/WishIconStyle"
                 android:layout_marginEnd="@dimen/margin3x"
+                app:showOnSuccess="@{viewModel.detailsProduct}"
                 android:onClick="@{() -> viewModel.onclickWish(viewModel.detailsProduct.toData().id)}"
-                app:layout_constraintBottom_toBottomOf="@id/share_icon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/share_icon" />
+                app:layout_constraintTop_toTopOf="@id/share_icon"
+                app:layout_constraintBottom_toBottomOf="@id/share_icon"/>
 
             <TextView
                 android:id="@+id/product_name"
@@ -164,7 +167,7 @@
                 tools:listitem="@layout/item_product_image" />
 
 
-            <ScrollView
+            <androidx.core.widget.NestedScrollView
                 android:id="@+id/scrollView4"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -184,6 +187,7 @@
                     android:id="@+id/product_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:descendantFocusability="blocksDescendants"
                     android:fontFamily="@font/monda_regular"
                     android:textColor="@color/primary_text_color"
                     android:textSize="@dimen/text_normal"
@@ -192,7 +196,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-            </ScrollView>
+            </androidx.core.widget.NestedScrollView>
 
         </androidx.constraintlayout.motion.widget.MotionLayout>
 
@@ -206,5 +210,5 @@
             layout="@layout/error"
             app:showOnError="@{viewModel.detailsProduct}"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </layout>
