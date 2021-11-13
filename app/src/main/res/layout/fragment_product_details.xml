@@ -36,6 +36,7 @@
                 android:layout_marginTop="@dimen/margin5x"
                 android:layout_marginEnd="@dimen/margin3x"
                 android:elevation="2dp"
+                android:scaleType="centerCrop"
                 app:showOnSuccess="@{viewModel.detailsProduct}"
                 tools:src="@color/brand_color"
                 android:onClick="@{()-> viewModel.onClickMainImage()}"
