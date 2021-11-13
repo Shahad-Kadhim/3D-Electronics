@@ -158,6 +158,7 @@
                     android:layout_marginTop="@dimen/margin3x"
                     android:layout_marginEnd="@dimen/margin2x"
                     android:text="@string/pay_now"
+                    android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/total_number" />
 
