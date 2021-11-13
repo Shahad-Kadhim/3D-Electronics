@@ -32,14 +32,17 @@
                 android:id="@+id/main_product_image"
                 android:layout_width="260dp"
                 android:layout_height="260dp"
+                app:shapeAppearanceOverlay="@style/MainProductImageShape"
                 android:layout_marginTop="@dimen/margin5x"
                 android:layout_marginEnd="@dimen/margin3x"
                 android:elevation="2dp"
+                app:showOnSuccess="@{viewModel.detailsProduct}"
+                tools:src="@color/brand_color"
                 android:onClick="@{()-> viewModel.onClickMainImage()}"
-                app:imageFromUrl="@{viewModel.mainImage}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_name"
-                app:shapeAppearance="@style/ShapeAppearanceOverlay" />
+                app:shapeAppearance="@style/ShapeAppearanceOverlay"
+                app:imageFromUrl="@{viewModel.mainImage}" />
 
 
             <com.google.android.material.imageview.ShapeableImageView
