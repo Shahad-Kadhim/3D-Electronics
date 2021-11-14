@@ -82,8 +82,8 @@ dependencies {
     //image slideshow library
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
 
-    //quantitizer library
-    implementation "com.github.kojofosu:Quantitizer:1.6.4"
+    //picker number library
+    implementation 'it.sephiroth.android.library:number-sliding-picker:1.1.1'
 
     implementation 'com.github.MikeOrtiz:TouchImageView:1.4.1' // last SupportLib version
 

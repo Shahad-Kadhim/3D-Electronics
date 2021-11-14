@@ -29,4 +29,5 @@
     <color name="secondary_text_color">#B6B6B6</color>
 
     <color name="red">#D92727</color>
+    <color name="image_filter">#B3000000</color>
 </resources>

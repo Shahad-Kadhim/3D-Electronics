@@ -15,8 +15,7 @@
             motion:layout_constraintEnd_toEndOf="@+id/main_product_image"
             motion:layout_constraintStart_toStartOf="@+id/main_product_image"
             motion:layout_constraintTop_toTopOf="@+id/main_product_image"
-            motion:layout_constraintVertical_bias="0.299"
-            motion:layout_constraintHorizontal_bias="0.841" />
+            />
 
         <Constraint
             android:id="@+id/main_product_image"
@@ -25,10 +24,9 @@
             android:elevation="2dp"
             android:layout_marginTop="@dimen/margin5x"
             android:layout_marginEnd="@dimen/margin3x"
-            motion:shapeAppearance="@style/ShapeAppearanceOverlay"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toBottomOf="@id/product_name"
-            />
+            android:layout_marginRight="@dimen/margin3x" />
 
         <Constraint
             android:id="@+id/product_images_recycler"
@@ -40,6 +38,27 @@
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="@id/main_product_image"
             />
+        <Constraint
+            motion:layout_constraintVertical_bias="0.0"
+            android:layout_height="0dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintHorizontal_bias="1.0"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            motion:layout_constraintTop_toBottomOf="@+id/numberPicker"
+            android:id="@+id/scrollView4" />
+
+        <Constraint
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin2x"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/main_product_image"
+            />
+
 
     </ConstraintSet>
 
@@ -74,6 +93,16 @@
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="@id/product_name"
             />
+
+        <Constraint
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            motion:layout_constraintStart_toStartOf="@+id/product_name"
+            motion:layout_constraintTop_toBottomOf="@+id/product_name"
+            />
+
 
     </ConstraintSet>
 

@@ -33,5 +33,6 @@
 
     <color name="red">#FF223D</color>
     <color name="searchbar_stroke_color">#BBBDC5</color>
+    <color name="image_filter">#B3FFFFFF</color>
 
 </resources>
