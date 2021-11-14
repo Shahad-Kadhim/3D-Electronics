@@ -43,6 +43,15 @@ fun setImage(view: ImageView, url: String?) {
     }
 }
 
+@BindingAdapter(value = ["app:imageCenterInside"])
+fun setImageCenterInside(view: ImageView, url: String?) {
+    url?.let { imageUrl ->
+        Glide.with(view)
+            .load(imageUrl)
+            .into(view)
+    }
+}
+
 @BindingAdapter(value = ["app:checkProduct"])
 fun checkStateProduct(view: View, value: Boolean) {
     view.isVisible = !value

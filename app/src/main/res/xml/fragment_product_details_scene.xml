@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto" >
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/product_image_alpha"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:alpha="0.0"
+            motion:layout_constraintBottom_toBottomOf="@+id/main_product_image"
+            motion:layout_constraintEnd_toEndOf="@+id/main_product_image"
+            motion:layout_constraintStart_toStartOf="@+id/main_product_image"
+            motion:layout_constraintTop_toTopOf="@+id/main_product_image"
+            />
+
+        <Constraint
+            android:id="@+id/main_product_image"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:elevation="2dp"
+            android:layout_marginTop="@dimen/margin5x"
+            android:layout_marginEnd="@dimen/margin3x"
+            android:layout_marginRight="@dimen/margin3x"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/product_name"
+            />
+
+        <Constraint
+            android:id="@+id/product_images_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="187dp"
+            android:layout_marginVertical="@dimen/margin2x"
+            android:layout_marginStart="@dimen/margin3x"
+            motion:layout_constraintBottom_toBottomOf="@+id/main_product_image"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/main_product_image"
+            android:layout_marginTop="0dp" />
+
+        <Constraint
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin2x"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/main_product_image"
+            />
+
+        <Constraint
+            android:id="@+id/product_name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin3x"
+            android:layout_marginTop="@dimen/margin2x"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/guideline"
+            />
+
+        <Constraint
+            android:id="@+id/product_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/text24sp"
+            android:layout_marginTop="15dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/guideline"
+            />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/product_image_alpha"
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:alpha="1"
+            motion:layout_constraintBottom_toBottomOf="@+id/main_product_image"
+            motion:layout_constraintEnd_toEndOf="@+id/main_product_image"
+            motion:layout_constraintStart_toStartOf="@+id/main_product_image"
+            motion:layout_constraintTop_toTopOf="@+id/main_product_image"
+            />
+
+        <Constraint
+            android:id="@+id/main_product_image"
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            />
+
+        <Constraint
+            android:id="@+id/product_images_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="187dp"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toBottomOf="@+id/main_product_image"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/product_name"
+            />
+
+        <Constraint
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin8dp"
+            motion:layout_constraintStart_toStartOf="@+id/product_name"
+            motion:layout_constraintTop_toBottomOf="@+id/product_name"
+            />
+        <Constraint
+            android:id="@+id/product_name"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/margin3x"
+            android:layout_marginTop="@dimen/margin12dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/guideline"/>
+
+        <Constraint
+            android:id="@+id/product_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/text24sp"
+            android:layout_marginTop="10dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/guideline"
+            />
+
+    </ConstraintSet>
+
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        >
+        <OnSwipe
+            motion:touchAnchorId="@+id/scrollView4"
+            motion:dragDirection="dragUp"
+            motion:moveWhenScrollAtTop="true"
+            />
+    </Transition>
+
+
+</MotionScene>

@@ -27,7 +27,7 @@ class ProductDetailsFragment :
 
     override fun setUpBinding() {
         binding.apply {
-            productImages.adapter =
+            productImagesRecycler.adapter =
                 ProductImageRecyclerAdapter(emptyList(), this@ProductDetailsFragment.viewModel)
         }
     }
