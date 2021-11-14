@@ -17,13 +17,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
     private val args: CategoryFragmentArgs by navArgs()
     override val viewModelClass = CategoryViewModel::class.java
 
-
-    override fun setUp() {
-        super.setUp()
-        viewModel.getProductsByCategoryId(args.categoryId)
-    }
-
     override fun setUpBinding() {
+        viewModel.getProductsByCategoryId(args.categoryId)
         binding.apply {
             categoryName = args.categoryName
             categoryRecycler.adapter =
