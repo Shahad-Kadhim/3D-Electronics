@@ -35,6 +35,6 @@ object CategoryMap {
         CategoriesId.SUGGESTED_COMPILATIONS to R.string.suggested_setup,
         CategoriesId.STREAM_TOOLS to R.string.stream_tools,
         CategoriesId.COOLERS to R.string.coolers,
-        CategoriesId.PC_SPEAKERS to R.string.pc_speakers,
+        CategoriesId.PC_SPEAKER to R.string.pc_speakers,
     )
 }
