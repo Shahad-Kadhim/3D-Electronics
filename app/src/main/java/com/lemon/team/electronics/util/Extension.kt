@@ -52,35 +52,3 @@ fun Intent.sharingUrl(url: String?): Intent? {
 
 
 fun <T> List<T>.getSixItems() = this.take(6)
-
-
-fun String.convertToCategoryIcon(): Int =
-    when(this){
-        CategoriesId.MIC -> R.drawable.ic_mic
-        CategoriesId.ADAPTER -> R.drawable.ic_cable
-        CategoriesId.CASE -> R.drawable.ic_case_icon
-        CategoriesId.TABLET -> R.drawable.ic_ci_tablet
-        CategoriesId.CPU -> R.drawable.ic_cpu
-        CategoriesId.GRAPHICS_CARD -> R.drawable.ic_graphics_card
-        CategoriesId.LAPTOP_FAN,
-        CategoriesId.CASE_FAN-> R.drawable.ic_fan
-        CategoriesId.SIMULATORS -> R.drawable.ic_game
-        CategoriesId.HEADSETS ,
-        CategoriesId.REPLACEMENT_EAR_PADS-> R.drawable.ic_headphone
-        CategoriesId.STORAGE_AND_MEMORY,
-        CategoriesId.EXTERNAL_HARD-> R.drawable.ic_storage
-        CategoriesId.GAMING_CHAIRS-> R.drawable.ic_chairs
-        CategoriesId.LAPTOP -> R.drawable.ic_laptop
-        CategoriesId.WEBCAM -> R.drawable.ic_webcam
-        CategoriesId.MONITOR_STAND -> R.drawable.ic_stand
-        CategoriesId.POWER_PRODUCTS ,
-        CategoriesId.POWER_SUPPLY -> R.drawable.ic_power_supply
-        CategoriesId.FLASH_DRIVES -> R.drawable.ic_memory
-        CategoriesId.MOUSE -> R.drawable.ic_mouse
-        CategoriesId.KEYBOARD -> R.drawable.ic_keyboard
-        CategoriesId.MOTHERBOARD -> R.drawable.ic_motherboard
-        CategoriesId.PAD_MOUSE -> R.drawable.ic_mousepad
-        CategoriesId.TABLET_AND_MOBILES -> R.drawable.ic_mobile
-        CategoriesId.MONITORS -> R.drawable.ic_monitor
-        else -> R.drawable.ic_pc
-}

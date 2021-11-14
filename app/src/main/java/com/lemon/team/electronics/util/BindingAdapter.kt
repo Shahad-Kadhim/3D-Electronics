@@ -113,13 +113,8 @@ fun setBackgroundColor(view: MaterialCardView, color: ColorsRecycler?) {
 
 @BindingAdapter(value = ["app:setIcon"])
 fun setCategoryIcon(view: ImageView, categoryId: String?) {
-    categoryId?.convertToCategoryIcon()?.let { idIcon ->
-        view.setImageDrawable(
-            ContextCompat.getDrawable(
-                view.context,
-                idIcon
-            )
-        )
+    with(CategoryMap.categoryIcon[categoryId]){
+        view.setImageDrawable(ContextCompat.getDrawable(view.context, this ?: R.drawable.ic_pc))
     }
 }
 

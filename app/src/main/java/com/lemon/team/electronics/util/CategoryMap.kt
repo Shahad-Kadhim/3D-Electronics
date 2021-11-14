@@ -3,6 +3,7 @@ package com.lemon.team.electronics.util
 import com.lemon.team.electronics.R
 
 object CategoryMap {
+
     val categoryName = mapOf(
         CategoriesId.MIC to R.string.microphone,
         CategoriesId.ADAPTER to R.string.cable_and_adapter,
@@ -36,5 +37,34 @@ object CategoryMap {
         CategoriesId.STREAM_TOOLS to R.string.stream_tools,
         CategoriesId.COOLERS to R.string.coolers,
         CategoriesId.PC_SPEAKER to R.string.pc_speakers,
+    )
+
+    val categoryIcon = mapOf(
+        CategoriesId.MIC to R.drawable.ic_mic,
+        CategoriesId.ADAPTER to R.drawable.ic_cable,
+        CategoriesId.CASE to R.drawable.ic_case_icon,
+        CategoriesId.TABLET to R.drawable.ic_ci_tablet,
+        CategoriesId.CPU to R.drawable.ic_cpu,
+        CategoriesId.GRAPHICS_CARD to R.drawable.ic_graphics_card,
+        CategoriesId.LAPTOP_FAN to R.drawable.ic_fan,
+        CategoriesId.CASE_FAN to R.drawable.ic_fan,
+        CategoriesId.SIMULATORS to R.drawable.ic_game,
+        CategoriesId.HEADSETS to R.drawable.ic_headphone,
+        CategoriesId.REPLACEMENT_EAR_PADS to R.drawable.ic_headphone,
+        CategoriesId.STORAGE_AND_MEMORY to R.drawable.ic_storage,
+        CategoriesId.EXTERNAL_HARD to R.drawable.ic_storage,
+        CategoriesId.GAMING_CHAIRS to R.drawable.ic_chairs,
+        CategoriesId.LAPTOP to R.drawable.ic_laptop,
+        CategoriesId.WEBCAM to R.drawable.ic_webcam,
+        CategoriesId.MONITOR_STAND to R.drawable.ic_stand,
+        CategoriesId.POWER_PRODUCTS to R.drawable.ic_power_supply,
+        CategoriesId.POWER_SUPPLY to R.drawable.ic_power_supply,
+        CategoriesId.FLASH_DRIVES to R.drawable.ic_memory,
+        CategoriesId.MOUSE to R.drawable.ic_mouse,
+        CategoriesId.KEYBOARD to R.drawable.ic_keyboard,
+        CategoriesId.MOTHERBOARD to R.drawable.ic_motherboard,
+        CategoriesId.PAD_MOUSE to R.drawable.ic_mousepad,
+        CategoriesId.TABLET_AND_MOBILES to R.drawable.ic_mobile,
+        CategoriesId.MONITORS to R.drawable.ic_monitor,
     )
 }
