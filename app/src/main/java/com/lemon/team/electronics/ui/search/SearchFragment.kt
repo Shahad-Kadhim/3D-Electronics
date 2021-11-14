@@ -40,7 +40,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
         }
 
         viewModel.clickBackEvent.observeEvent(this) {
-            findNavController().popBackStack()
+            findNavController().navigateUp()
         }
     }
 

@@ -28,7 +28,7 @@ class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
 
     override fun observeEvents(){
         viewModel.clickBackEvent.observeEvent(this){
-            findNavController().popBackStack()
+            findNavController().navigateUp()
         }
     }
 

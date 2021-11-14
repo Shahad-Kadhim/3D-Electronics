@@ -33,7 +33,7 @@ class CategoriesFragment: BaseFragment<FragmentCategoriesBinding,CategoriesViewM
         }
 
         viewModel.clickBackEvent.observeEvent(this){
-            findNavController().popBackStack()
+            findNavController().navigateUp()
         }
     }
 

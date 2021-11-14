@@ -43,7 +43,7 @@ class ProductDetailsFragment :
             }
 
             onclickBack.observeEvent(this@ProductDetailsFragment) {
-                findNavController().popBackStack()
+                findNavController().navigateUp()
             }
 
             onclickMainImage.observeEvent(this@ProductDetailsFragment) { imageUrl ->

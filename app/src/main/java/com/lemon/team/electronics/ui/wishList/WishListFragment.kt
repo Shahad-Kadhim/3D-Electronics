@@ -28,7 +28,7 @@ class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>
             )
         }
         viewModel.clickBackEvent.observeEvent(this){
-            findNavController().popBackStack()
+            findNavController().navigateUp()
         }
 
     }

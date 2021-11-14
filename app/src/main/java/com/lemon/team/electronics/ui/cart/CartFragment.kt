@@ -34,7 +34,7 @@ class CartFragment: BaseFragment<FragmentCartBinding, CartViewModel>() {
         }
 
         viewModel.clickBackEvent.observeEvent(this) {
-            findNavController().popBackStack()
+            findNavController().navigateUp()
         }
 
     }
