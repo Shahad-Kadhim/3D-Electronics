@@ -92,16 +92,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?)?.apply {
 
                 addCategoryItem(headsetsCategory,
-                    CategoryInfoType(CategoriesId.HEADSETS, Constants.HEADSET_CATEGORY_HEADLINE)
+                    CategoryInfoType(CategoriesId.HEADSETS, context?.getString(R.string.headset).toString())
                 )
                 addCategoryItem(laptopCategory,
-                    CategoryInfoType(CategoriesId.LAPTOP, Constants.LAPTOP_CATEGORY_HEADLINE)
+                    CategoryInfoType(CategoriesId.LAPTOP, context?.getString(R.string.laptop).toString())
                 )
                 addCategoryItem(caseCategory,
-                    CategoryInfoType(CategoriesId.CASE, Constants.CASE_CATEGORY_HEADLINE)
+                    CategoryInfoType(CategoriesId.CASE, context?.getString(R.string._case).toString())
                 )
                 addCategoryItem(padMouseCategory,
-                    CategoryInfoType(CategoriesId.PAD_MOUSE, Constants.MOUSE_PAD_CATEGORY_HEADLINE)
+                    CategoryInfoType(CategoriesId.PAD_MOUSE, context?.getString(R.string.mouse_pad).toString())
                 )
 
 

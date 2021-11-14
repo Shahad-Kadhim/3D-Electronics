@@ -14,6 +14,7 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
+import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.response.HomeImage
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
@@ -121,13 +122,8 @@ fun setBackgroundColor(view: MaterialCardView, color: ColorsRecycler?) {
 
 @BindingAdapter(value = ["app:setIcon"])
 fun setCategoryIcon(view: ImageView, categoryId: String?) {
-    categoryId?.convertToCategoryIcon()?.let { idIcon ->
-        view.setImageDrawable(
-            ContextCompat.getDrawable(
-                view.context,
-                idIcon
-            )
-        )
+    with(CategoryMap.categoryIcon[categoryId]){
+        view.setImageDrawable(ContextCompat.getDrawable(view.context, this ?: R.drawable.ic_pc))
     }
 }
 
@@ -155,5 +151,12 @@ fun <T> loading(view: View, state: State<T>?) {
         View.VISIBLE
     }else {
         View.GONE
+    }
+}
+
+@BindingAdapter(value = ["app:categoryId"])
+fun setCategoryNameById(view: TextView, categoryId: String?) {
+    CategoryMap.categoryName[categoryId]?.let {
+        view.text = view.context.getString(it)
     }
 }

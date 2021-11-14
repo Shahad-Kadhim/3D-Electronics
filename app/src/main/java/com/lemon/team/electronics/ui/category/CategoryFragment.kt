@@ -21,6 +21,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
         viewModel.getProductsByCategoryId(args.categoryId)
         binding.apply {
             categoryName = args.categoryName
+            categoryId = args.categoryId
             categoryRecycler.adapter =
                 CategoryRecyclerAdapter(mutableListOf(), this@CategoryFragment.viewModel)
         }
