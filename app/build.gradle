@@ -84,6 +84,7 @@ dependencies {
 
     //quantitizer library
     implementation "com.github.kojofosu:Quantitizer:1.6.4"
+    implementation "io.coil-kt:coil:1.4.0"
 
     implementation 'com.github.MikeOrtiz:TouchImageView:1.4.1' // last SupportLib version
 

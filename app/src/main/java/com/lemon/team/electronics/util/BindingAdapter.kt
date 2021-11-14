@@ -7,6 +7,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.size.Scale
+import coil.transform.CircleCropTransformation
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -36,10 +39,10 @@ fun playVideo(view: VideoView, path: String?) {
 @BindingAdapter(value = ["app:imageFromUrl"])
 fun setImage(view: ImageView, url: String?) {
     url?.let { imageUrl ->
-        Glide.with(view)
-            .load(imageUrl)
-            .centerCrop()
-            .into(view)
+        view.load(imageUrl) {
+            crossfade(true)
+            scale(Scale.FILL)
+        }
     }
 }
 
