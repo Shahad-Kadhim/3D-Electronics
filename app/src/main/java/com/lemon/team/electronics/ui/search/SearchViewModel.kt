@@ -30,7 +30,7 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
     fun onclickSearch() {
         searchName.value?.let { nameYouSearch ->
             collectResponse(
-                Repository.getProductByName(nameYouSearch, 0)){ product ->
+                Repository.getProductByName(nameYouSearch, Constants.PAGE_NUMBER_ZERO)) { product ->
                 searchResult.postValue(product)
             }
         }
