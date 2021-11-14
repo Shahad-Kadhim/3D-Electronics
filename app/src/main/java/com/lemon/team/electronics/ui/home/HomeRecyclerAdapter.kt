@@ -49,7 +49,7 @@ class HomeRecyclerAdapter(
             TYPE_SLIDE_SHOW -> R.layout.item_slider
             TYPE_SEARCH -> R.layout.item_search
             TYPE_CATEGORIES -> R.layout.item_categories_recycle
-            TYPE_BEST_SELLER -> R.layout.items_horizontal_best_seller_host
+            TYPE_MOST_WANTED_PRODUCTS -> R.layout.items_horizontal_most_wanted_products_host
             else -> R.layout.items_horizontal_category_host
         }
 
@@ -59,8 +59,8 @@ class HomeRecyclerAdapter(
 
     private fun bind(holder: ItemViewHolder, position: Int) {
         when (val currentItem = itemsNested[position]) {
-            is HomeItem.BestProductType -> {
-                holder.setVariableAdapter(BestSellerRecyclerAdapter(currentItem.items, listener))
+            is HomeItem.MostWantedProductsType -> {
+                holder.setVariableAdapter(MostWantedProductsRecycler(currentItem.items, listener))
             }
             is HomeItem.CategoriesType -> {
                 holder.setVariableAdapter(CategoriesAdapter((currentItem.items).getSixItems(), listener))
@@ -85,7 +85,7 @@ class HomeRecyclerAdapter(
             is HomeItem.SlideType -> TYPE_SLIDE_SHOW
             is HomeItem.SearchType -> TYPE_SEARCH
             is HomeItem.CategoriesType -> TYPE_CATEGORIES
-            is HomeItem.BestProductType -> TYPE_BEST_SELLER
+            is HomeItem.MostWantedProductsType -> TYPE_MOST_WANTED_PRODUCTS
             is HomeItem.ElementCategoriesType -> TYPE_ELEMENT_CATEGORIES
         }
 
@@ -93,7 +93,7 @@ class HomeRecyclerAdapter(
         const val TYPE_SLIDE_SHOW = 1
         const val TYPE_SEARCH = 2
         const val TYPE_CATEGORIES = 3
-        const val TYPE_BEST_SELLER = 4
+        const val TYPE_MOST_WANTED_PRODUCTS = 4
         const val TYPE_ELEMENT_CATEGORIES = 5
     }
 
