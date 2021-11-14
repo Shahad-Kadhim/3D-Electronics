@@ -56,6 +56,7 @@
                 android:id="@+id/quantity_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/monda_regular"
@@ -63,13 +64,15 @@
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_name_text" />
 
             <TextView
                 android:id="@+id/product_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
+                android:layout_marginTop="42dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/monda_bold"
                 android:text="@{String.valueOf(item.price)+` $`}"
@@ -77,26 +80,27 @@
                 android:textSize="@dimen/text_normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/product_image"
+                app:layout_constraintTop_toBottomOf="@+id/product_name_text"
                 tools:text="15.77 $" />
 
             <TextView
                 android:id="@+id/product_old_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:fontFamily="@font/monda_bold"
-                android:text="0.0$"
+                android:text="@{String.valueOf(item.oldPrice)+` $`}"
                 android:textColor="@color/secondary_text_color"
                 android:textSize="@dimen/text_small"
                 android:textStyle="bold"
+                app:isVisible="@{item.sale}"
                 app:layout_constraintBottom_toTopOf="@+id/product_price_text"
-                app:layout_constraintStart_toStartOf="@+id/product_price_text"
-                app:layout_constraintTop_toBottomOf="@+id/product_name_text" />
+                app:layout_constraintStart_toStartOf="@+id/product_price_text" />
 
 
             <View
                 android:layout_width="30dp"
                 android:layout_height="1dp"
+                app:isVisible="@{item.sale}"
                 android:background="@color/secondary_text_color"
                 app:layout_constraintBottom_toBottomOf="@id/product_old_price_text"
                 app:layout_constraintEnd_toEndOf="@id/product_old_price_text"
