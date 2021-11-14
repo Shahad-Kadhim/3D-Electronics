@@ -1,5 +1,6 @@
-package com.lemon.team.electronics.model.domain
+package com.lemon.team.electronics.ui.home
 
+import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.model.response.*
 
 
