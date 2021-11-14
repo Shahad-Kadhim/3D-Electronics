@@ -26,6 +26,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
     override fun setUpBinding() {
         binding.apply {
             categoryName = args.categoryName
+            categoryId = args.categoryId
             categoryRecycler.adapter =
                 CategoryRecyclerAdapter(mutableListOf(), this@CategoryFragment.viewModel)
         }

@@ -150,10 +150,10 @@ fun <T> loading(view: View, state: State<T>?) {
     }
 }
 
-@BindingAdapter(value = ["app:categoryName"])
-fun setCategoryName(view: TextView, category: CategoryResponse){
+@BindingAdapter(value = ["app:categoryId"])
+fun setCategoryNameById(view: TextView, categoryId: String){
     with(view.context){
-        view.text = when(category.id) {
+        view.text = when(categoryId) {
             CategoriesId.MIC -> getString(R.string.microphone)
             CategoriesId.ADAPTER -> getString(R.string.cable_and_adapter)
             CategoriesId.CASE -> getString(R.string._case)
@@ -186,7 +186,7 @@ fun setCategoryName(view: TextView, category: CategoryResponse){
             CategoriesId.STREAM_TOOLS -> getString(R.string.stream_tools)
             CategoriesId.COOLERS -> getString(R.string.coolers)
             CategoriesId.PC_SPEAKERS -> getString(R.string.pc_speakers)
-            else -> category.categoryName
+            else -> view.text
         }
     }
 }
