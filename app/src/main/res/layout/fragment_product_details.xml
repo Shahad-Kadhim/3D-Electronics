@@ -91,21 +91,21 @@
                 app:layout_constraintEnd_toEndOf="@+id/main_product_image"
                 app:layout_constraintStart_toStartOf="@+id/main_product_image"
                 app:layout_constraintTop_toTopOf="@+id/main_product_image"
-                app:shapeAppearance="@style/ShapeAppearanceOverlay"
-                />
+                app:shapeAppearance="@style/ShapeAppearanceOverlay" />
 
             <TextView
                 android:id="@+id/product_name"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin3x"
+                android:layout_marginTop="@dimen/margin3x"
                 android:elevation="8dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/monda_bold"
                 android:maxLines="2"
-                android:textSize="@dimen/text20sp"
                 android:text="@{viewModel.detailsProduct.toData().name}"
                 android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/guideline"
                 tools:text="@string/product_name" />
