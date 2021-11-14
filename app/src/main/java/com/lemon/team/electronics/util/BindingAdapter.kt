@@ -101,9 +101,9 @@ fun setBackgroundColor(view: MaterialCardView, color: ColorsRecycler?) {
             ContextCompat.getColor(
                 view.context,
                 when (colorsRecycler) {
-                    ColorsRecycler.COLOR_ONE -> R.color.brand_color
-                    ColorsRecycler.COLOR_TWO -> R.color.color_two
-                    ColorsRecycler.COLOR_THREE -> R.color.color_three
+                    ColorsRecycler.COLOR_ONE -> R.color.color_category_one
+                    ColorsRecycler.COLOR_TWO -> R.color.color_category_two
+                    ColorsRecycler.COLOR_THREE -> R.color.color_category_three
                 }
             )
         )

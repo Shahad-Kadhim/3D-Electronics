@@ -18,6 +18,10 @@
     <color name="secondary_brand_color">#9EB6B5</color>
     <color name="tertiary_brand_color">#BCD8D7</color>
 
+    <color name="color_category_one">#303b3b</color>
+    <color name="color_category_two">#363b3b</color>
+    <color name="color_category_three">#394141</color>
+
     <color name="background_color">#242424</color>
     <color name="secondary_background_color">#2C2C2C</color>
     <color name="text_color_dark">#ffffff</color>
