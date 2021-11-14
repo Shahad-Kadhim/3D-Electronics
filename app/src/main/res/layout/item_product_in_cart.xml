@@ -29,13 +29,14 @@
                 android:id="@+id/product_name_text"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginStart="@dimen/margin4x"
+                android:layout_marginTop="@dimen/margin_normal"
                 android:fontFamily="@font/monda_regular"
                 android:text="@{item.name}"
+
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_default"
-                app:layout_constraintLeft_toRightOf="@id/product_image"
+                app:layout_constraintStart_toEndOf="@+id/product_image"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="MIMD HSY-013 Wireless Controller for Nintendo Switch" />
 
@@ -58,7 +59,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/monda_regular"
-                android:text="Pieces"
+                android:text="@string/pieces"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -111,6 +112,7 @@
                 app:imageFromUrl="@{String.valueOf(item.mainImage)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@color/secondary_icons_color" />
 
