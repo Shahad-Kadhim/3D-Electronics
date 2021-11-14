@@ -48,6 +48,35 @@
             app:layout_constraintTop_toTopOf="@id/share_icon"
             />
 
+        <TextView
+            android:id="@+id/product_old_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="54dp"
+            android:elevation="@dimen/elevation2dp"
+            android:text="@{String.valueOf(viewModel.detailsProduct.toData().oldPrice) +'$'}"
+            android:textColor="@color/old_price"
+            android:textSize="@dimen/text_small"
+            android:textStyle="bold"
+            app:isVisible="@{viewModel.detailsProduct.toData().sale}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/share_icon"
+            tools:text="0.0$" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="30dp"
+            android:layout_height="1dp"
+            android:background="@color/old_price"
+            android:elevation="@dimen/elevation2dp"
+            app:isVisible="@{viewModel.detailsProduct.toData().sale}"
+            app:layout_constraintBottom_toBottomOf="@id/product_old_price_text"
+            app:layout_constraintEnd_toEndOf="@id/product_old_price_text"
+            app:layout_constraintStart_toStartOf="@id/product_old_price_text"
+            app:layout_constraintTop_toTopOf="@id/product_old_price_text" />
+
+
 
         <androidx.constraintlayout.motion.widget.MotionLayout
             android:id="@+id/constraintLayout2"
@@ -101,7 +130,7 @@
                 android:layout_marginTop="@dimen/margin3x"
                 android:elevation="8dp"
                 android:ellipsize="end"
-                android:fontFamily="@font/monda_bold"
+                android:fontFamily="@font/roboto_bold"
                 android:maxLines="2"
                 android:text="@{viewModel.detailsProduct.toData().name}"
                 android:textColor="@color/primary_text_color"
@@ -131,40 +160,16 @@
                 android:id="@+id/product_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/text24sp"
-                android:elevation="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="@dimen/text24sp"
+                android:elevation="@dimen/elevation2dp"
+                android:fontFamily="@font/monda_bold"
                 android:text="@{String.valueOf(viewModel.detailsProduct.toData().price) +'$'}"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/product_name"
+                app:layout_constraintTop_toBottomOf="@id/guideline"
                 tools:text="55.77$" />
-
-            <TextView
-                android:id="@+id/product_old_price_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="@dimen/elevation2dp"
-                android:text="@{String.valueOf(viewModel.detailsProduct.toData().oldPrice) +'$'}"
-                android:textColor="@color/old_price"
-                android:textSize="@dimen/text_small"
-                android:textStyle="bold"
-                app:isVisible="@{viewModel.detailsProduct.toData().sale}"
-                app:layout_constraintStart_toStartOf="@id/product_price_text"
-                app:layout_constraintTop_toBottomOf="@+id/product_price_text"
-                tools:text="0.0$" />
-
-            <View
-                android:id="@+id/view2"
-                android:layout_width="30dp"
-                android:layout_height="1dp"
-                android:background="@color/old_price"
-                android:elevation="@dimen/elevation2dp"
-                app:isVisible="@{viewModel.detailsProduct.toData().sale}"
-                app:layout_constraintBottom_toBottomOf="@id/product_old_price_text"
-                app:layout_constraintEnd_toEndOf="@id/product_old_price_text"
-                app:layout_constraintStart_toStartOf="@id/product_old_price_text"
-                app:layout_constraintTop_toTopOf="@id/product_old_price_text" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/product_images_recycler"

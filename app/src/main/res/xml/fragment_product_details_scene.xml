@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:motion="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:motion="http://schemas.android.com/apk/res-auto" >
 
     <ConstraintSet android:id="@+id/start">
 
@@ -24,9 +23,10 @@
             android:elevation="2dp"
             android:layout_marginTop="@dimen/margin5x"
             android:layout_marginEnd="@dimen/margin3x"
+            android:layout_marginRight="@dimen/margin3x"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toBottomOf="@id/product_name"
-            android:layout_marginRight="@dimen/margin3x" />
+            />
 
         <Constraint
             android:id="@+id/product_images_recycler"
@@ -37,7 +37,7 @@
             motion:layout_constraintBottom_toBottomOf="@+id/main_product_image"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="@id/main_product_image"
-            />
+            android:layout_marginTop="0dp" />
 
         <Constraint
             android:id="@+id/numberPicker"
@@ -57,9 +57,17 @@
             android:layout_marginTop="@dimen/margin2x"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toBottomOf="@id/guideline"
-            >
+            />
 
-        </Constraint>
+        <Constraint
+            android:id="@+id/product_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/text24sp"
+            android:layout_marginTop="15dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/guideline"
+            />
 
     </ConstraintSet>
 
@@ -106,13 +114,21 @@
         <Constraint
             android:id="@+id/product_name"
             android:layout_width="250dp"
-            android:layout_height="28dp"
+            android:layout_height="30dp"
             android:layout_marginStart="@dimen/margin3x"
             android:layout_marginTop="@dimen/margin12dp"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/guideline">
+            motion:layout_constraintTop_toBottomOf="@id/guideline"/>
 
-        </Constraint>
+        <Constraint
+            android:id="@+id/product_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/text24sp"
+            android:layout_marginTop="10dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/guideline"
+            />
 
     </ConstraintSet>
 
