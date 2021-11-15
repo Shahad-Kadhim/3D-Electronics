@@ -1,24 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.lemon.team.electronics.ui.cart.CartViewModel" />
     </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/check_out"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_button"
+            style="@style/ButtonBack"
+            android:background="@drawable/button_back"
+            android:onClick="@{() -> viewModel.onClickBack()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/margin2x"
+            android:layout_marginTop="@dimen/radius3x"
+            android:layout_marginBottom="56dp"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_button"
+            tools:layout_editor_absoluteX="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding2x">
+
+                <TextView
+                    android:id="@+id/order_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin2x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/order_summary"
+                    android:textColor="@color/seconder_text_color"
+                    android:textSize="@dimen/text_normal2x"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/item_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/monda_bold"
+                    android:textColor="@color/seconder_text_color"
+                    android:textSize="@dimen/text_normal2x"
+                    android:text="@{`( `+viewModel.cartItems.toData().products.size+` items )`}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/order_summary"
+                    app:layout_constraintStart_toEndOf="@+id/order_summary"
+                    tools:text="(3 items)" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/checkout_recycler"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/margin2x"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:items="@{viewModel.cartItems.toData().products}"
+                    app:layout_constraintBottom_toTopOf="@+id/break_line"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/order_summary"
+                    tools:listitem="@layout/item_checkout" />
+
+                <View
+                    android:id="@+id/break_line"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="@dimen/margin3x"
+                    android:layout_marginVertical="@dimen/margin2x"
+                    android:background="@color/brand_color"
+                    app:layout_constraintBottom_toTopOf="@+id/sub_total"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/sub_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin2x"
+                    android:layout_marginBottom="@dimen/margin8dp"
+                    android:fontFamily="@font/monda_regular"
+                    android:text="@string/subtotal"
+                    android:textColor="@color/seconder_text_color"
+                    android:textSize="@dimen/text_normal"
+                    app:layout_constraintBottom_toTopOf="@+id/delivery_fees"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/sub_total_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin2x"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="0.0 $"
+                    android:textColor="@color/seconder_text_color"
+                    android:textSize="@dimen/text_normal"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/sub_total"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/delivery_fees"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin2x"
+                    android:layout_marginBottom="@dimen/margin8dp"
+                    android:fontFamily="@font/monda_regular"
+                    android:text="@string/delivery_fees"
+                    android:textColor="@color/seconder_text_color"
+                    android:textSize="@dimen/text_normal"
+                    app:layout_constraintBottom_toTopOf="@+id/secondary_break_line"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/delivery_fees_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin2x"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@{viewModel.totalPrice +`$`}"
+                    android:textColor="@color/seconder_text_color"
+                    android:textSize="@dimen/text_normal"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/delivery_fees"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="10.00 $" />
+
+                <TextView
+                    android:id="@+id/secondary_break_line"
+                    android:layout_width="240dp"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/margin8dp"
+                    android:background="@color/color_four"
+                    app:layout_constraintBottom_toTopOf="@+id/total_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin2x"
+                    android:layout_marginBottom="24dp"
+                    android:fontFamily="@font/monda_regular"
+                    android:text="@string/total"
+                    android:textColor="@color/seconder_text_color"
+                    android:textSize="@dimen/text_normal"
+                    app:layout_constraintBottom_toTopOf="@+id/pay_now"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/total_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin2x"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@{viewModel.totalPrice +`$`}"
+                    tools:text="100.54 $"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text20sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/total"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <Button
+                    android:id="@+id/pay_now"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="@dimen/margin2x"
+                    android:background="@drawable/rounded_button"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/pay_now"
+                    android:onClick="@{() -> viewModel.onClickPayNow()}"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -11,14 +11,17 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
 
     val totalPrice = Repository.getTotalPrice()
 
+    private val _clickPayNowEvent = MutableLiveData<Event<Boolean>>()
+    var clickPayNowEvent: LiveData<Event<Boolean>> = _clickPayNowEvent
+
     private val _clickItemEvent = MutableLiveData<Event<String>>()
-    var clickItemEvent : LiveData<Event<String>> = _clickItemEvent
+    var clickItemEvent: LiveData<Event<String>> = _clickItemEvent
 
     private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
-    var clickBackEvent : LiveData<Event<Boolean>> = _clickBackEvent
+    var clickBackEvent: LiveData<Event<Boolean>> = _clickBackEvent
 
     private val _clickCheckoutEvent = MutableLiveData<Event<Boolean>>()
-    var clickCheckoutEvent : LiveData<Event<Boolean>> = _clickCheckoutEvent
+    var clickCheckoutEvent: LiveData<Event<Boolean>> = _clickCheckoutEvent
 
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
@@ -32,6 +35,9 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
         _clickCheckoutEvent.postValue(Event(true))
     }
 
+    fun onClickPayNow() {
+        _clickPayNowEvent.postValue(Event(true))
+    }
 
 
 }

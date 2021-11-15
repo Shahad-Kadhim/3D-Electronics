@@ -60,4 +60,8 @@
     <string name="stream_tools">Stream Tools</string>
     <string name="coolers">Coolers</string>
     <string name="pc_speakers">Pc Speakers</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="delivery_fees">Delivery Fees:</string>
+    <string name="pay_now">Pay Now</string>
 </resources>

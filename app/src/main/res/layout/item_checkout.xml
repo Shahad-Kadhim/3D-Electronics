@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.lemon.team.electronics.model.response.Product" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin5x">
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/monda_regular"
+            android:textColor="@color/seconder_text_color"
+            android:text="@{item.name}"
+            android:textSize="@dimen/text12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Xbox controllera;ldfkja;dfklja;afafasdfadfadfadfadfadfsasdfasdfadfkfj" />
+
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin4x"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/seconder_text_color"
+            android:textSize="@dimen/text14sp"
+            android:text="3"
+            app:layout_constraintBaseline_toBaselineOf="@+id/item_name"
+            app:layout_constraintEnd_toStartOf="@+id/price"
+            app:layout_constraintStart_toEndOf="@+id/item_name"
+            tools:text="3" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin2x"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@{item.price +`$`}"
+            android:textColor="@color/seconder_text_color"
+            android:textSize="@dimen/text_normal"
+            app:layout_constraintBaseline_toBaselineOf="@+id/quantity"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="55.77 IQ" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
