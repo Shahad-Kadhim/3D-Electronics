@@ -16,7 +16,7 @@ interface ProductsItemsDao {
     @Update
     fun update(Item: Item)
 
-    @Query("SELECT * FROM PRODUCT_TABLE WHERE productType = 1 ")
+    @Query("SELECT * FROM PRODUCT_TABLE WHERE productType = 1 ORDER BY id DESC ")
     fun getAllCartItems(): Flow<List<Item>>
 
 }
