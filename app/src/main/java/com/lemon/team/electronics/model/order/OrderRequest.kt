@@ -9,9 +9,9 @@ data class OrderRequest(
     @SerializedName("companyName")
     val companyName: String?,
     @SerializedName("district")
-    val district: String?,
+    val regionName: String?,
     @SerializedName("district2")
-    val district2: String?,
+    val nearestPoint: String?,
     @SerializedName("email")
     val email: String?,
     @SerializedName("mobileNumber")
