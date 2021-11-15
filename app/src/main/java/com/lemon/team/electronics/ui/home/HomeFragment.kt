@@ -39,6 +39,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             navOnEvent(cartEvent){
                 HomeFragmentDirections.actionHomeFragmentToCartFragment()
             }
+            navOnEvent(onclickAdd){
+                HomeFragmentDirections.actionHomeFragmentToCartFragment()
+            }
             navOnEvent(onclickCategoryEvent){ category ->
                 HomeFragmentDirections.actionHomeFragmentToCategoryFragment(
                     category.id,

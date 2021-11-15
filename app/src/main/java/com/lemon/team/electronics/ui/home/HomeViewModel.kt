@@ -1,12 +1,16 @@
 package com.lemon.team.electronics.ui.home
 
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.repository.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
+import com.lemon.team.electronics.model.repository.DatabaseRepository
+import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
+import kotlinx.coroutines.launch
 
 class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
@@ -51,6 +55,12 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     val padMouseCategory = Repository.getProductsByCategoryId(CategoriesId.PAD_MOUSE,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
+
+    private var _detailsProduct = MutableLiveData<State<Product?>>()
+    val detailsProduct :LiveData<State<Product?>> =_detailsProduct
+
+    private var _onclickAdd = MutableLiveData<Event<Boolean>>()
+    val onclickAdd: LiveData<Event<Boolean>> = _onclickAdd
 
 
     val state=MediatorLiveData<State<Any>>().apply {
@@ -104,6 +114,17 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     override fun onClickProduct(productId: String) {
         _onclickProductEvent.postValue(Event(productId))
     }
+
+    override fun onclickAddToCart(Product: Product){
+        _onclickAdd.postValue(Event(true))
+        viewModelScope.launch {
+            DatabaseRepository.insertProduct(setItem(Product))
+        }
+    }
+
+    fun setItem(Product: Product) =
+        Product.convertToItem(Constants.CART, 1)
+
 
     override fun onClickHeart(productId: String) {
         // write code when create database

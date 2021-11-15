@@ -52,7 +52,7 @@ fun Intent.sharingUrl(url: String?): Intent? {
     }
 }
 
-fun Product.convertToItem(productType: String, pieces: Int) =
+fun Product.convertToItem(productType: Int, pieces: Int) =
     Item(
         0,
         id,

@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface ProductsItemsDao {
 
     @Insert
-    suspend fun insert(Item: Item)
+    suspend fun insert(Item: Item?)
 
     @Delete
     fun delete(Item: Item)
@@ -16,7 +16,7 @@ interface ProductsItemsDao {
     @Update
     fun update(Item: Item)
 
-    @Query("SELECT * FROM PRODUCT_TABLE ")
-    fun getAllItems(): Flow<List<Item>>
+    @Query("SELECT * FROM PRODUCT_TABLE WHERE productType = 1 ")
+    fun getAllCartItems(): Flow<List<Item>>
 
 }

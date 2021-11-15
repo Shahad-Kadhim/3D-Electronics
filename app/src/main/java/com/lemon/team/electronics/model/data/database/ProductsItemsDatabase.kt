@@ -10,6 +10,7 @@ import com.lemon.team.electronics.model.data.Item
 
 @Database(entities = [Item::class], version = 1)
 abstract class ProductsItemsDatabase: RoomDatabase() {
+
     abstract fun productsDoa(): ProductsItemsDao
 
     companion object{
@@ -39,4 +40,5 @@ abstract class ProductsItemsDatabase: RoomDatabase() {
         }
 
     }
+
 }

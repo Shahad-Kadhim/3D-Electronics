@@ -7,8 +7,8 @@ object DatabaseRepository {
 
     private val dao = ProductsItemsDatabase.getInstanceWithContext().productsDoa()
 
-    suspend fun insertProduct(Item: Item) = dao.insert(Item)
+    suspend fun insertProduct(Item: Item?) = dao.insert(Item)
 
-    fun getAllProducts() = dao.getAllItems()
+    fun getAllProducts() = dao.getAllCartItems()
 
 }
