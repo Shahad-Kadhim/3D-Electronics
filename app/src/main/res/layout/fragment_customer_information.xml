@@ -4,12 +4,15 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.lemon.team.electronics.ui.customerInformation.CustomerInformationViewModel" />
+
     </data>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,10 +56,10 @@
                 android:id="@+id/full_name_input"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:textColor="@color/seconder_text_color"
-                android:padding="@dimen/padding2x"
                 android:layout_marginHorizontal="@dimen/margin5x"
                 android:background="@drawable/shape_edit_text"
+                android:padding="@dimen/padding2x"
+                android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/full_name" />
 
             <TextView
@@ -76,10 +79,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="@dimen/margin5x"
-                android:textColor="@color/seconder_text_color"
                 android:background="@drawable/shape_edit_text"
                 android:hint="@string/if_you_are_a_company_owner"
                 android:padding="@dimen/padding2x"
+                android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/company_name" />
 
             <TextView
@@ -105,9 +108,9 @@
                 <Spinner
                     android:id="@+id/governorate_input"
                     android:layout_width="match_parent"
-                    android:textColor="@color/seconder_text_color"
-                    android:padding="@dimen/padding2x"
                     android:layout_height="match_parent"
+                    android:padding="@dimen/padding2x"
+                    android:textColor="@color/seconder_text_color"
                     app:layout_constraintTop_toBottomOf="@+id/governorate" />
             </LinearLayout>
 
@@ -127,10 +130,10 @@
                 android:id="@+id/region_name_input"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="@dimen/padding2x"
-                android:textColor="@color/seconder_text_color"
                 android:layout_marginHorizontal="@dimen/margin5x"
                 android:background="@drawable/shape_edit_text"
+                android:padding="@dimen/padding2x"
+                android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/region_name" />
 
             <TextView
@@ -149,10 +152,10 @@
                 android:id="@+id/nearest_point_input"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="@dimen/padding2x"
-                android:textColor="@color/seconder_text_color"
                 android:layout_marginHorizontal="@dimen/margin5x"
                 android:background="@drawable/shape_edit_text"
+                android:padding="@dimen/padding2x"
+                android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/nearest_point" />
 
             <TextView
@@ -171,11 +174,11 @@
                 android:id="@+id/email_input"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/seconder_text_color"
-                android:padding="@dimen/padding2x"
                 android:layout_marginHorizontal="@dimen/margin5x"
                 android:background="@drawable/shape_edit_text"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/padding2x"
+                android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/email" />
 
             <TextView
@@ -194,12 +197,12 @@
                 android:id="@+id/phone_number_input"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="@dimen/padding2x"
-                android:inputType="phone"
-                android:hint="@string/_964_xxx_xxxx"
-                android:textColor="@color/seconder_text_color"
                 android:layout_marginHorizontal="@dimen/margin5x"
                 android:background="@drawable/shape_edit_text"
+                android:hint="@string/_964_xxx_xxxx"
+                android:inputType="phone"
+                android:padding="@dimen/padding2x"
+                android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/phone_number" />
 
             <TextView
@@ -218,31 +221,28 @@
                 android:id="@+id/note_input"
                 android:layout_width="match_parent"
                 android:layout_height="96dp"
-                android:padding="@dimen/padding2x"
-                android:textColor="@color/seconder_text_color"
-                android:gravity="top"
-                android:hint="@string/notes_about_your_order"
                 android:layout_marginHorizontal="@dimen/margin5x"
                 android:background="@drawable/shape_edit_text"
+                android:gravity="top"
+                android:hint="@string/notes_about_your_order"
+                android:padding="@dimen/padding2x"
+                android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/note" />
 
             <Button
                 android:id="@+id/submit_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_button"
                 android:layout_marginTop="@dimen/margin4x"
-                android:text="@string/submit_your_order"
+                android:background="@drawable/shape_button"
                 android:fontFamily="@font/lato_regular"
-                android:textStyle="bold"
-                android:textSize="@dimen/text_default"
+                android:text="@string/submit_your_order"
                 android:textAllCaps="false"
+                android:textSize="@dimen/text_default"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/note_input"/>
-
-
-
+                app:layout_constraintTop_toBottomOf="@id/note_input" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
