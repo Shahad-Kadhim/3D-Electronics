@@ -56,6 +56,7 @@
                 android:id="@+id/full_name_input"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:text="@={viewModel.fullName}"
                 android:layout_marginHorizontal="@dimen/margin5x"
                 android:background="@drawable/shape_edit_text"
                 android:padding="@dimen/padding2x"
@@ -82,6 +83,7 @@
                 android:background="@drawable/shape_edit_text"
                 android:hint="@string/if_you_are_a_company_owner"
                 android:padding="@dimen/padding2x"
+                android:text="@={viewModel.companyName}"
                 android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/company_name" />
 
@@ -133,6 +135,7 @@
                 android:layout_marginHorizontal="@dimen/margin5x"
                 android:background="@drawable/shape_edit_text"
                 android:padding="@dimen/padding2x"
+                android:text="@={viewModel.regionName}"
                 android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/region_name" />
 
@@ -155,6 +158,7 @@
                 android:layout_marginHorizontal="@dimen/margin5x"
                 android:background="@drawable/shape_edit_text"
                 android:padding="@dimen/padding2x"
+                android:text="@={viewModel.nearestPoint}"
                 android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/nearest_point" />
 
@@ -178,6 +182,7 @@
                 android:background="@drawable/shape_edit_text"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/padding2x"
+                android:text="@={viewModel.email}"
                 android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -202,6 +207,7 @@
                 android:hint="@string/_964_xxx_xxxx"
                 android:inputType="phone"
                 android:padding="@dimen/padding2x"
+                android:text="@={viewModel.phoneNumber}"
                 android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/phone_number" />
 
@@ -226,6 +232,7 @@
                 android:gravity="top"
                 android:hint="@string/notes_about_your_order"
                 android:padding="@dimen/padding2x"
+                android:text="@={viewModel.notes}"
                 android:textColor="@color/seconder_text_color"
                 app:layout_constraintTop_toBottomOf="@+id/note" />
 
@@ -240,6 +247,7 @@
                 android:textAllCaps="false"
                 android:textSize="@dimen/text_default"
                 android:textStyle="bold"
+                android:onClick="@{() -> viewModel.onSubmitClicked()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/note_input" />
