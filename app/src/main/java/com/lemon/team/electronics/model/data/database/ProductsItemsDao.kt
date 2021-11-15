@@ -1,22 +1,22 @@
 package com.lemon.team.electronics.model.data.database
 
 import androidx.room.*
-import com.lemon.team.electronics.model.data.Item
+import com.lemon.team.electronics.model.data.ProductItem
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProductsItemsDao {
 
     @Insert
-    suspend fun insert(Item: Item?)
+    suspend fun insert(ProductItem: ProductItem)
 
     @Delete
-    fun delete(Item: Item)
+    fun delete(ProductItem: ProductItem)
 
     @Update
-    fun update(Item: Item)
+    fun update(ProductItem: ProductItem)
 
     @Query("SELECT * FROM PRODUCT_TABLE WHERE productType = 1 ORDER BY id DESC ")
-    fun getAllCartItems(): Flow<List<Item>>
+    fun getAllCartItems(): Flow<List<ProductItem>>
 
 }

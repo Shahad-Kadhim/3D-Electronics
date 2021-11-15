@@ -4,7 +4,7 @@ import androidx.room.*
 
 
 @Entity(tableName = "PRODUCT_TABLE")
-data class Item(
+data class ProductItem(
     @PrimaryKey(autoGenerate = true) val id: Long,
     val itemId: String?,
     val name: String?,

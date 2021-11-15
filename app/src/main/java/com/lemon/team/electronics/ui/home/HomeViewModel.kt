@@ -56,9 +56,6 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     val padMouseCategory = Repository.getProductsByCategoryId(CategoriesId.PAD_MOUSE,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
-    private var _detailsProduct = MutableLiveData<State<Product?>>()
-    val detailsProduct :LiveData<State<Product?>> =_detailsProduct
-
     private var _onclickAdd = MutableLiveData<Event<Boolean>>()
     val onclickAdd: LiveData<Event<Boolean>> = _onclickAdd
 
@@ -107,7 +104,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         _aboutEvent.postValue(Event(true))
     }
 
-    override fun onclickSearch() {
+    override fun onclickSearch(){
         _searchEvent.postValue(Event(true))
     }
 

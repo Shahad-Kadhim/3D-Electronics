@@ -4,11 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.lemon.team.electronics.model.data.Item
+import com.lemon.team.electronics.model.data.ProductItem
 
 
 
-@Database(entities = [Item::class], version = 1)
+@Database(entities = [ProductItem::class], version = 1)
 abstract class ProductsItemsDatabase: RoomDatabase() {
 
     abstract fun productsDoa(): ProductsItemsDao

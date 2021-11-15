@@ -2,14 +2,12 @@ package com.lemon.team.electronics.util
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.*
 import androidx.navigation.*
 import androidx.navigation.fragment.FragmentNavigator
 import com.lemon.team.electronics.BR
-import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.data.Item
+import com.lemon.team.electronics.model.data.ProductItem
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import java.io.IOException
@@ -53,7 +51,7 @@ fun Intent.sharingUrl(url: String?): Intent? {
 }
 
 fun Product.convertToItem(productType: Int, pieces: Int) =
-    Item(
+    ProductItem(
         0,
         id,
         name,
