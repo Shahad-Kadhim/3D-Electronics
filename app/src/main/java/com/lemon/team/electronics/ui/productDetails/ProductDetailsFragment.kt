@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import android.content.Intent
+import android.util.Log
 import android.view.*
 import androidx.navigation.fragment.*
 import com.lemon.team.electronics.R
@@ -49,6 +50,10 @@ class ProductDetailsFragment :
 
             onclickMainImage.observeEvent(this@ProductDetailsFragment) { imageUrl ->
                 goToImageActivity(imageUrl)
+            }
+
+            piecesNumber.observe(this@ProductDetailsFragment){
+                Log.i("kkk", it.toString())
             }
 
             clickSharedProduct.observeEvent(this@ProductDetailsFragment) { imageUrl ->

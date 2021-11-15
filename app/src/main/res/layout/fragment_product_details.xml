@@ -8,6 +8,11 @@
         <variable
             name="viewModel"
             type="com.lemon.team.electronics.ui.productDetails.ProductDetailsViewModel" />
+
+        <variable
+            name="database"
+            type="com.lemon.team.electronics.model.data.ProductItem" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -143,7 +148,7 @@
                 android:id="@+id/numberPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:progress="1"
+                app:value="@={viewModel.piecesNumber}"
                 app:picker_max="25"
                 app:picker_min="1"
                 android:elevation="@dimen/elevation_small"

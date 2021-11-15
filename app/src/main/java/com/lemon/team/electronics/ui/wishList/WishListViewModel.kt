@@ -1,6 +1,5 @@
 package com.lemon.team.electronics.ui.wishList
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.repository.DatabaseRepository
 import com.lemon.team.electronics.model.repository.Repository

@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.ui.home
 
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.repository.Repository

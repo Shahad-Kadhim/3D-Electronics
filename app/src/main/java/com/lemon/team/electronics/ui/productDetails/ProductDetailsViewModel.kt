@@ -28,6 +28,8 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private var _clickSharedProduct = MutableLiveData<Event<String>>()
     val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
 
+    var piecesNumber = MutableLiveData(1)
+
     val images =Transformations.map(detailsProduct){ state ->
         state.toData()?.images?.map { imageResponse ->
             imageResponse.productImageLocation
@@ -76,7 +78,7 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     }
 
     fun setItem() =
-        detailsProduct.value?.toData()!!.convertToItem(Constants.CART, 1)
+        detailsProduct.value?.toData()!!.convertToItem(Constants.CART, piecesNumber.value)
 
 
     fun onclickShare(productId: String){
