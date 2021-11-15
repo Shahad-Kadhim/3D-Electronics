@@ -22,11 +22,14 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginHorizontal="@dimen/margin2x"
-            android:layout_marginVertical="@dimen/radius3x"
+            android:layout_marginTop="@dimen/radius3x"
+            android:layout_marginBottom="56dp"
             app:cardCornerRadius="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/back_button">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_button"
+            tools:layout_editor_absoluteX="16dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -59,8 +62,9 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/checkout_recycler"
                     android:layout_width="0dp"
-                    android:layout_height="200dp"
+                    android:layout_height="0dp"
                     android:layout_margin="@dimen/margin2x"
+                    app:layout_constraintBottom_toTopOf="@+id/break_line"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/order_summary"
@@ -73,21 +77,22 @@
                     android:layout_marginHorizontal="@dimen/margin3x"
                     android:layout_marginVertical="@dimen/margin2x"
                     android:background="@color/brand_color"
+                    app:layout_constraintBottom_toTopOf="@+id/sub_total"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkout_recycler" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/sub_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin2x"
+                    android:layout_marginHorizontal="@dimen/margin2x"
+                    android:layout_marginBottom="@dimen/margin8dp"
                     android:fontFamily="@font/monda_regular"
                     android:text="@string/subtotal"
                     android:textColor="@color/seconder_text_color"
                     android:textSize="@dimen/text_normal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/break_line" />
+                    app:layout_constraintBottom_toTopOf="@+id/delivery_fees"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/sub_total_number"
@@ -105,13 +110,14 @@
                     android:id="@+id/delivery_fees"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin2x"
+                    android:layout_marginHorizontal="@dimen/margin2x"
+                    android:layout_marginBottom="@dimen/margin8dp"
                     android:fontFamily="@font/monda_regular"
                     android:text="@string/delivery_fees"
                     android:textColor="@color/seconder_text_color"
                     android:textSize="@dimen/text_normal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/sub_total" />
+                    app:layout_constraintBottom_toTopOf="@+id/secondary_break_line"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/delivery_fees_number"
@@ -129,23 +135,24 @@
                     android:id="@+id/secondary_break_line"
                     android:layout_width="240dp"
                     android:layout_height="1dp"
-                    android:layout_marginVertical="@dimen/margin2x"
+                    android:layout_marginVertical="@dimen/margin8dp"
                     android:background="@color/color_four"
+                    app:layout_constraintBottom_toTopOf="@+id/total_number"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/delivery_fees" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin2x"
+                    android:layout_marginHorizontal="@dimen/margin2x"
+                    android:layout_marginBottom="24dp"
                     android:fontFamily="@font/monda_regular"
                     android:text="@string/total"
                     android:textColor="@color/seconder_text_color"
                     android:textSize="@dimen/text_normal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/secondary_break_line" />
+                    app:layout_constraintBottom_toTopOf="@+id/pay_now"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/total_number"
@@ -161,18 +168,18 @@
 
                 <Button
                     android:id="@+id/pay_now"
-                    android:background="@drawable/rounded_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin3x"
+                    android:layout_marginBottom="16dp"
                     android:layout_marginEnd="@dimen/margin2x"
+                    android:background="@drawable/rounded_button"
                     android:fontFamily="@font/lato_regular"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/text14sp"
                     android:text="@string/pay_now"
                     android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/total_number" />
+                    android:textSize="@dimen/text14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
