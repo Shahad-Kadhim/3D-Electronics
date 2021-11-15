@@ -6,6 +6,7 @@ import com.lemon.team.electronics.model.repository.Repository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
@@ -19,8 +20,8 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private var _onclickWish =MutableLiveData<Event<String>>()
     val onclickWish :LiveData<Event<String>> = _onclickWish
 
-    private var _onclickAddToCart =MutableLiveData<Event<Boolean>>()
-    val onclickAddToCart :LiveData<Event<Boolean>> = _onclickAddToCart
+    private var _onclickAdd =MutableLiveData<Event<Boolean>>()
+    val onclickAdd :LiveData<Event<Boolean>> = _onclickAdd
 
     private var _onClickMainImage =MutableLiveData<Event<String>>()
     val onclickMainImage :LiveData<Event<String>> = _onClickMainImage
@@ -29,6 +30,7 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
 
     var piecesNumber = MutableLiveData(1)
+    var oldPiecesNumber = MutableLiveData<Int>()
 
     val images =Transformations.map(detailsProduct){ state ->
         state.toData()?.images?.map { imageResponse ->
@@ -56,6 +58,7 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     }
 
 
+
     fun getDetailsProduct(productId: String) {
         collectResponse(Repository.getProductById(productId)) { state ->
             _detailsProduct.postValue(state)
@@ -71,14 +74,40 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     }
 
     fun onclickAddToCart(){
-        _onclickAddToCart.postValue(Event(true))
+        val product = detailsProduct.value?.toData()
+        _onclickAdd.postValue(Event(true))
         viewModelScope.launch {
-            DatabaseRepository.insertProduct(setItem())
+            if (!exists())
+                setItem(product)?.let { DatabaseRepository.insertProduct(it) }
+            else updateItem(product)
         }
     }
 
-    fun setItem() =
-        detailsProduct.value?.toData()!!.convertToItem(Constants.CART, piecesNumber.value)
+    fun setItem(product: Product?) =
+        product?.convertToItem(Constants.CART, piecesNumber.value!!)
+
+    private suspend fun  exists() =
+        DatabaseRepository.checkExists(detailsProduct.value!!.toData()!!.id)
+
+
+    private suspend fun  updateItem(product: Product?) {
+        viewModelScope.launch {
+            product?.price.let {
+                DatabaseRepository.updateCartItem(
+                    product!!.id,
+                    piecesNumber.value!!,
+                    it!!.times(piecesNumber.value!!)
+                )
+            }
+        }
+    }
+
+    private fun getOldItemData(){
+        DatabaseRepository.getAllProducts().map {
+             it.map { oldPiecesNumber.postValue(it.pieces) }
+        }
+    }
+
 
 
     fun onclickShare(productId: String){

@@ -50,16 +50,16 @@ fun Intent.sharingUrl(url: String?): Intent? {
     }
 }
 
-fun Product.convertToItem(productType: Int, pieces: Int?) =
+fun Product.convertToItem(productType: Int, pieces: Int) =
     ProductItem(
         0,
         id,
-        name,
-        oldPrice,
-        sold,
-        mainImage,
-        pieces?.let { price?.times(it.toDouble())},
-        sale,
+        name!!,
+        oldPrice!!,
+        sold!!,
+        mainImage!!,
+        price!!.times(pieces),
+        sale!!,
         productType,
         pieces
     )

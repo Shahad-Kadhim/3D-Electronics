@@ -9,6 +9,11 @@ object DatabaseRepository {
 
     suspend fun insertProduct(ProductItem: ProductItem) = dao.insert(ProductItem)
 
+    suspend fun checkExists(itemId: String) = dao.exists(itemId)
+
+    suspend fun updateCartItem(itemId: String, pieces: Int, price: Double) =
+        dao.updateCartItem(itemId, pieces, price)
+
     fun getAllProducts() = dao.getAllCartItems()
 
 }

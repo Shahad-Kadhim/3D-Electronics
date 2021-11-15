@@ -10,8 +10,9 @@
             type="com.lemon.team.electronics.ui.productDetails.ProductDetailsViewModel" />
 
         <variable
-            name="database"
-            type="com.lemon.team.electronics.model.data.ProductItem" />
+            name="item"
+            type="com.lemon.team.electronics.model.response.Product"/>
+
 
     </data>
 

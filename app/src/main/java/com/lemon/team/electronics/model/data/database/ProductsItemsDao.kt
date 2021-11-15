@@ -13,10 +13,12 @@ interface ProductsItemsDao {
     @Delete
     fun delete(ProductItem: ProductItem)
 
-    @Update
-    fun update(ProductItem: ProductItem)
+    @Query("UPDATE PRODUCT_TABLE SET pieces= :pieces, price= :price WHERE itemId = :itemId")
+    suspend fun updateCartItem(itemId: String, pieces: Int, price: Double)
 
     @Query("SELECT * FROM PRODUCT_TABLE WHERE productType = 1 ORDER BY id DESC ")
     fun getAllCartItems(): Flow<List<ProductItem>>
 
+    @Query("SELECT EXISTS (SELECT * FROM PRODUCT_TABLE WHERE itemId = :itemId)")
+    suspend fun exists(itemId: String): Boolean
 }

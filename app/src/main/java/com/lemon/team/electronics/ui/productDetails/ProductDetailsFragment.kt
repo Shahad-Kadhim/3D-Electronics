@@ -35,7 +35,7 @@ class ProductDetailsFragment :
 
     override fun observeEvents() {
         viewModel.apply {
-            onclickAddToCart.observeEvent(this@ProductDetailsFragment) {
+            onclickAdd.observeEvent(this@ProductDetailsFragment) {
                 view?.goToFragment(ProductDetailsFragmentDirections.actionProductDetailsFragmentToCartFragment())
 
             }
@@ -50,10 +50,6 @@ class ProductDetailsFragment :
 
             onclickMainImage.observeEvent(this@ProductDetailsFragment) { imageUrl ->
                 goToImageActivity(imageUrl)
-            }
-
-            piecesNumber.observe(this@ProductDetailsFragment){
-                Log.i("kkk", it.toString())
             }
 
             clickSharedProduct.observeEvent(this@ProductDetailsFragment) { imageUrl ->
