@@ -27,6 +27,7 @@
     <string name="home">Home</string>
     <string name="search_word">search</string>
     <string name="see_more">see more > </string>
+    <string name="pieces">Pieces</string>
     <string name="microphone">Microphones</string>
     <string name="cable_and_adapter">Cable and Adapter</string>
     <string name="_case">Case</string>
@@ -59,4 +60,8 @@
     <string name="stream_tools">Stream Tools</string>
     <string name="coolers">Coolers</string>
     <string name="pc_speakers">Pc Speakers</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="delivery_fees">Delivery Fees:</string>
+    <string name="pay_now">Pay Now</string>
 </resources>
