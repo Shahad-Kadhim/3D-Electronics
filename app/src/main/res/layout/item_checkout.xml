@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="item"
+            type="com.lemon.team.electronics.model.response.Product" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +22,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/monda_regular"
             android:textColor="@color/seconder_text_color"
+            android:text="@{item.name}"
             android:textSize="@dimen/text12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +37,7 @@
             android:fontFamily="@font/roboto_regular"
             android:textColor="@color/seconder_text_color"
             android:textSize="@dimen/text14sp"
+            android:text="3"
             app:layout_constraintBaseline_toBaselineOf="@+id/item_name"
             app:layout_constraintEnd_toStartOf="@+id/price"
             app:layout_constraintStart_toEndOf="@+id/item_name"
@@ -43,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin2x"
             android:fontFamily="@font/roboto_regular"
+            android:text="@{item.price +`$`}"
             android:textColor="@color/seconder_text_color"
             android:textSize="@dimen/text_normal"
             app:layout_constraintBaseline_toBaselineOf="@+id/quantity"
