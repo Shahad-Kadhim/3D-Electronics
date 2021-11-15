@@ -55,4 +55,17 @@
     <string name="stream_tools">ادوات البث</string>
     <string name="coolers">مبردات</string>
     <string name="pc_speakers">سبيكر حاسبة</string>
+    <string name="if_you_are_a_company_owner">اذا كنت صاحب شركة</string>
+    <string name="notes_about_your_order">ملاحظات بخصوص طلبك</string>
+    <string name="please_fill_in_your_information">معلومات الزبون</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="company_name">اسم الشركة</string>
+    <string name="governorate">المحافظة</string>
+    <string name="region_name">اسم المنطقة</string>
+    <string name="nearest_point_to_you">اقرب نقطة دالة</string>
+    <string name="e_mail">البريد الالكتروني</string>
+    <string name="phone_number_text">رقم الهاتف</string>
+    <string name="_964_xxx_xxxx"><font size="10">+964 - xxx - xxxx</font></string>
+    <string name="notes">ملاحظات</string>
+    <string name="submit_your_order">ثبت طلبك</string>
 </resources>

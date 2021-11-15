@@ -60,4 +60,17 @@
     <string name="stream_tools">Stream Tools</string>
     <string name="coolers">Coolers</string>
     <string name="pc_speakers">Pc Speakers</string>
+    <string name="please_fill_in_your_information">please fill in your information</string>
+    <string name="full_name">Full Name</string>
+    <string name="company_name">Company Name</string>
+    <string name="if_you_are_a_company_owner"><font size="10">If you are a company owner</font></string>
+    <string name="governorate">Governorate</string>
+    <string name="region_name">Region Name</string>
+    <string name="nearest_point_to_you">Nearest point to you</string>
+    <string name="e_mail">E-mail</string>
+    <string name="phone_number_text">Phone Number</string>
+    <string name="_964_xxx_xxxx"><font size="10">+964 - xxx - xxxx</font></string>
+    <string name="notes">Notes</string>
+    <string name="submit_your_order">Submit Your Order</string>
+    <string name="notes_about_your_order"><font size="10">notes about your order</font></string>
 </resources>
