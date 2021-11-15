@@ -108,6 +108,9 @@
             android:id="@+id/deepLink"
             android:autoVerify="true"
             app:uri="https://www.3d-iraq.com/product/{productId}" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"

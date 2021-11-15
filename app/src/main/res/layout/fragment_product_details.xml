@@ -190,7 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin2x"
                 android:maxLines="1"
-                android:onClick="@{() -> viewModel.onclickAddToCart(viewModel.detailsProduct.toData().id)}"
+                android:onClick="@{() -> viewModel.onclickAddToCart()}"
                 android:text="@string/add"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

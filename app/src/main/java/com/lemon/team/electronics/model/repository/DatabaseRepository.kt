@@ -1,13 +1,13 @@
 package com.lemon.team.electronics.model.repository
 
-import com.lemon.team.electronics.model.data.Product
-import com.lemon.team.electronics.model.data.database.ProductsDatabase
+import com.lemon.team.electronics.model.data.Item
+import com.lemon.team.electronics.model.data.database.ProductsItemsDatabase
 
 object DatabaseRepository {
 
-    private val dao = ProductsDatabase.getInstanceWithContext().productsDoa()
+    private val dao = ProductsItemsDatabase.getInstanceWithContext().productsDoa()
 
-    fun insertProduct(item: Product) = dao.insert(item)
+    suspend fun insertProduct(Item: Item) = dao.insert(Item)
 
     fun getAllProducts() = dao.getAllItems()
 

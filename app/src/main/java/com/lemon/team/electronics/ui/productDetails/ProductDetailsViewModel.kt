@@ -1,10 +1,12 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import androidx.lifecycle.*
+import com.lemon.team.electronics.model.repository.DatabaseRepository
 import com.lemon.team.electronics.model.repository.Repository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
+import kotlinx.coroutines.launch
 
 class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
@@ -17,8 +19,8 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private var _onclickWish =MutableLiveData<Event<String>>()
     val onclickWish :LiveData<Event<String>> = _onclickWish
 
-    private var _onclickAddToCart =MutableLiveData<Event<String>>()
-    val onclickAddToCart :LiveData<Event<String>> = _onclickAddToCart
+    private var _onclickAddToCart =MutableLiveData<Event<Boolean>>()
+    val onclickAddToCart :LiveData<Event<Boolean>> = _onclickAddToCart
 
     private var _onClickMainImage =MutableLiveData<Event<String>>()
     val onclickMainImage :LiveData<Event<String>> = _onClickMainImage
@@ -66,9 +68,16 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
         _onclickWish.postValue(Event(productId))
     }
 
-    fun onclickAddToCart(productId: String){
-        _onclickAddToCart.postValue(Event(productId))
+    fun onclickAddToCart(){
+        _onclickAddToCart.postValue(Event(true))
+        viewModelScope.launch {
+            DatabaseRepository.insertProduct(setItem())
+        }
     }
+
+    fun setItem() =
+        detailsProduct.value?.toData()!!.convertToItem(Constants.CART, 1)
+
 
     fun onclickShare(productId: String){
         _clickSharedProduct.postValue(Event(productId))

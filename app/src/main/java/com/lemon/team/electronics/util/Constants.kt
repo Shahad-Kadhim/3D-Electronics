@@ -27,6 +27,10 @@ object Constants {
     const val CASE_CATEGORY_HEADLINE ="Case"
 
 
+    const val CART = "cart"
+    const val WISH ="wish"
+
+
     val  colors = listOf(
         ColorsRecycler.COLOR_ONE,
         ColorsRecycler.COLOR_TWO,

@@ -4,21 +4,21 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.lemon.team.electronics.model.data.Product
+import com.lemon.team.electronics.model.data.Item
 
 
 
-@Database(entities = [Product::class], version = 1)
-abstract class ProductsDatabase: RoomDatabase() {
-    abstract fun productsDoa(): ProductsDao
+@Database(entities = [Item::class], version = 1)
+abstract class ProductsItemsDatabase: RoomDatabase() {
+    abstract fun productsDoa(): ProductsItemsDao
 
     companion object{
 
         private const val DATABASE_NAME = "ProductsDataBase"
 
-        private var instance: ProductsDatabase? = null
+        private var instance: ProductsItemsDatabase? = null
 
-        fun getInstance(context: Context): ProductsDatabase{
+        fun getInstance(context: Context): ProductsItemsDatabase{
             return instance ?: synchronized(this){
                 buildDatabase(context)
                 .also{ dataBase ->
@@ -30,10 +30,10 @@ abstract class ProductsDatabase: RoomDatabase() {
         fun getInstanceWithContext() = instance!!
 
 
-        private fun buildDatabase(context: Context): ProductsDatabase{
+        private fun buildDatabase(context: Context): ProductsItemsDatabase{
             return Room.databaseBuilder(
                 context,
-                ProductsDatabase::class.java,
+                ProductsItemsDatabase::class.java,
                 DATABASE_NAME)
                 .build()
         }
