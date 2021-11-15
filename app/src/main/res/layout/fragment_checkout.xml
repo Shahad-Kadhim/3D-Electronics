@@ -19,6 +19,7 @@
             android:id="@+id/back_button"
             style="@style/ButtonBack"
             android:background="@drawable/button_back"
+            android:onClick="@{() -> viewModel.onClickBack()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -184,6 +185,7 @@
                     android:background="@drawable/rounded_button"
                     android:fontFamily="@font/lato_regular"
                     android:text="@string/pay_now"
+                    android:onClick="@{() -> viewModel.onClickPayNow()}"
                     android:textAllCaps="false"
                     android:textSize="@dimen/text14sp"
                     android:textStyle="bold"

@@ -1,10 +1,12 @@
 package com.lemon.team.electronics.ui.checkout
 
 import android.view.*
+import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCheckoutBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.ui.cart.CartViewModel
+import com.lemon.team.electronics.util.observeEvent
 
 class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CartViewModel>() {
 
@@ -14,7 +16,14 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CartViewModel>() 
     override val viewModelClass = CartViewModel::class.java
 
     override fun observeEvents() {
-
+        viewModel.also {
+            it.clickPayNowEvent.observeEvent(this) {
+                // nav to user information fragment
+            }
+            it.clickBackEvent.observeEvent(this) {
+                findNavController().navigateUp()
+            }
+        }
     }
 
     override fun setUpBinding() {
