@@ -2,7 +2,7 @@ package com.lemon.team.electronics.ui.about
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.lemon.team.electronics.model.Repository
+import com.lemon.team.electronics.model.repository.Repository
 import com.lemon.team.electronics.ui.base.*
 import com.lemon.team.electronics.util.*
 

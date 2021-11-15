@@ -8,6 +8,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.gson.Gson
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.ActivityMainBinding
+import com.lemon.team.electronics.model.data.database.ProductsDatabase
 import com.lemon.team.electronics.util.LocalData
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         LocalData(Gson()).setContext(applicationContext)
+        ProductsDatabase.getInstance(applicationContext)
+
     }
 
     override fun onResume() {

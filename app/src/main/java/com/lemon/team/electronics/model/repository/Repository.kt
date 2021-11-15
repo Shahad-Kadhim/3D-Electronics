@@ -1,4 +1,4 @@
-package com.lemon.team.electronics.model
+package com.lemon.team.electronics.model.repository
 
 import android.annotation.SuppressLint
 import com.google.gson.Gson
