@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_tiny"
                 android:fontFamily="@font/monda_bold"
-                android:text="3"
+                android:text="@{String.valueOf(item.pieces)}"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_normal"
                 app:layout_constraintBottom_toBottomOf="@+id/quantity_text"
