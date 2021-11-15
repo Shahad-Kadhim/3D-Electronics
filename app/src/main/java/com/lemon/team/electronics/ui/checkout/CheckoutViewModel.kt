@@ -1,5 +1,5 @@
 package com.lemon.team.electronics.ui.checkout
 
-import com.lemon.team.electronics.ui.base.BaseViewModel
+import com.lemon.team.electronics.ui.base.*
 
-class CheckoutViewModel :BaseViewModel()
+class CheckoutViewModel : BaseViewModel(), BaseInteractionListener
