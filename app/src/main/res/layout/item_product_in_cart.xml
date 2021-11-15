@@ -7,6 +7,11 @@
         <variable
             name="item"
             type="com.lemon.team.electronics.model.data.ProductItem" />
+
+        <variable
+            name="ViewModel"
+            type="com.lemon.team.electronics.ui.cart.CartViewModel" />
+
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.cart.CartInteractionListener" />

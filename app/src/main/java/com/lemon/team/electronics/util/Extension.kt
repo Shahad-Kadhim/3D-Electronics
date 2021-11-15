@@ -58,7 +58,7 @@ fun Product.convertToItem(productType: Int, pieces: Int?) =
         oldPrice,
         sold,
         mainImage,
-        price,
+        pieces?.let { price?.times(it.toDouble())},
         sale,
         productType,
         pieces
