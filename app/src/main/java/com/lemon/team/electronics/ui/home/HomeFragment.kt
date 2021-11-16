@@ -119,9 +119,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 }
 
             }
-            viewModel.toast.observe(this@HomeFragment){
-                Log.i("kkk", it.toString())
-            }
         }
     }
 

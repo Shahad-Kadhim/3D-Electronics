@@ -9,7 +9,7 @@ import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class HomeViewModel: BaseViewModel(), HomeInteractionListener {
@@ -110,13 +110,13 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         _onclickProductEvent.postValue(Event(productId))
     }
 
-    override fun onclickAddToCart(product: Product?){
+    override fun onclickAddToCart(product: Product){
         _onclickAdd.postValue(Event(true))
         addItem(product)
     }
 
     var toast = MutableLiveData<String>()
-    private fun addItem(product: Product?) {
+    private fun addItem(product: Product) {
         viewModelScope.launch {
             if (!isItemExists(product)!!){
                 setItem(product)?.let { Repository.insertProduct(it)}
@@ -128,10 +128,20 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         }
     }
 
-    private fun getPiecesNumber(product: Product?) {
-        product?.let { Repository.getItemById(it.id) }?.map {
+    private suspend fun getPiecesNumber(product: Product) {
+        Repository.getItemById(product.id).collect {
             toast.postValue(it.pieces.plus(1).toString())
         }
+        updateItem(product)
+    }
+
+    private suspend fun  updateItem(product: Product) {
+        Repository.updateCartItem(
+            product.id,
+            toast.value!!.toInt(),
+            product.price!!.times(toast.value!!.toDouble())
+        )
+        toast.postValue("0")
     }
 
 
