@@ -108,6 +108,9 @@ object Repository{
     fun getTotalPrice() =
         dao.getTotalPrice()
 
+    fun getOldTotalPrice() =
+        dao.getOldTotalPrice()
+
     fun getPiecesNumber() =
         dao.getPiecesNumber()
 

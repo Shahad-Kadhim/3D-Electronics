@@ -10,6 +10,7 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
 
     val cartItems = Repository.getAllProducts().asLiveData()
     val totalPrice = Repository.getTotalPrice().asLiveData()
+    val oldTotalPrice = Repository.getOldTotalPrice().asLiveData()
     val piecesNumber = Repository.getPiecesNumber().asLiveData()
 
     private val _clickPayNowEvent = MutableLiveData<Event<Boolean>>()

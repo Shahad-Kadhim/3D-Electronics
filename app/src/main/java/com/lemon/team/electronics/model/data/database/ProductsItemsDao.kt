@@ -28,6 +28,9 @@ interface ProductsItemsDao {
     @Query("SELECT SUM(price) as total FROM PRODUCT_TABLE ")
     fun getTotalPrice(): Flow<Double>
 
+    @Query("SELECT SUM(oldPrice) as total FROM PRODUCT_TABLE ")
+    fun getOldTotalPrice(): Flow<Double>
+
     @Query("SELECT COUNT(*) FROM PRODUCT_TABLE")
     fun getPiecesNumber(): Flow<Int>
 
