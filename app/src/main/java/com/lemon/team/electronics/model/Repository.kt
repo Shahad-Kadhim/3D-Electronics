@@ -2,8 +2,10 @@ package com.lemon.team.electronics.model
 
 import android.annotation.SuppressLint
 import com.google.gson.Gson
+import com.google.gson.JsonElement
 import com.lemon.team.electronics.model.network.API
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
+import com.lemon.team.electronics.model.orderResponse.OrderResponse
 import com.lemon.team.electronics.model.response.*
 import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
@@ -82,6 +84,9 @@ object Repository{
 
     fun getHomeImages(): Flow<State<List<HomeImage>?>> =
         wrapWithFlow { API.apiService.getHomeImages() }
+
+    fun makeOrder(order: JsonElement): Flow<State<OrderResponse?>> =
+        wrapWithFlow { API.apiService.makeOrder(order) }
 
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {

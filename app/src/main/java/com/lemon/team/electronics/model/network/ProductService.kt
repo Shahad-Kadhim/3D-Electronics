@@ -1,8 +1,12 @@
 package com.lemon.team.electronics.model.network
 
+import com.google.gson.JsonElement
+import com.lemon.team.electronics.model.orderResponse.OrderResponse
 import com.lemon.team.electronics.model.response.*
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface ProductService {
@@ -34,5 +38,8 @@ interface ProductService {
 
     @GET("resources/products/product-home-screen-images")
     suspend fun getHomeImages(): Response<List<HomeImage>>
+
+    @POST("resources/orders/add-order/")
+    suspend fun makeOrder(@Body order: JsonElement): Response<OrderResponse>
 
 }
