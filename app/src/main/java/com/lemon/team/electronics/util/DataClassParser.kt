@@ -7,8 +7,7 @@ import com.google.gson.JsonParser
 object DataClassParser {
 
     fun parseToJson(order: Any): JsonElement {
-        val json = Gson().toJson(order)
-        return JsonParser.parseString(json)
+        return JsonParser.parseString(Gson().toJson(order))
     }
 
 }

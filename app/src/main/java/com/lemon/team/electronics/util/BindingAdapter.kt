@@ -162,20 +162,12 @@ fun setCategoryNameById(view: TextView, categoryId: String?) {
     }
 }
 
-@BindingAdapter(value = ["selectedItem", "selectedItemAttrChanged"], requireAll = false, )
+@BindingAdapter(value = ["selectedItem"], requireAll = false)
 fun bindSpinnerData(
     spinner: Spinner,
-    newSelectedValue: String?,
-    newTextAttrChanged: InverseBindingListener
+    newSelectedValue: String?
 ) {
-    spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-        override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
-            newTextAttrChanged.onChange()
-        }
-
-        override fun onNothingSelected(parent: AdapterView<*>?) {}
-    }
-    if (newSelectedValue != null) {
+    newSelectedValue?.let {
         val pos = spinner.selectedItemPosition
         spinner.setSelection(pos, true)
     }
@@ -184,4 +176,15 @@ fun bindSpinnerData(
 @InverseBindingAdapter(attribute = "selectedItem", event = "selectedItemAttrChanged")
 fun captureSelectedValue(spinner: Spinner): String {
     return spinner.selectedItem.toString()
+}
+
+@BindingAdapter("selectedItemAttrChanged")
+fun onChange(spinner: Spinner, attChange: InverseBindingListener){
+    spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
+            attChange.onChange()
+        }
+
+        override fun onNothingSelected(parent: AdapterView<*>?) {}
+    }
 }
