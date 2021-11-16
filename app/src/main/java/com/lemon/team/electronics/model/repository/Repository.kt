@@ -14,6 +14,7 @@ import retrofit2.Response
 @SuppressLint("StaticFieldLeak")
 object Repository{
 
+    private val dao = ProductsItemsDatabase.getInstanceWithContext().productsDao()
     private val localData: LocalData = LocalData(Gson())
 
     fun getCategories(): Flow<State<List<CategoryResponse>?>> =
@@ -55,21 +56,6 @@ object Repository{
         }
 
 
-    // this function will be rewritten after create database
-    fun getProductsInCart(): Flow<State<ProductsResponse?>> =
-        wrapWithFlow { API.apiService
-            .getProductsByCategoryId(
-                categoryId = CategoriesId.PC_SPEAKER,
-                page = Constants.PAGE_NUMBER_ZERO,
-                sortBy = Constants.SORT_BY_CREATED_DATE
-            )
-        }
-
-
-    // this function gets the total price of the products in the cart from the database
-    fun getTotalPrice() = dao.getTotalPrice()
-
-
     fun getCompanies(): List<CompaniesImgUrl>? =
         getAllCompanies(Constants.COMPANY_FILE_NAME).companiesImgUrl
     
@@ -106,17 +92,24 @@ object Repository{
         }
 
 
-    private val dao = ProductsItemsDatabase.getInstanceWithContext().productsDao()
 
-    suspend fun insertProduct(ProductItem: ProductItem) = dao.insert(ProductItem)
+    suspend fun insertProduct(ProductItem: ProductItem) =
+        dao.insert(ProductItem)
 
-    suspend fun checkExists(itemId: String) = dao.exists(itemId)
+    suspend fun checkExists(itemId: String) =
+        dao.exists(itemId)
 
     suspend fun updateCartItem(itemId: String, pieces: Int, price: Double) =
         dao.updateCartItem(itemId, pieces, price)
 
-    fun getAllProducts() = dao.getAllCartItems()
+    fun getAllProducts() =
+        dao.getAllCartItems()
 
+    fun getTotalPrice() =
+        dao.getTotalPrice()
+
+    fun getPiecesNumber() =
+        dao.getPiecesNumber()
 
     fun getItemById(id: String) =
         dao.getItemByID(id)

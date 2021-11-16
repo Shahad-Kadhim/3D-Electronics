@@ -9,8 +9,8 @@ import com.lemon.team.electronics.util.Event
 class CartViewModel : BaseViewModel() , CartInteractionListener {
 
     val cartItems = Repository.getAllProducts().asLiveData()
-
     val totalPrice = Repository.getTotalPrice().asLiveData()
+    val piecesNumber = Repository.getPiecesNumber().asLiveData()
 
     private val _clickPayNowEvent = MutableLiveData<Event<Boolean>>()
     var clickPayNowEvent: LiveData<Event<Boolean>> = _clickPayNowEvent

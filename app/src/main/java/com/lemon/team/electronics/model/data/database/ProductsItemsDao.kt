@@ -16,7 +16,7 @@ interface ProductsItemsDao {
     @Query("UPDATE PRODUCT_TABLE SET pieces= :pieces, price= :price WHERE itemId = :itemId")
     suspend fun updateCartItem(itemId: String, pieces: Int, price: Double)
 
-    @Query("SELECT * FROM PRODUCT_TABLE WHERE productType = 1 ORDER BY id DESC ")
+    @Query("SELECT * FROM PRODUCT_TABLE ORDER BY id DESC ")
     fun getAllCartItems(): Flow<List<ProductItem>>
 
     @Query("SELECT * FROM PRODUCT_TABLE WHERE itemId = :id ")
@@ -27,4 +27,8 @@ interface ProductsItemsDao {
 
     @Query("SELECT SUM(price) as total FROM PRODUCT_TABLE ")
     fun getTotalPrice(): Flow<Double>
+
+    @Query("SELECT COUNT(*) FROM PRODUCT_TABLE")
+    fun getPiecesNumber(): Flow<Int>
+
 }

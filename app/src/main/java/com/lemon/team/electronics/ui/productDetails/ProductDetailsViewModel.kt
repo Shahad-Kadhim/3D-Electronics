@@ -29,7 +29,6 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
     var piecesNumber = MutableLiveData(1)
 
-    var uu = Repository.getAllProducts().asLiveData()
 
     val images =Transformations.map(detailsProduct){ state ->
         state.toData()?.images?.map { imageResponse ->
@@ -80,17 +79,17 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
     private fun addOrUpdateItem(item: Product?) {
         viewModelScope.launch {
-            if (!exists())
+            if (!exists()!!)
                 setItem(item)?.let { Repository.insertProduct(it) }
             else updateItem(item)
         }
     }
 
     fun setItem(product: Product?) =
-        product?.toItemEntity(Constants.CART, piecesNumber.value!!)
+        piecesNumber.value?.let { product?.toItemEntity(Constants.CART, it) }
 
     private suspend fun  exists() =
-        Repository.checkExists(detailsProduct.value!!.toData()!!.id)
+        detailsProduct.value?.toData()?.let { Repository.checkExists(it.id) }
 
 
     private suspend fun  updateItem(product: Product?) {
