@@ -13,9 +13,17 @@ class CartRecyclerAdapter(productItems: List<ProductItem>, listener: CartInterac
     override fun <T> areItemsTheSame(
         oldItemPosition: Int,
         newItemPosition: Int,
-        newItems: List<T>
+        newItems: List<T>,
     ) =
         getItems()[oldItemPosition].id == (newItems[newItemPosition] as ProductItem).id
+
+    override fun areContentSame(
+        oldPosition: Int,
+        newPosition: Int,
+        newList: List<ProductItem>,
+    ) =
+        getItems()[oldPosition].pieces == newList[newPosition].pieces
+
 }
 
 interface CartInteractionListener : BaseInteractionListener {

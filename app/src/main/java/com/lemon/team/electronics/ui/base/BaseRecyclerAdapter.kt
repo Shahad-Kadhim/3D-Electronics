@@ -15,11 +15,17 @@ abstract class BaseRecyclerAdapter<T>(
 
     abstract val layoutId: Int
 
-    abstract fun <T> areItemsTheSame(oldItemPosition: Int, newItemPosition: Int, newItems: List<T>) : Boolean
+    abstract fun <T> areItemsTheSame(
+        oldItemPosition: Int,
+        newItemPosition: Int,
+        newItems: List<T>,
+    ): Boolean
+
+    open fun areContentSame(oldPosition: Int, newPosition: Int, newList: List<T>) = true
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        viewType: Int,
     ): BaseViewHolder =
         ItemViewHolder(
             DataBindingUtil.inflate(
@@ -41,7 +47,10 @@ abstract class BaseRecyclerAdapter<T>(
     override fun getItemCount(): Int = items.size
 
     fun setItems(newItems: List<T>) {
-        val diffResult = DiffUtil.calculateDiff(AppDiffUtil(items, newItems, ::areItemsTheSame))
+        val diffResult = DiffUtil.calculateDiff(AppDiffUtil(items,
+            newItems,
+            ::areItemsTheSame,
+            ::areContentSame))
         items = newItems
         diffResult.dispatchUpdatesTo(this)
     }
