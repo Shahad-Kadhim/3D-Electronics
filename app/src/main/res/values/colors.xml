@@ -41,4 +41,7 @@
     <color name="image_filter">#B3FFFFFF</color>
     <color name="old_price">#6A6C71</color>
 
+    <color name="edit_text_fill">#EFEFEF</color>
+    <color name="edit_text_stroke">#C0CDCD</color>
+
 </resources>

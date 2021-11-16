@@ -2,8 +2,11 @@ package com.lemon.team.electronics.model
 
 import android.annotation.SuppressLint
 import com.google.gson.Gson
+import com.google.gson.JsonElement
 import com.lemon.team.electronics.model.network.API
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
+import com.lemon.team.electronics.model.order.OrderedProduct
+import com.lemon.team.electronics.model.orderResponse.OrderResponse
 import com.lemon.team.electronics.model.response.*
 import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
@@ -63,6 +66,16 @@ object Repository{
             )
         }
 
+    //this function will be rewritten after create database
+    fun getOrderedProducts(): List<OrderedProduct>{
+        return listOf(
+            OrderedProduct(
+                productCount = 1,
+                productId = "a6a7da21-ff30-466a-b633-365b94685a8f"
+            )
+        )
+    }
+
 
     // this function gets the total price of the products in the cart from the database
     fun getTotalPrice() = 500
@@ -82,6 +95,9 @@ object Repository{
 
     fun getHomeImages(): Flow<State<List<HomeImage>?>> =
         wrapWithFlow { API.apiService.getHomeImages() }
+
+    fun makeOrder(order: JsonElement): Flow<State<OrderResponse?>> =
+        wrapWithFlow { API.apiService.makeOrder(order) }
 
 
     private fun <T> wrapWithFlow(function: suspend () -> Response<T>): Flow<State<T?>> {
