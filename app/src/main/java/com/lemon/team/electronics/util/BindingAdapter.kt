@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.util
 
 import android.text.Html
-import android.view.DragEvent
 import android.view.View
 import android.widget.*
 import androidx.core.content.ContextCompat
@@ -17,15 +16,11 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.response.HomeImage
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
-
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
 import it.sephiroth.android.library.numberpicker.NumberPicker
-import it.sephiroth.android.library.numberpicker.NumberPickerBindingAdapter
 import it.sephiroth.android.library.numberpicker.doOnProgressChanged
-import it.sephiroth.android.library.numberpicker.setListener
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -183,9 +178,13 @@ fun getPikerNumber(view: NumberPicker): Int? {
 
 @BindingAdapter("pikerNumberChangeEvent")
 fun setPikerListener(view: NumberPicker, attChange: InverseBindingListener) {
-
     view.doOnProgressChanged { _, _, _ ->
         attChange.onChange()
     }
+}
 
+@BindingAdapter(value = ["app:toast"])
+fun showToast(view:View , value:String?) {
+    if (value != null)
+        Toast.makeText(view.context ,value ,Toast.LENGTH_SHORT).show()
 }

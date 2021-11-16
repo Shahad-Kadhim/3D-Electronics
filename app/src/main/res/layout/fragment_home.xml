@@ -10,7 +10,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:toast="@{viewModel.toast}"
+        >
 
         <ImageView
             android:id="@+id/logo_image"
@@ -28,7 +30,6 @@
             android:layout_marginEnd="@dimen/margin_normal"
             android:onClick="@{() -> viewModel.onClickCart()}"
             android:src="@drawable/ic_cart"
-            app:layout_constraintBottom_toBottomOf="@+id/about"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/about_icon" />
 
@@ -55,6 +56,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logo_image" />
+
 
         <include android:id="@+id/loading"
             app:showLoading="@{viewModel.state}"

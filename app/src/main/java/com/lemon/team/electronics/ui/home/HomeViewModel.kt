@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.ui.home
 
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.repository.Repository
@@ -8,9 +9,14 @@ import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class HomeViewModel: BaseViewModel(), HomeInteractionListener {
+
+    val categories = Repository.getCategories().asLiveData()
+    val bestProduct = Repository.getRecommendedProducts().asLiveData()
+    val homeImages = Repository.getHomeImages().asLiveData()
 
     private var _cartEvent = MutableLiveData<Event<Boolean>>()
     val cartEvent: LiveData<Event<Boolean>> = _cartEvent
@@ -35,12 +41,6 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     private var _clickSharedProduct = MutableLiveData<Event<String>>()
     val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
-
-    val categories = Repository.getCategories().asLiveData()
-
-    val bestProduct = Repository.getRecommendedProducts().asLiveData()
-
-    val homeImages = Repository.getHomeImages().asLiveData()
 
     val laptopCategory = Repository.getProductsByCategoryId(CategoriesId.LAPTOP,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
@@ -115,12 +115,25 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         addItem(product)
     }
 
+    var toast = MutableLiveData<String>()
     private fun addItem(product: Product?) {
         viewModelScope.launch {
-            if (!isItemExists(product)!!)
-                setItem(product)?.let { Repository.insertProduct(it) }
+            if (!isItemExists(product)!!){
+                setItem(product)?.let { Repository.insertProduct(it)}
+                toast.postValue("1")
+            }
+            else{
+                getPiecesNumber(product)
+            }
         }
     }
+
+    private fun getPiecesNumber(product: Product?) {
+        product?.let { Repository.getItemById(it.id) }?.map {
+            toast.postValue(it.pieces.plus(1).toString())
+        }
+    }
+
 
     private suspend fun isItemExists(product: Product?) =
         product?.let { Repository.checkItemExists(it.id) }
