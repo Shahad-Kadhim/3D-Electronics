@@ -6,6 +6,7 @@ import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
+import androidx.databinding.InverseBindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
@@ -14,11 +15,11 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.response.HomeImage
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
-
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
+import android.widget.AdapterView
+import androidx.databinding.InverseBindingListener
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -159,4 +160,28 @@ fun setCategoryNameById(view: TextView, categoryId: String?) {
     CategoryMap.categoryName[categoryId]?.let {
         view.text = view.context.getString(it)
     }
+}
+
+@BindingAdapter(value = ["selectedItem", "selectedItemAttrChanged"], requireAll = false, )
+fun bindSpinnerData(
+    spinner: Spinner,
+    newSelectedValue: String?,
+    newTextAttrChanged: InverseBindingListener
+) {
+    spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
+            newTextAttrChanged.onChange()
+        }
+
+        override fun onNothingSelected(parent: AdapterView<*>?) {}
+    }
+    if (newSelectedValue != null) {
+        val pos = spinner.selectedItemPosition
+        spinner.setSelection(pos, true)
+    }
+}
+
+@InverseBindingAdapter(attribute = "selectedItem", event = "selectedItemAttrChanged")
+fun captureSelectedValue(spinner: Spinner): String {
+    return spinner.selectedItem.toString()
 }
