@@ -11,7 +11,7 @@ import com.lemon.team.electronics.model.data.ProductItem
 @Database(entities = [ProductItem::class], version = 1)
 abstract class ProductsItemsDatabase: RoomDatabase() {
 
-    abstract fun productsDoa(): ProductsItemsDao
+    abstract fun productsDao(): ProductsItemsDao
 
     companion object{
 

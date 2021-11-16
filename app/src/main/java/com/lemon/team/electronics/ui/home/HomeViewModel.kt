@@ -6,7 +6,6 @@ import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.repository.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
-import com.lemon.team.electronics.model.repository.DatabaseRepository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import kotlinx.coroutines.launch
@@ -114,7 +113,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     override fun onclickAddToCart(Product: Product){
         _onclickAdd.postValue(Event(true))
         viewModelScope.launch {
-            DatabaseRepository.insertProduct(setItem(Product))
+            Repository.insertProduct(setItem(Product))
         }
     }
 

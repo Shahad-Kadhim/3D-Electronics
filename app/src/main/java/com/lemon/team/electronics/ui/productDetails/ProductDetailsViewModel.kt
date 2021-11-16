@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.repository.DatabaseRepository
 import com.lemon.team.electronics.model.repository.Repository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
@@ -30,7 +29,7 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
     var piecesNumber = MutableLiveData(1)
 
-    var uu = DatabaseRepository.getAllProducts().asLiveData()
+    var uu = Repository.getAllProducts().asLiveData()
 
     val images =Transformations.map(detailsProduct){ state ->
         state.toData()?.images?.map { imageResponse ->
@@ -82,7 +81,7 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private fun addOrUpdateItem(item: Product?) {
         viewModelScope.launch {
             if (!exists())
-                setItem(item)?.let { DatabaseRepository.insertProduct(it) }
+                setItem(item)?.let { Repository.insertProduct(it) }
             else updateItem(item)
         }
     }
@@ -91,12 +90,12 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
         product?.convertToItem(Constants.CART, piecesNumber.value!!)
 
     private suspend fun  exists() =
-        DatabaseRepository.checkExists(detailsProduct.value!!.toData()!!.id)
+        Repository.checkExists(detailsProduct.value!!.toData()!!.id)
 
 
     private suspend fun  updateItem(product: Product?) {
         product?.price.let {
-            DatabaseRepository.updateCartItem(
+            Repository.updateCartItem(
                 product!!.id,
                 piecesNumber.value!!,
                 it!!.times(piecesNumber.value!!)

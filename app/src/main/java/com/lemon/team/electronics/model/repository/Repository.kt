@@ -2,6 +2,8 @@ package com.lemon.team.electronics.model.repository
 
 import android.annotation.SuppressLint
 import com.google.gson.Gson
+import com.lemon.team.electronics.model.data.ProductItem
+import com.lemon.team.electronics.model.data.database.ProductsItemsDatabase
 import com.lemon.team.electronics.model.network.API
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
 import com.lemon.team.electronics.model.response.*
@@ -65,7 +67,7 @@ object Repository{
 
 
     // this function gets the total price of the products in the cart from the database
-    fun getTotalPrice() = 500
+    fun getTotalPrice() = dao.getTotalPrice()
 
 
     fun getCompanies(): List<CompaniesImgUrl>? =
@@ -102,6 +104,22 @@ object Repository{
         else {
             State.Error(response.message())
         }
+
+    private val dao = ProductsItemsDatabase.getInstanceWithContext().productsDao()
+
+    suspend fun insertProduct(ProductItem: ProductItem) = dao.insert(ProductItem)
+
+    suspend fun checkExists(itemId: String) = dao.exists(itemId)
+
+    suspend fun updateCartItem(itemId: String, pieces: Int, price: Double) =
+        dao.updateCartItem(itemId, pieces, price)
+
+    fun getAllProducts() = dao.getAllCartItems()
+
+
+    fun getItemById(id: String) =
+        dao.getItemByID(id)
+
 
 
 }

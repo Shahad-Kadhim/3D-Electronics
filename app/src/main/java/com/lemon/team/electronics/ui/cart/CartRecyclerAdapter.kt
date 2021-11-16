@@ -16,7 +16,6 @@ class CartRecyclerAdapter(productItems: List<ProductItem>, listener: CartInterac
         newItems: List<T>
     ) =
         getItems()[oldItemPosition].id == (newItems[newItemPosition] as ProductItem).id
-
 }
 
 interface CartInteractionListener : BaseInteractionListener {

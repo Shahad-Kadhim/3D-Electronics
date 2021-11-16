@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.ui.wishList
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.repository.DatabaseRepository
 import com.lemon.team.electronics.model.repository.Repository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
@@ -34,7 +33,7 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     override fun onclickAddToCart(Product: Product){
         _clickAdd.postValue(Event(true))
         viewModelScope.launch {
-            DatabaseRepository.insertProduct(setItem(Product))
+            Repository.insertProduct(setItem(Product))
         }
     }
 
