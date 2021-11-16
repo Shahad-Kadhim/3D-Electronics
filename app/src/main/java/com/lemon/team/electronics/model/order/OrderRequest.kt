@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class OrderRequest(
     @SerializedName("city")
-    val city: String?,
+    val governorate: String?,
     @SerializedName("companyName")
     val companyName: String?,
     @SerializedName("district")

@@ -112,8 +112,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="@dimen/padding2x"
-                    android:entries="@array/city"
-                    selectedItem="@={viewModel.city}"
+                    android:entries="@array/governorates"
+                    selectedItem="@={viewModel.governorate}"
                     android:textColor="@color/seconder_text_color"
                     app:layout_constraintTop_toBottomOf="@+id/governorate" />
             </LinearLayout>

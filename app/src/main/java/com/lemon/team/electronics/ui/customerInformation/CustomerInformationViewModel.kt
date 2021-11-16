@@ -16,7 +16,7 @@ class CustomerInformationViewModel: BaseViewModel() {
     val email = MutableLiveData<String>()
     val phoneNumber = MutableLiveData<String>()
     val notes = MutableLiveData<String>()
-    val city = MutableLiveData<String>()
+    val governorate = MutableLiveData<String>()
 
     fun onSubmitClicked() {
         val order = OrderRequest(
@@ -27,7 +27,7 @@ class CustomerInformationViewModel: BaseViewModel() {
             email = email.value ?: "",
             mobileNumber = phoneNumber.value ?: "",
             notes = notes.value ?: "",
-            city = city.value,
+            governorate = governorate.value,
             orderedProducts = emptyList()
         )
 
