@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_nav_graph"
-    app:startDestination="@id/customerInformationFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -113,7 +113,11 @@
         android:id="@+id/checkoutFragment"
         android:name="com.lemon.team.electronics.ui.checkout.CheckoutFragment"
         android:label="CheckoutFragment"
-        tools:layout="@layout/fragment_checkout"/>
+        tools:layout="@layout/fragment_checkout">
+        <action
+            android:id="@+id/action_checkoutFragment_to_customerInformationFragment"
+            app:destination="@id/customerInformationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/customerInformationFragment"
         android:name="com.lemon.team.electronics.ui.customerInformation.CustomerInformationFragment"

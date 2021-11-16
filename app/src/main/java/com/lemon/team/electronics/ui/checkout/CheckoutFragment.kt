@@ -6,6 +6,7 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCheckoutBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.ui.cart.CartViewModel
+import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.observeEvent
 
 class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CartViewModel>() {
@@ -18,7 +19,7 @@ class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CartViewModel>() 
     override fun observeEvents() {
         viewModel.also {
             it.clickPayNowEvent.observeEvent(this) {
-                // nav to user information fragment
+                binding.root.goToFragment(CheckoutFragmentDirections.actionCheckoutFragmentToCustomerInformationFragment())
             }
             it.clickBackEvent.observeEvent(this) {
                 findNavController().navigateUp()
