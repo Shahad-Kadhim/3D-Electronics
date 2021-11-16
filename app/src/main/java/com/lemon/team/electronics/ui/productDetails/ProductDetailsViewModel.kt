@@ -87,7 +87,7 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     }
 
     fun setItem(product: Product?) =
-        product?.convertToItem(Constants.CART, piecesNumber.value!!)
+        product?.toItemEntity(Constants.CART, piecesNumber.value!!)
 
     private suspend fun  exists() =
         Repository.checkExists(detailsProduct.value!!.toData()!!.id)

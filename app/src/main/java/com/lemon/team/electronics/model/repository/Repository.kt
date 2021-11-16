@@ -105,6 +105,7 @@ object Repository{
             State.Error(response.message())
         }
 
+
     private val dao = ProductsItemsDatabase.getInstanceWithContext().productsDao()
 
     suspend fun insertProduct(ProductItem: ProductItem) = dao.insert(ProductItem)
@@ -119,8 +120,6 @@ object Repository{
 
     fun getItemById(id: String) =
         dao.getItemByID(id)
-
-
 
 }
 

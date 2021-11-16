@@ -118,7 +118,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     }
 
     fun setItem(Product: Product) =
-        Product.convertToItem(Constants.CART, 1)
+        Product.toItemEntity(Constants.CART, 1)
 
 
     override fun onClickHeart(productId: String) {
