@@ -10,250 +10,266 @@
 
     </data>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_button"
+            style="@style/ButtonBack"
+            android:background="@drawable/button_back"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/padding2x">
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="56dp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/back_button"
-                style="@style/ButtonBack"
-                android:background="@drawable/button_back"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin2x"
-                android:layout_marginVertical="@dimen/margin4x"
-                android:fontFamily="@font/monda_bold"
-                android:text="@string/please_fill_in_your_information"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_default"
-                app:layout_constraintStart_toStartOf="@id/back_button"
-                app:layout_constraintTop_toBottomOf="@+id/back_button" />
-
-            <TextView
-                android:id="@+id/full_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin_small"
-                android:layout_marginTop="@dimen/margin4x"
-                android:fontFamily="@font/monda_bold"
-                android:text="@string/full_name"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintStart_toStartOf="@+id/title"
-                app:layout_constraintTop_toBottomOf="@+id/title" />
-
-            <EditText
-                android:id="@+id/full_name_input"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="@={viewModel.fullName}"
-                android:layout_marginHorizontal="@dimen/margin5x"
-                android:background="@drawable/shape_edit_text"
-                android:padding="@dimen/padding2x"
-                android:textColor="@color/seconder_text_color"
-                app:layout_constraintTop_toBottomOf="@+id/full_name" />
-
-            <TextView
-                android:id="@+id/company_name"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4x"
-                android:fontFamily="@font/monda_bold"
-                android:text="@string/company_name"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintStart_toStartOf="@+id/full_name"
-                app:layout_constraintTop_toBottomOf="@+id/full_name_input" />
+                android:paddingBottom="@dimen/padding2x">
 
-            <EditText
-                android:id="@+id/company_name_input"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="@dimen/margin5x"
-                android:background="@drawable/shape_edit_text"
-                android:hint="@string/if_you_are_a_company_owner"
-                android:padding="@dimen/padding2x"
-                android:text="@={viewModel.companyName}"
-                android:textColor="@color/seconder_text_color"
-                app:layout_constraintTop_toBottomOf="@+id/company_name" />
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin5x"
+                    android:layout_marginVertical="@dimen/margin4x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/please_fill_in_your_information"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_default"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/governorate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4x"
-                android:fontFamily="@font/monda_bold"
-                android:text="@string/governorate"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintStart_toStartOf="@+id/company_name"
-                app:layout_constraintTop_toBottomOf="@+id/company_name_input" />
+                <TextView
+                    android:id="@+id/full_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin4x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/full_name"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="@+id/title"
+                    app:layout_constraintTop_toBottomOf="@+id/title" />
 
-            <LinearLayout
-                android:id="@+id/governorate_layout"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="@dimen/margin5x"
-                android:background="@drawable/shape_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/governorate">
-
-                <Spinner
-                    android:id="@+id/governorate_input"
+                <EditText
+                    android:id="@+id/full_name_input"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="@dimen/margin5x"
+                    android:background="@drawable/shape_edit_text"
                     android:padding="@dimen/padding2x"
-                    android:entries="@array/governorates"
-                    selectedItem="@={viewModel.governorate}"
+                    android:text="@={viewModel.fullName}"
                     android:textColor="@color/seconder_text_color"
-                    app:layout_constraintTop_toBottomOf="@+id/governorate" />
-            </LinearLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/full_name" />
 
-            <TextView
-                android:id="@+id/region_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4x"
-                android:fontFamily="@font/monda_bold"
-                android:text="@string/region_name"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintStart_toStartOf="@+id/governorate"
-                app:layout_constraintTop_toBottomOf="@+id/governorate_layout" />
+                <TextView
+                    android:id="@+id/company_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin4x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/company_name"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="@+id/full_name"
+                    app:layout_constraintTop_toBottomOf="@+id/full_name_input" />
 
-            <EditText
-                android:id="@+id/region_name_input"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="@dimen/margin5x"
-                android:background="@drawable/shape_edit_text"
-                android:padding="@dimen/padding2x"
-                android:text="@={viewModel.regionName}"
-                android:textColor="@color/seconder_text_color"
-                app:layout_constraintTop_toBottomOf="@+id/region_name" />
+                <EditText
+                    android:id="@+id/company_name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="@dimen/margin5x"
+                    android:background="@drawable/shape_edit_text"
+                    android:hint="@string/if_you_are_a_company_owner"
+                    android:padding="@dimen/padding2x"
+                    android:text="@={viewModel.companyName}"
+                    android:textColor="@color/seconder_text_color"
+                    app:layout_constraintTop_toBottomOf="@+id/company_name" />
 
-            <TextView
-                android:id="@+id/nearest_point"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4x"
-                android:fontFamily="@font/monda_bold"
-                android:text="@string/nearest_point_to_you"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintStart_toStartOf="@+id/region_name"
-                app:layout_constraintTop_toBottomOf="@+id/region_name_input" />
+                <TextView
+                    android:id="@+id/governorate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin4x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/governorate"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="@+id/company_name"
+                    app:layout_constraintTop_toBottomOf="@+id/company_name_input" />
 
-            <EditText
-                android:id="@+id/nearest_point_input"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="@dimen/margin5x"
-                android:background="@drawable/shape_edit_text"
-                android:padding="@dimen/padding2x"
-                android:text="@={viewModel.nearestPoint}"
-                android:textColor="@color/seconder_text_color"
-                app:layout_constraintTop_toBottomOf="@+id/nearest_point" />
+                <LinearLayout
+                    android:id="@+id/governorate_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="@dimen/margin5x"
+                    android:background="@drawable/shape_edit_text"
+                    app:layout_constraintTop_toBottomOf="@+id/governorate">
 
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4x"
-                android:fontFamily="@font/monda_bold"
-                android:text="@string/e_mail"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintStart_toStartOf="@+id/nearest_point"
-                app:layout_constraintTop_toBottomOf="@+id/nearest_point_input" />
+                    <Spinner
+                        android:id="@+id/governorate_input"
+                        selectedItem="@={viewModel.governorate}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/governorates"
+                        android:padding="@dimen/padding2x"
+                        android:textColor="@color/seconder_text_color"
+                        app:layout_constraintTop_toBottomOf="@+id/governorate" />
+                </LinearLayout>
 
-            <EditText
-                android:id="@+id/email_input"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="@dimen/margin5x"
-                android:background="@drawable/shape_edit_text"
-                android:inputType="textEmailAddress"
-                android:padding="@dimen/padding2x"
-                android:text="@={viewModel.email}"
-                android:textColor="@color/seconder_text_color"
-                app:layout_constraintTop_toBottomOf="@+id/email" />
+                <TextView
+                    android:id="@+id/region_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin4x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/region_name"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="@+id/governorate"
+                    app:layout_constraintTop_toBottomOf="@+id/governorate_layout" />
 
-            <TextView
-                android:id="@+id/phone_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4x"
-                android:fontFamily="@font/monda_bold"
-                android:text="@string/phone_number_text"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintStart_toStartOf="@+id/email"
-                app:layout_constraintTop_toBottomOf="@+id/email_input" />
+                <EditText
+                    android:id="@+id/region_name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="@dimen/margin5x"
+                    android:background="@drawable/shape_edit_text"
+                    android:padding="@dimen/padding2x"
+                    android:text="@={viewModel.regionName}"
+                    android:textColor="@color/seconder_text_color"
+                    app:layout_constraintTop_toBottomOf="@+id/region_name" />
 
-            <EditText
-                android:id="@+id/phone_number_input"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="@dimen/margin5x"
-                android:background="@drawable/shape_edit_text"
-                android:hint="@string/_964_xxx_xxxx"
-                android:inputType="phone"
-                android:padding="@dimen/padding2x"
-                android:text="@={viewModel.phoneNumber}"
-                android:textColor="@color/seconder_text_color"
-                app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+                <TextView
+                    android:id="@+id/nearest_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin4x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/nearest_point_to_you"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="@+id/region_name"
+                    app:layout_constraintTop_toBottomOf="@+id/region_name_input" />
 
-            <TextView
-                android:id="@+id/note"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4x"
-                android:fontFamily="@font/monda_bold"
-                android:text="@string/notes"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintStart_toStartOf="@+id/phone_number"
-                app:layout_constraintTop_toBottomOf="@+id/phone_number_input" />
+                <EditText
+                    android:id="@+id/nearest_point_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="@dimen/margin5x"
+                    android:background="@drawable/shape_edit_text"
+                    android:padding="@dimen/padding2x"
+                    android:text="@={viewModel.nearestPoint}"
+                    android:textColor="@color/seconder_text_color"
+                    app:layout_constraintTop_toBottomOf="@+id/nearest_point" />
 
-            <EditText
-                android:id="@+id/note_input"
-                android:layout_width="match_parent"
-                android:layout_height="96dp"
-                android:layout_marginHorizontal="@dimen/margin5x"
-                android:background="@drawable/shape_edit_text"
-                android:gravity="top"
-                android:hint="@string/notes_about_your_order"
-                android:padding="@dimen/padding2x"
-                android:text="@={viewModel.notes}"
-                android:textColor="@color/seconder_text_color"
-                app:layout_constraintTop_toBottomOf="@+id/note" />
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin4x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/e_mail"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="@+id/nearest_point"
+                    app:layout_constraintTop_toBottomOf="@+id/nearest_point_input" />
 
-            <Button
-                android:id="@+id/submit_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin4x"
-                android:background="@drawable/shape_button"
-                android:fontFamily="@font/lato_regular"
-                android:text="@string/submit_your_order"
-                android:textAllCaps="false"
-                android:textSize="@dimen/text_default"
-                android:textStyle="bold"
-                android:onClick="@{() -> viewModel.onSubmitClicked()}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/note_input" />
+                <EditText
+                    android:id="@+id/email_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="@dimen/margin5x"
+                    android:background="@drawable/shape_edit_text"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/padding2x"
+                    android:text="@={viewModel.email}"
+                    android:textColor="@color/seconder_text_color"
+                    app:layout_constraintTop_toBottomOf="@+id/email" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/phone_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin4x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/phone_number_text"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="@+id/email"
+                    app:layout_constraintTop_toBottomOf="@+id/email_input" />
+
+                <EditText
+                    android:id="@+id/phone_number_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="@dimen/margin5x"
+                    android:background="@drawable/shape_edit_text"
+                    android:hint="@string/_964_xxx_xxxx"
+                    android:inputType="phone"
+                    android:padding="@dimen/padding2x"
+                    android:text="@={viewModel.phoneNumber}"
+                    android:textColor="@color/seconder_text_color"
+                    app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+
+                <TextView
+                    android:id="@+id/note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin4x"
+                    android:fontFamily="@font/monda_bold"
+                    android:text="@string/notes"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintStart_toStartOf="@+id/phone_number"
+                    app:layout_constraintTop_toBottomOf="@+id/phone_number_input" />
+
+                <EditText
+                    android:id="@+id/note_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:layout_marginHorizontal="@dimen/margin5x"
+                    android:background="@drawable/shape_edit_text"
+                    android:gravity="top"
+                    android:hint="@string/notes_about_your_order"
+                    android:padding="@dimen/padding2x"
+                    android:text="@={viewModel.notes}"
+                    android:textColor="@color/seconder_text_color"
+                    app:layout_constraintTop_toBottomOf="@+id/note" />
+
+                <Button
+                    android:id="@+id/submit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin4x"
+                    android:background="@drawable/shape_button"
+                    android:fontFamily="@font/lato_regular"
+                    android:onClick="@{() -> viewModel.onSubmitClicked()}"
+                    android:text="@string/submit_your_order"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text_default"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/note_input" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
