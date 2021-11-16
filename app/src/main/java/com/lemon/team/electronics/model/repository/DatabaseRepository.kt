@@ -1,8 +1,11 @@
 package com.lemon.team.electronics.model.repository
 
+import android.util.Log
+import androidx.lifecycle.asLiveData
 import com.lemon.team.electronics.model.data.ProductItem
 import com.lemon.team.electronics.model.data.database.ProductsItemsDatabase
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 
 object DatabaseRepository {
@@ -17,6 +20,7 @@ object DatabaseRepository {
         dao.updateCartItem(itemId, pieces, price)
 
     fun getAllProducts() = dao.getAllCartItems()
+
 
     fun getItemById(id: String) =
         dao.getItemByID(id)

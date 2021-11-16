@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import android.content.Intent
+import android.util.Log
 import android.view.*
 import androidx.navigation.fragment.*
 import com.lemon.team.electronics.R

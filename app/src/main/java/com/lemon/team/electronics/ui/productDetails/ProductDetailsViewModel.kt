@@ -30,6 +30,8 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
     var piecesNumber = MutableLiveData(1)
 
+    var uu = DatabaseRepository.getAllProducts().asLiveData()
+
     val images =Transformations.map(detailsProduct){ state ->
         state.toData()?.images?.map { imageResponse ->
             imageResponse.productImageLocation

@@ -2,15 +2,19 @@ package com.lemon.team.electronics.ui.cart
 
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.repository.DatabaseRepository
-import com.lemon.team.electronics.model.repository.Repository
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
+
 
 class CartViewModel : BaseViewModel() , CartInteractionListener {
 
     val cartItems = DatabaseRepository.getAllProducts().asLiveData()
 
-    val totalPrice = Repository.getTotalPrice()
+
+    val totalPrice = DatabaseRepository.getTotalPrice().asLiveData()
+
+
+
 
     private val _clickPayNowEvent = MutableLiveData<Event<Boolean>>()
     var clickPayNowEvent: LiveData<Event<Boolean>> = _clickPayNowEvent
