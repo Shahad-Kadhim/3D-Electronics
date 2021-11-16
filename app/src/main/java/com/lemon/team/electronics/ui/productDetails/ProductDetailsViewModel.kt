@@ -6,7 +6,6 @@ import com.lemon.team.electronics.model.repository.Repository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
@@ -30,7 +29,6 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
 
     var piecesNumber = MutableLiveData(1)
-    var oldPiecesNumber = MutableLiveData<Int>()
 
     val images =Transformations.map(detailsProduct){ state ->
         state.toData()?.images?.map { imageResponse ->
@@ -74,12 +72,16 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     }
 
     fun onclickAddToCart(){
-        val product = detailsProduct.value?.toData()
         _onclickAdd.postValue(Event(true))
+        addOrUpdateItem(detailsProduct.value?.toData())
+    }
+
+
+    private fun addOrUpdateItem(item: Product?) {
         viewModelScope.launch {
             if (!exists())
-                setItem(product)?.let { DatabaseRepository.insertProduct(it) }
-            else updateItem(product)
+                setItem(item)?.let { DatabaseRepository.insertProduct(it) }
+            else updateItem(item)
         }
     }
 
@@ -91,20 +93,12 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
 
     private suspend fun  updateItem(product: Product?) {
-        viewModelScope.launch {
-            product?.price.let {
-                DatabaseRepository.updateCartItem(
-                    product!!.id,
-                    piecesNumber.value!!,
-                    it!!.times(piecesNumber.value!!)
-                )
-            }
-        }
-    }
-
-    private fun getOldItemData(){
-        DatabaseRepository.getAllProducts().map {
-             it.map { oldPiecesNumber.postValue(it.pieces) }
+        product?.price.let {
+            DatabaseRepository.updateCartItem(
+                product!!.id,
+                piecesNumber.value!!,
+                it!!.times(piecesNumber.value!!)
+            )
         }
     }
 

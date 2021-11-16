@@ -14,5 +14,5 @@ data class ProductItem(
     val price: Double,
     val sale: Boolean,
     val productType: Int,
-    val pieces: Int
+    val pieces: Int,
 )

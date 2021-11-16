@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin2x"
             android:fontFamily="@font/monda_regular"
-            android:text="3 products"
+            android:text="Total:"
             android:layout_marginTop="@dimen/margin_small"
             android:textColor="@color/white"
             android:textSize="@dimen/text_default"

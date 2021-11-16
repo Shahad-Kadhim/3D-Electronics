@@ -2,6 +2,8 @@ package com.lemon.team.electronics.model.repository
 
 import com.lemon.team.electronics.model.data.ProductItem
 import com.lemon.team.electronics.model.data.database.ProductsItemsDatabase
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 object DatabaseRepository {
 
@@ -15,5 +17,11 @@ object DatabaseRepository {
         dao.updateCartItem(itemId, pieces, price)
 
     fun getAllProducts() = dao.getAllCartItems()
+
+    fun getItemById(id: String) =
+        dao.getItemByID(id)
+
+
+    fun getTotalPrice() = dao.getTotalPrice()
 
 }
