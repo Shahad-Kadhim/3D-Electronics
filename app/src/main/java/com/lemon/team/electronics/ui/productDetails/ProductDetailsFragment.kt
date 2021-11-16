@@ -34,10 +34,6 @@ class ProductDetailsFragment :
 
     override fun observeEvents() {
         viewModel.apply {
-            onclickAdd.observeEvent(this@ProductDetailsFragment) {
-                view?.goToFragment(ProductDetailsFragmentDirections.actionProductDetailsFragmentToCartFragment())
-
-            }
 
             onclickWish.observeEvent(this@ProductDetailsFragment) {
                 // add to wish table when create database
