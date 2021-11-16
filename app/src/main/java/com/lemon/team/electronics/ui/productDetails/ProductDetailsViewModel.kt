@@ -79,17 +79,17 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
     private fun addOrUpdateItem(item: Product?) {
         viewModelScope.launch {
-            if (!exists()!!)
+            if (!isItemExists()!!)
                 setItem(item)?.let { Repository.insertProduct(it) }
             else updateItem(item)
         }
     }
 
     fun setItem(product: Product?) =
-        piecesNumber.value?.let { product?.toItemEntity(Constants.CART, it) }
+        piecesNumber.value?.let { product?.toItemEntity(it) }
 
-    private suspend fun  exists() =
-        detailsProduct.value?.toData()?.let { Repository.checkExists(it.id) }
+    private suspend fun isItemExists() =
+        detailsProduct.value?.toData()?.let { Repository.checkItemExists(it.id) }
 
 
     private suspend fun  updateItem(product: Product?) {

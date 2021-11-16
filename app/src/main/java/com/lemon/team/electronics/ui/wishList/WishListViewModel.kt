@@ -38,7 +38,7 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     }
 
     fun setItem(Product: Product) =
-        Product.toItemEntity(Constants.CART, 1)
+        Product.toItemEntity(1)
 
     fun onClickBack() {
         _clickBackEvent.postValue(Event(true))

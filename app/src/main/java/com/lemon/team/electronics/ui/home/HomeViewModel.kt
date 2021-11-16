@@ -110,15 +110,24 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         _onclickProductEvent.postValue(Event(productId))
     }
 
-    override fun onclickAddToCart(Product: Product){
+    override fun onclickAddToCart(product: Product?){
         _onclickAdd.postValue(Event(true))
+        addItem(product)
+    }
+
+    private fun addItem(product: Product?) {
         viewModelScope.launch {
-            Repository.insertProduct(setItem(Product))
+            if (!isItemExists(product)!!)
+                setItem(product)?.let { Repository.insertProduct(it) }
         }
     }
 
-    fun setItem(Product: Product) =
-        Product.toItemEntity(Constants.CART, 1)
+    private suspend fun isItemExists(product: Product?) =
+        product?.let { Repository.checkItemExists(it.id) }
+
+
+    fun setItem(product: Product?) =
+        product?.toItemEntity(1)
 
 
     override fun onClickHeart(productId: String) {

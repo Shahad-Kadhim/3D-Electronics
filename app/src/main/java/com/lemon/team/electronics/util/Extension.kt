@@ -50,7 +50,7 @@ fun Intent.sharingUrl(url: String?): Intent? {
     }
 }
 
-fun Product.toItemEntity(productType: Int, pieces: Int) =
+fun Product.toItemEntity(pieces: Int) =
     ProductItem(
         0,
         id,
@@ -60,7 +60,6 @@ fun Product.toItemEntity(productType: Int, pieces: Int) =
         mainImage!!,
         price!!.times(pieces),
         sale!!,
-        productType,
         pieces
     )
 

@@ -23,7 +23,7 @@ interface ProductsItemsDao {
     fun getItemByID(id: String):Flow<ProductItem>
 
     @Query("SELECT EXISTS (SELECT * FROM PRODUCT_TABLE WHERE itemId = :itemId)")
-    suspend fun exists(itemId: String): Boolean
+    suspend fun isItemExists(itemId: String): Boolean
 
     @Query("SELECT SUM(price) as total FROM PRODUCT_TABLE ")
     fun getTotalPrice(): Flow<Double>

@@ -13,6 +13,5 @@ data class ProductItem(
     val mainImage: String,
     val price: Double,
     val sale: Boolean,
-    val productType: Int,
     val pieces: Int,
 )

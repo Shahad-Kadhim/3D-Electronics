@@ -105,7 +105,7 @@ interface HomeInteractionListener : BaseInteractionListener {
     fun onClickHeart(productId: String)
     fun onClickShare(productId: String)
     fun onClickCategory(categoryId: CategoryResponse)
-    fun onclickAddToCart(productId: Product)
+    fun onclickAddToCart(productId: Product?)
     fun onclickSearch()
     fun onClickSeeMoreForCategories()
     fun onClickSeeMoreForCategory(category: CategoryInfoType)
