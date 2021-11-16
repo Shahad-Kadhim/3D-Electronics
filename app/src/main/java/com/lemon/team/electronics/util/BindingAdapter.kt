@@ -1,11 +1,15 @@
 package com.lemon.team.electronics.util
 
 import android.text.Html
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
+import androidx.databinding.InverseBindingAdapter
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
@@ -158,5 +162,16 @@ fun <T> loading(view: View, state: State<T>?) {
 fun setCategoryNameById(view: TextView, categoryId: String?) {
     CategoryMap.categoryName[categoryId]?.let {
         view.text = view.context.getString(it)
+    }
+}
+
+@BindingAdapter(value = ["app:last"])
+fun getMoreProducts(view: RecyclerView, scroll: () -> Unit) {
+    view.setOnScrollChangeListener { _, i, i2, i3, i4 ->
+        if ((view.layoutManager as GridLayoutManager).findLastCompletelyVisibleItemPosition() == (view.adapter?.itemCount?.minus(
+                1))
+        ) {
+            scroll()
+        }
     }
 }

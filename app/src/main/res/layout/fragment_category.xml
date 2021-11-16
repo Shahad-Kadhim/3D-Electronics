@@ -61,6 +61,7 @@
             android:clipToPadding="false"
             android:layout_marginTop="@dimen/margin_small"
             android:paddingHorizontal="@dimen/margin_small"
+            app:last="@{viewModel.onScrollLast}"
             app:items="@{viewModel.items.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
