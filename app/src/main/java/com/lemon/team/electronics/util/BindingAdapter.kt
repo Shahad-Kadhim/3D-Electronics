@@ -182,9 +182,3 @@ fun setPikerListener(view: NumberPicker, attChange: InverseBindingListener) {
         attChange.onChange()
     }
 }
-
-@BindingAdapter(value = ["app:toast"])
-fun showToast(view:View , value:String?) {
-    if (value != null)
-        Toast.makeText(view.context ,value ,Toast.LENGTH_SHORT).show()
-}

@@ -9,6 +9,7 @@ import com.lemon.team.electronics.model.domain.*
 import com.lemon.team.electronics.ui.base.BaseFragment
 import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavDirections
 import com.lemon.team.electronics.model.response.ProductsResponse
@@ -72,6 +73,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 shareProduct(productUrl)
             }
 
+            onclickAdd.observeEvent(this@HomeFragment){
+                Toast.makeText(view?.context ,"Added $it Piece To Cart" , Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 
@@ -105,7 +110,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     CategoryInfoType(CategoriesId.PAD_MOUSE, context?.getString(R.string.mouse_pad).toString())
                 )
 
-
                 addItem(categories){ state ->
                     addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))
                 }
@@ -117,6 +121,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 addItem(homeImages){ state ->
                     addItem(HomeItem.SlideType(state.toData()!!))
                 }
+
+            }
+            viewModel.toast.observe(this@HomeFragment){
 
             }
         }
@@ -144,6 +151,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 }
             }
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.toast.value = null
     }
 
 }
