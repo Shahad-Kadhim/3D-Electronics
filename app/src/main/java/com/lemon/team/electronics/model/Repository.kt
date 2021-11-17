@@ -77,7 +77,7 @@ object Repository{
         )
     }
 
-    fun trackOrder(phoneNumber: String?): Flow<State<OrderTrackingResponse?>> =
+    fun trackOrder(phoneNumber: String?): Flow<State<List<OrderTrackingResponse>?>> =
         wrapWithFlow { API.apiService.trackOrder(phoneNumber) }
 
 
