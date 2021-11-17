@@ -77,6 +77,8 @@
     <string name="notes">Notes</string>
     <string name="submit_your_order">Submit Your Order</string>
     <string name="notes_about_your_order"><font size="12">notes about your order</font></string>
+    <string name="follow_my_order">Follow my order</string>
+    <string name="enter_your_phone_number">enter your phone number</string>
 
     <string-array name="governorates">
         <item>Baghdad</item>

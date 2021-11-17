@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/orderTrackingFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -123,4 +123,9 @@
         android:name="com.lemon.team.electronics.ui.customerInformation.CustomerInformationFragment"
         android:label="CustomerInformationFragment"
         tools:layout="@layout/fragment_customer_information"/>
+    <fragment
+        android:id="@+id/orderTrackingFragment"
+        android:name="com.lemon.team.electronics.ui.orderTracking.OrderTrackingFragment"
+        android:label="OrderTrackingFragment"
+        tools:layout="@layout/fragment_order_tracking"/>
 </navigation>

@@ -2,12 +2,10 @@ package com.lemon.team.electronics.model.network
 
 import com.google.gson.JsonElement
 import com.lemon.team.electronics.model.orderResponse.OrderResponse
+import com.lemon.team.electronics.model.orderTracking.OrderTrackingResponse
 import com.lemon.team.electronics.model.response.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ProductService {
 
@@ -41,5 +39,8 @@ interface ProductService {
 
     @POST("resources/orders/add-order/")
     suspend fun makeOrder(@Body order: JsonElement): Response<OrderResponse>
+
+    @GET("resources/orders/checkStatus/{phoneNumber}")
+    suspend fun trackOrder(@Path("phoneNumber") phoneNumber: String?): Response<OrderTrackingResponse>
 
 }

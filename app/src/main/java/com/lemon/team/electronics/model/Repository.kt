@@ -7,6 +7,7 @@ import com.lemon.team.electronics.model.network.API
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
 import com.lemon.team.electronics.model.order.OrderedProduct
 import com.lemon.team.electronics.model.orderResponse.OrderResponse
+import com.lemon.team.electronics.model.orderTracking.OrderTrackingResponse
 import com.lemon.team.electronics.model.response.*
 import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
@@ -75,6 +76,9 @@ object Repository{
             )
         )
     }
+
+    fun trackOrder(phoneNumber: String?): Flow<State<OrderTrackingResponse?>> =
+        wrapWithFlow { API.apiService.trackOrder(phoneNumber) }
 
 
     // this function gets the total price of the products in the cart from the database

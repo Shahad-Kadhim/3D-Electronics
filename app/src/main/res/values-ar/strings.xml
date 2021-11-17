@@ -72,6 +72,8 @@
     <string name="_964_xxx_xxxx"><font size="12">+964 - xxx - xxxx</font></string>
     <string name="notes">ملاحظات</string>
     <string name="submit_your_order">ثبت طلبك</string>
+    <string name="follow_my_order">متابعة حالة الطلب</string>
+    <string name="enter_your_phone_number">ادخل رقم الهاتف</string>
 
     <string-array name="governorates">
         <item>بغداد</item>

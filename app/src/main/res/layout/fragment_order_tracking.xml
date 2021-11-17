@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.lemon.team.electronics.ui.orderTracking.OrderTrackingViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/phone_number_input"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_normal"
+            android:background="@drawable/shape_edit_text"
+            android:fontFamily="@font/monda_bold"
+            android:hint="@string/enter_your_phone_number"
+            android:padding="@dimen/padding_normal"
+            android:text="@={viewModel.phoneNumber}"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/follow_my_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_normal"
+            android:fontFamily="@font/lato_regular"
+            android:onClick="@{() -> viewModel.trackOrder()}"
+            android:text="@string/follow_my_order"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_default"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_number_input" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
