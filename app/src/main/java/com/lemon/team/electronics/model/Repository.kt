@@ -1,8 +1,7 @@
 package com.lemon.team.electronics.model
 
 import android.annotation.SuppressLint
-import com.google.gson.Gson
-import com.google.gson.JsonElement
+import com.google.gson.*
 import com.lemon.team.electronics.model.data.ProductItem
 import com.lemon.team.electronics.model.data.database.ProductsItemsDatabase
 import com.lemon.team.electronics.model.network.API
@@ -50,31 +49,25 @@ object Repository{
 
     // this function will be rewritten after create database
     fun getWishedProducts(): Flow<State<ProductsResponse?>> =
-        wrapWithFlow { API.apiService
-            .getProductsByCategoryId(
-                categoryId = CategoriesId.MONITORS,
-                page = Constants.PAGE_NUMBER_ZERO,
-                sortBy = Constants.SORT_BY_CREATED_DATE
-            )
+        wrapWithFlow {
+            API.apiService
+                .getProductsByCategoryId(
+                    categoryId = CategoriesId.MONITORS,
+                    page = Constants.PAGE_NUMBER_ZERO,
+                    sortBy = Constants.SORT_BY_CREATED_DATE
+                )
         }
 
-
-
-    //this function will be rewritten after create database
-    fun getOrderedProducts(): List<OrderedProduct>{
-        return listOf(
-            OrderedProduct(
-                productCount = 1,
-                productId = "a6a7da21-ff30-466a-b633-365b94685a8f"
-            )
-        )
+    suspend fun getOrderedProducts(): List<OrderedProduct> {
+        return dao.getAllCartItemsAsList().map {
+            it.toOrderedProduct()
+        }
     }
-
 
 
     fun getCompanies(): List<CompaniesImgUrl>? =
         getAllCompanies(Constants.COMPANY_FILE_NAME).companiesImgUrl
-    
+
 
     fun getOtherCompanies(): List<CompaniesImgUrl>? =
         getAllCompanies(Constants.COMPANY_FILE_NAME).otherCompaniesImgUrl

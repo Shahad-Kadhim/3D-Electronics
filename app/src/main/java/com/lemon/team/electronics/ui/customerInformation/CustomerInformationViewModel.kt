@@ -1,11 +1,17 @@
 package com.lemon.team.electronics.ui.customerInformation
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.google.gson.JsonElement
 import com.lemon.team.electronics.model.Repository
+import com.lemon.team.electronics.model.data.ProductItem
 import com.lemon.team.electronics.model.order.OrderRequest
+import com.lemon.team.electronics.model.order.OrderedProduct
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.DataClassParser
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class CustomerInformationViewModel : BaseViewModel() {
 
@@ -19,16 +25,18 @@ class CustomerInformationViewModel : BaseViewModel() {
     val governorate = MutableLiveData<String>()
 
     fun onSubmitClicked() {
-        val order = initOrder()
-        val parsedOrder = parseOrder(order)
-        makeOrder(parsedOrder)
+        viewModelScope.launch {
+            val order = initOrder()
+            val parsedOrder = parseOrder(order)
+            makeOrder(parsedOrder)
+        }
     }
 
     private fun parseOrder(order: OrderRequest): JsonElement {
         return DataClassParser.parseToJson(order)
     }
 
-    private fun initOrder(): OrderRequest {
+    private suspend fun initOrder(): OrderRequest {
         return OrderRequest(
             name = fullName.value ?: "",
             companyName = companyName.value ?: "",

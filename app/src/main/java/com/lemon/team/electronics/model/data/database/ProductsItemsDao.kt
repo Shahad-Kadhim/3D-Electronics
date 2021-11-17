@@ -19,6 +19,9 @@ interface ProductsItemsDao {
     @Query("SELECT * FROM PRODUCT_TABLE ORDER BY id DESC ")
     fun getAllCartItems(): Flow<List<ProductItem>>
 
+    @Query("SELECT * FROM PRODUCT_TABLE ORDER BY id DESC ")
+    suspend fun getAllCartItemsAsList(): List<ProductItem>
+
     @Query("SELECT * FROM PRODUCT_TABLE WHERE itemId = :id ")
     suspend fun getItemByID(id: String): ProductItem?
 
