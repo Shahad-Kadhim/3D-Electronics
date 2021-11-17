@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
@@ -150,6 +151,15 @@ fun onClickSliderItem(view:ImageSlider , listener: HomeInteractionListener?) {
 @BindingAdapter(value = ["app:showLoading"])
 fun <T> loading(view: View, state: State<T>?) {
     view.visibility=if(state ==null){
+        View.VISIBLE
+    }else {
+        View.GONE
+    }
+}
+
+@BindingAdapter(value = ["app:isNull"])
+fun isNull(view: View, ListSize: Int?) {
+    view.visibility = if(ListSize == 0){
         View.VISIBLE
     }else {
         View.GONE

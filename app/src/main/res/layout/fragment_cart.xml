@@ -14,6 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/empty"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            app:isNull="@{viewModel.cartItems.size()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/not_found"
+            />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
             style="@style/ButtonBack"
