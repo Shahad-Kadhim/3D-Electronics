@@ -67,7 +67,7 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private fun getDetailsProductFromDataBase(productId: String){
         viewModelScope.launch {
             Repository.getItemById(productId).collect {
-                piecesNumber.postValue(it.pieces)
+                piecesNumber.postValue(it?.pieces ?: 1)
             }
         }
     }

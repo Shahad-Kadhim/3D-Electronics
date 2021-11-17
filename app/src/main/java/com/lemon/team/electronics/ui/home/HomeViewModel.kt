@@ -133,7 +133,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     private fun getPiecesNumber(product: Product) {
         viewModelScope.launch {
             getProductFromDataBase(product.id).collect {
-                _onclickAdd.postValue(Event(it.pieces.plus(1)))
+                _onclickAdd.postValue(Event(it?.pieces?.plus(1) ?: 1))
             }
         }
         updateItem(product)
@@ -142,11 +142,13 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     private fun updateItem(product: Product) {
         viewModelScope.launch {
             getProductFromDataBase(product.id).collect {
-                Repository.updateCartItem(
-                    it.itemId,
-                    it.pieces,
-                    it.price
-                )
+                it?.let {
+                    Repository.updateCartItem(
+                        it.itemId,
+                        it.pieces,
+                        it.price
+                    )
+                }
             }
         }
     }

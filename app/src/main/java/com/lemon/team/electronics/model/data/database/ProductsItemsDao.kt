@@ -20,7 +20,7 @@ interface ProductsItemsDao {
     fun getAllCartItems(): Flow<List<ProductItem>>
 
     @Query("SELECT * FROM PRODUCT_TABLE WHERE itemId = :id ")
-    fun getItemByID(id: String):Flow<ProductItem>
+    fun getItemByID(id: String): Flow<ProductItem?>
 
     @Query("SELECT EXISTS (SELECT * FROM PRODUCT_TABLE WHERE itemId = :itemId)")
     suspend fun isItemExists(itemId: String): Boolean
