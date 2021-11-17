@@ -101,7 +101,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         _aboutEvent.postValue(Event(true))
     }
 
-    override fun onclickSearch(){
+    override fun onclickSearch() {
         _searchEvent.postValue(Event(true))
     }
 
@@ -109,43 +109,43 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         _onclickProductEvent.postValue(Event(productId))
     }
 
-    override fun onclickAddToCart(product: Product){
-        addItem(product)
+    override fun onclickAddToCart(productId: Product) {
+        addItem(productId)
     }
 
 
     private fun addItem(product: Product) {
         viewModelScope.launch {
-            if (!isItemExists(product)!!){
-                setItem(product)?.let { Repository.insertProduct(it)}
+            if (!isItemExists(product)!!) {
+                setItem(product)?.let { Repository.insertProduct(it) }
                 _toast.postValue(Event(1))
-            }
-            else
+            } else
                 getPiecesNumber(product)
         }
     }
 
 
     private suspend fun getPiecesNumber(product: Product) {
-        getProductFromDataBase(product.id).take(1).collect {
-            updateItem(product, it.pieces.plus(1))
-            _toast.postValue(Event(it.pieces.plus(1) ))
+        viewModelScope.launch {
+            Repository.getItemById(product.id)?.let {
+                updateItem(product, it.pieces.plus(1))
+                _toast.postValue(Event(it.pieces.plus(1)))
+            }
         }
     }
 
     private suspend fun updateItem(product: Product, piecesNumber: Int) {
-        getProductFromDataBase(product.id)
-            .take(1).collect {
-                Repository.updateCartItem(
-                    it.itemId,
-                    piecesNumber,
-                    it.price.times(piecesNumber)
-                )
-            }
+        viewModelScope.launch {
+            Repository.getItemById(product.id)
+                ?.let {
+                    Repository.updateCartItem(
+                        it.itemId,
+                        piecesNumber,
+                        it.price.times(piecesNumber)
+                    )
+                }
+        }
     }
-
-    private fun getProductFromDataBase(productId: String) =
-        Repository.getItemById(productId)
 
     private suspend fun isItemExists(product: Product?) =
         product?.let { Repository.checkItemExists(it.id) }

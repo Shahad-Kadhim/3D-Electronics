@@ -67,7 +67,7 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private fun getDetailsProductFromDataBase(productId: String){
         viewModelScope.launch {
             if (Repository.checkItemExists(productId))
-                Repository.getItemById(productId).collect {
+                Repository.getItemById(productId)?.let {
                     piecesNumber.postValue(it.pieces)
                 }
         }

@@ -114,7 +114,7 @@ object Repository{
     fun getPiecesNumber() =
         dao.getPiecesNumber()
 
-    fun getItemById(id: String) =
+    suspend fun getItemById(id: String) =
         dao.getItemByID(id)
 
     suspend fun deleteItemById(id: String) =
