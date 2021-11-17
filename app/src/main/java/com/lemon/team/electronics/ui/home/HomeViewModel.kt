@@ -53,8 +53,8 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     val padMouseCategory = Repository.getProductsByCategoryId(CategoriesId.PAD_MOUSE,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
-    private var _onclickAdd = MutableLiveData<Event<Int>>()
-    val onclickAdd: LiveData<Event<Int>> = _onclickAdd
+    private var _toast = MutableLiveData<Event<Int>>()
+    val toast: LiveData<Event<Int>> = _toast
 
 
     val state=MediatorLiveData<State<Any>>().apply {
@@ -118,7 +118,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         viewModelScope.launch {
             if (!isItemExists(product)!!){
                 setItem(product)?.let { Repository.insertProduct(it)}
-                _onclickAdd.postValue(Event(1))
+                _toast.postValue(Event(1))
             }
             else
                 getPiecesNumber(product)
@@ -133,19 +133,19 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         viewModelScope.launch {
             getProductFromDataBase(product.id).take(1).collect {
                 updateItem(product, it.pieces.plus(1))
-                _onclickAdd.postValue(Event(it.pieces.plus(1) ))
+                _toast.postValue(Event(it.pieces.plus(1) ))
             }
         }
     }
 
-    private fun updateItem(product: Product, plus: Int) {
+    private fun updateItem(product: Product, piecesNumber: Int) {
         viewModelScope.launch {
             getProductFromDataBase(product.id)
                 .take(1).collect {
                 Repository.updateCartItem(
                     it.itemId,
-                    plus,
-                    it.price.times(plus)
+                    piecesNumber,
+                    it.price.times(piecesNumber)
                )
             }
         }
