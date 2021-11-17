@@ -4,12 +4,15 @@ import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
+import kotlinx.coroutines.launch
+
 
 class CartViewModel : BaseViewModel() , CartInteractionListener {
 
-    val cartItems = Repository.getProductsInCart().asLiveData()
-
-    val totalPrice = Repository.getTotalPrice()
+    val cartItems = Repository.getAllProducts().asLiveData()
+    val totalPrice = Repository.getTotalPrice().asLiveData()
+    val oldTotalPrice = Repository.getOldTotalPrice().asLiveData()
+    val piecesNumber = Repository.getPiecesNumber().asLiveData()
 
     private val _clickPayNowEvent = MutableLiveData<Event<Boolean>>()
     var clickPayNowEvent: LiveData<Event<Boolean>> = _clickPayNowEvent
@@ -25,6 +28,12 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
 
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
+    }
+
+    override fun onClickDelete(productId: String){
+        viewModelScope.launch {
+            Repository.deleteItemById(productId)
+        }
     }
 
     fun onClickBack() {

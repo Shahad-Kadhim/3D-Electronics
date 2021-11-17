@@ -2,11 +2,8 @@ package com.lemon.team.electronics.model
 
 import android.annotation.SuppressLint
 import com.google.gson.Gson
-import com.google.gson.JsonElement
 import com.lemon.team.electronics.model.network.API
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
-import com.lemon.team.electronics.model.order.OrderedProduct
-import com.lemon.team.electronics.model.orderResponse.OrderResponse
 import com.lemon.team.electronics.model.response.*
 import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
@@ -15,6 +12,7 @@ import retrofit2.Response
 @SuppressLint("StaticFieldLeak")
 object Repository{
 
+    private val dao = ProductsItemsDatabase.getInstanceWithContext().productsDao()
     private val localData: LocalData = LocalData(Gson())
 
     fun getCategories(): Flow<State<List<CategoryResponse>?>> =
@@ -120,6 +118,33 @@ object Repository{
         }
 
 
+
+    suspend fun insertProduct(ProductItem: ProductItem) =
+        dao.insert(ProductItem)
+
+    suspend fun checkItemExists(itemId: String) =
+        dao.isItemExists(itemId)
+
+    suspend fun updateCartItem(itemId: String, pieces: Int, price: Double) =
+        dao.updateCartItem(itemId, pieces, price)
+
+    fun getAllProducts() =
+        dao.getAllCartItems()
+
+    fun getTotalPrice() =
+        dao.getTotalPrice()
+
+    fun getOldTotalPrice() =
+        dao.getOldTotalPrice()
+
+    fun getPiecesNumber() =
+        dao.getPiecesNumber()
+
+    suspend fun getItemById(id: String) =
+        dao.getItemByID(id)
+
+    suspend fun deleteItemById(id: String) =
+        dao.deleteItemById(id)
 }
 
 

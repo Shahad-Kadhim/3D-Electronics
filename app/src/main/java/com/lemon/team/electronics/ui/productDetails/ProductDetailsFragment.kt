@@ -1,8 +1,8 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import android.content.Intent
-import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.navigation.fragment.*
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentProductDetailsBinding
@@ -34,9 +34,6 @@ class ProductDetailsFragment :
 
     override fun observeEvents() {
         viewModel.apply {
-            onclickAddToCart.observeEvent(this@ProductDetailsFragment) {
-                // add to cart table when create database
-            }
 
             onclickWish.observeEvent(this@ProductDetailsFragment) {
                 // add to wish table when create database
@@ -53,6 +50,9 @@ class ProductDetailsFragment :
             clickSharedProduct.observeEvent(this@ProductDetailsFragment) { imageUrl ->
                 startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(imageUrl)
                     , Constants.SHARE_KEY))
+            }
+            toast.observeEvent(this@ProductDetailsFragment){
+                setToast(view, it)
             }
         }
     }

@@ -59,7 +59,6 @@
                     android:fontFamily="@font/monda_bold"
                     android:textColor="@color/seconder_text_color"
                     android:textSize="@dimen/text2x"
-                    android:text="@{`( `+viewModel.cartItems.toData().products.size+` items )`}"
                     app:layout_constraintBaseline_toBaselineOf="@+id/order_summary"
                     app:layout_constraintStart_toEndOf="@+id/order_summary"
                     tools:text="(3 items)" />
@@ -71,7 +70,6 @@
                     android:layout_margin="@dimen/margin_normal"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:items="@{viewModel.cartItems.toData().products}"
                     app:layout_constraintBottom_toTopOf="@+id/break_line"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

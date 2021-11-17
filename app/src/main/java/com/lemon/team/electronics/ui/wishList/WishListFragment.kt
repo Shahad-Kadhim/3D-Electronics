@@ -1,12 +1,12 @@
 package com.lemon.team.electronics.ui.wishList
 
+import android.util.Log
 import android.view.*
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.*
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentWishListBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
+import com.lemon.team.electronics.ui.productDetails.ProductDetailsFragmentDirections
 import com.lemon.team.electronics.util.*
 
 class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>() {
@@ -22,6 +22,7 @@ class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>
     }
 
     override fun observeEvents(){
+
         viewModel.clickItemEvent.observeEvent(this){ productId ->
             view?.goToFragment(
                 WishListFragmentDirections.actionWishFragment2ToProductFragment(productId)
@@ -31,6 +32,13 @@ class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>
             findNavController().navigateUp()
         }
 
+        viewModel.clickAdd.observeEvent(this) {
+            view?.goToFragment(
+                WishListFragmentDirections.actionWishListFragmentToCartFragment()
+            )
+        }
+
     }
+
 
 }

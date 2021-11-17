@@ -8,6 +8,7 @@ import com.lemon.team.electronics.databinding.FragmentHomeBinding
 import com.lemon.team.electronics.model.domain.*
 import com.lemon.team.electronics.ui.base.BaseFragment
 import android.content.Intent
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavDirections
 import com.lemon.team.electronics.model.response.ProductsResponse
@@ -71,6 +72,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 shareProduct(productUrl)
             }
 
+            toast.observeEvent(this@HomeFragment){
+                setToast(view, it.toString())
+            }
+
         }
     }
 
@@ -103,7 +108,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 addCategoryItem(padMouseCategory,
                     CategoryInfoType(CategoriesId.PAD_MOUSE, context?.getString(R.string.mouse_pad).toString())
                 )
-
 
                 addItem(categories){ state ->
                     addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))
@@ -144,5 +148,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             }
         }
     }
-
 }

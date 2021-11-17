@@ -30,25 +30,11 @@
             android:clipToPadding="false"
             android:layout_marginTop="@dimen/margin_small"
             android:orientation="vertical"
-            app:items="@{viewModel.cartItems.toData().products}"
+            app:items="@{viewModel.cartItems}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/check_out_background"
             app:layout_constraintTop_toBottomOf="@+id/guideline"
-            app:showOnSuccess="@{viewModel.cartItems}"
             tools:listitem="@layout/item_product_in_cart" />
-
-
-        <include android:id="@+id/not_found"
-            app:showWhenEmpty="@{viewModel.cartItems.toData().products}"
-            layout="@layout/not_found"/>
-
-        <include android:id="@+id/loading"
-            app:showOnLoading="@{viewModel.cartItems}"
-            layout="@layout/loading"/>
-
-        <include android:id="@+id/error"
-            app:showOnError="@{viewModel.cartItems}"
-            layout="@layout/error"/>
 
         <TextView
             android:id="@+id/cart_headline"
@@ -113,7 +99,7 @@
             android:layout_marginHorizontal="@dimen/margin_small"
             android:fontFamily="@font/roboto_regular"
             android:textStyle="bold"
-            android:text="@{String.valueOf(viewModel.totalPrice)+` $`}"
+            android:text="@{String.valueOf(viewModel.oldTotalPrice)+` $`}"
             android:textColor="@color/white"
             android:textSize="@dimen/text_small"
             app:layout_constraintBaseline_toBaselineOf="@+id/product_total_price_text"
@@ -135,12 +121,24 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin2x"
             android:fontFamily="@font/monda_regular"
-            android:text="3 products"
+            android:text="@{String.valueOf(viewModel.piecesNumber)+` Pieces`}"
             android:layout_marginTop="@dimen/margin_small"
             android:textColor="@color/white"
             android:textSize="@dimen/text_default"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/check_out_button" />
+
+<!--        <include android:id="@+id/not_found"-->
+<!--            app:showWhenEmpty="@{viewModel.cartItems.toData().products}"-->
+<!--            layout="@layout/not_found"/>-->
+
+<!--        <include android:id="@+id/loading"-->
+<!--            app:showOnLoading="@{viewModel.cartItems}"-->
+<!--            layout="@layout/loading"/>-->
+
+<!--        <include android:id="@+id/error"-->
+<!--            app:showOnError="@{viewModel.cartItems}"-->
+<!--            layout="@layout/error"/>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

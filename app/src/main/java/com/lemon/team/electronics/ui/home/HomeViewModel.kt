@@ -6,7 +6,10 @@ import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
+import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
@@ -51,6 +54,9 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     val padMouseCategory = Repository.getProductsByCategoryId(CategoriesId.PAD_MOUSE,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
+
+    private var _toast = MutableLiveData<Event<Int>>()
+    val toast: LiveData<Event<Int>> = _toast
 
 
     val state=MediatorLiveData<State<Any>>().apply {
@@ -104,6 +110,52 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     override fun onClickProduct(productId: String) {
         _onclickProductEvent.postValue(Event(productId))
     }
+
+    override fun onclickAddToCart(productId: Product) {
+        addItem(productId)
+    }
+
+
+    private fun addItem(product: Product) {
+        viewModelScope.launch {
+            if (!isItemExists(product)!!) {
+                setItem(product)?.let { Repository.insertProduct(it) }
+                _toast.postValue(Event(1))
+            } else
+                getPiecesNumber(product)
+        }
+    }
+
+
+    private suspend fun getPiecesNumber(product: Product) {
+        viewModelScope.launch {
+            Repository.getItemById(product.id)?.let {
+                updateItem(product, it.pieces.plus(1))
+                _toast.postValue(Event(it.pieces.plus(1)))
+            }
+        }
+    }
+
+    private suspend fun updateItem(product: Product, piecesNumber: Int) {
+        viewModelScope.launch {
+            Repository.getItemById(product.id)
+                ?.let {
+                    Repository.updateCartItem(
+                        it.itemId,
+                        piecesNumber,
+                        it.price.times(piecesNumber)
+                    )
+                }
+        }
+    }
+
+    private suspend fun isItemExists(product: Product?) =
+        product?.let { Repository.checkItemExists(it.id) }
+
+
+    fun setItem(product: Product?) =
+        product?.toItemEntity(1)
+
 
     override fun onClickHeart(productId: String) {
         // write code when create database

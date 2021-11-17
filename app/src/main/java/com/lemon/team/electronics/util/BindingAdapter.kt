@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
+import androidx.databinding.InverseBindingListener
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
@@ -18,8 +19,8 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.HomeImage
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
-import android.widget.AdapterView
-import androidx.databinding.InverseBindingListener
+import it.sephiroth.android.library.numberpicker.NumberPicker
+import it.sephiroth.android.library.numberpicker.doOnProgressChanged
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -161,6 +162,27 @@ fun setCategoryNameById(view: TextView, categoryId: String?) {
         view.text = view.context.getString(it)
     }
 }
+
+
+@BindingAdapter(value = ["value"])
+fun setPikerNumber(view: NumberPicker, value: Int?) {
+    if (view.progress != value) {
+        value?.let { view.progress = it }
+    }
+}
+
+@InverseBindingAdapter(attribute = "value", event = "pikerNumberChangeEvent")
+fun getPikerNumber(view: NumberPicker): Int? {
+    return view.progress
+}
+
+@BindingAdapter("pikerNumberChangeEvent")
+fun setPikerListener(view: NumberPicker, attChange: InverseBindingListener) {
+    view.doOnProgressChanged { _, _, _ ->
+        attChange.onChange()
+    }
+}
+
 
 @BindingAdapter(value = ["selectedItem"], requireAll = false)
 fun bindSpinnerData(

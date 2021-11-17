@@ -116,6 +116,8 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/add_to_cart_button"
                 style="@style/AddButton"
+                android:onClick="@{() -> listener.onclickAddToCart(item)}"
+
                 android:background="@drawable/shape_button_cart"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />

@@ -6,6 +6,7 @@ import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.model.response.CategoryResponse
+import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.AppDiffUtil
 import com.lemon.team.electronics.ui.base.BaseInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
@@ -27,7 +28,10 @@ class HomeRecyclerAdapter(
                 item.rank
             }
         }
-        val diffResult = DiffUtil.calculateDiff(AppDiffUtil(itemsNested, newItemsList, ::areItemsTheSame))
+        val diffResult = DiffUtil.calculateDiff(AppDiffUtil(itemsNested,
+            newItemsList,
+            ::areItemsTheSame,
+            ::areContentSame))
         diffResult.dispatchUpdatesTo(this)
     }
 
@@ -104,6 +108,7 @@ interface HomeInteractionListener : BaseInteractionListener {
     fun onClickHeart(productId: String)
     fun onClickShare(productId: String)
     fun onClickCategory(categoryId: CategoryResponse)
+    fun onclickAddToCart(productId: Product)
     fun onclickSearch()
     fun onClickSeeMoreForCategories()
     fun onClickSeeMoreForCategory(category: CategoryInfoType)
