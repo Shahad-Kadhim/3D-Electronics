@@ -125,33 +125,27 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         }
     }
 
-    private fun getProductFromDataBase(productId: String) =
-        Repository.getItemById(productId)
 
-
-    private fun getPiecesNumber(product: Product) {
-        viewModelScope.launch {
-            getProductFromDataBase(product.id).take(1).collect {
-                updateItem(product, it.pieces.plus(1))
-                _toast.postValue(Event(it.pieces.plus(1) ))
-            }
+    private suspend fun getPiecesNumber(product: Product) {
+        getProductFromDataBase(product.id).take(1).collect {
+            updateItem(product, it.pieces.plus(1))
+            _toast.postValue(Event(it.pieces.plus(1) ))
         }
     }
 
-    private fun updateItem(product: Product, piecesNumber: Int) {
-        viewModelScope.launch {
-            getProductFromDataBase(product.id)
-                .take(1).collect {
+    private suspend fun updateItem(product: Product, piecesNumber: Int) {
+        getProductFromDataBase(product.id)
+            .take(1).collect {
                 Repository.updateCartItem(
                     it.itemId,
                     piecesNumber,
                     it.price.times(piecesNumber)
-               )
+                )
             }
-        }
     }
 
-
+    private fun getProductFromDataBase(productId: String) =
+        Repository.getItemById(productId)
 
     private suspend fun isItemExists(product: Product?) =
         product?.let { Repository.checkItemExists(it.id) }

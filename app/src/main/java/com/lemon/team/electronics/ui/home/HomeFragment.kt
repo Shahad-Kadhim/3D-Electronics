@@ -73,7 +73,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 shareProduct(productUrl)
             }
 
-            onclickAdd.observeEvent(this@HomeFragment){
+            toast.observeEvent(this@HomeFragment){
                 Toast.makeText(view?.context ,"Added $it Piece To Cart" , Toast.LENGTH_SHORT).show()
             }
 
