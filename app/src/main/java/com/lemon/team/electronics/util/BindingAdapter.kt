@@ -168,8 +168,10 @@ fun setCategoryNameById(view: TextView, categoryId: String?) {
 @BindingAdapter(value = ["app:last"])
 fun getMoreProducts(view: RecyclerView, scroll: () -> Unit) {
     view.setOnScrollChangeListener { _, i, i2, i3, i4 ->
-        if ((view.layoutManager as GridLayoutManager).findLastCompletelyVisibleItemPosition() == (view.adapter?.itemCount?.minus(
-                1))
+        if (
+            (view.layoutManager as GridLayoutManager)
+                .findLastCompletelyVisibleItemPosition()
+            == (view.adapter?.itemCount?.minus(1))
         ) {
             scroll()
         }

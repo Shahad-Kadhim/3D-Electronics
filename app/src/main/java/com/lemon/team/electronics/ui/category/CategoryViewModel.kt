@@ -25,15 +25,38 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
     lateinit var c: String
     fun onScrollLast() {
         _categoryItems.value?.toData()?.let {
-            if (scroll.value < it.totalPages?.minus(1)!! && scroll.value == it.pageable?.pageNumber) {
+            if (isNewPage(it)) {
                 scroll.tryEmit(++scroll.value)
                 collectResponse(
                     Repository.getProductsByCategoryId(c, scroll.value)) { state ->
-                    _categoryItems.postValue(state)
+                    contactLists(state)
                 }
             }
         }
     }
+
+    fun isNewPage(category: ProductsResponse): Boolean {
+        category.pageable?.pageNumber?.let { pageNumber ->
+            category.totalPages?.let { totalPage ->
+                return isScroll(totalPage) && ifPageable(pageNumber)
+            }
+        }
+        return false
+    }
+
+    private fun isScroll(totalPages: Int) = scroll.value < totalPages - 1
+    private fun ifPageable(currentPage: Int?) = scroll.value == currentPage
+
+    private fun contactLists(state: State<ProductsResponse?>) {
+        if (state is State.Success) {
+            state.data?.products?.let {
+                state.data.products = getLatestProduct()?.apply { addAll(it) }
+            }
+            _categoryItems.postValue(state)
+        }
+    }
+
+    fun getLatestProduct() = _categoryItems.value?.toData()?.products
 
 
     fun getProductsByCategoryId(categoryId: String) {
