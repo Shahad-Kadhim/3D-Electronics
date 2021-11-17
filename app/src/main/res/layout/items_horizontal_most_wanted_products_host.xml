@@ -6,7 +6,7 @@
     <data>
         <variable
             name="adapter"
-            type="com.lemon.team.electronics.ui.home.BestSellerRecyclerAdapter" />
+            type="com.lemon.team.electronics.ui.home.MostWantedProductsRecycler" />
    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +17,7 @@
             android:id="@+id/best_seller_headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/best_seller"
+            android:text="@string/most_wanted_products"
             android:layout_margin="16dp"
             android:textStyle="bold"
             android:fontFamily="@font/monda_bold"
@@ -48,7 +48,6 @@
             android:clipToPadding="false"
             android:orientation="horizontal"
             android:layout_marginTop="@dimen/margin_small"
-            android:layout_marginHorizontal="@dimen/margin_small"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +55,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/best_seller_headline"
             app:layout_constraintVertical_bias="0.0"
-            tools:listitem="@layout/item_best_seller" />
+            tools:listitem="@layout/item_most_wanted_products" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

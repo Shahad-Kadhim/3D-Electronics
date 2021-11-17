@@ -2,7 +2,6 @@ package com.lemon.team.electronics.ui.home
 
 
 import androidx.lifecycle.*
-import com.bumptech.glide.load.engine.Resource
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
@@ -37,7 +36,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     val categories = Repository.getCategories().asLiveData()
 
-    val bestProduct = Repository.getRecommendedProducts().asLiveData()
+    val mostWantedProducts = Repository.getRecommendedProducts().asLiveData()
 
     val homeImages = Repository.getHomeImages().asLiveData()
 
@@ -57,7 +56,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     val state=MediatorLiveData<State<Any>>().apply {
         addSource(homeImages,this@HomeViewModel::checkIfSuccess)
         addSource(categories,this@HomeViewModel::checkIfSuccess)
-        addSource(bestProduct,this@HomeViewModel::checkIfSuccess)
+        addSource(mostWantedProducts,this@HomeViewModel::checkIfSuccess)
         addSource(laptopCategory,this@HomeViewModel::checkIfSuccess)
         addSource(headsetsCategory,this@HomeViewModel::checkIfSuccess)
         addSource(caseCategory,this@HomeViewModel::checkIfSuccess)
@@ -80,7 +79,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         checkState(
             homeImages.value,
             categories.value,
-            bestProduct.value,
+            mostWantedProducts.value,
             laptopCategory.value,
             caseCategory.value,
             headsetsCategory.value,

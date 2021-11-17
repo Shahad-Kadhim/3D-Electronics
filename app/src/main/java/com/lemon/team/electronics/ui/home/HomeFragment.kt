@@ -109,8 +109,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))
                 }
 
-                addItem(bestProduct){ state ->
-                    addItem(HomeItem.BestProductType(state.toData()!!))
+                addItem(mostWantedProducts){ state ->
+                    addItem(HomeItem.MostWantedProductsType(state.toData()!!))
                 }
 
                 addItem(homeImages){ state ->
