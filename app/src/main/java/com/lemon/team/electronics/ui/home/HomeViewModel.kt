@@ -1,6 +1,8 @@
 package com.lemon.team.electronics.ui.home
 
 
+import android.annotation.SuppressLint
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
@@ -53,8 +55,8 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     val padMouseCategory = Repository.getProductsByCategoryId(CategoriesId.PAD_MOUSE,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
-    private var _onclickAdd = MutableLiveData<Event<String>>()
-    val onclickAdd: LiveData<Event<String>> = _onclickAdd
+    private var _onclickAdd = MutableLiveData<Event<Int>>()
+    val onclickAdd: LiveData<Event<Int>> = _onclickAdd
 
 
     val state=MediatorLiveData<State<Any>>().apply {
@@ -114,33 +116,39 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     }
 
 
-    var toast = MutableLiveData<String>()
     private fun addItem(product: Product) {
         viewModelScope.launch {
             if (!isItemExists(product)!!){
                 setItem(product)?.let { Repository.insertProduct(it)}
-                _onclickAdd.postValue(Event("1"))
+                _onclickAdd.postValue(Event(1))
             }
-            else{
+            else
                 getPiecesNumber(product)
-            }
         }
     }
 
-    private suspend fun getPiecesNumber(product: Product) {
-        Repository.getItemById(product.id).collect {
-            _onclickAdd.postValue(Event(it.pieces.plus(1).toString()))
-        }
+    private fun getProductFromDataBase(productId: String) =
+        Repository.getItemById(productId)
 
+    private fun getPiecesNumber(product: Product) {
+        viewModelScope.launch {
+            getProductFromDataBase(product.id).collect {
+                _onclickAdd.postValue(Event(it.pieces.plus(1)))
+            }
+        }
         updateItem(product)
     }
 
-    private suspend fun  updateItem(product: Product) {
-        Repository.updateCartItem(
-            product.id,
-            toast.value!!.toInt(),
-            product.price!!.times(toast.value!!.toDouble())
-        )
+    private fun updateItem(product: Product) {
+        viewModelScope.launch {
+            getProductFromDataBase(product.id).collect {
+                Repository.updateCartItem(
+                    it.itemId,
+                    it.pieces,
+                    it.price
+                )
+            }
+        }
     }
 
 

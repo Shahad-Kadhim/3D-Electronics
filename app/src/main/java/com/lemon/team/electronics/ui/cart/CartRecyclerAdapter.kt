@@ -29,5 +29,6 @@ class CartRecyclerAdapter(productItems: List<ProductItem>, listener: CartInterac
 interface CartInteractionListener : BaseInteractionListener {
 
     fun onClickProduct(productId: String)
+    fun onClickDelete(productId: String)
 
 }

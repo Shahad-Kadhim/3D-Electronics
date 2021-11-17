@@ -28,8 +28,20 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="@{() -> listener.onClickProduct(item.itemId)}">
+            android:onClick="@{() -> listener.onClickProduct(item.itemId)}"
+            >
 
+            <ImageView
+                android:id="@+id/deleteIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:onClick="@{() -> listener.onClickDelete(item.itemId)}"
+                android:src="@drawable/ic_baseline_delete_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/brand_color" />
             <TextView
                 android:id="@+id/product_name_text"
                 android:layout_width="180dp"
@@ -38,7 +50,6 @@
                 android:layout_marginTop="@dimen/margin_normal"
                 android:fontFamily="@font/monda_regular"
                 android:text="@{item.name}"
-
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toEndOf="@+id/product_image"

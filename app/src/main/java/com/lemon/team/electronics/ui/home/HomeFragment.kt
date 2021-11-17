@@ -123,9 +123,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 }
 
             }
-            viewModel.toast.observe(this@HomeFragment){
-
-            }
         }
     }
 
@@ -152,10 +149,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             }
         }
     }
-
-    override fun onStop() {
-        super.onStop()
-        viewModel.toast.value = null
-    }
-
 }

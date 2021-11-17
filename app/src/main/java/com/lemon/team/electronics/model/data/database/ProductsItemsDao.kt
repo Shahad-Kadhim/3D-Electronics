@@ -34,4 +34,7 @@ interface ProductsItemsDao {
     @Query("SELECT COUNT(*) FROM PRODUCT_TABLE")
     fun getPiecesNumber(): Flow<Int>
 
+    @Query("DELETE FROM PRODUCT_TABLE WHERE itemId = :id")
+    suspend fun deleteById(id: String?)
+
 }

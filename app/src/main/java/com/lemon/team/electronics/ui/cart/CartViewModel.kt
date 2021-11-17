@@ -4,6 +4,7 @@ import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
+import kotlinx.coroutines.launch
 
 
 class CartViewModel : BaseViewModel() , CartInteractionListener {
@@ -27,6 +28,12 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
 
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
+    }
+
+    override fun onClickDelete(productId: String){
+        viewModelScope.launch {
+            Repository.deleteById(productId)
+        }
     }
 
     fun onClickBack() {
