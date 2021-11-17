@@ -78,19 +78,17 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     }
 
 
-
     private fun addOrUpdateItem(item: Product?) {
         viewModelScope.launch {
             if (!isItemExists()!!)
                 setItem(item)?.let { Repository.insertProduct(it) }
             else
                 updateItem(item)
-
         }
-        setPiecesInToast()
+        setPiecesNumberInToast()
     }
 
-    private fun setPiecesInToast(){
+    private fun setPiecesNumberInToast(){
         _toast.postValue(Event(piecesNumber.value.toString()))
 
     }
