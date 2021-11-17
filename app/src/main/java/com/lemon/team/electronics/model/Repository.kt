@@ -117,8 +117,8 @@ object Repository{
     fun getItemById(id: String) =
         dao.getItemByID(id)
 
-    suspend fun deleteById(id: String) =
-        dao.deleteById(id)
+    suspend fun deleteItemById(id: String) =
+        dao.deleteItemById(id)
 }
 
 

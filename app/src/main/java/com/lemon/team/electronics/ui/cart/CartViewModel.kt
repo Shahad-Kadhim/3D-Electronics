@@ -32,7 +32,7 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
 
     override fun onClickDelete(productId: String){
         viewModelScope.launch {
-            Repository.deleteById(productId)
+            Repository.deleteItemById(productId)
         }
     }
 

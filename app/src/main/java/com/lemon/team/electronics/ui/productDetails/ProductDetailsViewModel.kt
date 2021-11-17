@@ -63,12 +63,13 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
         getDetailsProductFromDataBase(productId)
     }
 
-    var piecesNumber = MutableLiveData<Int>()
+    var piecesNumber = MutableLiveData(1)
     private fun getDetailsProductFromDataBase(productId: String){
         viewModelScope.launch {
-            Repository.getItemById(productId).collect {
-                piecesNumber.postValue(it?.pieces ?: 1)
-            }
+            if (Repository.checkItemExists(productId))
+                Repository.getItemById(productId).collect {
+                    piecesNumber.postValue(it.pieces)
+                }
         }
     }
 
