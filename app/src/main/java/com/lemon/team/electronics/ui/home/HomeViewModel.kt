@@ -3,7 +3,7 @@ package com.lemon.team.electronics.ui.home
 
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
-import com.lemon.team.electronics.model.repository.Repository
+import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.domain.CategoryInfoType
 import com.lemon.team.electronics.model.response.Product

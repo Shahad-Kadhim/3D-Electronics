@@ -1,10 +1,12 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.repository.Repository
+import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
@@ -26,8 +28,6 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
     private var _clickSharedProduct = MutableLiveData<Event<String>>()
     val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
-
-    var piecesNumber = MutableLiveData(1)
 
 
     val images =Transformations.map(detailsProduct){ state ->
@@ -56,24 +56,26 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     }
 
 
-
     fun getDetailsProduct(productId: String) {
         collectResponse(Repository.getProductById(productId)) { state ->
             _detailsProduct.postValue(state)
         }
+        getDetailsProductFromDataBase(productId)
     }
 
-    fun onclickBack(){
-        _onclickBack.postValue(Event(true))
-    }
-
-    fun onclickWish(productId: String){
-        _onclickWish.postValue(Event(productId))
+    var piecesNumber = MutableLiveData<Int>()
+    private fun getDetailsProductFromDataBase(productId: String){
+        viewModelScope.launch {
+            Repository.getItemById(productId).collect {
+                piecesNumber.postValue(it.pieces)
+            }
+        }
     }
 
     fun onclickAddToCart(){
         addOrUpdateItem(detailsProduct.value?.toData())
     }
+
 
 
     private fun addOrUpdateItem(item: Product?) {
@@ -107,6 +109,13 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     }
 
 
+    fun onclickBack(){
+        _onclickBack.postValue(Event(true))
+    }
+
+    fun onclickWish(productId: String){
+        _onclickWish.postValue(Event(productId))
+    }
 
     fun onclickShare(productId: String){
         _clickSharedProduct.postValue(Event(productId))

@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.categories
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.repository.Repository
+import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
