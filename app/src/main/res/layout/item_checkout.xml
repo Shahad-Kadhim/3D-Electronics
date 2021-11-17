@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.response.Product" />
+            type="com.lemon.team.electronics.model.data.ProductItem" />
 
     </data>
 

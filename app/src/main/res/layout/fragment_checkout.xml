@@ -69,6 +69,7 @@
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/margin_normal"
                     android:orientation="vertical"
+                    app:items="@{viewModel.cartItems}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toTopOf="@+id/break_line"
                     app:layout_constraintEnd_toEndOf="parent"
