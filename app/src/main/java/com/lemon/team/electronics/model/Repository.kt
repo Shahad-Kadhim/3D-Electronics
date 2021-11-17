@@ -76,6 +76,11 @@ object Repository{
         )
     }
 
+    //this function should clear the cart it will be written after create the database
+    fun clearCart(){
+
+    }
+
 
     // this function gets the total price of the products in the cart from the database
     fun getTotalPrice() = 500

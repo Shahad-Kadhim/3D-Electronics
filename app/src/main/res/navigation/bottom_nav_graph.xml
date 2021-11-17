@@ -122,5 +122,18 @@
         android:id="@+id/customerInformationFragment"
         android:name="com.lemon.team.electronics.ui.customerInformation.CustomerInformationFragment"
         android:label="CustomerInformationFragment"
-        tools:layout="@layout/fragment_customer_information"/>
+        tools:layout="@layout/fragment_customer_information">
+        <action
+            android:id="@+id/action_customerInformationFragment_to_orderStatusDialogFragment"
+            app:destination="@id/orderStatusDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/orderStatusDialogFragment"
+        android:name="com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatusDialogFragment"
+        android:label="OrderStatusDialogFragment"
+        tools:layout="@layout/fragment_order_status">
+        <argument
+            android:name="orderStatus"
+            app:argType="string" />
+    </dialog>
 </navigation>

@@ -188,3 +188,12 @@ fun onChange(spinner: Spinner, attChange: InverseBindingListener){
         override fun onNothingSelected(parent: AdapterView<*>?) {}
     }
 }
+
+@BindingAdapter(value = ["app:statusImage"])
+fun setStatusImage(view: ImageView, status: String?){
+    if (status == Constants.OrderStatus.SUCCESS){
+        view.setImageResource(R.drawable.ic_add)
+    } else {
+        view.setImageResource(R.drawable.ic_about)
+    }
+}
