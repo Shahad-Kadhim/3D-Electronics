@@ -54,18 +54,9 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
         mainImage.postValue(url)
     }
 
-
-    var addButtonState = MutableLiveData(true)
-
-    private fun checkIfItemSoldOut(sold: Boolean?) {
-        if (sold == true)
-            addButtonState.postValue(false)
-    }
-
     fun getDetailsProduct(productId: String) {
         collectResponse(Repository.getProductById(productId)) { state ->
             _detailsProduct.postValue(state)
-            checkIfItemSoldOut(state.toData()?.sold)
         }
         getDetailsProductFromDataBase(productId)
     }

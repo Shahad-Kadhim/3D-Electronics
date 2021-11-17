@@ -201,7 +201,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text2x"
-                android:enabled="@{viewModel.addButtonState}"
+                android:enabled="@{!viewModel.detailsProduct.toData().sold}"
                 app:checkProduct="@{viewModel.detailsProduct.toData().sale}"
                 app:icon="@drawable/ic_cart_white"
                 app:iconTint="@color/white"
