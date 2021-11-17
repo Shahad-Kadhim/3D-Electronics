@@ -20,8 +20,8 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
     private var _onclickWish =MutableLiveData<Event<String>>()
     val onclickWish :LiveData<Event<String>> = _onclickWish
 
-    private var _onclickAdd =MutableLiveData<Event<String>>()
-    val onclickAdd :LiveData<Event<String>> = _onclickAdd
+    private var _toast =MutableLiveData<Event<String>>()
+    val toast :LiveData<Event<String>> = _toast
 
     private var _onClickMainImage =MutableLiveData<Event<String>>()
     val onclickMainImage :LiveData<Event<String>> = _onClickMainImage
@@ -81,15 +81,18 @@ class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
 
     private fun addOrUpdateItem(item: Product?) {
         viewModelScope.launch {
-            if (!isItemExists()!!){
+            if (!isItemExists()!!)
                 setItem(item)?.let { Repository.insertProduct(it) }
-                _onclickAdd.postValue(Event("1"))
-            }
-            else {
+            else
                 updateItem(item)
-                _onclickAdd.postValue(Event(piecesNumber.value.toString()))
-            }
+
         }
+        setPiecesInToast()
+    }
+
+    private fun setPiecesInToast(){
+        _toast.postValue(Event(piecesNumber.value.toString()))
+
     }
 
     fun setItem(product: Product?) =

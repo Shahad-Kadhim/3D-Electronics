@@ -1,8 +1,6 @@
 package com.lemon.team.electronics.ui.home
 
 
-import android.annotation.SuppressLint
-import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
@@ -130,26 +128,29 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     private fun getProductFromDataBase(productId: String) =
         Repository.getItemById(productId)
 
+
     private fun getPiecesNumber(product: Product) {
         viewModelScope.launch {
-            getProductFromDataBase(product.id).collect {
+            getProductFromDataBase(product.id).take(1).collect {
+                updateItem(product, it.pieces.plus(1))
                 _onclickAdd.postValue(Event(it.pieces.plus(1) ))
             }
         }
-        updateItem(product)
     }
 
-    private fun updateItem(product: Product) {
+    private fun updateItem(product: Product, plus: Int) {
         viewModelScope.launch {
-            getProductFromDataBase(product.id).collect {
+            getProductFromDataBase(product.id)
+                .take(1).collect {
                 Repository.updateCartItem(
                     it.itemId,
-                    it.pieces,
-                    it.price
-                )
+                    plus,
+                    it.price.times(plus)
+               )
             }
         }
     }
+
 
 
     private suspend fun isItemExists(product: Product?) =

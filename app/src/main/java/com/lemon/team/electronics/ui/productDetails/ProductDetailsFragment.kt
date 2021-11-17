@@ -52,7 +52,7 @@ class ProductDetailsFragment :
                 startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).sharingUrl(imageUrl)
                     , Constants.SHARE_KEY))
             }
-            onclickAdd.observeEvent(this@ProductDetailsFragment){
+            toast.observeEvent(this@ProductDetailsFragment){
                 Toast.makeText(view?.context ,"Added $it Piece To Cart" , Toast.LENGTH_SHORT).show()
             }
         }
