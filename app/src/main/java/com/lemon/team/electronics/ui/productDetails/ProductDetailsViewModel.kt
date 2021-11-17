@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.ui.productDetails
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.Product
@@ -54,9 +55,17 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
     }
 
 
+    var addButtonState = MutableLiveData(true)
+
+    private fun checkIfItemSoldOut(sold: Boolean?) {
+        if (sold == true)
+            addButtonState.postValue(false)
+    }
+
     fun getDetailsProduct(productId: String) {
         collectResponse(Repository.getProductById(productId)) { state ->
             _detailsProduct.postValue(state)
+            checkIfItemSoldOut(state.toData()?.sold)
         }
         getDetailsProductFromDataBase(productId)
     }
