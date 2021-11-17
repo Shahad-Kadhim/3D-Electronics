@@ -1,10 +1,7 @@
 package com.lemon.team.electronics.ui.productDetails
 
-
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.response.Product
-import com.lemon.team.electronics.ui.base.BaseInteractionListener
-import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
+import com.lemon.team.electronics.ui.base.*
 
 class ProductImageRecyclerAdapter(items:List<String>, listener: ImageInteractionListener)
     :BaseRecyclerAdapter<String>(items,listener){

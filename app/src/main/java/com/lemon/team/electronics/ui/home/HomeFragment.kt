@@ -8,7 +8,6 @@ import com.lemon.team.electronics.databinding.FragmentHomeBinding
 import com.lemon.team.electronics.model.domain.*
 import com.lemon.team.electronics.ui.base.BaseFragment
 import android.content.Intent
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavDirections
@@ -74,7 +73,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             }
 
             toast.observeEvent(this@HomeFragment){
-                Toast.makeText(view?.context ,"Added $it Piece To Cart" , Toast.LENGTH_SHORT).show()
+                setToast(view, it.toString())
             }
 
         }

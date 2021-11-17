@@ -3,6 +3,7 @@ package com.lemon.team.electronics.util
 import android.content.Context
 import android.content.Intent
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.*
 import androidx.navigation.*
 import androidx.navigation.fragment.FragmentNavigator
@@ -64,3 +65,8 @@ fun Product.toItemEntity(pieces: Int) =
     )
 
 fun <T> List<T>.getSixItems() = this.take(6)
+
+
+fun setToast(view: View?, pieces: String) {
+    Toast.makeText(view?.context ,"Added $pieces Piece To Cart" ,Toast.LENGTH_SHORT).show()
+}

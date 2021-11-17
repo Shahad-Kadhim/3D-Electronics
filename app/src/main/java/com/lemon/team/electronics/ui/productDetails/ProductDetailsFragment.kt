@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import android.content.Intent
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.navigation.fragment.*
@@ -53,7 +52,7 @@ class ProductDetailsFragment :
                     , Constants.SHARE_KEY))
             }
             toast.observeEvent(this@ProductDetailsFragment){
-                Toast.makeText(view?.context ,"Added $it Piece To Cart" , Toast.LENGTH_SHORT).show()
+                setToast(view, it)
             }
         }
     }

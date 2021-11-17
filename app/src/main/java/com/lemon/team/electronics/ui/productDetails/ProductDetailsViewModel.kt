@@ -5,11 +5,9 @@ import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-class ProductDetailsViewModel : BaseViewModel(),ImageInteractionListener {
+class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
 
     private var _detailsProduct = MutableLiveData<State<Product?>>()
     val detailsProduct :LiveData<State<Product?>> =_detailsProduct
