@@ -7,6 +7,8 @@ import androidx.lifecycle.*
 import androidx.navigation.*
 import androidx.navigation.fragment.FragmentNavigator
 import com.lemon.team.electronics.BR
+import com.lemon.team.electronics.model.response.Product
+import com.lemon.team.electronics.model.response.ProductsResponse
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import java.io.IOException
 
@@ -44,12 +46,40 @@ fun Intent.sharingUrl(url: String?): Intent? {
     return  this.apply {
         type = "text/plain"
         putExtra(Intent.EXTRA_SUBJECT, "product link")
-        putExtra(Intent.EXTRA_TEXT, Constants.URL_PRODUCT_WEBSITE +url)
+        putExtra(Intent.EXTRA_TEXT, Constants.URL_PRODUCT_WEBSITE + url)
     }
 }
 
 
 fun <T> List<T>.getSixItems() = this.take(6)
 
+
+fun ProductsResponse.hasNewPage(scrollPage: Int): Boolean {
+    this.pageable?.pageNumber?.let { pageNumber ->
+        this.totalPages?.let { totalPage ->
+            return isScroll(totalPage, scrollPage) && ifPageable(pageNumber, scrollPage)
+        }
+    }
+    return false
+}
+
+private fun isScroll(totalPages: Int, scrollPage: Int) = scrollPage < totalPages - 1
+private fun ifPageable(currentPage: Int?, scrollPage: Int) = scrollPage == currentPage
+
+
+fun State<ProductsResponse?>.add(
+    products: MutableList<Product>,
+    function: (State<ProductsResponse?>) -> Unit,
+) {
+    if (this is State.Success) {
+        this.data?.products?.let {
+            this.data.products = products.apply { addAll(it) }
+        }
+        function(this)
+    }
+}
+
+fun LiveData<State<ProductsResponse?>>.getProductsOrEmptyList() =
+    this.value?.toData()?.products ?: mutableListOf()
 
 

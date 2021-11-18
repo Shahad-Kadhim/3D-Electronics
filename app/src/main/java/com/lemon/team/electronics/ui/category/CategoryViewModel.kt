@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.*
 
 class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
 
-
     private val _categoryItems = MutableLiveData<State<ProductsResponse?>>()
     var items: LiveData<State<ProductsResponse?>> = _categoryItems
 
@@ -19,54 +18,39 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
     private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
     var clickBackEvent: LiveData<Event<Boolean>> = _clickBackEvent
 
-    val scroll = MutableStateFlow(0)
+    private val scroll = MutableStateFlow(0)
 
-
-    lateinit var c: String
-    fun onScrollLast() {
-        _categoryItems.value?.toData()?.let {
-            if (isNewPage(it)) {
-                scroll.tryEmit(++scroll.value)
-                collectResponse(
-                    Repository.getProductsByCategoryId(c, scroll.value)) { state ->
-                    contactLists(state)
-                }
-            }
-        }
-    }
-
-    fun isNewPage(category: ProductsResponse): Boolean {
-        category.pageable?.pageNumber?.let { pageNumber ->
-            category.totalPages?.let { totalPage ->
-                return isScroll(totalPage) && ifPageable(pageNumber)
-            }
-        }
-        return false
-    }
-
-    private fun isScroll(totalPages: Int) = scroll.value < totalPages - 1
-    private fun ifPageable(currentPage: Int?) = scroll.value == currentPage
-
-    private fun contactLists(state: State<ProductsResponse?>) {
-        if (state is State.Success) {
-            state.data?.products?.let {
-                state.data.products = getLatestProduct()?.apply { addAll(it) }
-            }
-            _categoryItems.postValue(state)
-        }
-    }
-
-    fun getLatestProduct() = _categoryItems.value?.toData()?.products
-
+    lateinit var categoryId: String
 
     fun getProductsByCategoryId(categoryId: String) {
-        c = categoryId
-        collectResponse(
-            Repository.getProductsByCategoryId(categoryId, scroll.value)) { state ->
+        this.categoryId = categoryId
+        getProductsInCurrentPage { state ->
             _categoryItems.postValue(state)
         }
     }
 
+    fun onScrollLast() {
+        _categoryItems.value?.toData()?.let { category ->
+            if (category.hasNewPage(scroll.value)) {
+                scroll.tryEmit(++scroll.value)
+                requestMoreProducts()
+            }
+        }
+    }
+
+
+    private fun requestMoreProducts() {
+        getProductsInCurrentPage { oldState ->
+            oldState.add(_categoryItems.getProductsOrEmptyList()) { newState ->
+                _categoryItems.postValue(newState)
+            }
+        }
+    }
+
+    private fun getProductsInCurrentPage(onResponse: (State<ProductsResponse?>) -> Unit) {
+        collectResponse(
+            Repository.getProductsByCategoryId(categoryId, scroll.value), onResponse)
+    }
 
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
