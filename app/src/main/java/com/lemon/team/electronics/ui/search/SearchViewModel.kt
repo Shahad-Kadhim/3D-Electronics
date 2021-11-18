@@ -24,9 +24,6 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
         _clickItemEvent.postValue(Event(productId))
     }
 
-    override fun onClickHeart(productId: Product) {
-        // write code after create database
-    }
 
     fun onclickSearch() {
         searchName.value?.let { nameYouSearch ->

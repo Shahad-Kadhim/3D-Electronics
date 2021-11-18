@@ -105,7 +105,6 @@ class HomeRecyclerAdapter(
 interface HomeInteractionListener : BaseInteractionListener {
 
     fun onClickProduct(productId: String)
-    fun onClickHeart(productId: Product)
     fun onClickShare(productId: String)
     fun onClickCategory(categoryId: CategoryResponse)
     fun onclickAddToCart(productId: Product)

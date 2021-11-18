@@ -27,24 +27,6 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
         }
     }
 
-    override fun onClickHeart(product: Product) {
-        addToWishList(product)
-    }
-
-    private fun addToWishList(product: Product?) {
-        viewModelScope.launch {
-            if (!isWishItemExists(product)!!)
-                setWishItem(product)?.let { Repository.insertWishItem(it) }
-        }}
-
-    private fun setWishItem(product: Product?) =
-        product?.toWishItemEntity()
-
-    private suspend fun isWishItemExists(product: Product?) =
-        product?.let { Repository.checkWishItemExists(it.id) }
-
-
-
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
     }

@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.ui.wishList
 
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.data.CartItem
 import com.lemon.team.electronics.model.data.WishItem
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseInteractionListener

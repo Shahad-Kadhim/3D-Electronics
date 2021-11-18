@@ -94,26 +94,6 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     private fun <T>checkState(vararg state:State<T>?) = state.all { it is State.Error }
 
-    fun onClickCart(){
-        _cartEvent.postValue(Event(true))
-    }
-
-    fun onClickAbout(){
-        _aboutEvent.postValue(Event(true))
-    }
-
-    override fun onclickSearch() {
-        _searchEvent.postValue(Event(true))
-    }
-
-    override fun onClickProduct(productId: String) {
-        _onclickProductEvent.postValue(Event(productId))
-    }
-
-    override fun onclickAddToCart(productId: Product) {
-        addItem(productId)
-    }
-
 
     private fun addItem(product: Product) {
         viewModelScope.launch {
@@ -135,6 +115,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         }
     }
 
+
     private suspend fun updateItem(product: Product, piecesNumber: Int) {
         viewModelScope.launch {
             Repository.getCartItemById(product.id)
@@ -148,46 +129,34 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         }
     }
 
+
     private suspend fun isItemExists(product: Product?) =
         product?.let { Repository.checkCartItemExists(it.id) }
-
 
     fun setItem(product: Product?) =
         product?.toCartItemEntity(1)
 
 
-    var checkHeart = MutableLiveData(false)
-    override fun onClickHeart(product: Product) {
-        viewModelScope.launch {
-            if (checkHeart.value == false) {
-                checkHeart.postValue(true)
-                addToWishList(product)
-            }
-            else {
-                checkHeart.postValue(false)
-                Repository.deleteWishItemById(product.id)
-            }
-            checkIfItemInWishTable(product.id)
-        }
+
+    fun onClickCart(){
+        _cartEvent.postValue(Event(true))
     }
 
-    private suspend fun checkIfItemInWishTable(productId: String) {
-        if (Repository.checkWishItemExists(productId))
-            checkHeart.postValue(true)
+    fun onClickAbout(){
+        _aboutEvent.postValue(Event(true))
     }
 
-    private fun addToWishList(product: Product?) {
-        viewModelScope.launch {
-            if (!isWishItemExists(product)!!)
-                setWishItem(product)?.let { Repository.insertWishItem(it) }
-        }}
+    override fun onclickSearch() {
+        _searchEvent.postValue(Event(true))
+    }
 
-    private fun setWishItem(product: Product?) =
-        product?.toWishItemEntity()
+    override fun onClickProduct(productId: String) {
+        _onclickProductEvent.postValue(Event(productId))
+    }
 
-    private suspend fun isWishItemExists(product: Product?) =
-        product?.let { Repository.checkWishItemExists(it.id) }
-
+    override fun onclickAddToCart(productId: Product) {
+        addItem(productId)
+    }
 
     override fun onClickShare(productId: String) {
         _clickSharedProduct.postValue(Event(productId))

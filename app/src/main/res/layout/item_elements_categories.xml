@@ -30,16 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <CheckBox
-                android:id="@+id/heart_checkbox"
-                style="@style/WishIconStyle"
-                android:layout_width="24dp"
-                android:layout_margin="@dimen/margin_normal"
-                android:onClick="@{() ->listener.onClickHeart(item)}"
-                android:contentDescription="@string/product_image"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
 
             <ImageView
                 android:id="@+id/product_image"

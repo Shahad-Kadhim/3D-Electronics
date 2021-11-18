@@ -95,26 +95,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@color/brand_color" />
 
-            <CheckBox
-                android:id="@+id/heart_checkbox"
-                style="@style/WishIconStyle"
-                android:layout_margin="@dimen/margin_normal"
-                android:onClick="@{() ->listener.onClickHeart(item)}"
-                android:contentDescription="@string/product_image"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/share_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginEnd="@dimen/margin2x"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:contentDescription="@string/product_image"
                 android:onClick="@{() -> listener.onClickShare(item.id)}"
                 android:src="@drawable/ic_share"
-                app:layout_constraintBottom_toBottomOf="@+id/heart_checkbox"
-                app:layout_constraintEnd_toStartOf="@+id/heart_checkbox"
-                app:layout_constraintTop_toTopOf="@+id/heart_checkbox" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <androidx.appcompat.widget.AppCompatButton
