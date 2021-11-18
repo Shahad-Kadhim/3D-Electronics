@@ -14,6 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include android:id="@+id/not_found"
+            app:showWhenEmpty="@{viewModel.cartItems}"
+            layout="@layout/not_found"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
             style="@style/ButtonBack"
@@ -128,17 +132,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/check_out_button" />
 
-<!--        <include android:id="@+id/not_found"-->
-<!--            app:showWhenEmpty="@{viewModel.cartItems.toData().products}"-->
-<!--            layout="@layout/not_found"/>-->
-
-<!--        <include android:id="@+id/loading"-->
-<!--            app:showOnLoading="@{viewModel.cartItems}"-->
-<!--            layout="@layout/loading"/>-->
-
-<!--        <include android:id="@+id/error"-->
-<!--            app:showOnError="@{viewModel.cartItems}"-->
-<!--            layout="@layout/error"/>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

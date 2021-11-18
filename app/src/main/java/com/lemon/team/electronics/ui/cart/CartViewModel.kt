@@ -7,12 +7,13 @@ import com.lemon.team.electronics.util.Event
 import kotlinx.coroutines.launch
 
 
-class CartViewModel : BaseViewModel() , CartInteractionListener {
+class CartViewModel : BaseViewModel() ,CartInteractionListener {
 
     val cartItems = Repository.getCartProducts().asLiveData()
     val totalPrice = Repository.getTotalPrice().asLiveData()
     val oldTotalPrice = Repository.getOldTotalPrice().asLiveData()
     val piecesNumber = Repository.getPiecesNumber().asLiveData()
+
 
     private val _clickPayNowEvent = MutableLiveData<Event<Boolean>>()
     var clickPayNowEvent: LiveData<Event<Boolean>> = _clickPayNowEvent
@@ -36,6 +37,7 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
         }
     }
 
+
     fun onClickBack() {
         _clickBackEvent.postValue(Event(true))
     }
@@ -47,6 +49,5 @@ class CartViewModel : BaseViewModel() , CartInteractionListener {
     fun onClickPayNow() {
         _clickPayNowEvent.postValue(Event(true))
     }
-
 
 }

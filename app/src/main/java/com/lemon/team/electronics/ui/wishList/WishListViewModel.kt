@@ -21,7 +21,6 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     val clickAdd: LiveData<Event<Boolean>> = _clickAdd
 
 
-
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
     }

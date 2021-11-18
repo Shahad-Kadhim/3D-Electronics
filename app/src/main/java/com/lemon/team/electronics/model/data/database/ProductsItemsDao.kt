@@ -1,8 +1,7 @@
 package com.lemon.team.electronics.model.data.database
 
 import androidx.room.*
-import com.lemon.team.electronics.model.data.CartItem
-import com.lemon.team.electronics.model.data.WishItem
+import com.lemon.team.electronics.model.data.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -43,6 +42,9 @@ interface ProductsItemsDao {
     suspend fun deleteWishItemById(id: String?)
 
 
+    @Query("UPDATE CART_TABLE SET pieces= :pieces, price= :price WHERE id = :itemId")
+    suspend fun updateCartItem(itemId: String, pieces: Int, price: Double)
+
     @Query("SELECT SUM(price) as total FROM CART_TABLE ")
     fun getTotalPrice(): Flow<Double>
 
@@ -51,8 +53,5 @@ interface ProductsItemsDao {
 
     @Query("SELECT COUNT(*) FROM CART_TABLE")
     fun getPiecesNumber(): Flow<Int>
-
-    @Query("UPDATE CART_TABLE SET pieces= :pieces, price= :price WHERE id = :itemId")
-    suspend fun updateCartItem(itemId: String, pieces: Int, price: Double)
 
 }
