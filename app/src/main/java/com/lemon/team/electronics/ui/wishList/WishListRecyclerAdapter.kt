@@ -24,6 +24,4 @@ class WishListRecyclerAdapter(items: List<WishItem>, listener: WishInteractionLi
 interface WishInteractionListener: BaseInteractionListener {
     fun onClickProduct(productId: String)
     fun onclickAddToCart(productId: WishItem)
-    fun onclickHeart(productId: String)
-
 }

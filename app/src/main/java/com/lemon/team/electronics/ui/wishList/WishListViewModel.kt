@@ -31,13 +31,6 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
         addCartItem(Product)
     }
 
-    override fun onclickHeart(productId: String) {
-        viewModelScope.launch {
-            Repository.deleteWishItemById(productId)
-
-        }
-    }
-
     private var _toast = MutableLiveData<Event<Int>>()
     val toast: LiveData<Event<Int>> = _toast
 
