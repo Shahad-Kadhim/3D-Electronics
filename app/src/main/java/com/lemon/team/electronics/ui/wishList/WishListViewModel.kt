@@ -26,15 +26,22 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     }
 
 
-    override fun onclickAddToCart(Product: WishItem){
+    override fun onclickAddToCart(Product: WishItem) {
 
         addCartItem(Product)
+    }
+
+    override fun onclickHeart(productId: String) {
+        viewModelScope.launch {
+            Repository.deleteWishItemById(productId)
+
+        }
     }
 
     private var _toast = MutableLiveData<Event<Int>>()
     val toast: LiveData<Event<Int>> = _toast
 
-    private fun addCartItem(product: WishItem){
+    private fun addCartItem(product: WishItem) {
         viewModelScope.launch {
             if (!isItemExists(product.id)!!) {
                 setItem(product)?.let { Repository.insertCartItem(it) }
