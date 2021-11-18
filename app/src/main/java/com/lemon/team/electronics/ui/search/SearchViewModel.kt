@@ -2,6 +2,7 @@ package com.lemon.team.electronics.ui.search
 
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
+import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.model.response.ProductsResponse
 import com.lemon.team.electronics.ui.category.ProductInteractionListener
 import com.lemon.team.electronics.ui.base.BaseViewModel
@@ -23,7 +24,7 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
         _clickItemEvent.postValue(Event(productId))
     }
 
-    override fun onClickHeart(productId: String) {
+    override fun onClickHeart(productId: Product) {
         // write code after create database
     }
 

@@ -17,7 +17,7 @@ class WishListRecyclerAdapter(items: List<WishItem>, listener: WishInteractionLi
         newItemPosition: Int,
         newItems: List<T>
     ) =
-        getItems()[oldItemPosition].id == (newItems[newItemPosition] as CartItem).id
+        getItems()[oldItemPosition].id == (newItems[newItemPosition] as WishItem).id
 
 }
 

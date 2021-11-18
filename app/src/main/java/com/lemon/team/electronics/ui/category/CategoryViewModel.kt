@@ -1,10 +1,13 @@
 package com.lemon.team.electronics.ui.category
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
+import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.model.response.ProductsResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
+import kotlinx.coroutines.launch
 
 class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
 
@@ -24,12 +27,27 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
         }
     }
 
+    override fun onClickHeart(product: Product) {
+        addToWishList(product)
+    }
+
+    private fun addToWishList(product: Product?) {
+        viewModelScope.launch {
+            if (!isWishItemExists(product)!!)
+                setWishItem(product)?.let { Repository.insertWishItem(it) }
+        }}
+
+    private fun setWishItem(product: Product?) =
+        product?.toWishItemEntity()
+
+    private suspend fun isWishItemExists(product: Product?) =
+        product?.let { Repository.checkWishItemExists(it.id) }
+
+
 
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
     }
-
-    override fun onClickHeart(productId: String) { }
 
     fun onClickBack(){
         _clickBackEvent.postValue(Event(true))

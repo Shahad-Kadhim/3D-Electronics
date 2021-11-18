@@ -7,6 +7,7 @@
         <variable
             name="item"
             type="com.lemon.team.electronics.model.response.Product" />
+
         <variable
             name="listener"
             type="com.lemon.team.electronics.ui.category.ProductInteractionListener" />
@@ -95,7 +96,7 @@
                 android:id="@+id/heart_checkbox"
                 style="@style/WishIconStyle"
                 android:contentDescription="@string/product_image"
-                android:onClick="@{() ->listener.onClickHeart(item.id)}"
+                android:onCheckedChanged="@{() -> listener.onClickHeart(item)}"
                 app:layout_constraintEnd_toEndOf="@id/wish_background_button"
                 app:layout_constraintStart_toStartOf="@id/wish_background_button"
                 app:layout_constraintBottom_toBottomOf="@id/wish_background_button"

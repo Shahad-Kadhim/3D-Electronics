@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.ui.productDetails
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.Product
@@ -115,10 +116,12 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
 
 
     var checkHeart = MutableLiveData<Boolean>()
-    fun onclickWish(product: Product?){
+    fun onclickWish(){
         viewModelScope.launch {
             if (checkHeart.value == true)
                 addToWishList(detailsProduct.value?.toData())
+            else
+                Repository.deleteWishItemById(detailsProduct.value?.toData()?.id)
         }
     }
 

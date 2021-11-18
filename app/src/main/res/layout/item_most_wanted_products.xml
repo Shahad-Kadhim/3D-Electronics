@@ -9,6 +9,10 @@
             type="com.lemon.team.electronics.model.response.Product"/>
 
         <variable
+            name="checked"
+            type="Boolean" />
+
+        <variable
             name="listener"
             type="com.lemon.team.electronics.ui.home.HomeInteractionListener" />
 
@@ -95,7 +99,7 @@
                 android:id="@+id/heart_checkbox"
                 style="@style/WishIconStyle"
                 android:layout_margin="@dimen/margin_normal"
-                android:onClick="@{() ->listener.onClickHeart(item.id)}"
+                android:onClick="@{() ->listener.onClickHeart(item)}"
                 android:contentDescription="@string/product_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -117,13 +121,11 @@
                 android:id="@+id/add_to_cart_button"
                 style="@style/AddButton"
                 android:onClick="@{() -> listener.onclickAddToCart(item)}"
-
                 android:background="@drawable/shape_button_cart"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </com.google.android.material.card.MaterialCardView>
 
 </layout>

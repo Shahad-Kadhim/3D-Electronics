@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.ui.home
 
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
@@ -38,9 +39,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
 
     val categories = Repository.getCategories().asLiveData()
-
     val mostWantedProducts = Repository.getRecommendedProducts().asLiveData()
-
     val homeImages = Repository.getHomeImages().asLiveData()
 
     val laptopCategory = Repository.getProductsByCategoryId(CategoriesId.LAPTOP,
@@ -157,9 +156,38 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         product?.toCartItemEntity(1)
 
 
-    override fun onClickHeart(productId: String) {
-        // write code when create database
+    var checkHeart = MutableLiveData(false)
+    override fun onClickHeart(product: Product) {
+        viewModelScope.launch {
+            if (checkHeart.value == false) {
+                checkHeart.postValue(true)
+                addToWishList(product)
+            }
+            else {
+                checkHeart.postValue(false)
+                Repository.deleteWishItemById(product.id)
+            }
+            checkIfItemInWishTable(product.id)
+        }
     }
+
+    private suspend fun checkIfItemInWishTable(productId: String) {
+        if (Repository.checkWishItemExists(productId))
+            checkHeart.postValue(true)
+    }
+
+    private fun addToWishList(product: Product?) {
+        viewModelScope.launch {
+            if (!isWishItemExists(product)!!)
+                setWishItem(product)?.let { Repository.insertWishItem(it) }
+        }}
+
+    private fun setWishItem(product: Product?) =
+        product?.toWishItemEntity()
+
+    private suspend fun isWishItemExists(product: Product?) =
+        product?.let { Repository.checkWishItemExists(it.id) }
+
 
     override fun onClickShare(productId: String) {
         _clickSharedProduct.postValue(Event(productId))

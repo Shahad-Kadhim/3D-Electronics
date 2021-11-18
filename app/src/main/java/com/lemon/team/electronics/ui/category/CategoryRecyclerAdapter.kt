@@ -21,5 +21,5 @@ class CategoryRecyclerAdapter(
 
 interface ProductInteractionListener: BaseInteractionListener {
     fun onClickProduct(productId : String)
-    fun onClickHeart(productId : String)
+    fun onClickHeart(productId : Product)
 }

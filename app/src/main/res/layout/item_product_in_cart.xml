@@ -9,10 +9,6 @@
             type="com.lemon.team.electronics.model.data.CartItem" />
 
         <variable
-            name="ViewModel"
-            type="com.lemon.team.electronics.ui.cart.CartViewModel" />
-
-        <variable
             name="listener"
             type="com.lemon.team.electronics.ui.cart.CartInteractionListener" />
     </data>
