@@ -1,7 +1,9 @@
 package com.lemon.team.electronics.ui.category
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
+import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.model.response.ProductsResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
@@ -20,8 +22,8 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
 
     private val scroll = MutableStateFlow(0)
 
-    lateinit var categoryId: String
 
+    lateinit var categoryId: String
     fun getProductsByCategoryId(categoryId: String) {
         this.categoryId = categoryId
         getProductsInCurrentPage { state ->
@@ -40,9 +42,12 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
 
 
     private fun requestMoreProducts() {
-        getProductsInCurrentPage { oldState ->
-            oldState.add(_categoryItems.getProductsOrEmptyList()) { newState ->
-                _categoryItems.postValue(newState)
+        getProductsInCurrentPage { state ->
+            if (state is State.Success) {
+                state.toData()?.products?.apply {
+                    this.addAll(0, _categoryItems.value?.toData()?.products ?: mutableListOf())
+                }
+                _categoryItems.postValue(state)
             }
         }
     }

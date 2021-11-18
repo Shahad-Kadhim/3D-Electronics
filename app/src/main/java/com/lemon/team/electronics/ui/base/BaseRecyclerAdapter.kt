@@ -44,9 +44,6 @@ abstract class BaseRecyclerAdapter<T>(
     fun setItems(newItems: List<T>) {
         val diffResult = DiffUtil.calculateDiff(AppDiffUtil(items, newItems, ::areItemsTheSame))
         items = newItems
-        Log.i("ITEM_OLD", items.size.toString())
-        Log.i("ITEM_NEW", newItems.size.toString())
-        notifyDataSetChanged()
         diffResult.dispatchUpdatesTo(this)
     }
 

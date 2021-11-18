@@ -24,6 +24,7 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
     private val scroll = MutableStateFlow(0)
 
     fun onclickSearch() {
+        scroll.tryEmit(0)
         getProductsInCurrentPage {
             searchResult.postValue(it)
         }
@@ -39,9 +40,12 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
     }
 
     private fun requestMoreProducts() {
-        getProductsInCurrentPage { oldState ->
-            oldState.add(searchResult.getProductsOrEmptyList()) { newState ->
-                searchResult.postValue(newState)
+        getProductsInCurrentPage { state ->
+            if (state is State.Success) {
+                state.toData()?.products?.apply {
+                    this.addAll(0, searchResult.value?.toData()?.products ?: mutableListOf())
+                }
+                searchResult.postValue(state)
             }
         }
     }

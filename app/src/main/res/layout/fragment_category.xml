@@ -59,6 +59,7 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             android:clipToPadding="false"
+            android:paddingBottom="40dp"
             android:layout_marginTop="@dimen/margin_small"
             android:paddingHorizontal="@dimen/margin_small"
             app:last="@{viewModel.onScrollLast}"

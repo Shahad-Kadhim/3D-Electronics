@@ -66,20 +66,3 @@ fun ProductsResponse.hasNewPage(scrollPage: Int): Boolean {
 private fun isScroll(totalPages: Int, scrollPage: Int) = scrollPage < totalPages - 1
 private fun ifPageable(currentPage: Int?, scrollPage: Int) = scrollPage == currentPage
 
-
-fun State<ProductsResponse?>.add(
-    products: MutableList<Product>,
-    function: (State<ProductsResponse?>) -> Unit,
-) {
-    if (this is State.Success) {
-        this.data?.products?.let {
-            this.data.products = products.apply { addAll(it) }
-        }
-        function(this)
-    }
-}
-
-fun LiveData<State<ProductsResponse?>>.getProductsOrEmptyList() =
-    this.value?.toData()?.products ?: mutableListOf()
-
-
