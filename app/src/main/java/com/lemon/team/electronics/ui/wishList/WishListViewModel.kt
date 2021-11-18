@@ -1,7 +1,9 @@
 package com.lemon.team.electronics.ui.wishList
 
+import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
+import com.lemon.team.electronics.model.data.CartItem
 import com.lemon.team.electronics.model.data.WishItem
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
@@ -26,9 +28,8 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     }
 
 
-    override fun onclickAddToCart(Product: WishItem) {
-
-        addCartItem(Product)
+    override fun onclickAddToCart(product: WishItem) {
+        addCartItem(product)
     }
 
     override fun onclickHeart(productId: String) {
@@ -44,7 +45,7 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     private fun addCartItem(product: WishItem) {
         viewModelScope.launch {
             if (!isItemExists(product.id)!!) {
-                setItem(product)?.let { Repository.insertCartItem(it) }
+                Repository.insertCartItem(setItem(product))
                 _toast.postValue(Event(1))
             } else
                 getPiecesNumber(product.id)
@@ -53,10 +54,18 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
 
 
     fun setItem(product: WishItem) =
-      Repository
-          .getProductById(product.id)
-          .asLiveData().value?.toData()?.toCartItemEntity(1)
-
+        product.let {
+            CartItem(
+                it.id,
+                it.name,
+                it.oldPrice,
+                it.sold,
+                it.mainImage,
+                it.price,
+                it.sale,
+                1
+            )
+        }
 
     private suspend fun isItemExists(product: String?) =
         product?.let { Repository.checkCartItemExists(it) }
