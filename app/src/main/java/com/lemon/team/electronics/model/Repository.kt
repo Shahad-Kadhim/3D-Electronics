@@ -48,18 +48,6 @@ object Repository{
         wrapWithFlow { API.apiService.getProductById(productId) }
 
 
-    // this function will be rewritten after create database
-    fun getWishedProducts(): Flow<State<ProductsResponse?>> =
-        wrapWithFlow { API.apiService
-            .getProductsByCategoryId(
-                categoryId = CategoriesId.MONITORS,
-                page = Constants.PAGE_NUMBER_ZERO,
-                sortBy = Constants.SORT_BY_CREATED_DATE
-            )
-        }
-
-
-
     //this function will be rewritten after create database
     fun getOrderedProducts(): List<OrderedProduct>{
         return listOf(
@@ -121,7 +109,7 @@ object Repository{
     suspend fun updateCartItem(itemId: String, pieces: Int, price: Double) =
         dao.updateCartItem(itemId, pieces, price)
 
-    fun getAllProducts() =
+    fun getCartProducts() =
         dao.getAllCartItems()
 
     fun getTotalPrice() =
@@ -138,6 +126,10 @@ object Repository{
 
     suspend fun deleteItemById(id: String) =
         dao.deleteItemById(id)
+
+    fun getWishedProducts() =
+        dao.getAllWishItems()
+
 }
 
 

@@ -105,7 +105,9 @@
                 android:id="@+id/wish_background_button"
                 style="@style/WishButtonStyle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
             <TextView
                 android:id="@+id/product_out_of_stock_text"
                 android:layout_width="wrap_content"

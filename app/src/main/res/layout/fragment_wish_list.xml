@@ -40,7 +40,7 @@
             app:layout_constraintGuide_begin="56dp" />
 
         <include android:id="@+id/not_found"
-            app:showWhenEmpty="@{viewModel.wishListItems.toData().products}"
+            app:showWhenEmpty="@{viewModel.wishListItems}"
             layout="@layout/not_found"/>
 
 
@@ -52,25 +52,25 @@
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginHorizontal="@dimen/margin_small"
             android:clipToPadding="false"
+            app:spanCount="2"
+            app:items="@{viewModel.wishListItems}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/guideline"
-            app:spanCount="2"
-            app:items="@{viewModel.wishListItems.toData().products}"
-            app:showOnSuccess="@{viewModel.wishListItems}"
             tools:listitem="@layout/item_wish_product" />
 
 
-        <include android:id="@+id/loading"
-            app:showOnLoading="@{viewModel.wishListItems}"
-            layout="@layout/loading"/>
+<!--        <include android:id="@+id/loading"-->
+<!--            app:showOnLoading="@{viewModel.wishListItems}"-->
+<!--            layout="@layout/loading"/>-->
 
-        <include android:id="@+id/error"
-            app:showOnError="@{viewModel.wishListItems}"
-            layout="@layout/error"/>
+<!--        <include android:id="@+id/error"-->
+<!--            app:showOnError="@{viewModel.wishListItems}"-->
+<!--            layout="@layout/error"/>-->
 
+<!--        app:showOnSuccess="@{viewModel.wishListItems}"-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class CartViewModel : BaseViewModel() , CartInteractionListener {
 
-    val cartItems = Repository.getAllProducts().asLiveData()
+    val cartItems = Repository.getCartProducts().asLiveData()
     val totalPrice = Repository.getTotalPrice().asLiveData()
     val oldTotalPrice = Repository.getOldTotalPrice().asLiveData()
     val piecesNumber = Repository.getPiecesNumber().asLiveData()

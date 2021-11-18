@@ -2,6 +2,7 @@ package com.lemon.team.electronics.model.data.database
 
 import androidx.room.*
 import com.lemon.team.electronics.model.data.CartItem
+import com.lemon.team.electronics.model.data.WishItem
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -36,5 +37,10 @@ interface ProductsItemsDao {
 
     @Query("DELETE FROM CART_TABLE WHERE id = :id")
     suspend fun deleteItemById(id: String?)
+
+
+
+    @Query("SELECT * FROM WISH_TABLE ORDER BY id DESC ")
+    fun getAllWishItems(): Flow<List<WishItem>>
 
 }
