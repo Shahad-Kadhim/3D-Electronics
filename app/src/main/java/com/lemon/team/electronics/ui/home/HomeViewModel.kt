@@ -141,7 +141,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
             Repository.getItemById(product.id)
                 ?.let {
                     Repository.updateCartItem(
-                        it.itemId,
+                        it.id,
                         piecesNumber,
                         it.price.times(piecesNumber)
                     )

@@ -1,14 +1,14 @@
 package com.lemon.team.electronics.ui.checkout
 
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.data.ProductItem
+import com.lemon.team.electronics.model.data.CartItem
 import com.lemon.team.electronics.ui.base.*
 
 class PurchasedProductsRecyclerAdapter(
-    items: List<ProductItem>,
+    items: List<CartItem>,
     listener: BaseInteractionListener,
 ) :
-    BaseRecyclerAdapter<ProductItem>(items, listener) {
+    BaseRecyclerAdapter<CartItem>(items, listener) {
 
     override val layoutId: Int = R.layout.item_checkout
 
@@ -16,6 +16,6 @@ class PurchasedProductsRecyclerAdapter(
         oldItemPosition: Int,
         newItemPosition: Int,
         newItems: List<T>,
-    ) = getItems()[oldItemPosition].itemId == (newItems[newItemPosition] as ProductItem).itemId
+    ) = getItems()[oldItemPosition].id == (newItems[newItemPosition] as CartItem).id
 
 }

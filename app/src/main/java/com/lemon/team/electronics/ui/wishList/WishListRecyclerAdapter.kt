@@ -1,14 +1,13 @@
 package com.lemon.team.electronics.ui.wishList
 
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.data.ProductItem
+import com.lemon.team.electronics.model.data.CartItem
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseInteractionListener
-import com.lemon.team.electronics.ui.category.ProductInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
-class WishListRecyclerAdapter(items: List<ProductItem>, listener: WishInteractionListener)
-    : BaseRecyclerAdapter<ProductItem>(items, listener) {
+class WishListRecyclerAdapter(items: List<CartItem>, listener: WishInteractionListener)
+    : BaseRecyclerAdapter<CartItem>(items, listener) {
 
     override val layoutId: Int = R.layout.item_wish_product
 
@@ -17,7 +16,7 @@ class WishListRecyclerAdapter(items: List<ProductItem>, listener: WishInteractio
         newItemPosition: Int,
         newItems: List<T>
     ) =
-        getItems()[oldItemPosition].id == (newItems[newItemPosition] as ProductItem).id
+        getItems()[oldItemPosition].id == (newItems[newItemPosition] as CartItem).id
 
 }
 

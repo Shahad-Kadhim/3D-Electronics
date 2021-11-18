@@ -8,7 +8,7 @@ import androidx.lifecycle.*
 import androidx.navigation.*
 import androidx.navigation.fragment.FragmentNavigator
 import com.lemon.team.electronics.BR
-import com.lemon.team.electronics.model.data.ProductItem
+import com.lemon.team.electronics.model.data.CartItem
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import java.io.IOException
@@ -52,8 +52,7 @@ fun Intent.sharingUrl(url: String?): Intent? {
 }
 
 fun Product.toItemEntity(pieces: Int) =
-    ProductItem(
-        0,
+    CartItem(
         id,
         name!!,
         oldPrice!!,

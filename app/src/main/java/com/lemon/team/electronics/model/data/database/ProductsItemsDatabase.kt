@@ -6,7 +6,7 @@ import androidx.room.*
 import com.lemon.team.electronics.model.data.*
 
 
-@Database(entities = [ProductItem::class, WishItem::class], version = 1)
+@Database(entities = [CartItem::class, WishItem::class], version = 1)
 abstract class ProductsItemsDatabase: RoomDatabase() {
 
     abstract fun productsDao(): ProductsItemsDao

@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.data.ProductItem" />
+            type="com.lemon.team.electronics.model.data.CartItem" />
 
     </data>
 

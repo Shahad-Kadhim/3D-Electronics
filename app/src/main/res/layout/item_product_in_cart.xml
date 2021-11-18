@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.data.ProductItem" />
+            type="com.lemon.team.electronics.model.data.CartItem" />
 
         <variable
             name="ViewModel"
@@ -28,7 +28,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="@{() -> listener.onClickProduct(item.itemId)}"
+            android:onClick="@{() -> listener.onClickProduct(item.id)}"
             >
 
             <ImageView
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:onClick="@{() -> listener.onClickDelete(item.itemId)}"
+                android:onClick="@{() -> listener.onClickDelete(item.id)}"
                 android:src="@drawable/ic_baseline_delete_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

@@ -3,7 +3,7 @@ package com.lemon.team.electronics.model
 import android.annotation.SuppressLint
 import com.google.gson.Gson
 import com.google.gson.JsonElement
-import com.lemon.team.electronics.model.data.ProductItem
+import com.lemon.team.electronics.model.data.CartItem
 import com.lemon.team.electronics.model.data.database.ProductsItemsDatabase
 import com.lemon.team.electronics.model.network.API
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
@@ -112,8 +112,8 @@ object Repository{
 
 
 
-    suspend fun insertProduct(ProductItem: ProductItem) =
-        dao.insert(ProductItem)
+    suspend fun insertProduct(CartItem: CartItem) =
+        dao.insert(CartItem)
 
     suspend fun checkItemExists(itemId: String) =
         dao.isItemExists(itemId)

@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "WISH_TABLE")
 data class WishItem(
-    @PrimaryKey val itemId: String,
+    @PrimaryKey val id: String,
     val name: String,
     val oldPrice: Double,
     val sold: Boolean,

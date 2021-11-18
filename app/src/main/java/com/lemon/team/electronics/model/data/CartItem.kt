@@ -3,9 +3,9 @@ package com.lemon.team.electronics.model.data
 import androidx.room.*
 
 
-@Entity(tableName = "PRODUCT_TABLE")
-data class ProductItem(
-    @PrimaryKey(autoGenerate = true) val itemId: String,
+@Entity(tableName = "CART_TABLE")
+data class CartItem(
+    @PrimaryKey val id: String,
     val name: String,
     val oldPrice: Double,
     val sold: Boolean,
