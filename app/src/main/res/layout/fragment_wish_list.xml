@@ -62,15 +62,5 @@
             tools:listitem="@layout/item_wish_product" />
 
 
-<!--        <include android:id="@+id/loading"-->
-<!--            app:showOnLoading="@{viewModel.wishListItems}"-->
-<!--            layout="@layout/loading"/>-->
-
-<!--        <include android:id="@+id/error"-->
-<!--            app:showOnError="@{viewModel.wishListItems}"-->
-<!--            layout="@layout/error"/>-->
-
-<!--        app:showOnSuccess="@{viewModel.wishListItems}"-->
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

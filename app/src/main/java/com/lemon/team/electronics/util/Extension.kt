@@ -72,7 +72,7 @@ fun Product.toWishItemEntity() =
         sold!!,
         mainImage!!,
         price!!,
-        sale!!
+        sale!!,
     )
 
 fun <T> List<T>.getSixItems() = this.take(6)
