@@ -36,6 +36,10 @@ class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>
             )
         }
 
+        viewModel.toast.observeEvent(this){
+            setToast(view, it.toString())
+        }
+
     }
 
 

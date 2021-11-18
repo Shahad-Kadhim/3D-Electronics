@@ -143,7 +143,6 @@ object Repository{
     fun getWishedProducts() =
         dao.getAllWishItems()
 
-
 }
 
 

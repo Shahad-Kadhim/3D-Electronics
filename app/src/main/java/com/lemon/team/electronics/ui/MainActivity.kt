@@ -1,15 +1,15 @@
 package com.lemon.team.electronics.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.gson.Gson
 import com.lemon.team.electronics.R
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.appcompat.app.AppCompatActivity
+import com.lemon.team.electronics.util.LocalData
+import androidx.navigation.ui.setupWithNavController
 import com.lemon.team.electronics.databinding.ActivityMainBinding
 import com.lemon.team.electronics.model.data.database.ProductsItemsDatabase
-import com.lemon.team.electronics.util.LocalData
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,4 +38,5 @@ class MainActivity : AppCompatActivity() {
         findNavController(R.id.fragment_host).navigateUp()
         return true
     }
+
 }

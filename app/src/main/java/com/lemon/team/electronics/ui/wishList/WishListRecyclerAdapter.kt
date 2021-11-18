@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.ui.wishList
 
 import com.lemon.team.electronics.R
+import com.lemon.team.electronics.model.data.CartItem
 import com.lemon.team.electronics.model.data.WishItem
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.*
@@ -22,6 +23,5 @@ class WishListRecyclerAdapter(items: List<WishItem>, listener: WishInteractionLi
 
 interface WishInteractionListener: BaseInteractionListener {
     fun onClickProduct(productId: String)
-    fun onClickHeart(productId: String)
-    fun onclickAddToCart(productId: Product)
+    fun onclickAddToCart(productId: WishItem)
 }

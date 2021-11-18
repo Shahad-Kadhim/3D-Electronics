@@ -2,7 +2,7 @@ package com.lemon.team.electronics.ui.wishList
 
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.Product
+import com.lemon.team.electronics.model.data.WishItem
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.launch
@@ -25,19 +25,58 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
         _clickItemEvent.postValue(Event(productId))
     }
 
-    override fun onClickHeart(productId: String) {
 
+    override fun onclickAddToCart(Product: WishItem){
+
+        addCartItem(Product)
     }
 
-    override fun onclickAddToCart(Product: Product){
-        _clickAdd.postValue(Event(true))
+    private var _toast = MutableLiveData<Event<Int>>()
+    val toast: LiveData<Event<Int>> = _toast
+
+    private fun addCartItem(product: WishItem){
         viewModelScope.launch {
-            Repository.insertCartItem(setItem(Product))
+            if (!isItemExists(product.id)!!) {
+                setItem(product)?.let { Repository.insertCartItem(it) }
+                _toast.postValue(Event(1))
+            } else
+                getPiecesNumber(product.id)
         }
     }
 
-    fun setItem(Product: Product) =
-        Product.toCartItemEntity(1)
+
+    fun setItem(product: WishItem) =
+      Repository
+          .getProductById(product.id)
+          .asLiveData().value?.toData()?.toCartItemEntity(1)
+
+
+    private suspend fun isItemExists(product: String?) =
+        product?.let { Repository.checkCartItemExists(it) }
+
+
+    private suspend fun getPiecesNumber(product: String) {
+        viewModelScope.launch {
+            Repository.getCartItemById(product)?.let {
+                updateItem(product, it.pieces.plus(1))
+                _toast.postValue(Event(it.pieces.plus(1)))
+            }
+        }
+    }
+
+    private suspend fun updateItem(product: String, piecesNumber: Int) {
+        viewModelScope.launch {
+            Repository.getCartItemById(product)
+                ?.let {
+                    Repository.updateCartItem(
+                        it.id,
+                        piecesNumber,
+                        it.price.times(piecesNumber)
+                    )
+                }
+        }
+    }
+
 
     fun onClickBack() {
         _clickBackEvent.postValue(Event(true))
