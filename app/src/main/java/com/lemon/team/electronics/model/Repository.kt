@@ -137,17 +137,12 @@ object Repository{
     suspend fun deleteItemById(id: String) =
         dao.deleteItemById(id)
 
-    fun deleteWishItem(wishItem: WishItem) =
-        dao.deleteWish(wishItem)
-
     suspend fun deleteWishItemById(id: String?) =
         dao.deleteWishItemById(id)
 
     fun getWishedProducts() =
         dao.getAllWishItems()
 
-    fun deleteCart(cartItem: CartItem)=
-        dao.deleteCart(cartItem)
 
 }
 

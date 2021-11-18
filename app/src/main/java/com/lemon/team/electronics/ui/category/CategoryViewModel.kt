@@ -18,7 +18,6 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
     var clickBackEvent :LiveData<Event<Boolean>>  = _clickBackEvent
 
     fun getProductsByCategoryId(categoryId: String){
-
         collectResponse(
             Repository.getProductsByCategoryId(categoryId, Constants.PAGE_NUMBER_ZERO)){ state ->
             _categoryItems.postValue(state)
@@ -31,7 +30,6 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
     }
 
     override fun onClickHeart(productId: String) { }
-
 
     fun onClickBack(){
         _clickBackEvent.postValue(Event(true))
