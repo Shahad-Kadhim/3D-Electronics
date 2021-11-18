@@ -166,9 +166,9 @@ fun setCategoryNameById(view: TextView, categoryId: String?) {
 
 @BindingAdapter(value = ["value"])
 fun setPikerNumber(view: NumberPicker, value: Int?) {
-    if (view.progress != value) {
+    if (view.progress != value)
         value?.let { view.progress = it }
-    }
+
 }
 
 @InverseBindingAdapter(attribute = "value", event = "pikerNumberChangeEvent")

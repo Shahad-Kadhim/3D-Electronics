@@ -9,6 +9,7 @@ import androidx.navigation.*
 import androidx.navigation.fragment.FragmentNavigator
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.model.data.CartItem
+import com.lemon.team.electronics.model.data.WishItem
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import java.io.IOException
@@ -51,7 +52,7 @@ fun Intent.sharingUrl(url: String?): Intent? {
     }
 }
 
-fun Product.toItemEntity(pieces: Int) =
+fun Product.toCartItemEntity(pieces: Int) =
     CartItem(
         id,
         name!!,
@@ -61,6 +62,17 @@ fun Product.toItemEntity(pieces: Int) =
         price!!.times(pieces),
         sale!!,
         pieces
+    )
+
+fun Product.toWishItemEntity() =
+    WishItem(
+        id,
+        name!!,
+        oldPrice!!,
+        sold!!,
+        mainImage!!,
+        price!!,
+        sale!!
     )
 
 fun <T> List<T>.getSixItems() = this.take(6)

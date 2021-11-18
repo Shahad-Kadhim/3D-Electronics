@@ -1,6 +1,5 @@
 package com.lemon.team.electronics.ui.productDetails
 
-import android.annotation.SuppressLint
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.response.Product
@@ -58,17 +57,23 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
         collectResponse(Repository.getProductById(productId)) { state ->
             _detailsProduct.postValue(state)
         }
-        getDetailsProductFromDataBase(productId)
+        getDetailsProductFromDatabase(productId)
     }
 
     var piecesNumber = MutableLiveData(1)
-    private fun getDetailsProductFromDataBase(productId: String){
+    private fun getDetailsProductFromDatabase(productId: String){
         viewModelScope.launch {
-            if (Repository.checkItemExists(productId))
-                Repository.getItemById(productId)?.let {
+            if (Repository.checkCartItemExists(productId))
+                Repository.getCartItemById(productId)?.let {
                     piecesNumber.postValue(it.pieces)
                 }
+            checkIfItemInWishTable(productId)
         }
+    }
+
+    private suspend fun checkIfItemInWishTable(productId: String) {
+        if (Repository.checkWishItemExists(productId))
+            checkHeart.postValue(true)
     }
 
     fun onclickAddToCart(){
@@ -78,8 +83,8 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
 
     private fun addOrUpdateItem(item: Product?) {
         viewModelScope.launch {
-            if (!isItemExists()!!)
-                setItem(item)?.let { Repository.insertProduct(it) }
+            if (!isCartItemExists()!!)
+                setCartItem(item)?.let { Repository.insertCartItem(it) }
             else
                 updateItem(item)
         }
@@ -91,11 +96,11 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
 
     }
 
-    fun setItem(product: Product?) =
-        piecesNumber.value?.let { product?.toItemEntity(it) }
+    private fun setCartItem(product: Product?) =
+        piecesNumber.value?.let { product?.toCartItemEntity(it) }
 
-    private suspend fun isItemExists() =
-        detailsProduct.value?.toData()?.let { Repository.checkItemExists(it.id) }
+    private suspend fun isCartItemExists() =
+        detailsProduct.value?.toData()?.let { Repository.checkCartItemExists(it.id) }
 
 
     private suspend fun  updateItem(product: Product?) {
@@ -109,12 +114,30 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
     }
 
 
-    fun onclickBack(){
-        _onclickBack.postValue(Event(true))
+    var checkHeart = MutableLiveData<Boolean>()
+    fun onclickWish(product: Product?){
+        viewModelScope.launch {
+            if (checkHeart.value == true)
+                addToWishList(detailsProduct.value?.toData())
+        }
     }
 
-    fun onclickWish(productId: String){
-        _onclickWish.postValue(Event(productId))
+    private fun addToWishList(product: Product?) {
+        viewModelScope.launch {
+            if (!isWishItemExists()!!)
+                setWishItem(product)?.let { Repository.insertWishItem(it) }
+    }}
+
+    private fun setWishItem(product: Product?) =
+        product?.toWishItemEntity()
+
+    private suspend fun isWishItemExists() =
+        detailsProduct.value?.toData()?.let { Repository.checkWishItemExists(it.id) }
+
+
+
+    fun onclickBack(){
+        _onclickBack.postValue(Event(true))
     }
 
     fun onclickShare(productId: String){

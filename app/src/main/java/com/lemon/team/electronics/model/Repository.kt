@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.lemon.team.electronics.model.data.CartItem
+import com.lemon.team.electronics.model.data.WishItem
 import com.lemon.team.electronics.model.data.database.ProductsItemsDatabase
 import com.lemon.team.electronics.model.network.API
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
@@ -100,11 +101,17 @@ object Repository{
 
 
 
-    suspend fun insertProduct(CartItem: CartItem) =
-        dao.insert(CartItem)
+    suspend fun insertCartItem(CartItem: CartItem) =
+        dao.insertCartItem(CartItem)
 
-    suspend fun checkItemExists(itemId: String) =
-        dao.isItemExists(itemId)
+    suspend fun insertWishItem(WishItem: WishItem) =
+        dao.insertWishItem(WishItem)
+
+    suspend fun checkCartItemExists(itemId: String) =
+        dao.isCartItemExists(itemId)
+
+    suspend fun checkWishItemExists(itemId: String) =
+        dao.isWishItemExists(itemId)
 
     suspend fun updateCartItem(itemId: String, pieces: Int, price: Double) =
         dao.updateCartItem(itemId, pieces, price)
@@ -121,14 +128,26 @@ object Repository{
     fun getPiecesNumber() =
         dao.getPiecesNumber()
 
-    suspend fun getItemById(id: String) =
-        dao.getItemByID(id)
+    suspend fun getCartItemById(id: String) =
+        dao.getICartItemByID(id)
+
+    suspend fun getWishItemById(id: String) =
+        dao.getIWishItemByID(id)
 
     suspend fun deleteItemById(id: String) =
         dao.deleteItemById(id)
 
+    fun deleteWishItem(wishItem: WishItem) =
+        dao.deleteWish(wishItem)
+
+    suspend fun deleteWishItemById(id: String?) =
+        dao.deleteWishItemById(id)
+
     fun getWishedProducts() =
         dao.getAllWishItems()
+
+    fun deleteCart(cartItem: CartItem)=
+        dao.deleteCart(cartItem)
 
 }
 

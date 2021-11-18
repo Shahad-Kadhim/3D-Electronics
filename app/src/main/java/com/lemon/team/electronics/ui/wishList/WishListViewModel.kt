@@ -33,12 +33,12 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     override fun onclickAddToCart(Product: Product){
         _clickAdd.postValue(Event(true))
         viewModelScope.launch {
-            Repository.insertProduct(setItem(Product))
+            Repository.insertCartItem(setItem(Product))
         }
     }
 
     fun setItem(Product: Product) =
-        Product.toItemEntity(1)
+        Product.toCartItemEntity(1)
 
     fun onClickBack() {
         _clickBackEvent.postValue(Event(true))

@@ -9,22 +9,39 @@ import kotlinx.coroutines.flow.Flow
 interface ProductsItemsDao {
 
     @Insert
-    suspend fun insert(CartItem: CartItem)
+    suspend fun insertCartItem(CartItem: CartItem)
 
-    @Delete
-    fun delete(CartItem: CartItem)
+    @Insert
+    suspend fun insertWishItem(WishItem: WishItem)
 
-    @Query("UPDATE CART_TABLE SET pieces= :pieces, price= :price WHERE id = :itemId")
-    suspend fun updateCartItem(itemId: String, pieces: Int, price: Double)
 
     @Query("SELECT * FROM CART_TABLE ORDER BY id DESC ")
     fun getAllCartItems(): Flow<List<CartItem>>
 
+    @Query("SELECT * FROM WISH_TABLE ORDER BY id DESC ")
+    fun getAllWishItems(): Flow<List<WishItem>>
+
+
     @Query("SELECT * FROM CART_TABLE WHERE id = :id ")
-    suspend fun getItemByID(id: String): CartItem?
+    suspend fun getICartItemByID(id: String): CartItem?
+
+    @Query("SELECT * FROM WISH_TABLE WHERE id = :id ")
+    suspend fun getIWishItemByID(id: String): WishItem?
+
 
     @Query("SELECT EXISTS (SELECT * FROM CART_TABLE WHERE id = :itemId)")
-    suspend fun isItemExists(itemId: String): Boolean
+    suspend fun isCartItemExists(itemId: String): Boolean
+
+    @Query("SELECT EXISTS (SELECT * FROM WISH_TABLE WHERE id = :itemId)")
+    suspend fun isWishItemExists(itemId: String): Boolean
+
+
+    @Query("DELETE FROM CART_TABLE WHERE id = :id")
+    suspend fun deleteItemById(id: String?)
+
+    @Query("DELETE FROM WISH_TABLE WHERE id = :id")
+    suspend fun deleteWishItemById(id: String?)
+
 
     @Query("SELECT SUM(price) as total FROM CART_TABLE ")
     fun getTotalPrice(): Flow<Double>
@@ -35,12 +52,7 @@ interface ProductsItemsDao {
     @Query("SELECT COUNT(*) FROM CART_TABLE")
     fun getPiecesNumber(): Flow<Int>
 
-    @Query("DELETE FROM CART_TABLE WHERE id = :id")
-    suspend fun deleteItemById(id: String?)
-
-
-
-    @Query("SELECT * FROM WISH_TABLE ORDER BY id DESC ")
-    fun getAllWishItems(): Flow<List<WishItem>>
+    @Query("UPDATE CART_TABLE SET pieces= :pieces, price= :price WHERE id = :itemId")
+    suspend fun updateCartItem(itemId: String, pieces: Int, price: Double)
 
 }

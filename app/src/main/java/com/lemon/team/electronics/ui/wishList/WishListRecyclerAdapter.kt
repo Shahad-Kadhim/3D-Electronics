@@ -2,12 +2,13 @@ package com.lemon.team.electronics.ui.wishList
 
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.data.CartItem
+import com.lemon.team.electronics.model.data.WishItem
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
-class WishListRecyclerAdapter(items: List<CartItem>, listener: WishInteractionListener)
-    : BaseRecyclerAdapter<CartItem>(items, listener) {
+class WishListRecyclerAdapter(items: List<WishItem>, listener: WishInteractionListener)
+    : BaseRecyclerAdapter<WishItem>(items, listener) {
 
     override val layoutId: Int = R.layout.item_wish_product
 

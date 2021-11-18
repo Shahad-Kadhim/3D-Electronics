@@ -119,7 +119,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     private fun addItem(product: Product) {
         viewModelScope.launch {
             if (!isItemExists(product)!!) {
-                setItem(product)?.let { Repository.insertProduct(it) }
+                setItem(product)?.let { Repository.insertCartItem(it) }
                 _toast.postValue(Event(1))
             } else
                 getPiecesNumber(product)
@@ -129,7 +129,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     private suspend fun getPiecesNumber(product: Product) {
         viewModelScope.launch {
-            Repository.getItemById(product.id)?.let {
+            Repository.getCartItemById(product.id)?.let {
                 updateItem(product, it.pieces.plus(1))
                 _toast.postValue(Event(it.pieces.plus(1)))
             }
@@ -138,7 +138,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     private suspend fun updateItem(product: Product, piecesNumber: Int) {
         viewModelScope.launch {
-            Repository.getItemById(product.id)
+            Repository.getCartItemById(product.id)
                 ?.let {
                     Repository.updateCartItem(
                         it.id,
@@ -150,11 +150,11 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     }
 
     private suspend fun isItemExists(product: Product?) =
-        product?.let { Repository.checkItemExists(it.id) }
+        product?.let { Repository.checkCartItemExists(it.id) }
 
 
     fun setItem(product: Product?) =
-        product?.toItemEntity(1)
+        product?.toCartItemEntity(1)
 
 
     override fun onClickHeart(productId: String) {
