@@ -20,9 +20,11 @@ import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.CategoryResponse
 import com.lemon.team.electronics.model.response.HomeImage
+import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
+import com.lemon.team.electronics.ui.search.SearchRecyclerAdapter
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -67,6 +69,13 @@ fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
     items?.let { listItems ->
         (view.adapter as BaseRecyclerAdapter<T>?)
             ?.setItems(listItems)
+    }
+}
+
+@BindingAdapter(value = ["app:itemsAdd"])
+fun <T> addRecyclerItems(view: RecyclerView, items: List<Product>?) {
+    items?.let { listItems ->
+        (view.adapter as SearchRecyclerAdapter).addItem(items)
     }
 }
 

@@ -73,7 +73,7 @@
             android:visibility="gone"
             android:orientation="vertical"
             app:last="@{viewModel.onScrollLast}"
-            app:items="@{viewModel.searchResult.toData().products}"
+            app:itemsAdd="@{viewModel.searchResult.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
