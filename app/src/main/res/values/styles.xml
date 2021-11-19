@@ -100,12 +100,12 @@
         <item name="android:elevation">@dimen/elevation_normal</item>
         <item name="android:button">@drawable/custom_checked</item>
         <item name="android:layout_marginTop">@dimen/margin_tiny</item>
-        <item name="buttonTint">@color/red</item>
+        <item name="buttonTint">@color/heartRed</item>
     </style>
 
     <style name="WishButtonStyle">
-        <item name="android:layout_height">30dp</item>
-        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_width">32dp</item>
         <item name="android:layout_margin">@dimen/margin_normal</item>
         <item name="android:alpha">0.7</item>
         <item name="android:background">@drawable/wish_button_shape</item>
@@ -178,6 +178,14 @@
         <item name="android:layout_width">56dp</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:paddingTop">@dimen/padding2x</item>
+        <item name="android:drawableTop">@drawable/ic_baseline_add_24</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AddButtonWish">
+        <item name="android:layout_width">46dp</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:paddingTop">@dimen/padding_tiny</item>
         <item name="android:drawableTop">@drawable/ic_baseline_add_24</item>
         <item name="android:gravity">center</item>
     </style>
