@@ -248,18 +248,22 @@
                     style="@style/contactText"
                     android:layout_marginTop="@dimen/margin_small"
                     android:text="@string/facebook"
+                    android:autoLink="web"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/contacts_text"
-                    app:drawableStartCompat="@drawable/ic_facebook" />
+                    app:drawableStartCompat="@drawable/ic_facebook"
+                    app:drawableTint="@color/blue" />
 
                 <TextView
                     android:id="@+id/email_text"
                     style="@style/contactText"
                     android:layout_marginTop="@dimen/margin2x"
                     android:text="@string/email"
+                    android:autoLink="email"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/facebook_page_text"
-                    app:drawableStartCompat="@drawable/ic_email_" />
+                    app:drawableStartCompat="@drawable/ic_email_"
+                    android:drawableTint="@color/red"/>
 
 
                 <TextView
@@ -267,10 +271,12 @@
                     style="@style/contactText"
                     android:layout_marginBottom="@dimen/margin3x"
                     android:text="@string/phone_number"
+                    android:autoLink="phone"
                     app:layout_constraintBottom_toBottomOf="@id/contacts_background"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/email_text"
-                    app:drawableStartCompat="@drawable/ic_call" />
+                    app:drawableStartCompat="@drawable/ic_call"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

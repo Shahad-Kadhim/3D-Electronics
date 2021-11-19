@@ -17,8 +17,8 @@
     <string name="product_name">Product Name</string>
     <string name="aboutTitle">About</string>
     <string name="email" translatable="false">3d@3d-iraq.com</string>
-    <string name="facebook" translatable="false">3D electronics</string>
-    <string name="phone_number" translatable="false">9647700612084</string>
+    <string name="facebook" translatable="false">facebook.com/3delctronics</string>
+    <string name="phone_number" translatable="false">+9647700612084</string>
     <string name="categories">Categories</string>
     <string name="wish_list">Wish List</string>
     <string name="our_vendors">Our Vendors</string>
