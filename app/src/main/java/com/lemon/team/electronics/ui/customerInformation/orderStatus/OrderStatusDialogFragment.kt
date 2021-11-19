@@ -1,5 +1,7 @@
 package com.lemon.team.electronics.ui.customerInformation.orderStatus
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +29,7 @@ class OrderStatusDialogFragment : DialogFragment() {
                 R.layout.fragment_order_status,
                 container,
                 false)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return binding.root
     }
 

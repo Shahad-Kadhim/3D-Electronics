@@ -4,7 +4,7 @@ object Constants {
 
     object OrderStatus{
         const val SUCCESS = "success"
-        const val ERROR = "an error has occurred"
+        const val ERROR = "fail"
     }
 
     const val MAIN_URL = "MAIN_URL"

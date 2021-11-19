@@ -72,6 +72,13 @@
     <string name="_964_xxx_xxxx"><font size="12">+964 - xxx - xxxx</font></string>
     <string name="notes">ملاحظات</string>
     <string name="submit_your_order">ثبت طلبك</string>
+    <string name="your_order_have_been_successfully_received">تم استلام طلبك بنجاح</string>
+    <string name="an_error_has_occurred">لقد حدث خطا</string>
+    <string name="follow_your_order">تابع طلبك</string>
+    <string name="ok">حسناً</string>
+    <string name="success">نجح الطلب</string>
+    <string name="fail">فشل</string>
+    <string name="close">أغلاق</string>
 
     <string-array name="governorates">
         <item>بغداد</item>

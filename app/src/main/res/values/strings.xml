@@ -77,6 +77,13 @@
     <string name="notes">Notes</string>
     <string name="submit_your_order">Submit Your Order</string>
     <string name="notes_about_your_order"><font size="12">notes about your order</font></string>
+    <string name="your_order_have_been_successfully_received">your order have been successfully received</string>
+    <string name="an_error_has_occurred">an error has occurred</string>
+    <string name="follow_your_order">Follow your order</string>
+    <string name="ok">OK</string>
+    <string name="success">SUCCESS</string>
+    <string name="fail">FAIL</string>
+    <string name="close">close</string>
 
     <string-array name="governorates">
         <item>Baghdad</item>
