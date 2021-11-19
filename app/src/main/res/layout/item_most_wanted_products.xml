@@ -31,6 +31,23 @@
             android:onClick="@{() -> listener.onClickProduct(item.id)}">
 
             <TextView
+                android:id="@+id/product_out_of_stock_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sold_out_shape"
+                android:fontFamily="@font/monda_bold"
+                android:gravity="center"
+                android:elevation="@dimen/elevation_small"
+                android:paddingHorizontal="@dimen/padding_normal"
+                android:paddingVertical="@dimen/padding_small"
+                android:text="@string/out_of_stock"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_small"
+                app:isVisible="@{item.sold}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/product_name_text"
                 android:layout_height="wrap_content"
                 android:layout_width="150dp"
