@@ -53,6 +53,14 @@ class OrderStatusDialogFragment : DialogFragment() {
                 OrderStatus.Fail -> findNavController().navigateUp()
             }
         }
+
+        viewModel.navigateToFollowOrder.observeEvent(this){
+            navigateToFollowOrder()
+        }
+    }
+
+    private fun navigateToFollowOrder() {
+
     }
 
     private fun navigateToHome() {

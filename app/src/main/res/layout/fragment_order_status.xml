@@ -81,6 +81,7 @@
             android:layout_marginTop="@dimen/margin_small"
             android:fontFamily="@font/monda_regular"
             android:text="@string/follow_your_order"
+            android:onClick="@{() -> viewModel.onFollowOrderClicked()}"
             app:followOrderVisibility="@{status}"
             app:layout_constraintEnd_toEndOf="@+id/main_button"
             app:layout_constraintStart_toStartOf="@+id/main_button"
