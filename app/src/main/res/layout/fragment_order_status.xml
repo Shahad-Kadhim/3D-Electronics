@@ -6,8 +6,12 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatusViewModel" />
+
+        <variable
             name="status"
-            type="String" />
+            type="com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus" />
 
     </data>
 
@@ -63,6 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin6x"
+            android:onClick="@{() -> viewModel.onDialogButtonClicked()}"
             app:statusButtonColor="@{status}"
             app:statusButtonText="@{status}"
             app:layout_constraintEnd_toEndOf="parent"

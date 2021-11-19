@@ -4,7 +4,7 @@ import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCustomerInformationBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
-import com.lemon.team.electronics.util.Constants
+import com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus
 import com.lemon.team.electronics.util.State
 import com.lemon.team.electronics.util.observeEvent
 
@@ -18,10 +18,10 @@ class CustomerInformationFragment :
         viewModel.orderResponse.observeEvent(this) {
             if(it is State.Success){
                 viewModel.onOrderSuccess()
-                navigateToDialog(Constants.OrderStatus.SUCCESS)
+                navigateToDialog(OrderStatus.Success)
             }
             if (it is State.Error){
-                navigateToDialog(Constants.OrderStatus.ERROR)
+                navigateToDialog(OrderStatus.Fail)
             }
         }
 
@@ -31,7 +31,7 @@ class CustomerInformationFragment :
 
     }
 
-    private fun navigateToDialog(status: String){
+    private fun navigateToDialog(status: OrderStatus){
         val action = CustomerInformationFragmentDirections.actionCustomerInformationFragmentToOrderStatusDialogFragment(status)
         findNavController().navigate(action)
     }

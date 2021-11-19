@@ -21,6 +21,7 @@ import com.lemon.team.electronics.ui.home.HomeInteractionListener
 import android.widget.AdapterView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.InverseBindingListener
+import com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -191,57 +192,55 @@ fun onChange(spinner: Spinner, attChange: InverseBindingListener){
 }
 
 @BindingAdapter(value = ["app:statusImage"])
-fun setStatusImage(view: ImageView, status: String?){
-    if (status == Constants.OrderStatus.SUCCESS){
-        view.setImageResource(R.drawable.order_status_success)
-    } else {
-        view.setImageResource(R.drawable.order_status_fail)
+fun setStatusImage(view: ImageView, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> view.setImageResource(R.drawable.order_status_success)
+        OrderStatus.Fail -> view.setImageResource(R.drawable.order_status_fail)
     }
 }
 
 @BindingAdapter(value = ["app:statusTitle"])
-fun setOrderStatusTitle(view: TextView, status: String?){
-    if (status == Constants.OrderStatus.SUCCESS){
-        view.text = view.context.getString(R.string.success)
-        view.setTextColor(view.context.getColor(R.color.order_status_success))
-    } else {
-        view.text = view.context.getString(R.string.fail)
-        view.setTextColor(view.context.getColor(R.color.order_status_fail))
+fun setOrderStatusTitle(view: TextView, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> {
+            view.text = view.context.getString(R.string.success)
+            view.setTextColor(view.context.getColor(R.color.order_status_success))
+        }
+        OrderStatus.Fail -> {
+            view.text = view.context.getString(R.string.fail)
+            view.setTextColor(view.context.getColor(R.color.order_status_fail))
+        }
     }
 }
 
 @BindingAdapter(value = ["app:statusBodyText"])
-fun setOrderStatusBodyText(view: TextView, status: String?){
-    if (status == Constants.OrderStatus.SUCCESS){
-        view.text = view.context.getString(R.string.your_order_have_been_successfully_received)
-    } else {
-        view.text = view.context.getString(R.string.an_error_has_occurred)
+fun setOrderStatusBodyText(view: TextView, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> view.text = view.context.getString(R.string.your_order_have_been_successfully_received)
+        OrderStatus.Fail -> view.text = view.context.getString(R.string.an_error_has_occurred)
     }
 }
 
 @BindingAdapter(value = ["app:statusButtonColor"])
-fun setOrderButtonColor(view: AppCompatButton, status: String?){
-    if (status == Constants.OrderStatus.SUCCESS){
-        view.background = view.context.getDrawable(R.drawable.shape_button_status_success)
-    } else {
-        view.background = view.context.getDrawable(R.drawable.shape_button_status_fail)
+fun setOrderButtonColor(view: AppCompatButton, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> view.background = ContextCompat.getDrawable(view.context, R.drawable.shape_button_status_success)
+        OrderStatus.Fail -> view.background = ContextCompat.getDrawable(view.context, R.drawable.shape_button_status_fail)
     }
 }
 
 @BindingAdapter(value = ["app:followOrderVisibility"])
-fun setFollowOrderVisibility(view: View, status: String?){
-    if (status == Constants.OrderStatus.SUCCESS){
-        view.visibility = View.VISIBLE
-    } else {
-        view.visibility = View.GONE
+fun setFollowOrderVisibility(view: View, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> view.visibility = View.VISIBLE
+        OrderStatus.Fail -> view.visibility = View.GONE
     }
 }
 
 @BindingAdapter(value = ["app:statusButtonText"])
-fun setDialogButtonText(view: AppCompatButton, status: String?) {
-    if (status == Constants.OrderStatus.SUCCESS){
-        view.text = view.context.getString(R.string.ok)
-    } else {
-        view.text = view.context.getString(R.string.close)
+fun setDialogButtonText(view: AppCompatButton, status: OrderStatus?) {
+    when(status){
+        OrderStatus.Success -> view.text = view.context.getString(R.string.ok)
+        OrderStatus.Fail -> view.text = view.context.getString(R.string.close)
     }
 }
