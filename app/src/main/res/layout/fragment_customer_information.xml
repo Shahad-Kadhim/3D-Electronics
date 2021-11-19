@@ -76,6 +76,7 @@
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.fullName}"
                     android:textColor="@color/edit_text_color"
+                    app:inputTextValidation='@{@string/enter_your_full_name}'
                     app:layout_constraintTop_toBottomOf="@+id/full_name" />
 
                 <TextView
@@ -130,8 +131,7 @@
                         android:entries="@array/governorates"
                         android:padding="@dimen/padding2x"
                         android:textColor="@color/seconder_text_color"
-                        app:layout_constraintTop_toBottomOf="@+id/governorate"
-                        />
+                        app:layout_constraintTop_toBottomOf="@+id/governorate" />
                 </LinearLayout>
 
                 <TextView
@@ -155,6 +155,7 @@
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.regionName}"
                     android:textColor="@color/edit_text_color"
+                    app:inputTextValidation='@{@string/enter_your_region_name}'
                     app:layout_constraintTop_toBottomOf="@+id/region_name" />
 
                 <TextView
@@ -227,7 +228,8 @@
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.phoneNumber}"
                     android:textColor="@color/edit_text_color"
-                    app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+                    app:layout_constraintTop_toBottomOf="@+id/phone_number"
+                    app:phoneNumberValidation='@{@string/enter_your_phone_number}' />
 
                 <TextView
                     android:id="@+id/note"

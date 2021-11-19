@@ -74,7 +74,7 @@
     <string name="nearest_point_to_you">Nearest point to you</string>
     <string name="e_mail">E-mail</string>
     <string name="phone_number_text">Phone Number</string>
-    <string name="_964_xxx_xxxx"><font size="12">+964 - xxx - xxxx</font></string>
+    <string name="_964_xxx_xxxx"><font size="12">+07xx - xxx - xxxx</font></string>
     <string name="notes">Notes</string>
     <string name="submit_your_order">Submit Your Order</string>
     <string name="notes_about_your_order"><font size="12">notes about your order</font></string>
@@ -85,6 +85,11 @@
     <string name="success">SUCCESS</string>
     <string name="fail">FAIL</string>
     <string name="close">close</string>
+    <string name="phone_number_should_be_11_digit">phone number should be 11 digit</string>
+    <string name="enter_your_full_name">enter your full name</string>
+    <string name="enter_your_region_name">enter your region name</string>
+    <string name="enter_your_phone_number">enter your phone number</string>
+    <string name="invalid_information">invalid information</string>
 
     <string-array name="governorates">
         <item>Baghdad</item>

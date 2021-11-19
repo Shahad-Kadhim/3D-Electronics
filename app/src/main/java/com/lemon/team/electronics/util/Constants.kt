@@ -12,6 +12,8 @@ object Constants {
     const val URL_PRODUCT_WEBSITE = "https://www.3d-iraq.com/product/"
     const val VIDEO_PATH = "https://www.3d-iraq.com/static/media/vedio-3d.146c63e2.mp4"
 
+    const val VALID_NUMBER_OF_DIGIT_OF_PHONE_NUMBER = 11
+
 
     const val SORT_BY_CREATED_DATE="createdAt"
     const val PAGE_NUMBER_ZERO = 0

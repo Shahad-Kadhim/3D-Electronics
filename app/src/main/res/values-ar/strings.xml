@@ -70,7 +70,7 @@
     <string name="nearest_point_to_you">اقرب نقطة دالة</string>
     <string name="e_mail">البريد الالكتروني</string>
     <string name="phone_number_text">رقم الهاتف</string>
-    <string name="_964_xxx_xxxx"><font size="12">+964 - xxx - xxxx</font></string>
+    <string name="_964_xxx_xxxx"><font size="12">+07xx - xxx - xxxx</font></string>
     <string name="notes">ملاحظات</string>
     <string name="submit_your_order">ثبت طلبك</string>
     <string name="your_order_have_been_successfully_received">تم استلام طلبك بنجاح</string>
@@ -80,6 +80,11 @@
     <string name="success">نجح الطلب</string>
     <string name="fail">فشل</string>
     <string name="close">أغلاق</string>
+    <string name="phone_number_should_be_11_digit">رقم الهاتف يجب ان يتكون من 11 رقم</string>
+    <string name="enter_your_full_name">أدخل اسمك الكامل</string>
+    <string name="enter_your_region_name">أدخل اسم المنطقة</string>
+    <string name="enter_your_phone_number">أدخل رقم الهاتف</string>
+    <string name="invalid_information">معلومات غير صالحة</string>
 
     <string-array name="governorates">
         <item>بغداد</item>

@@ -20,11 +20,11 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.HomeImage
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
-import com.lemon.team.electronics.ui.search.SearchRecyclerAdapter
 import it.sephiroth.android.library.numberpicker.NumberPicker
 import it.sephiroth.android.library.numberpicker.doOnProgressChanged
 import android.widget.AdapterView
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.widget.doOnTextChanged
 import com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus
 
 
@@ -293,5 +293,25 @@ fun setDialogButtonText(view: AppCompatButton, status: OrderStatus?) {
     when(status){
         OrderStatus.Success -> view.text = view.context.getString(R.string.ok)
         OrderStatus.Fail -> view.text = view.context.getString(R.string.close)
+    }
+}
+
+@BindingAdapter(value = ["app:inputTextValidation"])
+fun setTextValidation(view: EditText, message: String) {
+    view.doOnTextChanged { text, _, _, _ ->
+        if (text?.isEmpty() == true){
+            view.error = message
+        }
+    }
+}
+
+@BindingAdapter(value = ["app:phoneNumberValidation"])
+fun setPhoneNumberValidation(view: EditText, message: String) {
+    view.doOnTextChanged { text, _, _, _ ->
+        if (text?.isEmpty() == true){
+            view.error = message
+        } else if (text?.count() != Constants.VALID_NUMBER_OF_DIGIT_OF_PHONE_NUMBER) {
+            view.error = view.context.getString(R.string.phone_number_should_be_11_digit)
+        }
     }
 }
