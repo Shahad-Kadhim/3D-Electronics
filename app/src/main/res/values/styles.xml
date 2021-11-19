@@ -175,8 +175,8 @@
     </style>
 
     <style name="AddButton">
-        <item name="android:layout_width">56dp</item>
-        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">54dp</item>
+        <item name="android:layout_height">46dp</item>
         <item name="android:paddingTop">@dimen/padding2x</item>
         <item name="android:drawableTop">@drawable/ic_baseline_add_24</item>
         <item name="android:gravity">center</item>

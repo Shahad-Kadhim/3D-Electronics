@@ -46,4 +46,6 @@
     <color name="edit_text_fill">#EFEFEF</color>
     <color name="edit_text_stroke">#C0CDCD</color>
 
+    <color name="edit_text_color">#444444</color>
+
 </resources>
