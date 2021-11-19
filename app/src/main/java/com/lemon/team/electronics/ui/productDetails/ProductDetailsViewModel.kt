@@ -92,8 +92,7 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
     }
 
     private fun setPiecesNumberInToast(){
-        _toast.postValue(Event(piecesNumber.value.toString()))
-
+        _toast.postValue(Event("Added ${piecesNumber.value} Piece To Cart"))
     }
 
     private fun setCartItem(product: Product?) =

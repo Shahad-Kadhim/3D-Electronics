@@ -106,7 +106,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     private suspend fun checkIfItemSold(product: Product) {
         if (product.sold == true) {
-            _toast.postValue(Event("The Item Is Sold Out"))
+            _toast.postValue(Event("Sorry Product Is Sold Out \uD83D\uDE22"))
         }
 
         else {

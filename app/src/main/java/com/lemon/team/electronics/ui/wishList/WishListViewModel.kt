@@ -1,6 +1,5 @@
 package com.lemon.team.electronics.ui.wishList
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.data.CartItem
@@ -22,6 +21,9 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     private var _clickAdd = MutableLiveData<Event<Boolean>>()
     val clickAdd: LiveData<Event<Boolean>> = _clickAdd
 
+    private var _toast = MutableLiveData<Event<String>>()
+    val toast: LiveData<Event<String>> = _toast
+
 
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
@@ -39,14 +41,11 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
         }
     }
 
-    private var _toast = MutableLiveData<Event<Int>>()
-    val toast: LiveData<Event<Int>> = _toast
-
     private fun addCartItem(product: WishItem) {
         viewModelScope.launch {
             if (!isItemExists(product.id)!!) {
                 Repository.insertCartItem(setItem(product))
-                _toast.postValue(Event(1))
+                _toast.postValue(Event("Added 1 Piece To Cart"))
             } else
                 getPiecesNumber(product.id)
         }
@@ -75,7 +74,7 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
         viewModelScope.launch {
             Repository.getCartItemById(product)?.let {
                 updateItem(product, it.pieces.plus(1))
-                _toast.postValue(Event(it.pieces.plus(1)))
+                _toast.postValue(Event("Added ${it.pieces.plus(1)} Piece To Cart"))
             }
         }
     }
