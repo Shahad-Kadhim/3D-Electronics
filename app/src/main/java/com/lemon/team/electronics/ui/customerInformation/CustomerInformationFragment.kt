@@ -25,6 +25,10 @@ class CustomerInformationFragment :
             }
         }
 
+        viewModel.clickBackEvent.observeEvent(this){
+            findNavController().navigateUp()
+        }
+
     }
 
     override fun setUpBinding() {
