@@ -48,4 +48,6 @@
 
     <color name="order_status_success">#4AD991</color>
     <color name="order_status_fail">#FF7285</color>
+    <color name="edit_text_color">#444444</color>
+
 </resources>
