@@ -1,16 +1,14 @@
 package com.lemon.team.electronics.util
 
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.*
 import androidx.navigation.*
 import androidx.navigation.fragment.FragmentNavigator
 import com.lemon.team.electronics.BR
-import com.lemon.team.electronics.model.data.CartItem
-import com.lemon.team.electronics.model.data.WishItem
-import com.lemon.team.electronics.model.response.Product
+import com.lemon.team.electronics.model.data.*
+import com.lemon.team.electronics.model.response.*
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import java.io.IOException
 
@@ -81,3 +79,15 @@ fun <T> List<T>.getSixItems() = this.take(6)
 fun setToast(view: View?, pieces: String) {
     Toast.makeText(view?.context ,"Added $pieces Piece To Cart" ,Toast.LENGTH_SHORT).show()
 }
+fun ProductsResponse.hasNewPage(scrollPage: Int): Boolean {
+    this.pageable?.pageNumber?.let { pageNumber ->
+        this.totalPages?.let { totalPage ->
+            return isScroll(totalPage, scrollPage) && ifPageable(pageNumber, scrollPage)
+        }
+    }
+    return false
+}
+
+private fun isScroll(totalPages: Int, scrollPage: Int) = scrollPage < totalPages - 1
+private fun ifPageable(currentPage: Int?, scrollPage: Int) = scrollPage == currentPage
+

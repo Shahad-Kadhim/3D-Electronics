@@ -9,6 +9,7 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -18,7 +19,9 @@ import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.HomeImage
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
+
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
+import com.lemon.team.electronics.ui.search.SearchRecyclerAdapter
 import it.sephiroth.android.library.numberpicker.NumberPicker
 import it.sephiroth.android.library.numberpicker.doOnProgressChanged
 
@@ -106,6 +109,18 @@ fun <T> hiddenWhenState(view: View, state: State<T>?) {
     view.isVisible = (state !is State)
 }
 
+
+@BindingAdapter(value = ["app:showOnLoadingNew"])
+fun <T> showOnLoadingNew(view: View, state: State<T>?) {
+    view.visibility =
+        if (state is State.Loading) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+
+}
+
 @BindingAdapter(value = ["app:setBackgroundColorItem"])
 fun setBackgroundColor(view: MaterialCardView, color: ColorsRecycler?) {
     color?.let { colorsRecycler ->
@@ -162,6 +177,20 @@ fun setCategoryNameById(view: TextView, categoryId: String?) {
         view.text = view.context.getString(it)
     }
 }
+
+@BindingAdapter(value = ["app:last"])
+fun getMoreProducts(view: RecyclerView, scroll: () -> Unit) {
+    view.setOnScrollChangeListener { _, i, i2, i3, i4 ->
+        if (
+            (view.layoutManager as GridLayoutManager)
+                .findLastCompletelyVisibleItemPosition()
+            == (view.adapter?.itemCount?.minus(1))
+        ) {
+            scroll()
+        }
+    }
+}
+
 
 
 @BindingAdapter(value = ["value"])

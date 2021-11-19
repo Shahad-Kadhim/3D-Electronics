@@ -58,28 +58,35 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:clipToPadding="false"
             android:layout_marginTop="@dimen/margin_small"
-            android:paddingHorizontal="@dimen/margin_small"
+            android:layout_marginHorizontal="@dimen/margin_small"
+            app:last="@{viewModel.onScrollLast}"
+            android:paddingBottom="@dimen/margin_tiny"
             app:items="@{viewModel.items.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/new_loading"
             app:layout_constraintTop_toBottomOf="@+id/guideline"
-            app:layout_constraintVertical_bias="1.0"
             app:showOnSuccess="@{viewModel.items}"
             app:spanCount="2"
             tools:listitem="@layout/item_product" />
 
-        <include android:id="@+id/loading"
+        <include
+            android:id="@+id/loading"
             app:showOnLoading="@{viewModel.items}"
-            layout="@layout/loading"/>
+            layout="@layout/loading" />
 
-        <include android:id="@+id/error"
+        <include
+            android:id="@+id/error"
             app:showOnError="@{viewModel.items}"
-            layout="@layout/error"/>
+            layout="@layout/error" />
+
+        <ProgressBar
+            android:id="@+id/new_loading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:showOnLoadingNew="@{viewModel.loading}"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

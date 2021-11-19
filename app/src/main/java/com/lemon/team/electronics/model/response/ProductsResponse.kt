@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ProductsResponse(
     @SerializedName("content")
-    val products: List<Product>?,
+    var products: MutableList<Product>?,
     @SerializedName("empty")
     val isEmpty: Boolean?,
     @SerializedName("first")
@@ -25,5 +25,5 @@ data class ProductsResponse(
     @SerializedName("totalElements")
     val totalElements: Int?,
     @SerializedName("totalPages")
-    val totalPages: Int?
+    val totalPages: Int?,
 )
