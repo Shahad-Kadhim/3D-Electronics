@@ -1,9 +1,7 @@
 package com.lemon.team.electronics.ui.category
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.model.response.ProductsResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
@@ -21,7 +19,8 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
     var clickBackEvent: LiveData<Event<Boolean>> = _clickBackEvent
 
     private val scroll = MutableStateFlow(0)
-
+    private val _loading = MutableLiveData<State<ProductsResponse?>>()
+    val loading: LiveData<State<ProductsResponse?>> = _loading
 
     lateinit var categoryId: String
     fun getProductsByCategoryId(categoryId: String) {
@@ -43,11 +42,17 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
 
     private fun requestMoreProducts() {
         getProductsInCurrentPage { state ->
-            if (state is State.Success) {
-                state.toData()?.products?.apply {
-                    this.addAll(0, _categoryItems.value?.toData()?.products ?: mutableListOf())
+            when (state) {
+                is State.Error, State.Loading -> {
+                    _loading.postValue(state)
                 }
-                _categoryItems.postValue(state)
+                is State.Success -> {
+                    state.toData()?.products?.apply {
+                        this.addAll(0, _categoryItems.value?.toData()?.products ?: mutableListOf())
+                    }
+                    _categoryItems.postValue(state)
+                    _loading.postValue(state)
+                }
             }
         }
     }

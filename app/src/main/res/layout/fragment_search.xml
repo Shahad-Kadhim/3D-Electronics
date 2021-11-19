@@ -67,34 +67,44 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/search_recycler"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginHorizontal="@dimen/margin_small"
             android:visibility="gone"
+            android:layout_marginBottom="@dimen/margin_tiny"
             android:orientation="vertical"
             app:last="@{viewModel.onScrollLast}"
             app:items="@{viewModel.searchResult.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/new_loading"
             app:layout_constraintTop_toBottomOf="@id/search_bar"
-            app:layout_constraintVertical_bias="0.333"
+            tools:listitem="@layout/item_product"
             app:showOnSuccess="@{viewModel.searchResult}"
             app:spanCount="2"/>
 
 
         <include android:id="@+id/loading"
             app:showOnLoading="@{viewModel.searchResult}"
-            layout="@layout/loading"/>
+            layout="@layout/loading" />
 
-        <include android:id="@+id/error"
+        <include
+            android:id="@+id/error"
             app:showOnError="@{viewModel.searchResult}"
-            layout="@layout/error"/>
+            layout="@layout/error" />
 
-        <include android:id="@+id/not_found"
+        <include
+            android:id="@+id/not_found"
             app:showWhenEmpty="@{viewModel.searchResult.toData().products}"
-            layout="@layout/not_found"/>
+            layout="@layout/not_found" />
+
+        <ProgressBar
+            android:id="@+id/new_loading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight="7"
+            app:showOnLoadingNew="@{viewModel.loading}"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

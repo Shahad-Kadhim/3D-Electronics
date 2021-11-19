@@ -22,6 +22,8 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
 
     lateinit var categoryId: String
     private val scroll = MutableStateFlow(0)
+    private val _loading = MutableLiveData<State<ProductsResponse?>>()
+    val loading: LiveData<State<ProductsResponse?>> = _loading
 
     fun onclickSearch() {
         scroll.tryEmit(0)
@@ -41,11 +43,17 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
 
     private fun requestMoreProducts() {
         getProductsInCurrentPage { state ->
-            if (state is State.Success) {
-                state.toData()?.products?.apply {
-                    this.addAll(0, searchResult.value?.toData()?.products ?: mutableListOf())
+            when (state) {
+                is State.Error, State.Loading -> {
+                    _loading.postValue(state)
                 }
-                searchResult.postValue(state)
+                is State.Success -> {
+                    state.toData()?.products?.apply {
+                        this.addAll(0, searchResult.value?.toData()?.products ?: mutableListOf())
+                    }
+                    searchResult.postValue(state)
+                    _loading.postValue(state)
+                }
             }
         }
     }
