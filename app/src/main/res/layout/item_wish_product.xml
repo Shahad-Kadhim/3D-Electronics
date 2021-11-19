@@ -25,17 +25,21 @@
                 android:layout_height="wrap_content"
                 android:onClick="@{() -> listener.onClickProduct(item.id)}">
 
+
                 <TextView
                     android:id="@+id/product_name_text"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:fontFamily="@font/monda_regular_400"
+                    android:layout_marginEnd="32dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/monda_regular"
                     android:maxLines="1"
                     android:text="@{item.name}"
                     android:textColor="@color/primary_text_color"
-                    android:textSize="@dimen/text_default"
+                    android:textSize="@dimen/text_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_image"
                     tools:text="Official Original Silicone..." />
@@ -45,13 +49,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_normal"
-                    android:fontFamily="@font/roboto_bold"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/monda_bold"
                     android:text="@{String.valueOf(item.price)}"
                     android:textColor="@color/primary_text_color"
                     android:textSize="@dimen/text2x"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/add_to_cart_button"
+                    app:layout_constraintTop_toBottomOf="@+id/product_name_text"
                     tools:text="15.77" />
 
                 <TextView
@@ -70,9 +75,10 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/product_image"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="180dp"
                     app:imageFromUrl="@{item.mainImage}"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@color/brand_color" />
@@ -80,13 +86,14 @@
                 <CheckBox
                     android:id="@+id/heart_checkbox"
                     style="@style/WishIconStyle"
+                    android:checked="true"
                     android:contentDescription="@string/product_image"
                     android:onClick="@{() -> listener.onclickHeart(item.id)}"
-                    android:checked="true"
-                    app:layout_constraintEnd_toEndOf="@id/wish_background_button"
-                    app:layout_constraintStart_toStartOf="@id/wish_background_button"
-                    app:layout_constraintBottom_toBottomOf="@id/wish_background_button"
-                    app:layout_constraintTop_toTopOf="@id/wish_background_button" />
+                    app:layout_constraintBottom_toBottomOf="@+id/wish_background_button"
+                    app:layout_constraintEnd_toEndOf="@+id/wish_background_button"
+                    app:layout_constraintStart_toStartOf="@+id/wish_background_button"
+                    app:layout_constraintTop_toTopOf="@+id/wish_background_button" />
+
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/wish_background_button"
@@ -94,13 +101,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/add_to_cart_button"
-                    style="@style/AddButton"
-                    android:layout_marginTop="16dp"
+                    style="@style/AddButtonWish"
                     android:background="@drawable/shape_button_cart"
                     android:onClick="@{() -> listener.onclickAddToCart(item)}"
+                    app:isVisible="@{!item.sold}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/product_name_text" />

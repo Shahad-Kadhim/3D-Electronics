@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.ui.home
 
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
 import com.lemon.team.electronics.model.Repository
@@ -54,8 +53,8 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     val padMouseCategory = Repository.getProductsByCategoryId(CategoriesId.PAD_MOUSE,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
-    private var _toast = MutableLiveData<Event<Int>>()
-    val toast: LiveData<Event<Int>> = _toast
+    private var _toast = MutableLiveData<Event<String>>()
+    val toast: LiveData<Event<String>> = _toast
 
 
     val state=MediatorLiveData<State<Any>>().apply {
@@ -97,12 +96,24 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     private fun addItem(product: Product) {
         viewModelScope.launch {
-            if (!isItemExists(product)!!) {
-                setItem(product)?.let { Repository.insertCartItem(it) }
-                _toast.postValue(Event(1))
-            } else
+            if (!isItemExists(product)!!)
+                checkIfItemSold(product)
+
+            else
                 getPiecesNumber(product)
         }
+    }
+
+    private suspend fun checkIfItemSold(product: Product) {
+        if (product.sold == true) {
+            _toast.postValue(Event("Sorry Product Is Sold Out \uD83D\uDE22"))
+        }
+
+        else {
+            setItem(product)?.let { Repository.insertCartItem(it) }
+            _toast.postValue(Event("Added 1 Piece To Cart"))
+        }
+
     }
 
 
@@ -110,7 +121,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         viewModelScope.launch {
             Repository.getCartItemById(product.id)?.let {
                 updateItem(product, it.pieces.plus(1))
-                _toast.postValue(Event(it.pieces.plus(1)))
+                _toast.postValue(Event("Added ${it.pieces.plus(1)} Piece To Cart"))
             }
         }
     }

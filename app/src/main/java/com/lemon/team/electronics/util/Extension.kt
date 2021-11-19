@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.util
 
-import android.content.*
+import android.content.Context
+import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.*
@@ -76,8 +77,8 @@ fun Product.toWishItemEntity() =
 fun <T> List<T>.getSixItems() = this.take(6)
 
 
-fun setToast(view: View?, pieces: String) {
-    Toast.makeText(view?.context ,"Added $pieces Piece To Cart" ,Toast.LENGTH_SHORT).show()
+fun setToast(view: View?, msg: String) {
+    Toast.makeText(view?.context , msg,Toast.LENGTH_SHORT).show()
 }
 fun ProductsResponse.hasNewPage(scrollPage: Int): Boolean {
     this.pageable?.pageNumber?.let { pageNumber ->
