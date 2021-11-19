@@ -14,35 +14,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back_button"
+            style="@style/ButtonBack"
+            android:background="@drawable/button_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/monda_regular"
+            android:text="Order Tracking"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text3x"
+            app:layout_constraintBottom_toBottomOf="@+id/back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/back_button" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/trakingimage"
+            app:layout_constraintBottom_toTopOf="@+id/phone_number_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
         <EditText
             android:id="@+id/phone_number_input"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="@dimen/margin_normal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:paddingStart="16dp"
             android:background="@drawable/shape_edit_text"
             android:fontFamily="@font/monda_bold"
             android:hint="@string/enter_your_phone_number"
-            android:padding="@dimen/padding_normal"
             android:text="@={viewModel.phoneNumber}"
             android:textColor="@color/primary_text_color"
-            android:textSize="@dimen/text_small"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/follow_my_order"
+            app:layout_constraintEnd_toStartOf="@+id/follow_my_order"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/follow_my_order"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/follow_my_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_button"
             android:fontFamily="@font/lato_regular"
             android:onClick="@{() -> viewModel.trackOrder()}"
-            android:text="@string/follow_my_order"
+            android:text="Check"
             android:textAllCaps="false"
             android:textSize="@dimen/text_default"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone_number_input" />
-
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
