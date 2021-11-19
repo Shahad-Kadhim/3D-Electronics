@@ -59,6 +59,11 @@ object Repository{
         )
     }
 
+    //this function should clear the cart it will be written after create the database
+    fun clearCart(){
+
+    }
+
 
 
     fun getCompanies(): List<CompaniesImgUrl>? =

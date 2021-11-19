@@ -2,6 +2,11 @@ package com.lemon.team.electronics.util
 
 object Constants {
 
+    object OrderStatus{
+        const val SUCCESS = "success"
+        const val ERROR = "fail"
+    }
+
     const val MAIN_URL = "MAIN_URL"
     const val BASE_URL = "https://www.3d-iraq.com/api/"
     const val URL_PRODUCT_WEBSITE = "https://www.3d-iraq.com/product/"

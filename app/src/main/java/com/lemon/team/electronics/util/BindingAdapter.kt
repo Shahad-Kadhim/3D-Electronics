@@ -19,11 +19,13 @@ import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.HomeImage
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
-
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
 import com.lemon.team.electronics.ui.search.SearchRecyclerAdapter
 import it.sephiroth.android.library.numberpicker.NumberPicker
 import it.sephiroth.android.library.numberpicker.doOnProgressChanged
+import android.widget.AdapterView
+import androidx.appcompat.widget.AppCompatButton
+import com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -237,5 +239,59 @@ fun onChange(spinner: Spinner, attChange: InverseBindingListener){
         }
 
         override fun onNothingSelected(parent: AdapterView<*>?) {}
+    }
+}
+
+@BindingAdapter(value = ["app:statusImage"])
+fun setStatusImage(view: ImageView, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> view.setImageResource(R.drawable.order_status_success)
+        OrderStatus.Fail -> view.setImageResource(R.drawable.order_status_fail)
+    }
+}
+
+@BindingAdapter(value = ["app:statusTitle"])
+fun setOrderStatusTitle(view: TextView, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> {
+            view.text = view.context.getString(R.string.success)
+            view.setTextColor(view.context.getColor(R.color.order_status_success))
+        }
+        OrderStatus.Fail -> {
+            view.text = view.context.getString(R.string.fail)
+            view.setTextColor(view.context.getColor(R.color.order_status_fail))
+        }
+    }
+}
+
+@BindingAdapter(value = ["app:statusBodyText"])
+fun setOrderStatusBodyText(view: TextView, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> view.text = view.context.getString(R.string.your_order_have_been_successfully_received)
+        OrderStatus.Fail -> view.text = view.context.getString(R.string.an_error_has_occurred)
+    }
+}
+
+@BindingAdapter(value = ["app:statusButtonColor"])
+fun setOrderButtonColor(view: AppCompatButton, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> view.background = ContextCompat.getDrawable(view.context, R.drawable.shape_button_status_success)
+        OrderStatus.Fail -> view.background = ContextCompat.getDrawable(view.context, R.drawable.shape_button_status_fail)
+    }
+}
+
+@BindingAdapter(value = ["app:followOrderVisibility"])
+fun setFollowOrderVisibility(view: View, status: OrderStatus?){
+    when(status){
+        OrderStatus.Success -> view.visibility = View.VISIBLE
+        OrderStatus.Fail -> view.visibility = View.GONE
+    }
+}
+
+@BindingAdapter(value = ["app:statusButtonText"])
+fun setDialogButtonText(view: AppCompatButton, status: OrderStatus?) {
+    when(status){
+        OrderStatus.Success -> view.text = view.context.getString(R.string.ok)
+        OrderStatus.Fail -> view.text = view.context.getString(R.string.close)
     }
 }

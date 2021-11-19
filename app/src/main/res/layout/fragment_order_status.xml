@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatusViewModel" />
+
+        <variable
+            name="status"
+            type="com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_rounded_dialog"
+        android:paddingTop="@dimen/padding_normal"
+        android:paddingBottom="@dimen/padding_large">
+
+        <ImageView
+            android:id="@+id/image_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:layout_marginHorizontal="@dimen/margin6x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:statusImage="@{status}"
+            tools:src="@drawable/order_status_success" />
+
+        <TextView
+            android:id="@+id/text_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:fontFamily="@font/monda_bold"
+            app:statusTitle="@{status}"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_status"
+            tools:text="success" />
+
+        <TextView
+            android:id="@+id/text_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin6x"
+            android:fontFamily="@font/monda_regular"
+            app:statusBodyText="@{status}"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/seconder_text_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_status"
+            tools:text="@string/your_order_have_been_successfully_received"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/main_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin6x"
+            android:onClick="@{() -> viewModel.onDialogButtonClicked()}"
+            app:statusButtonColor="@{status}"
+            app:statusButtonText="@{status}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_body" />
+
+        <TextView
+            android:id="@+id/follow_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:fontFamily="@font/monda_regular"
+            android:text="@string/follow_your_order"
+            android:onClick="@{() -> viewModel.onFollowOrderClicked()}"
+            app:followOrderVisibility="@{status}"
+            app:layout_constraintEnd_toEndOf="@+id/main_button"
+            app:layout_constraintStart_toStartOf="@+id/main_button"
+            app:layout_constraintTop_toBottomOf="@+id/main_button" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,13 +1,20 @@
 package com.lemon.team.electronics.ui.customerInformation
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.JsonElement
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.order.OrderRequest
+import com.lemon.team.electronics.model.orderResponse.OrderResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.DataClassParser
+import com.lemon.team.electronics.util.Event
+import com.lemon.team.electronics.util.State
 
 class CustomerInformationViewModel : BaseViewModel() {
+
+    private val _orderResponse = MutableLiveData<Event<State<OrderResponse?>>>()
+    val orderResponse : LiveData<Event<State<OrderResponse?>>> = _orderResponse
 
     val fullName = MutableLiveData<String>()
     val companyName = MutableLiveData<String>()
@@ -45,9 +52,14 @@ class CustomerInformationViewModel : BaseViewModel() {
     private fun makeOrder(order: JsonElement) {
         collectResponse(
             Repository.makeOrder(order)
-        ) {
-            //write your code here to handle what's happen with order response
+        ) { orderResponse ->
+            _orderResponse.postValue(Event(orderResponse))
         }
 
     }
+
+    fun onOrderSuccess(){
+        Repository.clearCart()
+    }
+
 }
