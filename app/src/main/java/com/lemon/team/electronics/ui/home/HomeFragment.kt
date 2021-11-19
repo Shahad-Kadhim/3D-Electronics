@@ -73,7 +73,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             }
 
             toast.observeEvent(this@HomeFragment){
-                setToast(view, it.toString())
+                setToast(view, it)
             }
 
         }

@@ -78,6 +78,6 @@ fun Product.toWishItemEntity() =
 fun <T> List<T>.getSixItems() = this.take(6)
 
 
-fun setToast(view: View?, pieces: String) {
-    Toast.makeText(view?.context ,"Added $pieces Piece To Cart" ,Toast.LENGTH_SHORT).show()
+fun setToast(view: View?, msg: String) {
+    Toast.makeText(view?.context , msg,Toast.LENGTH_SHORT).show()
 }
