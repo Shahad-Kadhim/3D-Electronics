@@ -252,7 +252,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/contacts_text"
                     app:drawableStartCompat="@drawable/ic_facebook"
-                    app:drawableTint="@color/blue" />
+                    app:drawableTint="@color/brand_color" />
 
                 <TextView
                     android:id="@+id/email_text"
@@ -263,7 +263,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/facebook_page_text"
                     app:drawableStartCompat="@drawable/ic_email_"
-                    android:drawableTint="@color/red"/>
+                    app:drawableTint="@color/brand_color" />
 
 
                 <TextView
@@ -276,7 +276,20 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/email_text"
                     app:drawableStartCompat="@drawable/ic_call"
-                    />
+                    app:drawableTint="@color/brand_color" />
+
+                <TextView
+                    android:id="@+id/text_about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Version: `.concat(viewModel.appVersion)}"
+                    app:layout_constraintTop_toBottomOf="@id/contacts_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_margin="8dp"
+                    tools:text="1.0-beta01"/>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

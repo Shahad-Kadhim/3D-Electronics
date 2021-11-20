@@ -60,11 +60,12 @@
             android:orientation="vertical"
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginHorizontal="@dimen/margin_small"
+            android:paddingBottom="64dp"
+            android:clipToPadding="false"
             app:last="@{viewModel.onScrollLast}"
-            android:paddingBottom="@dimen/margin_tiny"
             app:items="@{viewModel.items.toData().products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toTopOf="@id/new_loading"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guideline"
             app:showOnSuccess="@{viewModel.items}"
             app:spanCount="2"
@@ -90,6 +91,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:indeterminateTint="@color/brand_color"
+            android:visibility="visible"
+            tools:visibility="gone"
             app:showOnLoadingNew="@{viewModel.loading}"
             app:layout_constraintBottom_toBottomOf="parent" />
 
