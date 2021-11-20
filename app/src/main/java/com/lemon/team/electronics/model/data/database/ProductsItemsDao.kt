@@ -57,7 +57,7 @@ interface ProductsItemsDao {
     @Query("SELECT SUM(oldPrice) as total FROM CART_TABLE ")
     fun getOldTotalPrice(): Flow<Double>
 
-    @Query("SELECT COUNT(*) FROM CART_TABLE")
+    @Query("SELECT SUM(pieces) FROM CART_TABLE")
     fun getPiecesNumber(): Flow<Int>
 
 }
