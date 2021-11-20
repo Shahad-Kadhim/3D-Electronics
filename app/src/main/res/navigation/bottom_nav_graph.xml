@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_homeFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_orderTrackingFragment"
+            app:destination="@id/orderTrackingFragment" />
     </fragment>
     <fragment
         android:id="@+id/categoriesFragment"

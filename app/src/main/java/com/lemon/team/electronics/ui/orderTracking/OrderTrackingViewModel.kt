@@ -7,12 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.orderTracking.OrderTrackingResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
-import com.lemon.team.electronics.util.Constants
 import com.lemon.team.electronics.util.State
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class OrderTrackingViewModel: BaseViewModel() {
+class OrderTrackingViewModel: BaseViewModel(), OrderInteractionListener {
 
     val phoneNumber = MutableLiveData<String>()
 
@@ -25,5 +24,7 @@ class OrderTrackingViewModel: BaseViewModel() {
                 _orderTrackingResponse.postValue(orderTrackingResponse)
             }
         }
+        Log.i("kkk", _orderTrackingResponse.value.toString())
     }
+
 }
