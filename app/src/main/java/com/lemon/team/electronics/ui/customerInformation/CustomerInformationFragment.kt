@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.ui.customerInformation
 
+import android.util.Log
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
@@ -21,6 +22,8 @@ class CustomerInformationFragment :
         viewModel.orderResponse.observeEvent(this) {
             if (checkCustomerInformationValidationAndSetErrors()) {
                 openDialog(it)
+                Log.i("kkk", it.toData().toString())
+
             } else {
                 Toast.makeText(this.context, getString(R.string.invalid_information), Toast.LENGTH_SHORT).show()
             }

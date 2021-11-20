@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.model
 
 import android.annotation.SuppressLint
+import androidx.lifecycle.asLiveData
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.lemon.team.electronics.model.data.CartItem
@@ -61,13 +62,13 @@ object Repository{
         }
 
     //this function will be rewritten after create database
-    fun getOrderedProducts(): List<OrderedProduct>{
-        return listOf(
-            OrderedProduct(
-                productCount = 1,
-                productId = "a6a7da21-ff30-466a-b633-365b94685a8f"
-            )
-        )
+    fun getOrderedProducts(): List<OrderedProduct>? {
+         return getCartProducts().asLiveData().value?.map {
+             OrderedProduct(
+                 it.pieces,
+                 it.id
+             )
+         }
     }
 
     //this function should clear the cart it will be written after create the database

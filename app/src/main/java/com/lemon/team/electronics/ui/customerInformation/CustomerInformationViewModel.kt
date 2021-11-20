@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.ui.customerInformation
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.JsonElement
@@ -55,7 +56,6 @@ class CustomerInformationViewModel : BaseViewModel() {
         ) { orderResponse ->
             _orderResponse.postValue(Event(orderResponse))
         }
-
     }
 
     fun onOrderSuccess(){
