@@ -53,25 +53,19 @@ object Repository{
 
     // this function will be rewritten after create database
     fun getProductsInCart(): Flow<State<ProductsResponse?>> =
-        wrapWithFlow { API.apiService
-            .getProductsByCategoryId(
-                categoryId = CategoriesId.PC_SPEAKER,
-                page = Constants.PAGE_NUMBER_ZERO,
-                sortBy = Constants.SORT_BY_CREATED_DATE
-            )
+        wrapWithFlow {
+            API.apiService
+                .getProductsByCategoryId(
+                    categoryId = CategoriesId.PC_SPEAKER,
+                    page = Constants.PAGE_NUMBER_ZERO,
+                    sortBy = Constants.SORT_BY_CREATED_DATE
+                )
         }
 
-    //this function will be rewritten after create database
-    fun getOrderedProducts(): List<OrderedProduct>? {
-         return getCartProducts().asLiveData().value?.map {
-             OrderedProduct(
-                 it.pieces,
-                 it.id
-             )
-         }
+    suspend fun getOrderedProducts(): List<OrderedProduct> {
+        return dao.getCartItems().toOrderedProduct()
     }
 
-    //this function should clear the cart it will be written after create the database
     suspend fun clearCart() =
         dao.deleteCartItems()
 

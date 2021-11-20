@@ -96,3 +96,5 @@ fun ProductsResponse.hasNewPage(scrollPage: Int): Boolean {
 private fun isScroll(totalPages: Int, scrollPage: Int) = scrollPage < totalPages - 1
 private fun ifPageable(currentPage: Int?, scrollPage: Int) = scrollPage == currentPage
 
+fun List<CartItem>.toOrderedProduct(): List<OrderedProduct> =
+    this.map { OrderedProduct(it.pieces, it.id) }
