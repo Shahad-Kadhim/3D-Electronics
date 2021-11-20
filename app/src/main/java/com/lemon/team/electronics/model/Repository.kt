@@ -51,17 +51,6 @@ object Repository{
 
 
     // this function will be rewritten after create database
-    fun getWishedProducts(): Flow<State<ProductsResponse?>> =
-        wrapWithFlow { API.apiService
-            .getProductsByCategoryId(
-                categoryId = CategoriesId.MONITORS,
-                page = Constants.PAGE_NUMBER_ZERO,
-                sortBy = Constants.SORT_BY_CREATED_DATE
-            )
-        }
-
-
-    // this function will be rewritten after create database
     fun getProductsInCart(): Flow<State<ProductsResponse?>> =
         wrapWithFlow { API.apiService
             .getProductsByCategoryId(
@@ -83,11 +72,12 @@ object Repository{
 
     //this function should clear the cart it will be written after create the database
     fun clearCart(){
-    fun trackOrder(phoneNumber: String?): Flow<State<List<OrderTrackingResponse>?>> =
-        wrapWithFlow { API.apiService.trackOrder(phoneNumber) }
-
 
     }
+
+
+    fun trackOrder(phoneNumber: String?): Flow<State<List<OrderTrackingResponse>?>> =
+        wrapWithFlow { API.apiService.trackOrder(phoneNumber) }
 
 
 
@@ -160,9 +150,6 @@ object Repository{
 
     suspend fun getCartItemById(id: String) =
         dao.getICartItemByID(id)
-
-    suspend fun getWishItemById(id: String) =
-        dao.getIWishItemByID(id)
 
     suspend fun deleteItemById(id: String) =
         dao.deleteItemById(id)

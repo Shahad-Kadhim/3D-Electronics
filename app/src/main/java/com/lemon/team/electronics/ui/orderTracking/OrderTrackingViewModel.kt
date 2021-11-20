@@ -21,8 +21,7 @@ class OrderTrackingViewModel: BaseViewModel() {
 
     fun trackOrder() {
         viewModelScope.launch {
-            Repository.trackOrder(phoneNumber.value).collect { orderTrackingResponse ->
-                Log.v(Constants.LOG_TAG, orderTrackingResponse.toString())
+            Repository.trackOrder(phoneNumber.value).collect { orderTrackingResponse->
                 _orderTrackingResponse.postValue(orderTrackingResponse)
             }
         }
