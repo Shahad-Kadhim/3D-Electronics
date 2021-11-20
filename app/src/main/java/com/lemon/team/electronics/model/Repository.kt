@@ -72,9 +72,8 @@ object Repository{
     }
 
     //this function should clear the cart it will be written after create the database
-    fun clearCart(){
-
-    }
+    suspend fun clearCart() =
+        dao.deleteCartItems()
 
 
     fun trackOrder(phoneNumber: String?): Flow<State<List<OrderTrackingResponse>?>> =
@@ -119,7 +118,6 @@ object Repository{
         else {
             State.Error(response.message())
         }
-
 
 
     suspend fun insertCartItem(CartItem: CartItem) =

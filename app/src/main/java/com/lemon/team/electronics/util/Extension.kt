@@ -9,9 +9,11 @@ import androidx.navigation.*
 import androidx.navigation.fragment.FragmentNavigator
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.model.data.*
+import com.lemon.team.electronics.model.order.OrderedProduct
 import com.lemon.team.electronics.model.response.*
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import java.io.IOException
+import java.util.concurrent.Flow
 
 
 fun View.goToFragment(navDir: NavDirections) {
@@ -31,7 +33,9 @@ fun Context.readJsonAsset(fileName: String): String? {
     }
 }
 
-
+fun Flow.tojj(){
+    this
+}
 fun BaseRecyclerAdapter.ItemViewHolder.setVariableAdapter(item: Any?) {
     this.binding.setVariable(BR.adapter, item)
 }

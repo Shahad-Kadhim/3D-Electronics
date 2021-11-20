@@ -41,6 +41,9 @@ interface ProductsItemsDao {
     @Query("DELETE FROM WISH_TABLE WHERE id = :id")
     suspend fun deleteWishItemById(id: String?)
 
+    @Query("DELETE FROM CART_TABLE")
+    suspend fun deleteCartItems()
+
 
     @Query("UPDATE CART_TABLE SET pieces= :pieces, price= :price WHERE id = :itemId")
     suspend fun updateCartItem(itemId: String, pieces: Int, price: Double)

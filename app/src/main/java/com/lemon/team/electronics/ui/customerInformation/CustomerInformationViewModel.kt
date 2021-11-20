@@ -1,16 +1,23 @@
 package com.lemon.team.electronics.ui.customerInformation
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.google.gson.JsonElement
 import com.lemon.team.electronics.model.Repository
+import com.lemon.team.electronics.model.data.CartItem
 import com.lemon.team.electronics.model.order.OrderRequest
+import com.lemon.team.electronics.model.order.OrderedProduct
 import com.lemon.team.electronics.model.orderResponse.OrderResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.DataClassParser
 import com.lemon.team.electronics.util.Event
 import com.lemon.team.electronics.util.State
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 
 class CustomerInformationViewModel : BaseViewModel() {
 
@@ -55,10 +62,13 @@ class CustomerInformationViewModel : BaseViewModel() {
             Repository.makeOrder(order)
         ) { orderResponse ->
             _orderResponse.postValue(Event(orderResponse))
+            viewModelScope.launch {
+                onOrderSuccess()
+            }
         }
     }
 
-    fun onOrderSuccess(){
+    private suspend fun onOrderSuccess(){
         Repository.clearCart()
     }
 
