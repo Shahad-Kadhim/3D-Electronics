@@ -106,6 +106,11 @@ fun <T> showWhenEmpty(view: View, value: List<T>?) {
     view.isVisible = value?.isEmpty() == true
 }
 
+@BindingAdapter(value = ["app:showWhenThereIsItem"])
+fun <T> showWhenThereIsItem(view: View, value: List<T>?) {
+    view.isVisible = value?.isEmpty() == false
+}
+
 @BindingAdapter(value = ["app:hiddenOnState"])
 fun <T> hiddenWhenState(view: View, state: State<T>?) {
     view.isVisible = (state !is State)

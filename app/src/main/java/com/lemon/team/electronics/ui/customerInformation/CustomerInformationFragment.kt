@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.ui.customerInformation
 
+import android.util.Log
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R

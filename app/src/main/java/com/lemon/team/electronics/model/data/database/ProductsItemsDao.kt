@@ -17,6 +17,9 @@ interface ProductsItemsDao {
     @Query("SELECT * FROM CART_TABLE ORDER BY id DESC ")
     fun getAllCartItems(): Flow<List<CartItem>>
 
+    @Query("SELECT * FROM CART_TABLE ORDER BY id DESC ")
+    suspend fun getCartItems(): List<CartItem>
+
     @Query("SELECT * FROM WISH_TABLE ORDER BY id DESC ")
     fun getAllWishItems(): Flow<List<WishItem>>
 
@@ -40,6 +43,9 @@ interface ProductsItemsDao {
 
     @Query("DELETE FROM WISH_TABLE WHERE id = :id")
     suspend fun deleteWishItemById(id: String?)
+
+    @Query("DELETE FROM CART_TABLE")
+    suspend fun deleteCartItems()
 
 
     @Query("UPDATE CART_TABLE SET pieces= :pieces, price= :price WHERE id = :itemId")

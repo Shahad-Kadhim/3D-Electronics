@@ -27,6 +27,13 @@ class CustomerInformationViewModel : BaseViewModel() {
     val phoneNumber = MutableLiveData<String>()
     val notes = MutableLiveData<String>()
     val governorate = MutableLiveData<String>()
+    var products = emptyList<OrderedProduct>()
+
+    init {
+        viewModelScope.launch {
+            products = Repository.getOrderedProducts()
+        }
+    }
 
     fun onSubmitClicked() {
         val order = initOrder()
@@ -48,7 +55,7 @@ class CustomerInformationViewModel : BaseViewModel() {
             mobileNumber = phoneNumber.value ?: "",
             notes = notes.value ?: "",
             governorate = governorate.value,
-            orderedProducts = Repository.getOrderedProducts()
+            orderedProducts = products
         )
     }
 
@@ -57,6 +64,9 @@ class CustomerInformationViewModel : BaseViewModel() {
             Repository.makeOrder(order)
         ) { orderResponse ->
             _orderResponse.postValue(Event(orderResponse))
+            viewModelScope.launch {
+                onOrderSuccess()
+            }
         }
 
     }
