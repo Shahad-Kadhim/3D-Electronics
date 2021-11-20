@@ -102,6 +102,7 @@
             android:id="@+id/new_loading"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:indeterminateTint="@color/brand_color"
             app:layout_constraintVertical_weight="7"
             app:showOnLoadingNew="@{viewModel.loading}"
             app:layout_constraintBottom_toBottomOf="parent" />

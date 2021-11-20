@@ -76,6 +76,11 @@
             layout="@layout/loading" />
 
         <include
+            android:id="@+id/not_found"
+            app:showWhenEmpty="@{viewModel.items.toData().products}"
+            layout="@layout/not_found" />
+
+        <include
             android:id="@+id/error"
             app:showOnError="@{viewModel.items}"
             layout="@layout/error" />
@@ -84,7 +89,7 @@
             android:id="@+id/new_loading"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:visibility="visible"
+            android:indeterminateTint="@color/brand_color"
             app:showOnLoadingNew="@{viewModel.loading}"
             app:layout_constraintBottom_toBottomOf="parent" />
 
