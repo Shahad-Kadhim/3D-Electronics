@@ -26,6 +26,10 @@ class CustomerInformationFragment :
             }
         }
 
+        viewModel.clickBackEvent.observeEvent(this){
+            findNavController().navigateUp()
+        }
+
     }
 
     private fun openDialog(state: State<OrderResponse?>) {

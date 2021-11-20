@@ -16,6 +16,9 @@ class CustomerInformationViewModel : BaseViewModel() {
     private val _orderResponse = MutableLiveData<Event<State<OrderResponse?>>>()
     val orderResponse : LiveData<Event<State<OrderResponse?>>> = _orderResponse
 
+    private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
+    val clickBackEvent: LiveData<Event<Boolean>> = _clickBackEvent
+
     val fullName = MutableLiveData<String>()
     val companyName = MutableLiveData<String>()
     val regionName = MutableLiveData<String>()
@@ -56,6 +59,10 @@ class CustomerInformationViewModel : BaseViewModel() {
             _orderResponse.postValue(Event(orderResponse))
         }
 
+    }
+
+    fun onClickBack(){
+        _clickBackEvent.postValue(Event(true))
     }
 
     fun onOrderSuccess(){
