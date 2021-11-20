@@ -13,6 +13,7 @@
     <dimen name="margin5x">28dp</dimen>
     <dimen name="margin6x">32dp</dimen>
     <dimen name="margin7x">40dp</dimen>
+    <dimen name="margin8x">56dp</dimen>
 
 
     <!--   paddings   -->
