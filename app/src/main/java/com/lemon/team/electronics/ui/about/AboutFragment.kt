@@ -1,8 +1,6 @@
 package com.lemon.team.electronics.ui.about
 
 import android.view.*
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentAboutBinding
@@ -17,7 +15,7 @@ class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
     override val viewModelClass = AboutViewModel::class.java
 
 
-    override fun setUpBinding(){
+    override fun setUpBinding() {
         binding.apply {
             companiesRecycler.adapter =
                 CompaniesRecyclerAdapter(mutableListOf(),this@AboutFragment.viewModel)
@@ -31,6 +29,5 @@ class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
             findNavController().navigateUp()
         }
     }
-
 
 }
