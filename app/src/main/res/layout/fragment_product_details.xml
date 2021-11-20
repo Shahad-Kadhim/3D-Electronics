@@ -197,6 +197,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin2x"
                 android:maxLines="1"
+                tools:enabled="false"
+                app:backgroundTint="@color/add_button"
                 android:onClick="@{() -> viewModel.onclickAddToCart()}"
                 android:text="@string/add"
                 android:textAllCaps="false"

@@ -38,6 +38,8 @@
     <color name="edit_text_fill">#363b3b</color>
     <color name="edit_text_stroke">#2C2C2C</color>
 
+    <color name="disable_button">#636868</color>
+
     <color name="edit_text_color">#FFFFFF</color>
 
 </resources>
