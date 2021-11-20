@@ -10,6 +10,7 @@ import com.lemon.team.electronics.model.network.API
 import com.lemon.team.electronics.model.local.CompaniesImgUrl
 import com.lemon.team.electronics.model.order.OrderedProduct
 import com.lemon.team.electronics.model.orderResponse.OrderResponse
+import com.lemon.team.electronics.model.orderTracking.OrderTrackingResponse
 import com.lemon.team.electronics.model.response.*
 import com.lemon.team.electronics.util.*
 import kotlinx.coroutines.flow.*
@@ -49,6 +50,27 @@ object Repository{
         wrapWithFlow { API.apiService.getProductById(productId) }
 
 
+    // this function will be rewritten after create database
+    fun getWishedProducts(): Flow<State<ProductsResponse?>> =
+        wrapWithFlow { API.apiService
+            .getProductsByCategoryId(
+                categoryId = CategoriesId.MONITORS,
+                page = Constants.PAGE_NUMBER_ZERO,
+                sortBy = Constants.SORT_BY_CREATED_DATE
+            )
+        }
+
+
+    // this function will be rewritten after create database
+    fun getProductsInCart(): Flow<State<ProductsResponse?>> =
+        wrapWithFlow { API.apiService
+            .getProductsByCategoryId(
+                categoryId = CategoriesId.PC_SPEAKER,
+                page = Constants.PAGE_NUMBER_ZERO,
+                sortBy = Constants.SORT_BY_CREATED_DATE
+            )
+        }
+
     //this function will be rewritten after create database
     fun getOrderedProducts(): List<OrderedProduct>{
         return listOf(
@@ -61,6 +83,9 @@ object Repository{
 
     //this function should clear the cart it will be written after create the database
     fun clearCart(){
+    fun trackOrder(phoneNumber: String?): Flow<State<List<OrderTrackingResponse>?>> =
+        wrapWithFlow { API.apiService.trackOrder(phoneNumber) }
+
 
     }
 

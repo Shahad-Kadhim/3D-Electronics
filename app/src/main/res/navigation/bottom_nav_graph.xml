@@ -145,4 +145,9 @@
             android:name="orderStatus"
             app:argType="com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus" />
     </dialog>
+    <fragment
+        android:id="@+id/orderTrackingFragment"
+        android:name="com.lemon.team.electronics.ui.orderTracking.OrderTrackingFragment"
+        android:label="OrderTrackingFragment"
+        tools:layout="@layout/fragment_order_tracking"/>
 </navigation>

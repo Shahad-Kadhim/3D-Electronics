@@ -88,8 +88,9 @@
     <string name="phone_number_should_be_11_digit">phone number should be 11 digit</string>
     <string name="enter_your_full_name">enter your full name</string>
     <string name="enter_your_region_name">enter your region name</string>
-    <string name="enter_your_phone_number">enter your phone number</string>
     <string name="invalid_information">invalid information</string>
+    <string name="follow_my_order">Follow my order</string>
+    <string name="enter_your_phone_number">Phone Number</string>
 
     <string-array name="governorates">
         <item>Baghdad</item>
