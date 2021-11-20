@@ -19,13 +19,14 @@
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true">
-            <intent-filter >
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <nav-graph android:value="@navigation/bottom_nav_graph"/>
+            <nav-graph android:value="@navigation/bottom_nav_graph" />
         </activity>
 
         <meta-data
