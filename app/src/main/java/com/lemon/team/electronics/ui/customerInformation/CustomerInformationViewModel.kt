@@ -66,8 +66,12 @@ class CustomerInformationViewModel : BaseViewModel() {
 
     }
 
-    private suspend fun onOrderSuccess(){
+    private suspend fun onOrderSuccess() {
         Repository.clearCart()
+    }
+
+    fun onClickBack() {
+        _clickBackEvent.postValue(Event(true))
     }
 
 }
