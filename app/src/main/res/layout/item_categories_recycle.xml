@@ -26,19 +26,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{() -> adapter.listener.onClickSeeMoreForCategories()}"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+            app:layout_constraintBottom_toBottomOf="@+id/home_categories_headline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/home_categories_headline" />
+
         <TextView
             android:id="@+id/see_more_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/monda_regular"
             android:onClick="@{() -> adapter.listener.onClickSeeMoreForCategories()}"
             android:text="@string/see_more"
-            android:textColor="@color/seconder_text_color"
-            android:textSize="16sp"
-            android:layout_marginEnd="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/home_categories_headline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/home_categories_headline" />
+            android:textColor="@color/primary_icons_color"
+            android:textSize="@dimen/text_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_horizontal"
