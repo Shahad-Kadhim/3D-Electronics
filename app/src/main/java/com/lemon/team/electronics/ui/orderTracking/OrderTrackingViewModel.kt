@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.lemon.team.electronics.model.Repository
 import com.lemon.team.electronics.model.orderTracking.OrderTrackingResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
+import com.lemon.team.electronics.util.Event
 import com.lemon.team.electronics.util.State
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -16,15 +17,22 @@ class OrderTrackingViewModel: BaseViewModel(), OrderInteractionListener {
     val phoneNumber = MutableLiveData<String>()
 
     private val _orderTrackingResponse = MutableLiveData<State<List<OrderTrackingResponse>?>>()
-    val orderTrackingResponse: LiveData<State<List<OrderTrackingResponse>?>> = _orderTrackingResponse
+    val orderTrackingResponse: LiveData<State<List<OrderTrackingResponse>?>> =
+        _orderTrackingResponse
+
+    private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
+    var clickBackEvent: LiveData<Event<Boolean>> = _clickBackEvent
 
     fun trackOrder() {
         viewModelScope.launch {
-            Repository.trackOrder(phoneNumber.value).collect { orderTrackingResponse->
+            Repository.trackOrder(phoneNumber.value).collect { orderTrackingResponse ->
                 _orderTrackingResponse.postValue(orderTrackingResponse)
             }
         }
-        Log.i("kkk", _orderTrackingResponse.value.toString())
+    }
+
+    fun onClickBack() {
+        _clickBackEvent.postValue(Event(true))
     }
 
 }
