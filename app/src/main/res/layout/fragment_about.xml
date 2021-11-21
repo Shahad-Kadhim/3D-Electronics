@@ -87,11 +87,11 @@
                     android:layout_width="136dp"
                     android:layout_height="55dp"
                     android:layout_marginLeft="@dimen/margin5x"
-                    android:layout_marginTop="@dimen/margin2x"
                     android:elevation="@dimen/margin2x"
                     android:src="@drawable/logo"
+                    app:layout_constraintBottom_toTopOf="@+id/about_text_background_card"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/location_text" />
+                    app:layout_constraintTop_toTopOf="@+id/about_text_background_card" />
 
                 <TextView
                     android:id="@+id/location_text"
