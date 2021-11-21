@@ -2,14 +2,14 @@ package com.lemon.team.electronics.util
 
 import android.content.Context
 import android.media.MediaParser
+import android.annotation.SuppressLint
 import android.text.Html
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.databinding.BindingAdapter
-import androidx.databinding.InverseBindingAdapter
+import androidx.databinding.*
 import androidx.databinding.InverseBindingListener
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.*
@@ -29,7 +29,8 @@ import android.widget.AdapterView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.widget.doOnTextChanged
 import com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus
-import androidx.core.content.ContextCompat.getSystemService
+import java.text.SimpleDateFormat
+import java.util.*
 import androidx.core.content.ContextCompat.getSystemService
 
 
@@ -228,7 +229,7 @@ fun setPikerListener(view: NumberPicker, attChange: InverseBindingListener) {
 @BindingAdapter(value = ["selectedItem"], requireAll = false)
 fun bindSpinnerData(
     spinner: Spinner,
-    newSelectedValue: String?,
+    newSelectedValue: String?
 ) {
     newSelectedValue?.let {
         val pos = spinner.selectedItemPosition
@@ -323,6 +324,26 @@ fun setPhoneNumberErrorMessage(view: EditText, message: String) {
         } else if (text?.count() != Constants.VALID_NUMBER_OF_DIGIT_OF_PHONE_NUMBER) {
             view.error = view.context.getString(R.string.phone_number_should_be_11_digit)
         }
+    }
+}
+
+@SuppressLint("SimpleDateFormat")
+@BindingAdapter(value = ["app:setDate"])
+fun setDate(view: TextView, dateTime: String) {
+    SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS").parse(dateTime)?.let { date ->
+        view.text = SimpleDateFormat("yyyy-MM-dd").format(date)
+    }
+}
+
+@BindingAdapter(value = ["app:setImageState"])
+fun setImageState(view: ImageView, state: String?) {
+    state?.let {
+        view.setImageDrawable(
+            ContextCompat.getDrawable(
+                view.context,
+                state.toImageState()
+            )
+        )
     }
 }
 

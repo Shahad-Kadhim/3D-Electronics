@@ -88,7 +88,7 @@ class CustomerInformationViewModel : BaseViewModel() {
         }
     }
 
-    fun onClickBack() {
+    fun onClickBack(){
         _clickBackEvent.postValue(Event(true))
     }
 

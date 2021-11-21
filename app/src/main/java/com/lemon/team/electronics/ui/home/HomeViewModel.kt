@@ -19,6 +19,9 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     private var _aboutEvent = MutableLiveData<Event<Boolean>>()
     val aboutEvent: LiveData<Event<Boolean>> = _aboutEvent
 
+    private var _trackingEvent = MutableLiveData<Event<Boolean>>()
+    val trackingEvent: LiveData<Event<Boolean>> = _trackingEvent
+
     private var _searchEvent = MutableLiveData<Event<Boolean>>()
     val searchEvent: LiveData<Event<Boolean>> = _searchEvent
 
@@ -155,6 +158,10 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     fun onClickAbout(){
         _aboutEvent.postValue(Event(true))
+    }
+
+    fun onClickTracking(){
+        _trackingEvent.postValue(Event(true))
     }
 
     override fun onclickSearch() {

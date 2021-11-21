@@ -10,6 +10,7 @@ import androidx.lifecycle.*
 import androidx.navigation.*
 import androidx.navigation.fragment.FragmentNavigator
 import com.lemon.team.electronics.BR
+import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.data.*
 import com.lemon.team.electronics.model.order.OrderedProduct
 import com.lemon.team.electronics.model.response.*
@@ -35,9 +36,6 @@ fun Context.readJsonAsset(fileName: String): String? {
     }
 }
 
-fun Flow.tojj(){
-    this
-}
 fun BaseRecyclerAdapter.ItemViewHolder.setVariableAdapter(item: Any?) {
     this.binding.setVariable(BR.adapter, item)
 }
@@ -100,3 +98,13 @@ private fun ifPageable(currentPage: Int?, scrollPage: Int) = scrollPage == curre
 
 fun List<CartItem>.toOrderedProduct(): List<OrderedProduct> =
     this.map { OrderedProduct(it.pieces, it.id) }
+
+fun String.toImageState(): Int {
+    return when (this) {
+        "INPROGRESS" -> R.drawable.ic__2_65738044
+        "RECEIVED" -> R.drawable.received
+        "SHIPPED" -> R.drawable.ic__3_a795d1c4
+        "DELIVERED" -> R.drawable.ic__4_b118b902
+        else -> R.drawable.not_received
+    }
+}

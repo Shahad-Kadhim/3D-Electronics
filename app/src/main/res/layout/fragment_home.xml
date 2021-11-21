@@ -43,6 +43,17 @@
             app:layout_constraintRight_toLeftOf="@+id/cart_icon"
             app:layout_constraintTop_toTopOf="@+id/logo_image" />
 
+        <ImageView
+            android:id="@+id/tracking_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:onClick="@{() -> viewModel.onClickTracking()}"
+            android:src="@drawable/ic_car"
+            app:layout_constraintEnd_toStartOf="@+id/about_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_home"
             android:layout_width="match_parent"

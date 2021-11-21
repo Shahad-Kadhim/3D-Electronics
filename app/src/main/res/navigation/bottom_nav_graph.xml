@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_homeFragment_to_categoriesFragment"
             app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_orderTrackingFragment"
+            app:destination="@id/orderTrackingFragment" />
     </fragment>
     <fragment
         android:id="@+id/categoriesFragment"
@@ -143,6 +146,9 @@
         <argument
             android:name="orderStatus"
             app:argType="com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus" />
+        <action
+            android:id="@+id/action_orderStatusDialogFragment_to_orderTrackingFragment"
+            app:destination="@id/orderTrackingFragment" />
     </dialog>
     <fragment
         android:id="@+id/orderTrackingFragment"

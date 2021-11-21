@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.lemon.team.electronics.model.orderTracking.OrderTrackingResponse" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/wish_product_background_card"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        app:cardCornerRadius="@dimen/margin4x"
+        android:layout_marginVertical="@dimen/margin_small"
+        android:layout_marginHorizontal="@dimen/margin2x"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+
+            <TextView
+                android:id="@+id/customer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/monda_regular"
+                android:text="@{` Hello,`+ item.name}"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_default"
+                app:layout_constraintStart_toEndOf="@+id/product_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Hello, Karrar" />
+
+            <TextView
+                android:id="@+id/order_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monda_bold"
+                android:text="@{` Your Order Is ,`+ item.orderState}"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_default"
+                app:layout_constraintStart_toStartOf="@+id/customer_name"
+                app:layout_constraintTop_toBottomOf="@+id/customer_name"
+                tools:text="Your Order Is Received" />
+
+
+            <TextView
+                android:id="@+id/order_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/monda_regular"
+                android:text="order day:"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_default"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/product_image"
+                app:layout_constraintTop_toBottomOf="@+id/order_state" />
+
+
+            <TextView
+                android:id="@+id/order_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monda_regular"
+                app:setDate="@{item.createdAt}"
+                android:layout_marginStart="@dimen/margin_small"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBaseline_toBaselineOf="@+id/order_date_text"
+                app:layout_constraintStart_toEndOf="@+id/order_date_text"
+                tools:text="2021/11/4" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/product_image"
+                android:layout_width="124dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImageState="@{item.orderState}"
+                tools:src="@color/secondary_icons_color" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

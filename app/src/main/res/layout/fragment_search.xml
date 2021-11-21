@@ -24,6 +24,7 @@
             app:setFocus="@{true}"
             android:background="@drawable/rounded_search"
             android:hint="@string/search"
+            android:focusedByDefault="true"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"
             android:text="@={viewModel.searchName}"
