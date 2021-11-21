@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">3D Electronics</string>
-    <string name="out_of_stock">"غير متوفر "</string>
+    <string name="out_of_stock">غير متوفر</string>
     <string name="search">ابحث ... </string>
     <string name="wishlist">المفضلة</string>
     <string name="cart">السلة</string>
