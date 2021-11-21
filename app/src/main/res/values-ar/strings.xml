@@ -85,6 +85,10 @@
     <string name="enter_your_phone_number">أدخل رقم الهاتف</string>
     <string name="invalid_information">معلومات غير صالحة</string>
     <string name="order_tracking">متابعة الطلب </string>
+    <string name="order_day">يوم الطلب:</string>
+    <string name="hello">مرحبا, </string>
+    <string name="your_order_is">طلبك </string>
+
 
     <string-array name="governorates">
         <item>بغداد</item>

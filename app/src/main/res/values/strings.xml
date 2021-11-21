@@ -90,6 +90,9 @@
     <string name="invalid_information">invalid information</string>
     <string name="enter_your_phone_number">Phone Number</string>
     <string name="order_tracking">Order Tracking</string>
+    <string name="order_day">order day:</string>
+    <string name="hello">Hello, </string>
+    <string name="your_order_is">Your Order Is</string>
 
     <string-array name="governorates">
         <item>Baghdad</item>

@@ -25,31 +25,55 @@
 
 
             <TextView
-                android:id="@+id/customer_name"
+                android:id="@+id/hello"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/monda_regular"
-                android:text="@{` Hello,`+ item.name}"
+                android:text="@string/hello"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toEndOf="@+id/product_image"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Hello, Karrar" />
+                 />
+
+            <TextView
+                android:id="@+id/customer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/monda_regular"
+                android:text="@{item.name}"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_default"
+                app:layout_constraintStart_toEndOf="@+id/hello"
+                app:layout_constraintTop_toTopOf="@+id/hello"
+                tools:text="Karrar" />
+
+            <TextView
+                android:id="@+id/order_state_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monda_bold"
+                android:text="@string/your_order_is"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_default"
+                app:layout_constraintStart_toStartOf="@+id/hello"
+                app:layout_constraintTop_toBottomOf="@+id/hello" />
 
             <TextView
                 android:id="@+id/order_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/monda_bold"
-                android:text="@{` Your Order Is ,`+ item.orderState}"
+                android:text="@{item.orderState}"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_default"
-                app:layout_constraintStart_toStartOf="@+id/customer_name"
+                app:layout_constraintStart_toEndOf="@+id/order_state_text"
                 app:layout_constraintTop_toBottomOf="@+id/customer_name"
-                tools:text="Your Order Is Received" />
-
+                tools:text="Received" />
 
             <TextView
                 android:id="@+id/order_date_text"
@@ -57,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/monda_regular"
-                android:text="order day:"
+                android:text="@string/order_day"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintBottom_toBottomOf="parent"
