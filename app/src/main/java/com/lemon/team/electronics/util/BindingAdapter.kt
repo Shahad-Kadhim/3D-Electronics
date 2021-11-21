@@ -333,8 +333,8 @@ fun setFocus(view: EditText, value: Boolean) {
         .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
 }
 
-@BindingAdapter(value = ["app:stopVideo"])
-fun stopVideo(view: VideoView, value: Boolean) {
+@BindingAdapter(value = ["app:setController"])
+fun setController(view: VideoView, value: Boolean) {
     view.setMediaController(
         MediaController(view.context)
     )
