@@ -19,4 +19,8 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">5%</item>
     </style>
+
+    <style name="SplashScreenTheme" parent="Theme.3DElectronics">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
 </resources>
