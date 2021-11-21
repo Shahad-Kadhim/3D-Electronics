@@ -28,7 +28,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/monda_bold"
             android:textSize="@dimen/text4x"
-            android:textColor="@color/shade_color_secondary"
+            android:textColor="@color/shade_color_primary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_normal"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="0.0 $"
+                    android:text="@{viewModel.totalPrice +`$`}"
                     android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_normal"
                     app:layout_constraintBaseline_toBaselineOf="@+id/sub_total"
@@ -132,12 +132,11 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_normal"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="@{viewModel.totalPrice +`$`}"
                     android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_normal"
                     app:layout_constraintBaseline_toBaselineOf="@+id/delivery_fees"
                     app:layout_constraintEnd_toEndOf="parent"
-                    tools:text="10.00 $" />
+                    android:text="0.00 $" />
 
                 <TextView
                     android:id="@+id/secondary_break_line"

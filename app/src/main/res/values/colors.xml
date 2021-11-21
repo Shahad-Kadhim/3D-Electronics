@@ -5,7 +5,7 @@
     <color name="background_color">#F9F9F9</color>
     <color name="cards_background_color">#FFFFFF</color>
 
-    <color name="shade_color_primary">#222222</color>
+    <color name="shade_color_primary">#333333</color>
     <color name="shade_color_secondary">#777777</color>
     <color name="shade_color_ternary">#AAAAAA</color>
 

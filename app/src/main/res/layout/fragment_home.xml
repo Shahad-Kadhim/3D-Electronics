@@ -30,6 +30,7 @@
             android:layout_marginEnd="@dimen/margin_normal"
             android:onClick="@{() -> viewModel.onClickCart()}"
             android:src="@drawable/ic_cart"
+            app:tint="@color/shade_color_secondary"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/about_icon" />
 
@@ -40,6 +41,7 @@
             android:layout_marginEnd="@dimen/margin_normal"
             android:onClick="@{() -> viewModel.onClickAbout()}"
             android:src="@drawable/ic_about"
+            app:tint="@color/shade_color_secondary"
             app:layout_constraintBottom_toBottomOf="@+id/logo_image"
             app:layout_constraintRight_toLeftOf="@+id/cart_icon"
             app:layout_constraintTop_toTopOf="@+id/logo_image"
@@ -47,15 +49,15 @@
 
         <ImageView
             android:id="@+id/tracking_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             android:layout_marginEnd="@dimen/margin_normal"
             android:onClick="@{() -> viewModel.onClickTracking()}"
-            android:src="@drawable/ic_car"
+            android:src="@drawable/ic_delivery_truck"
             app:layout_constraintBottom_toBottomOf="@+id/logo_image"
             app:layout_constraintRight_toLeftOf="@+id/about_icon"
             app:layout_constraintTop_toTopOf="@+id/logo_image"
-            />
+            app:tint="@color/shade_color_secondary" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_home"
@@ -73,10 +75,12 @@
 
         <include android:id="@+id/loading"
             app:showLoading="@{viewModel.state}"
+            tools:visibility="gone"
             layout="@layout/loading"/>
 
         <include android:id="@+id/error"
             app:showOnError="@{viewModel.state}"
+            tools:visibility="gone"
             layout="@layout/error"/>
 
 

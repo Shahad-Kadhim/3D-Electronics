@@ -12,7 +12,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/wish_product_background_card"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="84dp"
         app:cardCornerRadius="@dimen/margin4x"
         android:layout_marginVertical="@dimen/margin_small"
         android:layout_marginHorizontal="@dimen/margin2x"
@@ -29,10 +29,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/monda_regular"
                 android:text="@string/hello"
-                android:textColor="@color/shade_color_primary"
+                android:textColor="@color/shade_color_secondary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toEndOf="@+id/product_image"
                 app:layout_constraintTop_toTopOf="parent"
@@ -45,7 +45,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/monda_regular"
                 android:text="@{item.name}"
-                android:textColor="@color/shade_color_primary"
+                android:textColor="@color/shade_color_secondary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toEndOf="@+id/hello"
                 app:layout_constraintTop_toTopOf="@+id/hello"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monda_bold"
                 android:text="@string/your_order_is"
-                android:textColor="@color/shade_color_primary"
+                android:textColor="@color/shade_color_secondary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toStartOf="@+id/hello"
                 app:layout_constraintTop_toBottomOf="@+id/hello" />
@@ -82,7 +82,7 @@
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/monda_regular"
                 android:text="@string/order_day"
-                android:textColor="@color/shade_color_primary"
+                android:textColor="@color/shade_color_secondary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/product_image"
@@ -96,7 +96,7 @@
                 android:fontFamily="@font/monda_regular"
                 app:setDate="@{item.createdAt}"
                 android:layout_marginStart="@dimen/margin_small"
-                android:textColor="@color/shade_color_primary"
+                android:textColor="@color/shade_color_secondary"
                 android:textSize="@dimen/text_small"
                 app:layout_constraintBaseline_toBaselineOf="@+id/order_date_text"
                 app:layout_constraintStart_toEndOf="@+id/order_date_text"
@@ -104,14 +104,16 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/product_image"
-                android:layout_width="124dp"
-                android:layout_height="0dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="8dp"
+                android:tint="@color/shade_color_secondary"
+                tools:src="@drawable/ic_truck_deliveried"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:setImageState="@{item.orderState}"
-                tools:src="@color/shade_color_ternary" />
+                app:setImageState="@{item.orderState}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

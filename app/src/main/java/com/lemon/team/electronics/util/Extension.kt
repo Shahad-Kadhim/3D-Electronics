@@ -101,10 +101,10 @@ fun List<CartItem>.toOrderedProduct(): List<OrderedProduct> =
 
 fun String.toImageState(): Int {
     return when (this) {
-        "INPROGRESS" -> R.drawable.ic__2_65738044
-        "RECEIVED" -> R.drawable.received
-        "SHIPPED" -> R.drawable.ic__3_a795d1c4
-        "DELIVERED" -> R.drawable.ic__4_b118b902
-        else -> R.drawable.not_received
+        "INPROGRESS" -> R.drawable.ic_truck_in_progress
+        "RECEIVED" -> R.drawable.ic_truck_recived
+        "SHIPPED" -> R.drawable.ic_truck_shipped
+        "DELIVERED" -> R.drawable.ic_truck_deliveried
+        else -> R.drawable.ic_truck_cancled
     }
 }

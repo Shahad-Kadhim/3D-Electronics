@@ -52,7 +52,7 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/monda_bold"
                     android:text="@{String.valueOf(item.price)}"
-                    android:textColor="@color/shade_color_secondary"
+                    android:textColor="@color/shade_color_primary"
                     android:textSize="@dimen/text2x"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
