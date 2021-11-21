@@ -50,7 +50,7 @@
                     android:layout_marginVertical="@dimen/margin4x"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/please_fill_in_your_information"
-                    android:textColor="@color/primary_text_color"
+                    android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_default"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -63,7 +63,7 @@
                     android:layout_marginTop="@dimen/margin4x"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/full_name"
-                    android:textColor="@color/primary_text_color"
+                    android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_small"
                     app:layout_constraintStart_toStartOf="@+id/title"
                     app:layout_constraintTop_toBottomOf="@+id/title" />
@@ -76,7 +76,7 @@
                     android:background="@drawable/shape_edit_text"
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.fullName}"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/shade_color_primary"
                     app:errorMessage='@{@string/enter_your_full_name}'
                     app:layout_constraintTop_toBottomOf="@+id/full_name" />
 
@@ -87,7 +87,7 @@
                     android:layout_marginTop="@dimen/margin4x"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/company_name"
-                    android:textColor="@color/primary_text_color"
+                    android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_small"
                     app:layout_constraintStart_toStartOf="@+id/full_name"
                     app:layout_constraintTop_toBottomOf="@+id/full_name_input" />
@@ -101,7 +101,7 @@
                     android:hint="@string/if_you_are_a_company_owner"
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.companyName}"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/shade_color_primary"
                     app:layout_constraintTop_toBottomOf="@+id/company_name" />
 
                 <TextView
@@ -111,7 +111,7 @@
                     android:layout_marginTop="@dimen/margin4x"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/governorate"
-                    android:textColor="@color/primary_text_color"
+                    android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_small"
                     app:layout_constraintStart_toStartOf="@+id/company_name"
                     app:layout_constraintTop_toBottomOf="@+id/company_name_input" />
@@ -131,7 +131,7 @@
                         android:layout_height="match_parent"
                         android:entries="@array/governorates"
                         android:padding="@dimen/padding2x"
-                        android:textColor="@color/seconder_text_color"
+                        android:textColor="@color/shade_color_secondary"
                         app:layout_constraintTop_toBottomOf="@+id/governorate" />
                 </LinearLayout>
 
@@ -142,7 +142,7 @@
                     android:layout_marginTop="@dimen/margin4x"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/region_name"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/shade_color_primary"
                     android:textSize="@dimen/text_small"
                     app:layout_constraintStart_toStartOf="@+id/governorate"
                     app:layout_constraintTop_toBottomOf="@+id/governorate_layout" />
@@ -155,7 +155,7 @@
                     android:background="@drawable/shape_edit_text"
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.regionName}"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/shade_color_primary"
                     app:errorMessage='@{@string/enter_your_region_name}'
                     app:layout_constraintTop_toBottomOf="@+id/region_name" />
 
@@ -166,7 +166,7 @@
                     android:layout_marginTop="@dimen/margin4x"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/nearest_point_to_you"
-                    android:textColor="@color/primary_text_color"
+                    android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_small"
                     app:layout_constraintStart_toStartOf="@+id/region_name"
                     app:layout_constraintTop_toBottomOf="@+id/region_name_input" />
@@ -179,7 +179,7 @@
                     android:background="@drawable/shape_edit_text"
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.nearestPoint}"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/shade_color_primary"
                     app:layout_constraintTop_toBottomOf="@+id/nearest_point" />
 
                 <TextView
@@ -189,7 +189,7 @@
                     android:layout_marginTop="@dimen/margin4x"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/e_mail"
-                    android:textColor="@color/primary_text_color"
+                    android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_small"
                     app:layout_constraintStart_toStartOf="@+id/nearest_point"
                     app:layout_constraintTop_toBottomOf="@+id/nearest_point_input" />
@@ -203,7 +203,7 @@
                     android:inputType="textEmailAddress"
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.email}"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/shade_color_primary"
                     app:layout_constraintTop_toBottomOf="@+id/email" />
 
                 <TextView
@@ -213,7 +213,7 @@
                     android:layout_marginTop="@dimen/margin4x"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/phone_number_text"
-                    android:textColor="@color/primary_text_color"
+                    android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_small"
                     app:layout_constraintStart_toStartOf="@+id/email"
                     app:layout_constraintTop_toBottomOf="@+id/email_input" />
@@ -228,7 +228,7 @@
                     android:inputType="phone"
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.phoneNumber}"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/shade_color_primary"
                     app:layout_constraintTop_toBottomOf="@+id/phone_number"
                     app:phoneNumberErrorMessage='@{@string/enter_your_phone_number}' />
 
@@ -239,7 +239,7 @@
                     android:layout_marginTop="@dimen/margin4x"
                     android:fontFamily="@font/monda_bold"
                     android:text="@string/notes"
-                    android:textColor="@color/primary_text_color"
+                    android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_small"
                     app:layout_constraintStart_toStartOf="@+id/phone_number"
                     app:layout_constraintTop_toBottomOf="@+id/phone_number_input" />
@@ -254,7 +254,7 @@
                     android:hint="@string/notes_about_your_order"
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.notes}"
-                    android:textColor="@color/edit_text_color"
+                    android:textColor="@color/shade_color_primary"
                     app:layout_constraintTop_toBottomOf="@+id/note" />
 
                 <Button

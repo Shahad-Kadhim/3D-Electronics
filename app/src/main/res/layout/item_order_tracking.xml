@@ -32,7 +32,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/monda_regular"
                 android:text="@string/hello"
-                android:textColor="@color/text_color"
+                android:textColor="@color/shade_color_primary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toEndOf="@+id/product_image"
                 app:layout_constraintTop_toTopOf="parent"
@@ -45,7 +45,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/monda_regular"
                 android:text="@{item.name}"
-                android:textColor="@color/text_color"
+                android:textColor="@color/shade_color_primary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toEndOf="@+id/hello"
                 app:layout_constraintTop_toTopOf="@+id/hello"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monda_bold"
                 android:text="@string/your_order_is"
-                android:textColor="@color/text_color"
+                android:textColor="@color/shade_color_primary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toStartOf="@+id/hello"
                 app:layout_constraintTop_toBottomOf="@+id/hello" />
@@ -69,7 +69,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/monda_bold"
                 android:text="@{item.orderState}"
-                android:textColor="@color/text_color"
+                android:textColor="@color/shade_color_primary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toEndOf="@+id/order_state_text"
                 app:layout_constraintTop_toBottomOf="@+id/customer_name"
@@ -82,7 +82,7 @@
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/monda_regular"
                 android:text="@string/order_day"
-                android:textColor="@color/text_color"
+                android:textColor="@color/shade_color_primary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/product_image"
@@ -96,7 +96,7 @@
                 android:fontFamily="@font/monda_regular"
                 app:setDate="@{item.createdAt}"
                 android:layout_marginStart="@dimen/margin_small"
-                android:textColor="@color/text_color"
+                android:textColor="@color/shade_color_primary"
                 android:textSize="@dimen/text_small"
                 app:layout_constraintBaseline_toBaselineOf="@+id/order_date_text"
                 app:layout_constraintStart_toEndOf="@+id/order_date_text"
@@ -111,7 +111,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:setImageState="@{item.orderState}"
-                tools:src="@color/secondary_icons_color" />
+                tools:src="@color/shade_color_ternary" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

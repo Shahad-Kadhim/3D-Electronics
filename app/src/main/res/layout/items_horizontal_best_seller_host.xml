@@ -22,7 +22,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/monda_bold"
             android:textSize="@dimen/text4x"
-            android:textColor="@color/seconder_text_color"
+            android:textColor="@color/shade_color_secondary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +34,7 @@
             android:layout_marginEnd="16dp"
             android:visibility="gone"
             android:text="see more >"
-            android:textColor="@color/seconder_text_color"
+            android:textColor="@color/shade_color_secondary"
             android:textSize="@dimen/text_normal"
             app:layout_constraintBottom_toBottomOf="@+id/best_seller_headline"
             app:layout_constraintEnd_toEndOf="parent"

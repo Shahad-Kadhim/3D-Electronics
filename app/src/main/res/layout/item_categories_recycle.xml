@@ -22,7 +22,7 @@
             android:fontFamily="@font/monda_bold"
             android:textSize="22sp"
             android:layout_marginHorizontal="16dp"
-            android:textColor="@color/seconder_text_color"
+            android:textColor="@color/shade_color_secondary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
             android:fontFamily="@font/monda_regular"
             android:onClick="@{() -> adapter.listener.onClickSeeMoreForCategories()}"
             android:text="@string/see_more"
-            android:textColor="@color/primary_icons_color"
+            android:textColor="@color/shade_color_secondary"
             android:textSize="@dimen/text_normal"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toStartOf="@+id/imageView" />

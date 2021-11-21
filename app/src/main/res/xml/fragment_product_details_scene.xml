@@ -58,6 +58,16 @@
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toBottomOf="@id/guideline"
             />
+        <Constraint
+            motion:layout_constraintVertical_bias="0.0"
+            android:layout_height="0dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/margin_small"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            motion:layout_constraintTop_toBottomOf="@id/numberPicker"
+            android:id="@+id/scrollView4" />
 
 
     </ConstraintSet>

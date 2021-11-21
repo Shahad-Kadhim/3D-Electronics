@@ -18,7 +18,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false">
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -63,7 +64,7 @@
             android:layout_marginEnd="54dp"
             android:elevation="@dimen/elevation_small"
             android:text="@{String.valueOf(viewModel.detailsProduct.toData().oldPrice) +'$'}"
-            android:textColor="@color/old_price"
+            android:textColor="@color/shade_color_ternary"
             android:textSize="@dimen/text_small"
             android:textStyle="bold"
             app:isVisible="@{viewModel.detailsProduct.toData().sale}"
@@ -75,7 +76,6 @@
             android:id="@+id/view2"
             android:layout_width="30dp"
             android:layout_height="1dp"
-            android:background="@color/old_price"
             android:elevation="@dimen/elevation_small"
             app:isVisible="@{viewModel.detailsProduct.toData().sale}"
             app:layout_constraintBottom_toBottomOf="@id/product_old_price_text"
@@ -114,7 +114,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_name"
                 app:shapeAppearanceOverlay="@style/MainProductImageShape"
-                tools:src="@color/brand_color"/>
+                tools:src="@color/primary_color"/>
 
             <ImageView
                 android:id="@+id/product_image_alpha"
@@ -140,7 +140,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:maxLines="2"
                 android:text="@{viewModel.detailsProduct.toData().name}"
-                android:textColor="@color/primary_text_color"
+                android:textColor="@color/shade_color_secondary"
                 android:textSize="@dimen/text3x"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/guideline"
@@ -172,7 +172,7 @@
                 android:elevation="@dimen/elevation_small"
                 android:fontFamily="@font/monda_bold"
                 android:text="@{String.valueOf(viewModel.detailsProduct.toData().price) +'$'}"
-                android:textColor="@color/primary_text_color"
+                android:textColor="@color/shade_color_secondary"
                 android:textSize="@dimen/text2x"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/guideline"
@@ -202,12 +202,12 @@
                 android:onClick="@{() -> viewModel.onclickAddToCart()}"
                 android:text="@string/add"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@android:color/white"
                 android:textSize="@dimen/text2x"
                 android:enabled="@{!viewModel.detailsProduct.toData().sold}"
                 app:checkProduct="@{viewModel.detailsProduct.toData().sale}"
                 app:icon="@drawable/ic_cart_white"
-                app:iconTint="@color/white"
+                app:iconTint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:showOnSuccess="@{viewModel.detailsProduct}" />
@@ -217,8 +217,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginHorizontal="@dimen/margin2x"
-                android:scrollbars="none"
                 android:layout_marginTop="@dimen/margin_small"
+                android:scrollbars="none"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -230,9 +230,9 @@
                     android:layout_height="wrap_content"
                     android:descendantFocusability="blocksDescendants"
                     android:fontFamily="@font/monda_regular"
-                    android:paddingBottom="72dp"
                     android:paddingTop="@dimen/padding2x"
-                    android:textColor="@color/primary_text_color"
+                    android:paddingBottom="72dp"
+                    android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_normal"
                     app:htmlText="@{viewModel.detailsProduct.toData().description}"
                     app:layout_constraintEnd_toEndOf="parent"

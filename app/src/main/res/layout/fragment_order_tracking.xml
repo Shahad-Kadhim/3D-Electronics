@@ -89,7 +89,7 @@
             android:fontFamily="@font/monda_bold"
             android:hint="@string/enter_your_phone_number"
             android:text="@={viewModel.phoneNumber}"
-            android:textColor="@color/primary_text_color"
+            android:textColor="@color/shade_color_secondary"
             android:textSize="14dp"
             android:digits="0123456789"
             app:layout_constraintBottom_toBottomOf="@+id/follow_my_order"

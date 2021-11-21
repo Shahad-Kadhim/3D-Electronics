@@ -1,56 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
 
-    <color name="base_color">#9FC3C2</color>
-    <color name="bg_color">#F8F8F8</color>
-    <color name="text_color">#292929</color>
-    <color name="seconder_text_color">#444444</color>
+    <color name="primary_color">#9FC3C2</color>
+    <color name="background_color">#F9F9F9</color>
+    <color name="cards_background_color">#FFFFFF</color>
 
-    <color name="brand_color">#9FC3C2</color>
-    <color name="color_two">#B3C5C5</color>
-    <color name="color_three">#BCD8D7</color>
-    <color name="color_four">#E6EEEE</color>
-    <color name="secondary_brand_color">#9EB6B5</color>
-    <color name="tertiary_brand_color">#BCD8D7</color>
+    <color name="shade_color_primary">#222222</color>
+    <color name="shade_color_secondary">#777777</color>
+    <color name="shade_color_ternary">#AAAAAA</color>
 
-    <color name="color_category_one">#9FC3C2</color>
+    <color name="color_category_one">@color/primary_color</color>
     <color name="color_category_two">#B3C5C5</color>
     <color name="color_category_three">#BCD8D7</color>
 
-    <color name="background_color">#F9F9F9</color>
-    <color name="secondary_background_color">#FFFFFF</color>
-
-    <color name="primary_icons_color">#646464</color>
-    <color name="secondary_icons_color">#9799A1</color>
-
-    <color name="primary_text_color">#444444</color>
-    <color name="secondary_text_color">#9799A1</color>
-    <color name="text_color_dark">#000000</color>
-
-    <color name="icon_red">#FF1313</color>
-
-    <color name="red">#FF223D</color>
-    <color name="heartRed">#D92727</color>
-
-    <color name="searchbar_stroke_color">#BBBDC5</color>
-    <color name="image_filter">#B3FFFFFF</color>
-    <color name="old_price">#6A6C71</color>
-
-    <color name="edit_text_fill">#EFEFEF</color>
-    <color name="edit_text_stroke">#C0CDCD</color>
-
-    <color name="disable_button">#E6EEEE</color>
+    <color name="divider_color">#E6EEEE</color>
+    <color name="image_filter_color">#B3FFFFFF</color>
 
     <color name="order_status_success">#4AD991</color>
     <color name="order_status_fail">#FF7285</color>
-    <color name="edit_text_color">#444444</color>
-    <color name="blue">#2196F3</color>
 
 </resources>

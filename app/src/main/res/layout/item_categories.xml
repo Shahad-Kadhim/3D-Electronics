@@ -60,7 +60,7 @@
                 app:categoryId="@{item.id}"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="@android:color/white"
                 android:textSize="12sp"
                 app:layout_constraintVertical_bias="0"
                 app:layout_constraintBottom_toBottomOf="parent"

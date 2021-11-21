@@ -33,7 +33,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="cardElevation">@dimen/elevation_normal</item>
         <item name="cardCornerRadius">@dimen/radius_large</item>
-        <item name="cardBackgroundColor">@color/secondary_background_color</item>
+        <item name="cardBackgroundColor">@color/cards_background_color</item>
     </style>
 
     <style name="ProductBackgroundCardStyle.WrapContentWidth">
@@ -47,7 +47,7 @@
     <style name="ProductNameStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textColor">@color/shade_color_secondary</item>
         <item name="android:textSize">@dimen/text2x</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:layout_marginStart">@dimen/margin_normal</item>
@@ -56,7 +56,7 @@
     <style name="ProductNameStyle2">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textColor">@color/shade_color_secondary</item>
         <item name="android:textSize">@dimen/text_small</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
     </style>
@@ -64,7 +64,7 @@
     <style name="ProductPriceStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textColor">@color/shade_color_secondary</item>
         <item name="android:textSize">@dimen/text2x</item>
         <item name="android:fontFamily">@font/monda_bold</item>
     </style>
@@ -72,7 +72,7 @@
     <style name="ProductPriceStyle2">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textColor">@color/shade_color_secondary</item>
         <item name="android:textSize">@dimen/text2x</item>
         <item name="android:fontFamily">@font/monda_bold</item>
         <item name="android:layout_marginStart">@dimen/margin1x</item>
@@ -100,7 +100,7 @@
         <item name="android:elevation">@dimen/elevation_normal</item>
         <item name="android:button">@drawable/custom_checked</item>
         <item name="android:layout_marginTop">@dimen/margin_tiny</item>
-        <item name="buttonTint">@color/heartRed</item>
+        <item name="buttonTint">@color/primary_color</item>
     </style>
 
     <style name="WishButtonStyle">
@@ -115,13 +115,13 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">49dp</item>
         <item name="android:hint">@string/search</item>
-        <item name="android:textColorHint">@color/secondary_text_color</item>
+        <item name="android:textColorHint">@color/shade_color_ternary</item>
         <item name="android:drawableStart">@drawable/ic_search_bar</item>
         <item name="android:drawablePadding">@dimen/padding_small</item>
         <item name="fontFamily">@font/roboto_regular</item>
         <item name="android:inputType">text</item>
         <item name="android:textSize">@dimen/text_default</item>
-        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textColor">@color/shade_color_secondary</item>
     </style>
 
     <style name="AboutBackgroundCard">
@@ -129,10 +129,10 @@
     </style>
 
     <style name="AboutTitleTextColor">
-        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textColor">@color/shade_color_secondary</item>
     </style>
     <style name="AboutTextColor">
-        <item name="android:textColor">@color/secondary_text_color</item>
+        <item name="android:textColor">@color/shade_color_ternary</item>
     </style>
     <style name="AboutBackgroundCompanies">
         <item name="android:background">@drawable/company_bg</item>
@@ -148,7 +148,7 @@
         <item name="fontFamily">@font/roboto_medium</item>
         <item name="android:textSize">@dimen/text_default</item>
         <item name="android:drawablePadding">@dimen/padding_small</item>
-        <item name="android:textColor">@color/secondary_text_color</item>
+        <item name="android:textColor">@color/shade_color_ternary</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_marginStart">@dimen/margin_large</item>
     </style>
@@ -156,7 +156,7 @@
     <style name="TitleText">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">280dp</item>
-        <item name="android:textColor">@color/seconder_text_color</item>
+        <item name="android:textColor">@color/shade_color_secondary</item>
         <item name="android:textSize">@dimen/text_large</item>
         <item name="fontFamily">@font/monda_bold</item>
         <item name="android:textStyle">bold</item>

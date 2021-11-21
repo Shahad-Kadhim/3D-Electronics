@@ -37,9 +37,9 @@
             android:gravity="center_vertical"
             android:padding="@dimen/margin_small"
             android:text="@string/search"
-            android:textColor="@color/secondary_icons_color"
+            android:textColor="@color/shade_color_ternary"
             android:textSize="@dimen/text_normal"
-            app:drawableTint="@color/secondary_icons_color" />
+            app:drawableTint="@color/shade_color_ternary" />
 
     </com.google.android.material.card.MaterialCardView>
 </layout>

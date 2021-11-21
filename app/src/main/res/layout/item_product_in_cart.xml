@@ -37,7 +37,7 @@
                 android:src="@drawable/ic_baseline_delete_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/brand_color" />
+                app:tint="@color/primary_color" />
             <TextView
                 android:id="@+id/product_name_text"
                 android:layout_width="180dp"
@@ -46,7 +46,7 @@
                 android:layout_marginTop="@dimen/margin_normal"
                 android:fontFamily="@font/monda_regular"
                 android:text="@{item.name}"
-                android:textColor="@color/text_color"
+                android:textColor="@color/shade_color_primary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintStart_toEndOf="@+id/product_image"
                 app:layout_constraintTop_toTopOf="parent"
@@ -59,7 +59,7 @@
                 android:layout_marginEnd="@dimen/margin_tiny"
                 android:fontFamily="@font/monda_bold"
                 android:text="@{String.valueOf(item.pieces)}"
-                android:textColor="@color/text_color"
+                android:textColor="@color/shade_color_primary"
                 android:textSize="@dimen/text_normal"
                 app:layout_constraintBottom_toBottomOf="@+id/quantity_text"
                 app:layout_constraintEnd_toStartOf="@+id/quantity_text" />
@@ -73,7 +73,7 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/monda_regular"
                 android:text="@string/pieces"
-                android:textColor="@color/text_color"
+                android:textColor="@color/shade_color_primary"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +88,7 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/monda_bold"
                 android:text="@{String.valueOf(item.price)+` $`}"
-                android:textColor="@color/primary_text_color"
+                android:textColor="@color/shade_color_secondary"
                 android:textSize="@dimen/text_normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/product_image"
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monda_bold"
                 android:text="@{String.valueOf(item.oldPrice)+` $`}"
-                android:textColor="@color/secondary_text_color"
+                android:textColor="@color/shade_color_ternary"
                 android:textSize="@dimen/text_small"
                 android:textStyle="bold"
                 app:isVisible="@{item.sale}"
@@ -113,7 +113,7 @@
                 android:layout_width="30dp"
                 android:layout_height="1dp"
                 app:isVisible="@{item.sale}"
-                android:background="@color/secondary_text_color"
+                android:background="@color/shade_color_ternary"
                 app:layout_constraintBottom_toBottomOf="@id/product_old_price_text"
                 app:layout_constraintEnd_toEndOf="@id/product_old_price_text"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -130,7 +130,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@color/secondary_icons_color" />
+                tools:src="@color/shade_color_ternary" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
