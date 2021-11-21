@@ -37,10 +37,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
             )
         }
 
-        viewModel.clearTextEvent.observeEvent(this) {
-            binding.searchInput.text.clear()
-        }
-
         viewModel.clickBackEvent.observeEvent(this) {
             findNavController().navigateUp()
         }

@@ -331,3 +331,11 @@ fun setFocus(view: EditText, value: Boolean) {
     (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
         .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
 }
+
+@BindingAdapter(value = ["app:searchClearVisibility"])
+fun setSearchClearButtonVisibility(view: View, searchText: String?){
+    when(searchText?.isNotEmpty()){
+        true -> view.visibility = View.VISIBLE
+        false, null -> view.visibility = View.INVISIBLE
+    }
+}

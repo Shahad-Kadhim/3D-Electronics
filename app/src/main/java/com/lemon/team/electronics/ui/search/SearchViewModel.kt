@@ -16,9 +16,6 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
     private val _clickItemEvent = MutableLiveData<Event<String>>()
     var clickItemEvent: LiveData<Event<String>> = _clickItemEvent
 
-    private val _clearTextEvent = MutableLiveData<Event<Boolean>>()
-    val clearTextEvent: LiveData<Event<Boolean>> = _clearTextEvent
-
     private val _clickBackEvent = MutableLiveData<Event<Boolean>>()
     var clickBackEvent: LiveData<Event<Boolean>> = _clickBackEvent
 
@@ -72,7 +69,7 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
     }
 
     fun onClickClear() {
-       _clearTextEvent.postValue(Event(true))
+       searchName.postValue("")
     }
 
     override fun onClickProduct(productId: String) {

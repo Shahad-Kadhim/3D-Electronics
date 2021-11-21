@@ -25,38 +25,21 @@
         app:cardCornerRadius="@dimen/radius_large"
         app:cardElevation="4dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/search_bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/search_bar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_marginHorizontal="@dimen/margin2x"
-                android:drawableStart="@drawable/ic_search"
-                android:drawablePadding="@dimen/margin2x"
-                android:fontFamily="@font/roboto_regular"
-                android:gravity="center_vertical"
-                android:padding="@dimen/margin_small"
-                android:text="@string/search"
-                android:textColor="@color/secondary_icons_color"
-                android:textSize="@dimen/text_normal"
-                app:drawableTint="@color/secondary_icons_color" />
-
-            <ImageView
-                android:id="@+id/clear_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_small"
-                android:src="@drawable/ic_baseline_close_24"
-                app:layout_constraintEnd_toEndOf="@+id/search_bar"
-                app:layout_constraintTop_toTopOf="@+id/search_bar"
-                app:layout_constraintBottom_toBottomOf="@+id/search_bar"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/margin2x"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="@dimen/margin2x"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin_small"
+            android:text="@string/search"
+            android:textColor="@color/secondary_icons_color"
+            android:textSize="@dimen/text_normal"
+            app:drawableTint="@color/secondary_icons_color" />
 
     </com.google.android.material.card.MaterialCardView>
 </layout>
