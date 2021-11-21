@@ -1,6 +1,7 @@
 package com.lemon.team.electronics.util
 
 import android.content.Context
+import android.media.MediaParser
 import android.text.Html
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -330,4 +331,11 @@ fun setFocus(view: EditText, value: Boolean) {
     view.requestFocus()
     (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
         .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+}
+
+@BindingAdapter(value = ["app:setController"])
+fun setController(view: VideoView, value: Boolean) {
+    view.setMediaController(
+        MediaController(view.context)
+    )
 }

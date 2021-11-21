@@ -67,6 +67,7 @@
                         android:id="@+id/video"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        app:setController="@{true}"
                         app:video="@{viewModel.video}" />
 
                 </com.google.android.material.card.MaterialCardView>
