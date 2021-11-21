@@ -301,8 +301,8 @@ fun setDialogButtonText(view: AppCompatButton, status: OrderStatus?) {
     }
 }
 
-@BindingAdapter(value = ["app:inputTextValidation"])
-fun setTextValidation(view: EditText, message: String) {
+@BindingAdapter(value = ["app:errorMessage"])
+fun setErrorMessage(view: EditText, message: String) {
     view.doOnTextChanged { text, _, _, _ ->
         if (text?.isEmpty() == true){
             view.error = message
@@ -310,8 +310,8 @@ fun setTextValidation(view: EditText, message: String) {
     }
 }
 
-@BindingAdapter(value = ["app:phoneNumberValidation"])
-fun setPhoneNumberValidation(view: EditText, message: String) {
+@BindingAdapter(value = ["app:phoneNumberErrorMessage"])
+fun setPhoneNumberErrorMessage(view: EditText, message: String) {
     view.doOnTextChanged { text, _, _, _ ->
         if (text?.isEmpty() == true){
             view.error = message

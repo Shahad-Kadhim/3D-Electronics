@@ -27,6 +27,22 @@ class CustomerInformationViewModel : BaseViewModel() {
     val governorate = MutableLiveData<String>()
     var products = emptyList<OrderedProduct>()
 
+    val informationValidation = MediatorLiveData<Boolean>().apply {
+        addSource(fullName, this@CustomerInformationViewModel::checkValidation)
+        addSource(regionName, this@CustomerInformationViewModel::checkValidation)
+        addSource(phoneNumber, this@CustomerInformationViewModel::checkValidation)
+    }
+
+    private fun checkValidation(value: String) {
+        if (
+            fullName.value?.isNotEmpty() == true &&
+            regionName.value?.isNotEmpty() == true &&
+            phoneNumber.value?.count() == Constants.VALID_NUMBER_OF_DIGIT_OF_PHONE_NUMBER
+        ) {
+            informationValidation.postValue(true)
+        } else informationValidation.postValue(false)
+    }
+
     init {
         viewModelScope.launch {
             products = Repository.getOrderedProducts()
@@ -66,8 +82,10 @@ class CustomerInformationViewModel : BaseViewModel() {
 
     }
 
-    private suspend fun onOrderSuccess() {
-        Repository.clearCart()
+    fun clearCartItems() {
+        viewModelScope.launch {
+            Repository.clearCart()
+        }
     }
 
     fun onClickBack() {

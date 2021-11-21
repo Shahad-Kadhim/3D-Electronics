@@ -77,7 +77,7 @@
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.fullName}"
                     android:textColor="@color/edit_text_color"
-                    app:inputTextValidation='@{@string/enter_your_full_name}'
+                    app:errorMessage='@{@string/enter_your_full_name}'
                     app:layout_constraintTop_toBottomOf="@+id/full_name" />
 
                 <TextView
@@ -156,7 +156,7 @@
                     android:padding="@dimen/padding2x"
                     android:text="@={viewModel.regionName}"
                     android:textColor="@color/edit_text_color"
-                    app:inputTextValidation='@{@string/enter_your_region_name}'
+                    app:errorMessage='@{@string/enter_your_region_name}'
                     app:layout_constraintTop_toBottomOf="@+id/region_name" />
 
                 <TextView
@@ -230,7 +230,7 @@
                     android:text="@={viewModel.phoneNumber}"
                     android:textColor="@color/edit_text_color"
                     app:layout_constraintTop_toBottomOf="@+id/phone_number"
-                    app:phoneNumberValidation='@{@string/enter_your_phone_number}' />
+                    app:phoneNumberErrorMessage='@{@string/enter_your_phone_number}' />
 
                 <TextView
                     android:id="@+id/note"
@@ -269,6 +269,7 @@
                     android:textAllCaps="false"
                     android:textSize="@dimen/text_default"
                     android:textStyle="bold"
+                    android:enabled="@{viewModel.informationValidation}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/note_input" />
