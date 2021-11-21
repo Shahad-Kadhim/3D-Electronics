@@ -80,6 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
             android:fontFamily="@font/monda_regular"
+            android:textColor="@color/seconder_text_color"
             android:text="@string/follow_your_order"
             android:onClick="@{() -> viewModel.onFollowOrderClicked()}"
             app:followOrderVisibility="@{status}"
