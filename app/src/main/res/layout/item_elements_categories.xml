@@ -30,6 +30,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/share_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:elevation="@dimen/elevation_small"
+                android:contentDescription="@string/product_image"
+                android:onClick="@{() -> listener.onClickShare(item.id)}"
+                android:src="@drawable/ic_share"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/product_out_of_stock_text"
                 android:layout_width="wrap_content"
@@ -93,6 +106,31 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/product_name"
                 tools:text="15.77 $" />
+
+            <TextView
+                android:id="@+id/product_old_price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:fontFamily="@font/monda_regular"
+                android:text="@{String.valueOf(item.oldPrice)}"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="@dimen/text_small"
+                app:isVisible="@{item.sale}"
+                app:layout_constraintBottom_toBottomOf="@+id/product_price_text"
+                app:layout_constraintStart_toEndOf="@+id/product_price_text"
+                tools:text="100.54 $" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/secondary_text_color"
+                app:isVisible="@{item.sale}"
+                android:elevation="@dimen/elevation_small"
+                app:layout_constraintBottom_toBottomOf="@id/product_old_price_text"
+                app:layout_constraintEnd_toEndOf="@id/product_old_price_text"
+                app:layout_constraintStart_toStartOf="@id/product_old_price_text"
+                app:layout_constraintTop_toTopOf="@id/product_old_price_text" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

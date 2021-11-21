@@ -32,18 +32,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/lato_regular"
-            android:layout_marginEnd="@dimen/margin_normal"
             android:onClick="@{() -> adapter.listener.onClickSeeMoreForCategory(categoryInfo)}"
-            android:text="@string/see_more"
-            android:textColor="@color/seconder_text_color"
-            android:textSize="@dimen/text_normal"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
             app:layout_constraintBottom_toBottomOf="@+id/home_category_headline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/home_category_headline" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/monda_regular"
+            android:onClick="@{() -> adapter.listener.onClickSeeMoreForCategory(categoryInfo)}"
+            android:text="@string/see_more"
+            android:textColor="@color/primary_icons_color"
+            android:textSize="@dimen/text_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/imageView" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_horizontal"
