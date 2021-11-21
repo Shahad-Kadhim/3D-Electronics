@@ -9,6 +9,7 @@ class OrderTrackingFragment: BaseFragment<FragmentOrderTrackingBinding, OrderTra
 
     override val layoutId = R.layout.fragment_order_tracking
     override val viewModelClass = OrderTrackingViewModel::class.java
+    override val useActivityViewModel: Boolean = false
 
     override fun setUpBinding() {
         binding.apply {

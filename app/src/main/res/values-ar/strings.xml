@@ -85,6 +85,7 @@
     <string name="enter_your_region_name">أدخل اسم المنطقة</string>
     <string name="enter_your_phone_number">أدخل رقم الهاتف</string>
     <string name="invalid_information">معلومات غير صالحة</string>
+    <string name="order_tracking">متابعة الطلب </string>
 
     <string-array name="governorates">
         <item>بغداد</item>

@@ -90,6 +90,7 @@
     <string name="enter_your_region_name">enter your region name</string>
     <string name="invalid_information">invalid information</string>
     <string name="enter_your_phone_number">Phone Number</string>
+    <string name="order_tracking">Order Tracking</string>
 
     <string-array name="governorates">
         <item>Baghdad</item>
