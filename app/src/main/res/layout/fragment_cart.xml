@@ -75,7 +75,7 @@
             android:fontFamily="@font/monda_bold"
             android:onClick="@{() -> viewModel.onClickCheckout()}"
             android:padding="@dimen/padding_normal"
-            android:text="@string/check_out"
+            android:text="@string/continuee"
             app:showWhenThereIsItem="@{viewModel.cartItems}"
             android:textAllCaps="false"
             android:textColor="@color/white"

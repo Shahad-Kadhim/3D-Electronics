@@ -88,6 +88,8 @@
     <string name="order_day">يوم الطلب:</string>
     <string name="hello">مرحبا, </string>
     <string name="your_order_is">طلبك </string>
+    <string name="check">تحقق</string>
+    <string name="continuee">أستمرار</string>
 
 
     <string-array name="governorates">
