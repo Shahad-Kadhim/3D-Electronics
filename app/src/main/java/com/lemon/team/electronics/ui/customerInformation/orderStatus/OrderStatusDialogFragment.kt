@@ -3,14 +3,11 @@ package com.lemon.team.electronics.ui.customerInformation.orderStatus
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
+import androidx.navigation.fragment.*
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentOrderStatusBinding
 import com.lemon.team.electronics.util.observeEvent
@@ -60,7 +57,7 @@ class OrderStatusDialogFragment : DialogFragment() {
     }
 
     private fun navigateToFollowOrder() {
-
+        findNavController().navigate(OrderStatusDialogFragmentDirections.actionOrderStatusDialogFragmentToOrderTrackingFragment())
     }
 
     private fun navigateToHome() {
