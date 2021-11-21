@@ -1,6 +1,5 @@
 package com.lemon.team.electronics.ui.customerInformation
 
-import android.util.Log
 import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCustomerInformationBinding
@@ -20,21 +19,13 @@ class CustomerInformationFragment :
         viewModel.orderResponse.observeEvent(this) {
             when (it) {
                 is State.Success -> {
-                    viewModel.onOrderSuccess()
+                    viewModel.clearCartItems()
                     navigateToDialog(OrderStatus.Success)
                 }
                 State.Loading -> {
                 }
                 is State.Error -> navigateToDialog(OrderStatus.Fail)
             }
-        }
-
-        viewModel.informationValidation.observe(this) {
-            when (it) {
-                true -> binding.submitButton.isEnabled = true
-                false -> binding.submitButton.isEnabled = false
-            }
-
         }
 
         viewModel.clickBackEvent.observeEvent(this) {

@@ -37,7 +37,6 @@ class CustomerInformationViewModel : BaseViewModel() {
         if (
             fullName.value?.isNotEmpty() == true &&
             regionName.value?.isNotEmpty() == true &&
-            phoneNumber.value?.isNotEmpty() == true &&
             phoneNumber.value?.count() == Constants.VALID_NUMBER_OF_DIGIT_OF_PHONE_NUMBER
         ) {
             informationValidation.postValue(true)
@@ -83,7 +82,7 @@ class CustomerInformationViewModel : BaseViewModel() {
 
     }
 
-    fun onOrderSuccess() {
+    fun clearCartItems() {
         viewModelScope.launch {
             Repository.clearCart()
         }
