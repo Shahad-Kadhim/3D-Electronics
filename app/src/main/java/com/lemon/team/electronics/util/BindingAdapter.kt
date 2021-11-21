@@ -1,7 +1,9 @@
 package com.lemon.team.electronics.util
 
+import android.content.Context
 import android.text.Html
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -26,6 +28,8 @@ import android.widget.AdapterView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.widget.doOnTextChanged
 import com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.content.ContextCompat.getSystemService
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -223,7 +227,7 @@ fun setPikerListener(view: NumberPicker, attChange: InverseBindingListener) {
 @BindingAdapter(value = ["selectedItem"], requireAll = false)
 fun bindSpinnerData(
     spinner: Spinner,
-    newSelectedValue: String?
+    newSelectedValue: String?,
 ) {
     newSelectedValue?.let {
         val pos = spinner.selectedItemPosition
@@ -313,10 +317,17 @@ fun setErrorMessage(view: EditText, message: String) {
 @BindingAdapter(value = ["app:phoneNumberErrorMessage"])
 fun setPhoneNumberErrorMessage(view: EditText, message: String) {
     view.doOnTextChanged { text, _, _, _ ->
-        if (text?.isEmpty() == true){
+        if (text?.isEmpty() == true) {
             view.error = message
         } else if (text?.count() != Constants.VALID_NUMBER_OF_DIGIT_OF_PHONE_NUMBER) {
             view.error = view.context.getString(R.string.phone_number_should_be_11_digit)
         }
     }
+}
+
+@BindingAdapter(value = ["app:setFocus"])
+fun setFocus(view: EditText, value: Boolean) {
+    view.requestFocus()
+    (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+        .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
 }
