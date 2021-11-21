@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.lemon.team.electronics.ui.search.SearchViewModel" />
@@ -14,35 +15,45 @@
         android:layout_height="match_parent"
         android:background="@color/background_color">
 
-        <EditText
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/search_bar"
-            style="@style/SearchBarStyle"
+            android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin_small"
-            android:transitionName="search"
-            android:layout_marginEnd="@dimen/margin_normal"
-            app:setFocus="@{true}"
             android:background="@drawable/rounded_search"
-            android:hint="@string/search"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
-            android:text="@={viewModel.searchName}"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:transitionName="search"
             app:layout_constraintBottom_toBottomOf="@+id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/back_button"
-            app:layout_constraintTop_toTopOf="@+id/back_button"
-            app:onclickSearch="@{viewModel::onclickSearch}" />
+            app:layout_constraintTop_toTopOf="@+id/back_button">
 
-        <ImageView
-            android:id="@+id/clear_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_small"
-            android:src="@drawable/ic_baseline_close_24"
-            android:onClick="@{() -> viewModel.onClickClear()}"
-            app:layout_constraintEnd_toEndOf="@+id/search_bar"
-            app:layout_constraintTop_toTopOf="@+id/search_bar"
-            app:layout_constraintBottom_toBottomOf="@+id/search_bar"/>
+            <EditText
+                android:id="@+id/search_input"
+                style="@style/SearchBarStyle"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_search"
+                android:hint="@string/search"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="@={viewModel.searchName}"
+                app:layout_constraintEnd_toStartOf="@+id/clear_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:onclickSearch="@{viewModel::onclickSearch}"
+                app:setFocus="@{true}" />
+
+            <ImageView
+                android:id="@+id/clear_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_small"
+                android:onClick="@{() -> viewModel.onClickClear()}"
+                android:src="@drawable/ic_baseline_close_24"
+                app:layout_constraintBottom_toBottomOf="@+id/search_bar"
+                app:layout_constraintEnd_toEndOf="@+id/search_bar"
+                app:layout_constraintTop_toTopOf="@+id/search_bar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -57,16 +68,15 @@
             android:id="@+id/search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin7x"
+            app:hiddenOnState="@{viewModel.searchResult}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="@dimen/margin7x"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/search"
-            app:hiddenOnState="@{viewModel.searchResult}"
-            />
+            app:lottie_rawRes="@raw/search" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_button"
@@ -81,44 +91,45 @@
             android:id="@+id/search_recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/margin_small"
             android:layout_marginHorizontal="@dimen/margin_small"
-            android:visibility="visible"
+            android:layout_marginTop="@dimen/margin_small"
+            android:clipToPadding="false"
             android:orientation="vertical"
             android:paddingBottom="64dp"
-            android:clipToPadding="false"
-            app:last="@{viewModel.onScrollLast}"
+            android:visibility="visible"
             app:items="@{viewModel.searchResult.toData().products}"
+            app:last="@{viewModel.onScrollLast}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_bar"
-            tools:listitem="@layout/item_product"
             app:showOnSuccess="@{viewModel.searchResult}"
-            app:spanCount="2"/>
+            app:spanCount="2"
+            tools:listitem="@layout/item_product" />
 
 
-        <include android:id="@+id/loading"
-            app:showOnLoading="@{viewModel.searchResult}"
-            layout="@layout/loading" />
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading"
+            app:showOnLoading="@{viewModel.searchResult}" />
 
         <include
             android:id="@+id/error"
-            app:showOnError="@{viewModel.searchResult}"
-            layout="@layout/error" />
+            layout="@layout/error"
+            app:showOnError="@{viewModel.searchResult}" />
 
         <include
             android:id="@+id/not_found"
-            app:showWhenEmpty="@{viewModel.searchResult.toData().products}"
-            layout="@layout/not_found" />
+            layout="@layout/not_found"
+            app:showWhenEmpty="@{viewModel.searchResult.toData().products}" />
 
         <ProgressBar
             android:id="@+id/new_loading"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:indeterminateTint="@color/brand_color"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_weight="7"
-            app:showOnLoadingNew="@{viewModel.loading}"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:showOnLoadingNew="@{viewModel.loading}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

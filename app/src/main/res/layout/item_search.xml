@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="title"
-            type="String"/>
+            type="String" />
 
         <variable
             name="listener"
@@ -16,28 +17,46 @@
         android:id="@+id/searchCard"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:transitionName="search"
-        android:layout_marginVertical="@dimen/margin2x"
         android:layout_marginHorizontal="@dimen/margin3x"
-        app:cardCornerRadius="@dimen/radius_large"
-        app:cardElevation="4dp"
+        android:layout_marginVertical="@dimen/margin2x"
+        android:background="@drawable/search_style"
         android:onClick="@{() -> listener.onclickSearch()}"
-        android:background="@drawable/search_style">
+        android:transitionName="search"
+        app:cardCornerRadius="@dimen/radius_large"
+        app:cardElevation="4dp">
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin2x"
-            android:text="@string/search"
-            android:padding="@dimen/margin_small"
-            android:textColor="@color/secondary_icons_color"
-            android:fontFamily="@font/roboto_regular"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/text_normal"
-            android:drawablePadding="@dimen/margin2x"
-            android:layout_gravity="center_vertical"
-            android:drawableStart="@drawable/ic_search"
-            app:drawableTint="@color/secondary_icons_color" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/margin2x"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="@dimen/margin2x"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:padding="@dimen/margin_small"
+                android:text="@string/search"
+                android:textColor="@color/secondary_icons_color"
+                android:textSize="@dimen/text_normal"
+                app:drawableTint="@color/secondary_icons_color" />
+
+            <ImageView
+                android:id="@+id/clear_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_small"
+                android:src="@drawable/ic_baseline_close_24"
+                app:layout_constraintEnd_toEndOf="@+id/search_bar"
+                app:layout_constraintTop_toTopOf="@+id/search_bar"
+                app:layout_constraintBottom_toBottomOf="@+id/search_bar"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </com.google.android.material.card.MaterialCardView>
 </layout>
