@@ -23,6 +23,6 @@ class OrderTrackingFragment: BaseFragment<FragmentOrderTrackingBinding, OrderTra
         viewModel.clickBackEvent.observeEvent(this) {
             findNavController().navigateUp()
         }
-
     }
+
 }

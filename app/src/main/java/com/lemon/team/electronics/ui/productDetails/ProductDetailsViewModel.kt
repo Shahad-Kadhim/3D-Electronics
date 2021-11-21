@@ -15,8 +15,6 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
     private var _onclickBack =MutableLiveData<Event<Boolean>>()
     val onclickBack :LiveData<Event<Boolean>> = _onclickBack
 
-    private var _onclickWish =MutableLiveData<Event<String>>()
-    val onclickWish :LiveData<Event<String>> = _onclickWish
 
     private var _toast =MutableLiveData<Event<String>>()
     val toast :LiveData<Event<String>> = _toast

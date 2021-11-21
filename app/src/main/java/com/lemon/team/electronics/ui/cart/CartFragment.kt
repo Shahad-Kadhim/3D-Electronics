@@ -21,19 +21,20 @@ class CartFragment: BaseFragment<FragmentCartBinding, CartViewModel>() {
     }
 
     override fun observeEvents(){
+        with(viewModel) {
+            clickItemEvent.observeEvent(this@CartFragment) { productId ->
+                view?.goToFragment(CartFragmentDirections.actionCartFragmentToProductFragment(
+                    productId))
+            }
 
-        viewModel.clickItemEvent.observeEvent(this) { productId ->
-            view?.goToFragment(CartFragmentDirections.actionCartFragmentToProductFragment(productId))
+            clickCheckoutEvent.observeEvent(this@CartFragment) {
+                view?.goToFragment(CartFragmentDirections.actionCartFragmentToCheckoutFragment())
+            }
+
+            clickBackEvent.observeEvent(this@CartFragment) {
+                findNavController().navigateUp()
+            }
         }
-
-        viewModel.clickCheckoutEvent.observeEvent(this) {
-            view?.goToFragment(CartFragmentDirections.actionCartFragmentToCheckoutFragment())
-        }
-
-        viewModel.clickBackEvent.observeEvent(this) {
-            findNavController().navigateUp()
-        }
-
     }
 
 

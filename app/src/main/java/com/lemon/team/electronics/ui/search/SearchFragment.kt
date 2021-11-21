@@ -30,7 +30,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
     }
 
     override fun observeEvents() {
-        viewModel.clickItemEvent.observeEvent(this){ productId ->
+        with(viewModel) {
+
+        }
+        viewModel.clickItemEvent.observeEvent(this) { productId ->
             binding.root.goToFragment(
                 SearchFragmentDirections
                     .actionSearchFragmentToProductFragment(productId)

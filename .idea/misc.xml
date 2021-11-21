@@ -4,6 +4,30 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/MJ/3DElectronics/app/src/main/res/layout/activity_main.xml" value="0.19270833333333334" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/add_button.xml" value="0.14930555555555555" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic__1_03e076cc.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.1671875" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/drawable/trakingimage.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/error.xml" value="0.11944444444444445" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_about.xml" value="0.18958930276981853" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_cart.xml" value="0.3675925925925926" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_categories.xml" value="0.11944444444444445" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_category.xml" value="0.1" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_checkout.xml" value="0.11944444444444445" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_customer_information.xml" value="0.1837962962962963" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_order_tracking.xml" value="0.25" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_product_details.xml" value="0.1837962962962963" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/fragment_search.xml" value="0.18" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_best_seller.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_categories.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_category.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_checkout.xml" value="0.4102780117944398" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_order_tracking.xml" value="0.25" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/item_product_in_cart.xml" value="0.1837962962962963" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/items_horizontal_best_seller_host.xml" value="0.22" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/items_horizontal_category_host.xml" value="0.20677083333333332" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/loading.xml" value="0.11944444444444445" />
+        <entry key="..\:/Users/MJ/Desktop/3D-Electronics/app/src/main/res/layout/not_found.xml" value="0.11944444444444445" />
         <entry key="..\:/Users/Zahraa/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/activity_image.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Zahraa/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Zahraa/AndroidStudioProjects/3D-Electronics/app/src/main/res/layout/fragment_about.xml" value="0.20416666666666666" />

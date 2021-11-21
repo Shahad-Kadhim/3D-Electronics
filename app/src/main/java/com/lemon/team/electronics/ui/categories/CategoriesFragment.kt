@@ -25,15 +25,16 @@ class CategoriesFragment: BaseFragment<FragmentCategoriesBinding,CategoriesViewM
     }
 
     override fun observeEvents() {
-
-        viewModel.categoryId.observeEvent(this){ categoryResponse ->
-            view?.goToFragment(CategoriesFragmentDirections
-                .actionCategoriesFragmentToCategoryFragment(categoryResponse.id, categoryResponse.categoryName)
-            )
-        }
-
-        viewModel.clickBackEvent.observeEvent(this){
-            findNavController().navigateUp()
+        with(viewModel) {
+            categoryId.observeEvent(this@CategoriesFragment) { categoryResponse ->
+                view?.goToFragment(CategoriesFragmentDirections
+                    .actionCategoriesFragmentToCategoryFragment(categoryResponse.id,
+                        categoryResponse.categoryName)
+                )
+            }
+            clickBackEvent.observeEvent(this@CategoriesFragment) {
+                findNavController().navigateUp()
+            }
         }
     }
 

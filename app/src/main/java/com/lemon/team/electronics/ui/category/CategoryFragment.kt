@@ -28,12 +28,15 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel
     }
 
     override fun observeEvents(){
-        viewModel.clickItemEvent.observeEvent(this){ productId ->
-            view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(productId))
-        }
+        with(viewModel) {
+            clickItemEvent.observeEvent(this@CategoryFragment) { productId ->
+                view?.goToFragment(CategoryFragmentDirections.actionCategoryFragmentToProductFragment(
+                    productId))
+            }
 
-        viewModel.clickBackEvent.observeEvent(this){
-            findNavController().navigateUp()
+            clickBackEvent.observeEvent(this@CategoryFragment) {
+                findNavController().navigateUp()
+            }
         }
     }
 

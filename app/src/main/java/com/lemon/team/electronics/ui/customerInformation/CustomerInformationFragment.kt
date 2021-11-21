@@ -16,22 +16,24 @@ class CustomerInformationFragment :
     override val useActivityViewModel = false
 
     override fun observeEvents() {
-        viewModel.orderResponse.observeEvent(this) {
-            when (it) {
-                is State.Success -> {
-                    viewModel.clearCartItems()
-                    navigateToDialog(OrderStatus.Success)
+        with(viewModel) {
+            orderResponse.observeEvent(this@CustomerInformationFragment) {
+                when (it) {
+                    is State.Success -> {
+                        viewModel.clearCartItems()
+                        navigateToDialog(OrderStatus.Success)
+                    }
+                    State.Loading -> {
+                    }
+                    is State.Error -> navigateToDialog(OrderStatus.Fail)
                 }
-                State.Loading -> {
-                }
-                is State.Error -> navigateToDialog(OrderStatus.Fail)
             }
-        }
 
-        viewModel.clickBackEvent.observeEvent(this) {
-            findNavController().navigateUp()
-        }
+            clickBackEvent.observeEvent(this@CustomerInformationFragment) {
+                findNavController().navigateUp()
+            }
 
+        }
     }
 
     override fun setUpBinding() {

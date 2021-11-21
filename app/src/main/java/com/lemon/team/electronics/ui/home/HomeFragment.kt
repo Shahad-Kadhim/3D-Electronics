@@ -95,14 +95,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun observeResponse() {
-        viewModel.apply {
+        with(viewModel) {
             (binding.recyclerViewHome.adapter as HomeRecyclerAdapter?)?.apply {
 
                 addCategoryItem(headsetsCategory,
-                    CategoryInfoType(CategoriesId.HEADSETS, context?.getString(R.string.headset).toString())
+                    CategoryInfoType(CategoriesId.HEADSETS,
+                        context?.getString(R.string.headset).toString())
                 )
                 addCategoryItem(laptopCategory,
-                    CategoryInfoType(CategoriesId.LAPTOP, context?.getString(R.string.laptop).toString())
+                    CategoryInfoType(CategoriesId.LAPTOP,
+                        context?.getString(R.string.laptop).toString())
                 )
                 addCategoryItem(caseCategory,
                     CategoryInfoType(CategoriesId.CASE,

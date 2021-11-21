@@ -33,11 +33,7 @@ class ProductDetailsFragment :
     }
 
     override fun observeEvents() {
-        viewModel.apply {
-
-            onclickWish.observeEvent(this@ProductDetailsFragment) {
-                // add to wish table when create database
-            }
+        with(viewModel) {
 
             onclickBack.observeEvent(this@ProductDetailsFragment) {
                 findNavController().navigateUp()

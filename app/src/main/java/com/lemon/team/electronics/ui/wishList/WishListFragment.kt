@@ -15,32 +15,29 @@ class WishListFragment: BaseFragment<FragmentWishListBinding, WishListViewModel>
     override fun setUpBinding() {
         binding.apply {
             wishlistRecycler.adapter =
-                WishListRecyclerAdapter(mutableListOf(),this@WishListFragment.viewModel)
+                WishListRecyclerAdapter(mutableListOf(), this@WishListFragment.viewModel)
         }
     }
 
-    override fun observeEvents(){
+    override fun observeEvents() {
+        with(viewModel) {
+            clickItemEvent.observeEvent(this@WishListFragment) { productId ->
+                view?.goToFragment(
+                    WishListFragmentDirections.actionWishFragment2ToProductFragment(productId)
+                )
+            }
+            clickBackEvent.observeEvent(this@WishListFragment) {
+                findNavController().navigateUp()
+            }
 
-        viewModel.clickItemEvent.observeEvent(this){ productId ->
-            view?.goToFragment(
-                WishListFragmentDirections.actionWishFragment2ToProductFragment(productId)
-            )
+            clickAdd.observeEvent(this@WishListFragment) {
+                view?.goToFragment(
+                    WishListFragmentDirections.actionWishListFragmentToCartFragment()
+                )
+            }
+            toast.observeEvent(this@WishListFragment) {
+                setToast(view, it)
+            }
         }
-        viewModel.clickBackEvent.observeEvent(this){
-            findNavController().navigateUp()
-        }
-
-        viewModel.clickAdd.observeEvent(this) {
-            view?.goToFragment(
-                WishListFragmentDirections.actionWishListFragmentToCartFragment()
-            )
-        }
-
-        viewModel.toast.observeEvent(this){
-            setToast(view, it)
-        }
-
     }
-
-
 }
