@@ -67,7 +67,7 @@ object Repository{
         dao.deleteCartItems()
 
 
-    fun trackOrder(phoneNumber: String?): Flow<State<List<OrderTrackingResponse>?>> =
+    fun trackOrder(phoneNumber: String): Flow<State<List<OrderTrackingResponse>?>> =
         wrapWithFlow { API.apiService.trackOrder(phoneNumber) }
 
 

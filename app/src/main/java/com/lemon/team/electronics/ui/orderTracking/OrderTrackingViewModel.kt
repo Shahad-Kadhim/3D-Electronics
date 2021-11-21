@@ -25,8 +25,10 @@ class OrderTrackingViewModel: BaseViewModel(), OrderInteractionListener {
 
     fun trackOrder() {
         viewModelScope.launch {
-            Repository.trackOrder(phoneNumber.value).collect { orderTrackingResponse ->
-                _orderTrackingResponse.postValue(orderTrackingResponse)
+            phoneNumber.value?.takeIf { it.isNotBlank() }?.let { phoneNumber ->
+                Repository.trackOrder(phoneNumber).collect { orderTrackingResponse ->
+                    _orderTrackingResponse.postValue(orderTrackingResponse)
+                }
             }
         }
     }

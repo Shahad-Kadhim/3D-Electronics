@@ -41,6 +41,6 @@ interface ProductService {
     suspend fun makeOrder(@Body order: JsonElement): Response<OrderResponse>
 
     @GET("resources/orders/checkStatus/{phoneNumber}")
-    suspend fun trackOrder(@Path("phoneNumber") phoneNumber: String?): Response<List<OrderTrackingResponse>>
+    suspend fun trackOrder(@Path("phoneNumber") phoneNumber: String): Response<List<OrderTrackingResponse>>
 
 }
