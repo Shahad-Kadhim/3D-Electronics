@@ -38,7 +38,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
 
     val categories = Repository.getCategories().asLiveData()
-    val mostWantedProducts = Repository.getRecommendedProducts().asLiveData()
+    val bestSeller = Repository.getRecommendedProducts().asLiveData()
     val homeImages = Repository.getHomeImages().asLiveData()
 
     val laptopCategory = Repository.getProductsByCategoryId(CategoriesId.LAPTOP,
@@ -59,9 +59,9 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     val state=MediatorLiveData<State<Any>>().apply {
         addSource(homeImages,this@HomeViewModel::checkIfSuccess)
-        addSource(categories,this@HomeViewModel::checkIfSuccess)
-        addSource(mostWantedProducts,this@HomeViewModel::checkIfSuccess)
-        addSource(laptopCategory,this@HomeViewModel::checkIfSuccess)
+        addSource(categories, this@HomeViewModel::checkIfSuccess)
+        addSource(bestSeller, this@HomeViewModel::checkIfSuccess)
+        addSource(laptopCategory, this@HomeViewModel::checkIfSuccess)
         addSource(headsetsCategory,this@HomeViewModel::checkIfSuccess)
         addSource(caseCategory,this@HomeViewModel::checkIfSuccess)
         addSource(padMouseCategory,this@HomeViewModel::checkIfSuccess)
@@ -83,7 +83,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         checkState(
             homeImages.value,
             categories.value,
-            mostWantedProducts.value,
+            bestSeller.value,
             laptopCategory.value,
             caseCategory.value,
             headsetsCategory.value,

@@ -8,7 +8,6 @@ import com.lemon.team.electronics.databinding.FragmentHomeBinding
 import com.lemon.team.electronics.model.domain.*
 import com.lemon.team.electronics.ui.base.BaseFragment
 import android.content.Intent
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavDirections
 import com.lemon.team.electronics.model.response.ProductsResponse
@@ -103,21 +102,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                     CategoryInfoType(CategoriesId.LAPTOP, context?.getString(R.string.laptop).toString())
                 )
                 addCategoryItem(caseCategory,
-                    CategoryInfoType(CategoriesId.CASE, context?.getString(R.string._case).toString())
+                    CategoryInfoType(CategoriesId.CASE,
+                        context?.getString(R.string._case).toString())
                 )
                 addCategoryItem(padMouseCategory,
-                    CategoryInfoType(CategoriesId.PAD_MOUSE, context?.getString(R.string.mouse_pad).toString())
+                    CategoryInfoType(CategoriesId.PAD_MOUSE,
+                        context?.getString(R.string.mouse_pad).toString())
                 )
 
-                addItem(categories){ state ->
+                addItem(categories) { state ->
                     addItem(HomeItem.CategoriesType(state.toData()!!.shuffled()))
                 }
 
-                addItem(mostWantedProducts){ state ->
-                    addItem(HomeItem.MostWantedProductsType(state.toData()!!))
+                addItem(bestSeller) { state ->
+                    addItem(HomeItem.BestSellerType(state.toData()!!))
                 }
 
-                addItem(homeImages){ state ->
+                addItem(homeImages) { state ->
                     addItem(HomeItem.SlideType(state.toData()!!))
                 }
 

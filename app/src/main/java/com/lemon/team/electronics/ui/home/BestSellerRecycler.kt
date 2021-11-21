@@ -4,17 +4,17 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.response.Product
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 
-class MostWantedProductsRecycler(
+class BestSellerRecycler(
     items: List<Product>,
-    val listener: HomeInteractionListener
+    val listener: HomeInteractionListener,
 ) : BaseRecyclerAdapter<Product>(items, listener) {
 
-    override val layoutId: Int = R.layout.item_most_wanted_products
+    override val layoutId: Int = R.layout.item_best_seller
 
     override fun <T> areItemsTheSame(
         oldItemPosition: Int,
         newItemPosition: Int,
-        newItems: List<T>
+        newItems: List<T>,
     ) =
         getItems()[oldItemPosition].id == (newItems[newItemPosition] as Product).id
 
