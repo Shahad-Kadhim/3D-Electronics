@@ -2,8 +2,7 @@ package com.lemon.team.electronics.ui.orderTracking
 
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.model.orderTracking.OrderTrackingResponse
-import com.lemon.team.electronics.ui.base.BaseInteractionListener
-import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
+import com.lemon.team.electronics.ui.base.*
 
 class OrderTrackingRecyclerAdapter(
     items: List<OrderTrackingResponse>,
@@ -16,8 +15,7 @@ class OrderTrackingRecyclerAdapter(
         newItemPosition: Int,
         newItems: List<T>
     ) =
-        getItems()[oldItemPosition] == (newItems[newItemPosition] as OrderTrackingResponse)
+        getItems()[oldItemPosition].createdAt == (newItems[newItemPosition] as OrderTrackingResponse).createdAt
 }
 
-interface OrderInteractionListener: BaseInteractionListener {
-}
+interface OrderInteractionListener : BaseInteractionListener

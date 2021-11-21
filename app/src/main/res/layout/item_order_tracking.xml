@@ -54,18 +54,30 @@
 
 
             <TextView
-                android:id="@+id/order_date"
-                android:layout_width="180dp"
+                android:id="@+id/order_date_text"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monda_regular"
-                android:text="@{` Order Day :`+ item.createdAt}"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_default"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/customer_name"
                 app:layout_constraintTop_toBottomOf="@+id/order_state"
-                tools:text="Your Order Is Received" />
+                android:text="order day:" />
 
+
+            <TextView
+                android:id="@+id/order_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monda_regular"
+                app:setDate="@{item.createdAt}"
+                android:layout_marginStart="@dimen/margin_small"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBaseline_toBaselineOf="@+id/order_date_text"
+                app:layout_constraintStart_toEndOf="@+id/order_date_text"
+                tools:text="2021/11/4" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/product_image"

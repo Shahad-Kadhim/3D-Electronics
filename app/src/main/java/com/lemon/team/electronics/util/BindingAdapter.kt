@@ -1,5 +1,6 @@
 package com.lemon.team.electronics.util
 
+import android.annotation.SuppressLint
 import android.text.Html
 import android.view.View
 import android.widget.*
@@ -26,6 +27,8 @@ import android.widget.AdapterView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.widget.doOnTextChanged
 import com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 @BindingAdapter(value = ["app:htmlText"])
@@ -313,10 +316,18 @@ fun setTextValidation(view: EditText, message: String) {
 @BindingAdapter(value = ["app:phoneNumberValidation"])
 fun setPhoneNumberValidation(view: EditText, message: String) {
     view.doOnTextChanged { text, _, _, _ ->
-        if (text?.isEmpty() == true){
+        if (text?.isEmpty() == true) {
             view.error = message
         } else if (text?.count() != Constants.VALID_NUMBER_OF_DIGIT_OF_PHONE_NUMBER) {
             view.error = view.context.getString(R.string.phone_number_should_be_11_digit)
         }
+    }
+}
+
+@SuppressLint("SimpleDateFormat")
+@BindingAdapter(value = ["app:setDate"])
+fun setDate(view: TextView, dateTime: String) {
+    SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS").parse(dateTime)?.let { date ->
+        view.text = SimpleDateFormat("yyyy-MM-dd").format(date)
     }
 }
