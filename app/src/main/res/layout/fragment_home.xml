@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <data>
@@ -41,18 +42,20 @@
             android:src="@drawable/ic_about"
             app:layout_constraintBottom_toBottomOf="@+id/logo_image"
             app:layout_constraintRight_toLeftOf="@+id/cart_icon"
-            app:layout_constraintTop_toTopOf="@+id/logo_image" />
+            app:layout_constraintTop_toTopOf="@+id/logo_image"
+            />
 
         <ImageView
             android:id="@+id/tracking_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/margin_normal"
             android:onClick="@{() -> viewModel.onClickTracking()}"
             android:src="@drawable/ic_car"
-            app:layout_constraintEnd_toStartOf="@+id/about_icon"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/logo_image"
+            app:layout_constraintRight_toLeftOf="@+id/about_icon"
+            app:layout_constraintTop_toTopOf="@+id/logo_image"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_home"
