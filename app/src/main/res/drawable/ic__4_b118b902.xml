@@ -1,0 +1,36 @@
+<vector android:height="128dp"
+    android:viewportHeight="64"
+    android:viewportWidth="64"
+    android:width="128dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <path
+        android:fillColor="#02998a"
+        android:pathData="M32,4h0A65.188,65.188 0,0 1,4.682 10H3v5.22A49.074,49.074 0,0 0,32 60h0A49.074,49.074 0,0 0,61 15.22V10H59.318A65.188,65.188 0,0 1,32 4Z" />
+    <path
+        android:fillColor="#fdb62f"
+        android:pathData="M12,17h26v20h-26z" />
+    <path
+        android:fillColor="#89c9d2"
+        android:pathData="M52,27l-6,-8l-4,0l0,8l10,0z" />
+    <path
+        android:fillColor="#f80"
+        android:pathData="M42,27V19H38V37H50a2,2 0,0 0,2 -2V27Z" />
+    <path
+        android:fillColor="#592c02"
+        android:pathData="M19,37m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#592c02"
+        android:pathData="M45,37m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#02998a"
+        android:pathData="M19,27l5,5l8,-8l-3,-3l-5,5l-2,-2l-3,3z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M32.419,3.092 L32,2.9l-0.419,0.194A64.625,64.625 0,0 1,4.682 9H2v6.22A50.139,50.139 0,0 0,31.591 60.912L32,61.1l0.409,-0.184A50.139,50.139 0,0 0,62 15.22V9H59.318A64.625,64.625 0,0 1,32.419 3.092ZM60,15.22A48.14,48.14 0,0 1,32 58.9,48.14 48.14,0 0,1 4,15.22V11h0.682A66.658,66.658 0,0 0,32 5.1,66.658 66.658,0 0,0 59.318,11H60Z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M39,18L39,16L11,16L11,38h4.142a3.981,3.981 0,0 0,7.716 0L41.142,38a3.981,3.981 0,0 0,7.716 0L50,38a3,3 0,0 0,3 -3L53,26.667L46.5,18ZM50,26L43,26L43,20h2.5ZM19,39a2,2 0,1 1,2 -2A2,2 0,0 1,19 39ZM37,36L22.858,36a3.981,3.981 0,0 0,-7.716 0L13,36L13,18L37,18ZM45,39a2,2 0,1 1,2 -2A2,2 0,0 1,45 39ZM50,36L48.858,36a3.981,3.981 0,0 0,-7.716 0L39,36L39,20h2v8L51,28v7A1,1 0,0 1,50 36Z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M33.414,24 L29,19.586l-5,5 -2,-2L17.586,27 24,33.414ZM22,25.414l2,2 5,-5L30.586,24 24,30.586 20.414,27Z" />
+</vector>

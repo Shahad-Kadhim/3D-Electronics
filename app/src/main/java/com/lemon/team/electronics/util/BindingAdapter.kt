@@ -331,3 +331,15 @@ fun setDate(view: TextView, dateTime: String) {
         view.text = SimpleDateFormat("yyyy-MM-dd").format(date)
     }
 }
+
+@BindingAdapter(value = ["app:setImageState"])
+fun setImageState(view: ImageView, state: String?) {
+    state?.let {
+        view.setImageDrawable(
+            ContextCompat.getDrawable(
+                view.context,
+                state.toImageState()
+            )
+        )
+    }
+}

@@ -83,7 +83,7 @@
                 android:id="@+id/product_image"
                 android:layout_width="124dp"
                 android:layout_height="0dp"
-                android:src="@drawable/trakingimage"
+                app:setImageState="@{item.orderState}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
