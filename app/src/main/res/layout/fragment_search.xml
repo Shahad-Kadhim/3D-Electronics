@@ -33,6 +33,17 @@
             app:layout_constraintTop_toTopOf="@+id/back_button"
             app:onclickSearch="@{viewModel::onclickSearch}" />
 
+        <ImageView
+            android:id="@+id/clear_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:src="@drawable/ic_baseline_close_24"
+            android:onClick="@{() -> viewModel.onClickClear()}"
+            app:layout_constraintEnd_toEndOf="@+id/search_bar"
+            app:layout_constraintTop_toTopOf="@+id/search_bar"
+            app:layout_constraintBottom_toBottomOf="@+id/search_bar"/>
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
