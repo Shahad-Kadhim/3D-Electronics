@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.lemon.team.electronics.ui.search.SearchViewModel" />
@@ -19,20 +20,32 @@
             style="@style/SearchBarStyle"
             android:layout_height="40dp"
             android:layout_marginStart="@dimen/margin_small"
-            android:transitionName="search"
             android:layout_marginEnd="@dimen/margin_normal"
-            app:setFocus="@{true}"
             android:background="@drawable/rounded_search"
             android:hint="@string/search"
-            android:focusedByDefault="true"
-            android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="@dimen/padding6x"
             android:text="@={viewModel.searchName}"
+            android:transitionName="search"
             app:layout_constraintBottom_toBottomOf="@+id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/back_button"
             app:layout_constraintTop_toTopOf="@+id/back_button"
-            app:onclickSearch="@{viewModel::onclickSearch}" />
+            app:onclickSearch="@{viewModel::onclickSearch}"
+            app:setFocus="@{true}" />
+
+        <ImageView
+            android:id="@+id/clear_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:onClick="@{() -> viewModel.onClickClear()}"
+            android:src="@drawable/ic_baseline_close_24"
+            app:layout_constraintBottom_toBottomOf="@+id/search_bar"
+            app:layout_constraintEnd_toEndOf="@+id/search_bar"
+            app:layout_constraintTop_toTopOf="@+id/search_bar"
+            app:searchClearVisibility="@{viewModel.searchName}" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -87,19 +100,20 @@
             app:spanCount="2"/>
 
 
-        <include android:id="@+id/loading"
-            app:showOnLoading="@{viewModel.searchResult}"
-            layout="@layout/loading" />
+        <include
+            android:id="@+id/loading"
+            layout="@layout/loading"
+            app:showOnLoading="@{viewModel.searchResult}" />
 
         <include
             android:id="@+id/error"
-            app:showOnError="@{viewModel.searchResult}"
-            layout="@layout/error" />
+            layout="@layout/error"
+            app:showOnError="@{viewModel.searchResult}" />
 
         <include
             android:id="@+id/not_found"
-            app:showWhenEmpty="@{viewModel.searchResult.toData().products}"
-            layout="@layout/not_found" />
+            layout="@layout/not_found"
+            app:showWhenEmpty="@{viewModel.searchResult.toData().products}" />
 
         <ProgressBar
             android:id="@+id/new_loading"

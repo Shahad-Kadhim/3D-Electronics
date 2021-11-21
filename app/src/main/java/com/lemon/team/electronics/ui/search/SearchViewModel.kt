@@ -68,6 +68,10 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
         _clickBackEvent.postValue(Event(true))
     }
 
+    fun onClickClear() {
+       searchName.postValue("")
+    }
+
     override fun onClickProduct(productId: String) {
         _clickItemEvent.postValue(Event(productId))
     }

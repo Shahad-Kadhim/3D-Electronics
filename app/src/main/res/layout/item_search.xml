@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="title"
-            type="String"/>
+            type="String" />
 
         <variable
             name="listener"
@@ -16,27 +17,28 @@
         android:id="@+id/searchCard"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:transitionName="search"
-        android:layout_marginVertical="@dimen/margin2x"
         android:layout_marginHorizontal="@dimen/margin3x"
-        app:cardCornerRadius="@dimen/radius_large"
-        app:cardElevation="4dp"
+        android:layout_marginVertical="@dimen/margin2x"
+        android:background="@drawable/search_style"
         android:onClick="@{() -> listener.onclickSearch()}"
-        android:background="@drawable/search_style">
+        android:transitionName="search"
+        app:cardCornerRadius="@dimen/radius_large"
+        app:cardElevation="4dp">
 
         <TextView
+            android:id="@+id/search_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_marginHorizontal="@dimen/margin2x"
-            android:text="@string/search"
-            android:padding="@dimen/margin_small"
-            android:textColor="@color/secondary_icons_color"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="@dimen/margin2x"
             android:fontFamily="@font/roboto_regular"
             android:gravity="center_vertical"
+            android:padding="@dimen/margin_small"
+            android:text="@string/search"
+            android:textColor="@color/secondary_icons_color"
             android:textSize="@dimen/text_normal"
-            android:drawablePadding="@dimen/margin2x"
-            android:layout_gravity="center_vertical"
-            android:drawableStart="@drawable/ic_search"
             app:drawableTint="@color/secondary_icons_color" />
 
     </com.google.android.material.card.MaterialCardView>

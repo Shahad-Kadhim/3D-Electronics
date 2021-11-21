@@ -3,8 +3,6 @@ package com.lemon.team.electronics.ui.search
 import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.*
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentSearchBinding
