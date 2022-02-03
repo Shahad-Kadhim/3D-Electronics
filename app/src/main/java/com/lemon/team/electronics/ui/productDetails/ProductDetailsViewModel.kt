@@ -1,13 +1,18 @@
 package com.lemon.team.electronics.ui.productDetails
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.Product
+import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.remote.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
+@HiltViewModel
+class ProductDetailsViewModel @Inject constructor(
+    private val repository: Repository
+): BaseViewModel() ,ImageInteractionListener {
 
     private var _detailsProduct = MutableLiveData<State<Product?>>()
     val detailsProduct :LiveData<State<Product?>> =_detailsProduct
@@ -54,7 +59,7 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
     }
 
     fun getDetailsProduct(productId: String) {
-        collectResponse(Repository.getProductById(productId)) { state ->
+        collectResponse(repository.getProductById(productId)) { state ->
             _detailsProduct.postValue(state)
         }
         getDetailsProductFromDatabase(productId)
@@ -63,8 +68,8 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
     var piecesNumber = MutableLiveData(1)
     private fun getDetailsProductFromDatabase(productId: String){
         viewModelScope.launch {
-            if (Repository.checkCartItemExists(productId))
-                Repository.getCartItemById(productId)?.let {
+            if (repository.checkCartItemExists(productId))
+                repository.getCartItemById(productId)?.let {
                     piecesNumber.postValue(it.pieces)
                 }
             checkIfItemInWishTable(productId)
@@ -72,7 +77,7 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
     }
 
     private suspend fun checkIfItemInWishTable(productId: String) {
-        if (Repository.checkWishItemExists(productId))
+        if (repository.checkWishItemExists(productId))
             checkHeart.postValue(true)
     }
 
@@ -84,7 +89,7 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
     private fun addOrUpdateItem(item: Product?) {
         viewModelScope.launch {
             if (!isCartItemExists()!!)
-                setCartItem(item)?.let { Repository.insertCartItem(it) }
+                setCartItem(item)?.let { repository.insertCartItem(it) }
             else
                 updateItem(item)
         }
@@ -99,12 +104,12 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
         piecesNumber.value?.let { product?.toCartItemEntity(it) }
 
     private suspend fun isCartItemExists() =
-        detailsProduct.value?.toData()?.let { Repository.checkCartItemExists(it.id) }
+        detailsProduct.value?.toData()?.let { repository.checkCartItemExists(it.id) }
 
 
     private suspend fun  updateItem(product: Product?) {
         product?.price.let {
-            Repository.updateCartItem(
+            repository.updateCartItem(
                 product!!.id,
                 piecesNumber.value!!,
                 it!!.times(piecesNumber.value!!)
@@ -119,21 +124,21 @@ class ProductDetailsViewModel : BaseViewModel() ,ImageInteractionListener {
             if (checkHeart.value == true)
                 addToWishList(detailsProduct.value?.toData())
             else
-                Repository.deleteWishItemById(detailsProduct.value?.toData()?.id)
+                repository.deleteWishItemById(detailsProduct.value?.toData()?.id)
         }
     }
 
     private fun addToWishList(product: Product?) {
         viewModelScope.launch {
             if (!isWishItemExists()!!)
-                setWishItem(product)?.let { Repository.insertWishItem(it) }
+                setWishItem(product)?.let { repository.insertWishItem(it) }
     }}
 
     private fun setWishItem(product: Product?) =
         product?.toWishItemEntity()
 
     private suspend fun isWishItemExists() =
-        detailsProduct.value?.toData()?.let { Repository.checkWishItemExists(it.id) }
+        detailsProduct.value?.toData()?.let { repository.checkWishItemExists(it.id) }
 
 
 

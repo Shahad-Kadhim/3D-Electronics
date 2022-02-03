@@ -1,15 +1,19 @@
 package com.lemon.team.electronics.ui.categories
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.CategoryResponse
+import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.remote.response.CategoryResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
+@HiltViewModel
+class CategoriesViewModel @Inject constructor(
+    private val repository: Repository
+): BaseViewModel(), CategoryInteractionListener {
 
-class CategoriesViewModel: BaseViewModel(), CategoryInteractionListener {
-
-    val categoryList = Repository.getCategories().asLiveData()
+    val categoryList = repository.getCategories().asLiveData()
 
     private val _categoryId = MutableLiveData<Event<CategoryResponse>>()
     val categoryId : LiveData<Event<CategoryResponse>> =  _categoryId

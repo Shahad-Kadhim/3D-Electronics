@@ -1,13 +1,18 @@
 package com.lemon.team.electronics.ui.category
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.ProductsResponse
+import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.remote.response.ProductsResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
+import javax.inject.Inject
 
-class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
+@HiltViewModel
+class CategoryViewModel @Inject constructor(
+    private val repository: Repository
+): BaseViewModel(), ProductInteractionListener{
 
     private val _categoryItems = MutableLiveData<State<ProductsResponse?>>()
     var items: LiveData<State<ProductsResponse?>> = _categoryItems
@@ -59,7 +64,7 @@ class CategoryViewModel : BaseViewModel(), ProductInteractionListener{
 
     private fun getProductsInCurrentPage(onResponse: (State<ProductsResponse?>) -> Unit) {
         collectResponse(
-            Repository.getProductsByCategoryId(categoryId, scroll.value), onResponse)
+            repository.getProductsByCategoryId(categoryId, scroll.value), onResponse)
     }
 
     override fun onClickProduct(productId: String) {

@@ -3,15 +3,19 @@ package com.lemon.team.electronics.ui.home
 
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
-import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.CategoryResponse
-import com.lemon.team.electronics.model.domain.CategoryInfoType
-import com.lemon.team.electronics.model.response.Product
+import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.remote.response.CategoryResponse
+import com.lemon.team.electronics.data.remote.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel: BaseViewModel(), HomeInteractionListener {
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val repository: Repository
+): BaseViewModel(), HomeInteractionListener {
 
     private var _cartEvent = MutableLiveData<Event<Boolean>>()
     val cartEvent: LiveData<Event<Boolean>> = _cartEvent
@@ -40,20 +44,20 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
     private var _clickSharedProduct = MutableLiveData<Event<String>>()
     val clickSharedProduct: LiveData<Event<String>> = _clickSharedProduct
 
-    val categories = Repository.getCategories().asLiveData()
-    val bestSeller = Repository.getRecommendedProducts().asLiveData()
-    val homeImages = Repository.getHomeImages().asLiveData()
+    val categories = repository.getCategories().asLiveData()
+    val bestSeller = repository.getRecommendedProducts().asLiveData()
+    val homeImages = repository.getHomeImages().asLiveData()
 
-    val laptopCategory = Repository.getProductsByCategoryId(CategoriesId.LAPTOP,
+    val laptopCategory = repository.getProductsByCategoryId(CategoriesId.LAPTOP,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
-    val headsetsCategory = Repository.getProductsByCategoryId(CategoriesId.HEADSETS,
+    val headsetsCategory = repository.getProductsByCategoryId(CategoriesId.HEADSETS,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
-    val caseCategory = Repository.getProductsByCategoryId(CategoriesId.CASE,
+    val caseCategory = repository.getProductsByCategoryId(CategoriesId.CASE,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
-    val padMouseCategory = Repository.getProductsByCategoryId(CategoriesId.PAD_MOUSE,
+    val padMouseCategory = repository.getProductsByCategoryId(CategoriesId.PAD_MOUSE,
         Constants.PAGE_NUMBER_ZERO, Constants.SORT_BY_CREATED_DATE).asLiveData()
 
     private var _toast = MutableLiveData<Event<String>>()
@@ -113,7 +117,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
         }
 
         else {
-            setItem(product)?.let { Repository.insertCartItem(it) }
+            setItem(product)?.let { repository.insertCartItem(it) }
             _toast.postValue(Event("Added 1 Piece To Cart"))
         }
 
@@ -122,7 +126,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     private suspend fun getPiecesNumber(product: Product) {
         viewModelScope.launch {
-            Repository.getCartItemById(product.id)?.let {
+            repository.getCartItemById(product.id)?.let {
                 updateItem(product, it.pieces.plus(1))
                 _toast.postValue(Event("Added ${it.pieces.plus(1)} Piece To Cart"))
             }
@@ -132,9 +136,9 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
     private suspend fun updateItem(product: Product, piecesNumber: Int) {
         viewModelScope.launch {
-            Repository.getCartItemById(product.id)
+            repository.getCartItemById(product.id)
                 ?.let {
-                    Repository.updateCartItem(
+                    repository.updateCartItem(
                         it.id,
                         piecesNumber,
                         it.price.times(piecesNumber)
@@ -145,7 +149,7 @@ class HomeViewModel: BaseViewModel(), HomeInteractionListener {
 
 
     private suspend fun isItemExists(product: Product?) =
-        product?.let { Repository.checkCartItemExists(it.id) }
+        product?.let { repository.checkCartItemExists(it.id) }
 
     fun setItem(product: Product?) =
         product?.toCartItemEntity(1)

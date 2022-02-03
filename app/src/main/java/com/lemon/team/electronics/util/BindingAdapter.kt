@@ -19,7 +19,7 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.card.MaterialCardView
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.response.HomeImage
+import com.lemon.team.electronics.data.remote.response.HomeImage
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.ui.home.HomeInteractionListener
 import it.sephiroth.android.library.numberpicker.NumberPicker
@@ -193,7 +193,7 @@ fun setCategoryNameById(view: TextView, categoryId: String?) {
 
 @BindingAdapter(value = ["app:last"])
 fun getMoreProducts(view: RecyclerView, scroll: () -> Unit) {
-    view.setOnScrollChangeListener { _, i, i2, i3, i4 ->
+    view.setOnScrollChangeListener { _, _, _, _, _ ->
         if (
             (view.layoutManager as GridLayoutManager)
                 .findLastCompletelyVisibleItemPosition()

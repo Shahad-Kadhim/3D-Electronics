@@ -2,14 +2,15 @@ package com.lemon.team.electronics.ui.productDetails
 
 import android.content.Intent
 import android.view.*
-import android.widget.Toast
 import androidx.navigation.fragment.*
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentProductDetailsBinding
 import com.lemon.team.electronics.ui.image.ImageActivity
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductDetailsFragment :
     BaseFragment<FragmentProductDetailsBinding, ProductDetailsViewModel>() {
 

@@ -6,7 +6,9 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentAboutBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.observeEvent
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AboutFragment: BaseFragment<FragmentAboutBinding,AboutViewModel>() {
 
     override val useActivityViewModel = false

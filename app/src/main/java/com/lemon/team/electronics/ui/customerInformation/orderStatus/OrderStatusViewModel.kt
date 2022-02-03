@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class OrderStatusViewModel: BaseViewModel() {
+@HiltViewModel
+class OrderStatusViewModel @Inject constructor(): BaseViewModel() {
 
     private val _navigateToHome = MutableLiveData<Event<Boolean>>()
     val navigateToHome : LiveData<Event<Boolean>> = _navigateToHome

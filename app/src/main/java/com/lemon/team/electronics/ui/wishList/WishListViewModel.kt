@@ -1,16 +1,21 @@
 package com.lemon.team.electronics.ui.wishList
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.data.CartItem
-import com.lemon.team.electronics.model.data.WishItem
+import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.local.CartItem
+import com.lemon.team.electronics.data.local.WishItem
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class WishListViewModel : BaseViewModel() , WishInteractionListener {
+@HiltViewModel
+class WishListViewModel @Inject constructor(
+    private val repository: Repository
+): BaseViewModel() , WishInteractionListener {
 
-    val wishListItems = Repository.getWishedProducts().asLiveData()
+    val wishListItems = repository.getWishedProducts().asLiveData()
 
     private val _clickItemEvent = MutableLiveData<Event<String>>()
     var clickItemEvent : LiveData<Event<String>> = _clickItemEvent
@@ -30,13 +35,13 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     }
 
 
-    override fun onclickAddToCart(product: WishItem) {
-        addCartItem(product)
+    override fun onclickAddToCart(productId: WishItem) {
+        addCartItem(productId)
     }
 
     override fun onclickHeart(productId: String) {
         viewModelScope.launch {
-            Repository.deleteWishItemById(productId)
+            repository.deleteWishItemById(productId)
 
         }
     }
@@ -44,7 +49,7 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
     private fun addCartItem(product: WishItem) {
         viewModelScope.launch {
             if (!isItemExists(product.id)!!) {
-                Repository.insertCartItem(setItem(product))
+                repository.insertCartItem(setItem(product))
                 _toast.postValue(Event("Added 1 Piece To Cart"))
             } else
                 getPiecesNumber(product.id)
@@ -67,12 +72,12 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
         }
 
     private suspend fun isItemExists(product: String?) =
-        product?.let { Repository.checkCartItemExists(it) }
+        product?.let { repository.checkCartItemExists(it) }
 
 
     private suspend fun getPiecesNumber(product: String) {
         viewModelScope.launch {
-            Repository.getCartItemById(product)?.let {
+            repository.getCartItemById(product)?.let {
                 updateItem(product, it.pieces.plus(1))
                 _toast.postValue(Event("Added ${it.pieces.plus(1)} Piece To Cart"))
             }
@@ -81,9 +86,9 @@ class WishListViewModel : BaseViewModel() , WishInteractionListener {
 
     private suspend fun updateItem(product: String, piecesNumber: Int) {
         viewModelScope.launch {
-            Repository.getCartItemById(product)
+            repository.getCartItemById(product)
                 ?.let {
-                    Repository.updateCartItem(
+                    repository.updateCartItem(
                         it.id,
                         piecesNumber,
                         it.price.times(piecesNumber)

@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.ui.home
 
-import com.lemon.team.electronics.model.domain.CategoryInfoType
-import com.lemon.team.electronics.model.response.*
+import com.lemon.team.electronics.data.remote.response.*
 
 
 sealed class HomeItem(val rank: Int) {

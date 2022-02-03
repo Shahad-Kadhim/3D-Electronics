@@ -1,7 +1,6 @@
 package com.lemon.team.electronics.ui.base
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.*
 import androidx.databinding.*
 import androidx.recyclerview.widget.DiffUtil

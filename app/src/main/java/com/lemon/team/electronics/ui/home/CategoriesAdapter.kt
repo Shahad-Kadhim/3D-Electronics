@@ -2,7 +2,7 @@ package com.lemon.team.electronics.ui.home
 
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.response.CategoryResponse
+import com.lemon.team.electronics.data.remote.response.CategoryResponse
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 import com.lemon.team.electronics.util.Constants
 

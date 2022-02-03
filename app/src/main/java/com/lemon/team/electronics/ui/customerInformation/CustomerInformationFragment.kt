@@ -7,7 +7,9 @@ import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.ui.customerInformation.orderStatus.OrderStatus
 import com.lemon.team.electronics.util.State
 import com.lemon.team.electronics.util.observeEvent
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CustomerInformationFragment :
     BaseFragment<FragmentCustomerInformationBinding, CustomerInformationViewModel>() {
 

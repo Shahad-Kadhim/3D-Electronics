@@ -8,7 +8,9 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentSearchBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>() {
 
     override val layoutId: Int = R.layout.fragment_search

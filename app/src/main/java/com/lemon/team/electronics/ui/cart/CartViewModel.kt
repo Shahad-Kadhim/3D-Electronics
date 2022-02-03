@@ -1,18 +1,22 @@
 package com.lemon.team.electronics.ui.cart
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.Repository
+import com.lemon.team.electronics.data.Repository
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@HiltViewModel
+class CartViewModel @Inject constructor(
+    private val repository: Repository
+): BaseViewModel() ,CartInteractionListener {
 
-class CartViewModel : BaseViewModel() ,CartInteractionListener {
-
-    val cartItems = Repository.getCartProducts().asLiveData()
-    val totalPrice = Repository.getTotalPrice().asLiveData()
-    val oldTotalPrice = Repository.getOldTotalPrice().asLiveData()
-    val piecesNumber = Repository.getPiecesNumber().asLiveData()
+    val cartItems = repository.getCartProducts().asLiveData()
+    val totalPrice = repository.getTotalPrice().asLiveData()
+    val oldTotalPrice = repository.getOldTotalPrice().asLiveData()
+    val piecesNumber = repository.getPiecesNumber().asLiveData()
 
 
     private val _clickPayNowEvent = MutableLiveData<Event<Boolean>>()
@@ -33,14 +37,14 @@ class CartViewModel : BaseViewModel() ,CartInteractionListener {
 
     override fun onClickDelete(productId: String){
         viewModelScope.launch {
-            Repository.deleteItemById(productId)
+            repository.deleteItemById(productId)
         }
     }
 
 
     fun onClickClearAlCart(){
         viewModelScope.launch {
-            Repository.clearCart()
+            repository.clearCart()
         }
     }
 

@@ -5,7 +5,9 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentOrderTrackingBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.observeEvent
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OrderTrackingFragment: BaseFragment<FragmentOrderTrackingBinding, OrderTrackingViewModel>() {
 
     override val layoutId = R.layout.fragment_order_tracking

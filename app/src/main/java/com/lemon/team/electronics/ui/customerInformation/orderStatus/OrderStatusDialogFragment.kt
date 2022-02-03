@@ -11,7 +11,9 @@ import androidx.navigation.fragment.*
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentOrderStatusBinding
 import com.lemon.team.electronics.util.observeEvent
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OrderStatusDialogFragment : DialogFragment() {
 
     lateinit var binding: FragmentOrderStatusBinding

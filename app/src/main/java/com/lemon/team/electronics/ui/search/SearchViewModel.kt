@@ -1,14 +1,19 @@
 package com.lemon.team.electronics.ui.search
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.response.ProductsResponse
+import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.remote.response.ProductsResponse
 import com.lemon.team.electronics.ui.category.ProductInteractionListener
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import javax.inject.Inject
 
-class SearchViewModel: BaseViewModel(), ProductInteractionListener {
+@HiltViewModel
+class SearchViewModel @Inject constructor(
+    private val repository: Repository
+): BaseViewModel(), ProductInteractionListener {
 
     val searchName = MutableLiveData<String>()
     var searchResult = MutableLiveData<State<ProductsResponse?>>()
@@ -60,7 +65,7 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
     private fun getProductsInCurrentPage(onResponse: (State<ProductsResponse?>) -> Unit) {
         searchName.value?.trim()?.let { nameYouSearch ->
             collectResponse(
-                Repository.getProductByName(nameYouSearch, scroll.value), onResponse)
+                repository.getProductByName(nameYouSearch, scroll.value), onResponse)
         }
     }
 

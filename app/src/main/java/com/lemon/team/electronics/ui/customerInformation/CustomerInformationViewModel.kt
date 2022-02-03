@@ -2,14 +2,20 @@ package com.lemon.team.electronics.ui.customerInformation
 
 import androidx.lifecycle.*
 import com.google.gson.JsonElement
-import com.lemon.team.electronics.model.Repository
-import com.lemon.team.electronics.model.order.*
-import com.lemon.team.electronics.model.orderResponse.OrderResponse
+import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.remote.order.*
+import com.lemon.team.electronics.data.remote.orderResponse.OrderResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CustomerInformationViewModel : BaseViewModel() {
+@HiltViewModel
+class CustomerInformationViewModel @Inject constructor(
+    private val repository: Repository,
+    private val dataClassParser: DataClassParser
+): BaseViewModel() {
 
     private val _orderResponse = MutableLiveData<Event<State<OrderResponse?>>>()
     val orderResponse: LiveData<Event<State<OrderResponse?>>> = _orderResponse
@@ -45,7 +51,7 @@ class CustomerInformationViewModel : BaseViewModel() {
 
     init {
         viewModelScope.launch {
-            products = Repository.getOrderedProducts()
+            products = repository.getOrderedProducts()
         }
     }
 
@@ -56,7 +62,7 @@ class CustomerInformationViewModel : BaseViewModel() {
     }
 
     private fun parseOrder(order: OrderRequest): JsonElement {
-        return DataClassParser.parseToJson(order)
+        return dataClassParser.parseToJson(order)
     }
 
     private fun initOrder(): OrderRequest {
@@ -75,7 +81,7 @@ class CustomerInformationViewModel : BaseViewModel() {
 
     private fun makeOrder(order: JsonElement) {
         collectResponse(
-            Repository.makeOrder(order)
+            repository.makeOrder(order)
         ) { orderResponse ->
             _orderResponse.postValue(Event(orderResponse))
         }
@@ -84,7 +90,7 @@ class CustomerInformationViewModel : BaseViewModel() {
 
     fun clearCartItems() {
         viewModelScope.launch {
-            Repository.clearCart()
+            repository.clearCart()
         }
     }
 

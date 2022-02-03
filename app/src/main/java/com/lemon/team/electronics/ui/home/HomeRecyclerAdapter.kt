@@ -4,9 +4,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import com.lemon.team.electronics.BR
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.domain.CategoryInfoType
-import com.lemon.team.electronics.model.response.CategoryResponse
-import com.lemon.team.electronics.model.response.Product
+import com.lemon.team.electronics.data.remote.response.CategoryResponse
+import com.lemon.team.electronics.data.remote.response.Product
 import com.lemon.team.electronics.ui.base.AppDiffUtil
 import com.lemon.team.electronics.ui.base.BaseInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter

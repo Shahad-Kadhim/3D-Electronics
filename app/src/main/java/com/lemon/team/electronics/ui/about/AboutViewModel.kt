@@ -3,15 +3,19 @@ package com.lemon.team.electronics.ui.about
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.lemon.team.electronics.BuildConfig
-import com.lemon.team.electronics.model.Repository
+import com.lemon.team.electronics.data.Repository
 import com.lemon.team.electronics.ui.base.*
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
+@HiltViewModel
+class AboutViewModel @Inject constructor(
+    private val repository: Repository
+): BaseViewModel(), BaseInteractionListener{
 
-class AboutViewModel :BaseViewModel(), BaseInteractionListener{
-
-    var companies = Repository.getCompanies()
-    var otherCompanies = Repository.getOtherCompanies()
+    var companies = repository.getCompanies()
+    var otherCompanies = repository.getOtherCompanies()
 
     val appVersion = BuildConfig.VERSION_NAME
 

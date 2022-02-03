@@ -6,7 +6,9 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentCartBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CartFragment: BaseFragment<FragmentCartBinding, CartViewModel>() {
 
     override val layoutId: Int = R.layout.fragment_cart

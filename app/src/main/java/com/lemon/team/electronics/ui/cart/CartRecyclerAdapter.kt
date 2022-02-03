@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.cart
 
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.data.CartItem
+import com.lemon.team.electronics.data.local.CartItem
 import com.lemon.team.electronics.ui.base.BaseInteractionListener
 import com.lemon.team.electronics.ui.base.BaseRecyclerAdapter
 

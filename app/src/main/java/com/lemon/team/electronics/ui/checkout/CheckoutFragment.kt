@@ -8,7 +8,9 @@ import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.ui.cart.CartViewModel
 import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.observeEvent
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CheckoutFragment : BaseFragment<FragmentCheckoutBinding, CartViewModel>() {
 
     override val useActivityViewModel = false

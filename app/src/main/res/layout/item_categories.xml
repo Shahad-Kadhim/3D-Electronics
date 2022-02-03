@@ -9,7 +9,7 @@
             type="com.lemon.team.electronics.util.ColorsRecycler" />
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.response.CategoryResponse"/>
+            type="com.lemon.team.electronics.data.remote.response.CategoryResponse"/>
 
         <variable
             name="listener"

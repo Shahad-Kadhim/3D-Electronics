@@ -1,36 +1,31 @@
 package com.lemon.team.electronics.ui
 
 import android.os.Bundle
-import com.google.gson.Gson
 import com.lemon.team.electronics.R
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.appcompat.app.AppCompatActivity
-import com.lemon.team.electronics.util.LocalData
 import androidx.navigation.ui.setupWithNavController
 import com.lemon.team.electronics.databinding.ActivityMainBinding
-import com.lemon.team.electronics.model.data.database.ProductsItemsDatabase
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding:ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_3DElectronics)
-        binding=DataBindingUtil.setContentView<ActivityMainBinding>(
+        binding = DataBindingUtil.setContentView<ActivityMainBinding>(
             this,
             R.layout.activity_main
         ).also { binding ->
-            binding.lifecycleOwner=this
+            binding.lifecycleOwner = this
         }
-
-        LocalData(Gson()).setContext(applicationContext)
-        ProductsItemsDatabase.getInstance(applicationContext)
-
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         binding.navigation
             .setupWithNavController(findNavController(R.id.fragment_host))
     }
@@ -39,5 +34,4 @@ class MainActivity : AppCompatActivity() {
         findNavController(R.id.fragment_host).navigateUp()
         return true
     }
-
 }

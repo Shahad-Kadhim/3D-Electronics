@@ -8,7 +8,9 @@ import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.ActivityImageBinding
 import com.lemon.team.electronics.util.Constants
 import com.lemon.team.electronics.util.observeEvent
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ImageActivity : AppCompatActivity() {
     lateinit var binding: ActivityImageBinding
     val viewModel : ImageViewModel by viewModels()

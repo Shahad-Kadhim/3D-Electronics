@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.lemon.team.electronics.model.data.CartItem" />
+            type="com.lemon.team.electronics.data.local.CartItem" />
 
         <variable
             name="listener"

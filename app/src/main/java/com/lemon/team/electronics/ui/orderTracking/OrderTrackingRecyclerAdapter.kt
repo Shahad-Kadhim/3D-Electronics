@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.orderTracking
 
 import com.lemon.team.electronics.R
-import com.lemon.team.electronics.model.orderTracking.OrderTrackingResponse
+import com.lemon.team.electronics.data.remote.orderTracking.OrderTrackingResponse
 import com.lemon.team.electronics.ui.base.*
 
 class OrderTrackingRecyclerAdapter(

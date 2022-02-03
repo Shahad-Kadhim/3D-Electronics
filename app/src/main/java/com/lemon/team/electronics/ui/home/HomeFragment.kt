@@ -5,15 +5,15 @@ import androidx.cardview.widget.CardView
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.lemon.team.electronics.R
 import com.lemon.team.electronics.databinding.FragmentHomeBinding
-import com.lemon.team.electronics.model.domain.*
 import com.lemon.team.electronics.ui.base.BaseFragment
 import android.content.Intent
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavDirections
-import com.lemon.team.electronics.model.response.ProductsResponse
+import com.lemon.team.electronics.data.remote.response.ProductsResponse
 import com.lemon.team.electronics.util.*
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override val layoutId: Int = R.layout.fragment_home
     override val viewModelClass = HomeViewModel::class.java

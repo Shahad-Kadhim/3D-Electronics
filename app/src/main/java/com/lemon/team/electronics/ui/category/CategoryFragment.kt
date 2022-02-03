@@ -8,7 +8,9 @@ import com.lemon.team.electronics.databinding.FragmentCategoryBinding
 import com.lemon.team.electronics.ui.base.BaseFragment
 import com.lemon.team.electronics.util.goToFragment
 import com.lemon.team.electronics.util.observeEvent
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CategoryFragment : BaseFragment<FragmentCategoryBinding, CategoryViewModel>() {
 
     override val useActivityViewModel = false
