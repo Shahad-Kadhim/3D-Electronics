@@ -38,6 +38,12 @@ class CartViewModel : BaseViewModel() ,CartInteractionListener {
     }
 
 
+    fun onClickClearAlCart(){
+        viewModelScope.launch {
+            Repository.clearCart()
+        }
+    }
+
     fun onClickBack() {
         _clickBackEvent.postValue(Event(true))
     }

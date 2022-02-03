@@ -231,6 +231,7 @@
                     android:descendantFocusability="blocksDescendants"
                     android:fontFamily="@font/monda_regular"
                     android:paddingTop="@dimen/padding2x"
+                    android:paddingHorizontal="8dp"
                     android:paddingBottom="72dp"
                     android:textColor="@color/shade_color_secondary"
                     android:textSize="@dimen/text_normal"

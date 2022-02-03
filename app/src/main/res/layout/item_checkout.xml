@@ -39,6 +39,7 @@
             android:text="@{String.valueOf(item.pieces)}"
             android:textColor="@color/shade_color_secondary"
             android:textSize="@dimen/text_default"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintBaseline_toBaselineOf="@+id/item_name"
             app:layout_constraintEnd_toStartOf="@+id/price"
             app:layout_constraintStart_toEndOf="@id/item_name"
@@ -46,13 +47,17 @@
 
         <TextView
             android:id="@+id/price"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin2x"
+            android:layout_marginHorizontal="@dimen/margin_normal"
             android:fontFamily="@font/roboto_regular"
             android:text="@{item.price +`$`}"
             android:textColor="@color/shade_color_secondary"
             android:textSize="@dimen/text_normal"
+            android:gravity="end"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/quantity"
             app:layout_constraintBaseline_toBaselineOf="@+id/quantity"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="55.77 IQ" />

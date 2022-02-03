@@ -79,6 +79,8 @@ fun <T> setRecyclerItems(view: RecyclerView, items: List<T>?) {
 
 @BindingAdapter(value = ["app:onclickSearch"])
 fun onclickSearch(view: EditText, function: () -> Unit) {
+    (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+        .hideSoftInputFromWindow(view.windowToken, 0)
     view.setOnEditorActionListener { _, _, _ ->
         function()
         return@setOnEditorActionListener false

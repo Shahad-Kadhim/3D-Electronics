@@ -58,7 +58,7 @@ class SearchViewModel: BaseViewModel(), ProductInteractionListener {
     }
 
     private fun getProductsInCurrentPage(onResponse: (State<ProductsResponse?>) -> Unit) {
-        searchName.value?.let { nameYouSearch ->
+        searchName.value?.trim()?.let { nameYouSearch ->
             collectResponse(
                 Repository.getProductByName(nameYouSearch, scroll.value), onResponse)
         }
