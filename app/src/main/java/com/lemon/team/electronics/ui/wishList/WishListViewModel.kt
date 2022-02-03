@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.wishList
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.ElectronicRepository
 import com.lemon.team.electronics.data.local.CartItem
 import com.lemon.team.electronics.data.local.WishItem
 import com.lemon.team.electronics.ui.base.BaseViewModel
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WishListViewModel @Inject constructor(
-    private val repository: Repository
+    private val repository: ElectronicRepository
 ): BaseViewModel() , WishInteractionListener {
 
     val wishListItems = repository.getWishedProducts().asLiveData()

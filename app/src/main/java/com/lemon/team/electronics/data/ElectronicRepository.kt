@@ -16,7 +16,7 @@ import com.lemon.team.electronics.util.Constants
 import com.lemon.team.electronics.util.State
 import kotlinx.coroutines.flow.Flow
 
-interface Repository {
+interface ElectronicRepository {
     fun getCategories(): Flow<State<List<CategoryResponse>?>>
 
 

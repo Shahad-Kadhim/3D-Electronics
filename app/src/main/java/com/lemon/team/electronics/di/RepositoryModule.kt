@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.di
 
-import com.lemon.team.electronics.data.Repository
-import com.lemon.team.electronics.data.RepositoryImpl
+import com.lemon.team.electronics.data.ElectronicRepository
+import com.lemon.team.electronics.data.ElectronicRepositoryImpl
 import dagger.*
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
@@ -13,9 +13,9 @@ abstract class RepositoryModule {
 
     @Singleton
     @Binds
-    abstract fun provideHappySocialRepository(
-        impl: RepositoryImpl
-    ): Repository
+    abstract fun provide3DElectronicRepository(
+        impl: ElectronicRepositoryImpl
+    ): ElectronicRepository
 
 
 }

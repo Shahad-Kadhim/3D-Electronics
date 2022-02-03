@@ -3,7 +3,7 @@ package com.lemon.team.electronics.ui.home
 
 import androidx.lifecycle.*
 import com.lemon.team.electronics.util.*
-import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.ElectronicRepository
 import com.lemon.team.electronics.data.remote.response.CategoryResponse
 import com.lemon.team.electronics.data.remote.response.Product
 import com.lemon.team.electronics.ui.base.BaseViewModel
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val repository: Repository
+    private val repository: ElectronicRepository
 ): BaseViewModel(), HomeInteractionListener {
 
     private var _cartEvent = MutableLiveData<Event<Boolean>>()

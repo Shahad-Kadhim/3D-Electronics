@@ -17,11 +17,11 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @SuppressLint("StaticFieldLeak")
-class RepositoryImpl @Inject constructor(
+class ElectronicRepositoryImpl @Inject constructor(
     private val dao: ProductsItemsDao,
     private val api: ProductService,
     private val localData: LocalData
-): Repository {
+): ElectronicRepository {
 
     override fun getCategories(): Flow<State<List<CategoryResponse>?>> =
         wrapWithFlow { api.getCategories() }

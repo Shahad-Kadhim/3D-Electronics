@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.cart
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.ElectronicRepository
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CartViewModel @Inject constructor(
-    private val repository: Repository
+    private val repository: ElectronicRepository
 ): BaseViewModel() ,CartInteractionListener {
 
     val cartItems = repository.getCartProducts().asLiveData()

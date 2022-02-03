@@ -17,7 +17,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideHappySocialService(
+    fun provide3DElectronicService(
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): ProductService {

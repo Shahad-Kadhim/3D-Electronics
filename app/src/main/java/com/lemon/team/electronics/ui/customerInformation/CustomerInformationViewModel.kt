@@ -2,7 +2,7 @@ package com.lemon.team.electronics.ui.customerInformation
 
 import androidx.lifecycle.*
 import com.google.gson.JsonElement
-import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.ElectronicRepository
 import com.lemon.team.electronics.data.remote.order.*
 import com.lemon.team.electronics.data.remote.orderResponse.OrderResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CustomerInformationViewModel @Inject constructor(
-    private val repository: Repository,
+    private val repository: ElectronicRepository,
     private val dataClassParser: DataClassParser
 ): BaseViewModel() {
 

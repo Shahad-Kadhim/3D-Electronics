@@ -3,7 +3,7 @@ package com.lemon.team.electronics.ui.orderTracking
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.ElectronicRepository
 import com.lemon.team.electronics.data.remote.orderTracking.OrderTrackingResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.Event
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OrderTrackingViewModel @Inject constructor(
-    private val repository: Repository
+    private val repository: ElectronicRepository
 ): BaseViewModel(), OrderInteractionListener {
 
     val phoneNumber = MutableLiveData<String>()

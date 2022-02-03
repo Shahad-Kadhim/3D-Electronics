@@ -1,7 +1,7 @@
 package com.lemon.team.electronics.ui.category
 
 import androidx.lifecycle.*
-import com.lemon.team.electronics.data.Repository
+import com.lemon.team.electronics.data.ElectronicRepository
 import com.lemon.team.electronics.data.remote.response.ProductsResponse
 import com.lemon.team.electronics.ui.base.BaseViewModel
 import com.lemon.team.electronics.util.*
@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CategoryViewModel @Inject constructor(
-    private val repository: Repository
+    private val repository: ElectronicRepository
 ): BaseViewModel(), ProductInteractionListener{
 
     private val _categoryItems = MutableLiveData<State<ProductsResponse?>>()
